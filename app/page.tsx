@@ -73,18 +73,19 @@ export default function Home() {
     <main className="overflow-hidden">
       {/* ═══ SPLIT HERO ═══ */}
       <section className="split-hero">
-        <div className="split-hero-left flex flex-col justify-center px-6 lg:px-20 py-20 lg:py-0 relative overflow-hidden">
-          {/* Environmental Background */}
-          <div className="absolute inset-0 bg-pattern-light opacity-60 pointer-events-none" />
-          <div className="absolute -top-1/4 -left-1/4 w-full h-full bg-[#EE2B47] opacity-[0.03] blur-[120px] pointer-events-none" />
-          <div className="absolute -bottom-1/4 -right-1/4 w-full h-full bg-[#001C44] opacity-[0.04] blur-[120px] pointer-events-none" />
+        <div className="split-hero-left flex flex-col justify-center px-6 lg:px-20 py-20 lg:py-0 relative overflow-hidden bg-gray-900">
+          {/* Main Hero Background Image */}
+          <div className="absolute inset-0 z-0">
+             <img src="/image-1.png" alt="Hero Background" className="w-full h-full object-cover opacity-60" />
+             <div className="absolute inset-0 bg-gradient-to-r from-[#000E22] via-[#000E22]/60 to-transparent" />
+          </div>
           
           <div className="relative z-10" ref={sTop as React.RefObject<HTMLDivElement>}>
-            <h1 className="rs font-serif text-[3.2rem] md:text-[4.5rem] text-[#001C44] leading-[1.05] mb-8">
+            <h1 className="rs font-serif text-[3.2rem] md:text-[4.5rem] text-white leading-[1.05] mb-8">
               Empowering Your<br />
               <span className="text-grad">Digital Future</span>
             </h1>
-            <p className="rs d1 text-[#6B7280] text-lg max-w-lg mb-10 leading-relaxed">
+            <p className="rs d1 text-white/60 text-lg max-w-lg mb-10 leading-relaxed">
               Leading the digital transformation of institutions with smart ERP, finance, and business management tools built for the modern era.
             </p>
             <div className="rs d2 flex flex-wrap gap-4 items-center">
@@ -99,21 +100,25 @@ export default function Home() {
                     </div>
                   ))}
                 </div>
-                <div className="text-xs font-bold text-[#001C44]">
+                <div className="text-xs font-bold text-white/80">
                   <div className="flex items-center gap-1">
                     <svg className="w-3.5 h-3.5 text-[#EE2B47]" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                     4.9/5
                   </div>
-                  <div className="text-[#6B7280] font-normal">Expert Rating</div>
+                  <div className="text-white/40 font-normal">Expert Rating</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div className="split-hero-right min-h-[500px] relative bg-mesh overflow-hidden flex items-center justify-center">
-          <div className="absolute inset-0 bg-pattern opacity-50" />
+          <div className="absolute inset-0 z-0">
+             <img src="/image-1.png" alt="" className="w-full h-full object-cover opacity-10" />
+             <div className="absolute inset-0 bg-[#001C44]/80" />
+          </div>
+          <div className="absolute inset-0 bg-pattern opacity-50 z-0" />
           {/* Main Visual: Floating Cards */}
           <div className="relative z-10 w-full max-w-sm">
              <div className="bg-glass-card p-8 rounded-2xl shadow-2xl mb-6 -rotate-2 transform hover:rotate-0 transition-all duration-500">
