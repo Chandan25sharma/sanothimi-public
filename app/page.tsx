@@ -393,29 +393,26 @@ export default function Home() {
 
       {/* ═══ SPLIT ABOUT SECTION - Premium Aesthetic Overhaul ═══ */}
       <section className="split-about relative z-0 -mt-20 pt-20">
-        <div className="split-about-left relative bg-[#001C44] flex items-center justify-center py-20 lg:py-0 overflow-hidden">
-           {/* Massive Brand Watermark Logo - Official Asset */}
-           <div className="absolute inset-0 flex items-center justify-center opacity-[0.04] pointer-events-none select-none blur-[1px]">
+        <div className="split-about-left relative bg-[#001C44] flex items-center justify-center py-32 lg:py-0 overflow-hidden">
+           {/* High-Impact Brand Background - Official Asset - Enhanced Visibility */}
+           <div className="absolute inset-0 flex items-center justify-center opacity-20 pointer-events-none select-none">
               <img 
                 src="/logo-no-background.png" 
                 alt="" 
-                className="w-[80%] h-auto object-contain max-h-[80%] transform rotate-[-5deg]" 
+                className="w-[85%] h-full object-contain transform scale-110 lg:scale-[1.8] opacity-70" 
               />
            </div>
-           {/* Cinematic Ambient Glow */}
-           <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#EE2B47]/10 to-transparent" />
            
-           <div className="relative z-10 text-center">
-              <div className="w-48 h-48 bg-white/5 rounded-full border border-white/20 flex items-center justify-center mx-auto mb-10 shadow-3xl backdrop-blur-xl group hover:border-[#EE2B47]/40 transition-all duration-700">
-                 <div className="w-40 h-40 rounded-full border border-white/10 flex items-center justify-center bg-gradient-to-br from-white/10 to-transparent">
-                    <img src="/logo-no-background.png" alt="Sanothimi Logo" className="w-24 h-24 object-contain group-hover:scale-110 transition-transform duration-700" />
-                 </div>
+           {/* Focused Central Brand Element */}
+           <div className="relative z-10 text-center px-10">
+              <div className="mb-12 flex justify-center">
+                 <img src="/logo-no-background.png" alt="Sanothimi" className="w-48 h-auto object-contain opacity-90 drop-shadow-2xl" />
               </div>
               <div className="inline-flex items-center gap-3 px-6 py-2.5 bg-white/5 border border-white/10 rounded-full text-white/60 text-[10px] font-black tracking-[0.2em] uppercase mb-6 backdrop-blur-sm">
                  <span className="w-1.5 h-1.5 rounded-full bg-[#EE2B47]" />
                  Global SaaS Standards
               </div>
-              <h3 className="text-white text-3xl font-serif tracking-tight">Product Excellence.</h3>
+              <h3 className="text-white text-4xl md:text-5xl font-serif tracking-tight leading-tight">Product Excellence.</h3>
            </div>
         </div>
 
@@ -496,33 +493,60 @@ export default function Home() {
           </div>
        </section>
 
-      {/* ═══ WHY CHOOSE SECTION ═══ */}
-      <section className="py-24 bg-white relative z-20 -mt-20" ref={sWhy as React.RefObject<HTMLDivElement>}>
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="max-w-2xl mb-20">
-             <h2 className="rs font-serif text-4xl text-[#001C44] leading-tight mb-6">
-                Why Choose Sanothimi for Your Digital Transformation
-             </h2>
-            <p className="rs d1 text-[#6B7280] leading-relaxed">
-               We provide a level of expertise and personal attention that ensures your institution stays efficient and thrives in the digital age.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { id:'01', t:'Proven Scale & Security', d:'Our systems are built to handle thousands of users with enterprise-grade encryption and 99.9% uptime.' },
-              { id:'02', t:'Localized for Regional Needs', d:'We understand the specific regulatory and operational challenges of businesses and schools in Nepal.' },
-              { id:'03', t:'Intuitive & Easy to Use', d:'Our UX is designed for simplicity, ensuring your staff can master the tools with minimal training.' },
-              { id:'04', t:'Round-the-Clock Support', d:'We offer dedicated local support to ensure your operations never face downtime or confusion.' },
-            ].map((w, i) => (
-               <div key={w.id} className={`rs d${i+2} p-8 rounded-xl bg-[#F9FAF9] group hover:bg-[#001C44] transition-all duration-500`}>
-                  <div className="w-10 h-10 rounded-lg bg-[#001C44] group-hover:bg-[#EE2B47] flex items-center justify-center font-bold text-white text-xs mb-6 transition-colors">{w.id}</div>
-                 <h4 className="font-bold text-[#0A0F19] text-[.95rem] mb-4 leading-tight">{w.t}</h4>
-                 <p className="text-[#6B7280] text-[.8rem] leading-relaxed group-hover:text-[#0A0F19]/60 transition-colors">{w.d}</p>
-              </div>
-            ))}
-          </div>
+    {/* ═══ WHY CHOOSE SECTION - Cinematic Value Grid ═══ */}
+    <section className="py-32 bg-white relative z-20 -mt-20" ref={sWhy as React.RefObject<HTMLDivElement>}>
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-3xl mb-24">
+           <div className="inline-flex items-center gap-2 text-[#EE2B47] text-[.7rem] font-black uppercase tracking-[.3em] mb-8">
+              <span className="w-8 h-px bg-[#EE2B47]" />
+              Strategic Advantage
+           </div>
+           <h2 className="rs font-serif text-4xl md:text-5xl text-[#001C44] leading-[1.15] mb-8">
+              Why Leaders Choose Sanothimi for <br /><span className="text-[#EE2B47] italic">Digital Transformation.</span>
+           </h2>
+           <p className="rs d1 text-[#6B7280] leading-relaxed text-lg max-w-2xl">
+              We provide a level of expertise and personal attention that ensures your institution stays efficient, secure, and thrives in the digital age.
+           </p>
         </div>
-      </section>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {[
+            { 
+               id:'01', 
+               t:'Proven Scale & Security', 
+               d:'Our systems are built to handle thousands of users with enterprise-grade encryption and 99.9% uptime.',
+               icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10zM12 8v4m0 4h.01" /></svg>
+            },
+            { 
+               id:'02', 
+               t:'Localized for Regional Needs', 
+               d:'We understand the specific regulatory and operational challenges of businesses and schools in Nepal.',
+               icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9" /></svg>
+            },
+            { 
+               id:'03', 
+               t:'Intuitive & Easy to Use', 
+               d:'Our UX is designed for simplicity, ensuring your staff can master the tools with minimal training.',
+               icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2"><path d="M15 15l5 5m0 0l-5 5m5-5H3m12-9l5 5m0 0l-5 5m5-5H3" /></svg>
+            },
+            { 
+               id:'04', 
+               t:'Round-the-Clock Support', 
+               d:'We offer dedicated local support to ensure your operations never face downtime or confusion.',
+               icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2"><path d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+            },
+          ].map((w, i) => (
+             <div key={w.id} className={`rs d${i+2} p-10 rounded-[2.5rem] bg-white border border-gray-100 group hover:bg-[#001C44] hover:border-[#001C44] transition-all duration-700 hover:-translate-y-4 shadow-sm hover:shadow-2xl hover:shadow-[#EE2B47]/20 flex flex-col items-start h-full`}>
+                <div className="w-14 h-14 rounded-2xl bg-gray-50 group-hover:bg-[#EE2B47] flex items-center justify-center text-[#001C44] group-hover:text-white mb-10 transition-all duration-500 scale-110">
+                   {w.icon}
+                </div>
+                <h4 className="font-serif font-bold text-[#001C44] text-[1.25rem] mb-6 leading-tight group-hover:text-white transition-colors">{w.t}</h4>
+                <p className="text-[#6B7280] text-[.9rem] leading-relaxed group-hover:text-white/60 transition-colors">{w.d}</p>
+             </div>
+          ))}
+        </div>
+      </div>
+    </section>
 
       {/* ═══ BOTTOM CTA ═══ */}
       <CTABanner
