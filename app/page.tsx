@@ -119,34 +119,69 @@ export default function Home() {
              <div className="absolute inset-0 bg-[#001C44]/80" />
           </div>
           <div className="absolute inset-0 bg-pattern opacity-50 z-0" />
-          {/* Main Visual: Floating Cards */}
-          <div className="relative z-10 w-full max-w-sm">
-             <div className="bg-glass-card p-8 rounded-2xl shadow-2xl mb-6 -rotate-2 transform hover:rotate-0 transition-all duration-500">
-                <div className="flex items-center gap-4 mb-6">
-                   <div className="w-12 h-12 rounded-xl bg-gray-100 overflow-hidden flex items-center justify-center font-bold text-[#0A0F19]">
-                      <img src="/B-dev.jpg" alt="Profile" className="w-full h-full object-cover" />
+          {/* Main Visual: Futuristic Enterprise Dashboard */}
+          <div className="relative z-10 w-full max-w-md perspective-1000 pr-4">
+             {/* Portal Card */}
+             <div className="bg-[#000E22]/60 backdrop-blur-3xl border border-white/10 p-8 rounded-[2.5rem] shadow-[0_40px_100px_rgba(0,0,0,0.6)] mb-6 -rotate-6 translate-x-[-20px] transition-all duration-700 hover:rotate-0 hover:translate-x-0 group cursor-default">
+                <div className="flex items-center justify-between mb-8">
+                   <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-2xl bg-[#EE2B47] flex items-center justify-center text-white font-bold text-xl shadow-[0_0_20px_rgba(238,43,71,0.4)]">S</div>
+                      <div>
+                         <div className="text-white font-bold text-sm tracking-tight">Main Portal</div>
+                         <div className="flex items-center gap-1.5">
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                            <span className="text-white/30 text-[10px] font-bold tracking-widest uppercase">Network Live</span>
+                         </div>
+                      </div>
                    </div>
-                   <div>
-                      <div className="text-white font-bold">Sanothimi Cloud</div>
-                      <div className="text-white/40 text-xs">SaaS Provider</div>
-                   </div>
+                   <div className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[#D4AF37] text-[10px] font-bold">ST-402</div>
                 </div>
-                <div className="space-y-3">
-                   <div className="h-2 w-full bg-white/5 rounded" />
-                   <div className="h-2 w-3/4 bg-white/5 rounded" />
-                   <div className="h-2 w-5/6 bg-white/5 rounded" />
+                <div className="space-y-4">
+                   <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+                      <div className="h-full w-2/3 bg-gradient-to-r from-[#EE2B47] to-transparent" />
+                   </div>
+                   <div className="grid grid-cols-2 gap-4">
+                      <div className="p-3 rounded-xl bg-white/5 border border-white/05">
+                         <div className="text-white/20 text-[8px] font-bold uppercase mb-1">Load Balance</div>
+                         <div className="text-white text-xs font-bold font-mono">1.2ms</div>
+                      </div>
+                      <div className="p-3 rounded-xl bg-white/5 border border-white/05">
+                         <div className="text-white/20 text-[8px] font-bold uppercase mb-1">Identity</div>
+                         <div className="text-white text-xs font-bold font-mono text-emerald-400">Secure</div>
+                      </div>
+                   </div>
                 </div>
              </div>
-             <div className="bg-[#EE2B47]/10 backdrop-blur-md border border-[#EE2B47]/20 p-6 rounded-2xl shadow-2xl translate-x-12 -mt-4 rotate-3 hover:rotate-0 transition-all duration-500">
-                <div className="flex items-center justify-between mb-4">
-                   <div className="text-[#EE2B47] font-bold text-sm tracking-widest uppercase">Growth</div>
-                   <div className="text-[#D4AF37] text-xs">↑ 24%</div>
+
+             {/* Analytics Card */}
+             <div className="bg-[#EE2B47]/05 backdrop-blur-2xl border border-[#EE2B47]/20 p-7 rounded-[2rem] shadow-3xl translate-x-8 -mt-10 rotate-3 hover:rotate-0 transition-all duration-700 group cursor-default">
+                <div className="flex items-center justify-between mb-6">
+                   <div className="text-[#EE2B47] font-bold text-[10px] tracking-widest uppercase">Real-time Growth</div>
+                   <div className="flex flex-col items-end">
+                      <div className="text-white font-bold text-sm">+24.8%</div>
+                      <div className="text-[#D4AF37] text-[8px] font-bold tracking-tighter">PEAK SYNC</div>
+                   </div>
                 </div>
-                <div className="flex items-end gap-1 h-12">
-                   {[40, 70, 45, 90, 65, 80].map((h, i) => (
-                      <div key={i} className="flex-1 bg-[#EE2B47]" style={{ height: `${h}%`, opacity: 0.3 + (i * 0.1) }} />
-                   ))}
+                {/* SVG Area Chart */}
+                <div className="h-20 w-full mb-2">
+                   <svg viewBox="0 0 200 60" className="w-full h-full">
+                      <defs>
+                         <linearGradient id="g-red" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stopColor="#EE2B47" stopOpacity="0.4" />
+                            <stop offset="100%" stopColor="#EE2B47" stopOpacity="0" />
+                         </linearGradient>
+                      </defs>
+                      <path d="M0,50 Q20,45 40,30 T80,35 T120,15 T160,25 T200,5" fill="none" stroke="#EE2B47" strokeWidth="2.5" strokeLinecap="round" />
+                      <path d="M0,50 Q20,45 40,30 T80,35 T120,15 T160,25 T200,5 L200,60 L0,60 Z" fill="url(#g-red)" />
+                      <circle cx="120" cy="15" r="3" fill="#000E22" stroke="#EE2B47" strokeWidth="1.5" />
+                   </svg>
                 </div>
+             </div>
+
+             {/* Small Floating ISO Badge */}
+             <div className="absolute -bottom-6 left-0 bg-[#D4AF37]/10 backdrop-blur-xl border border-[#D4AF37]/20 px-4 py-2 rounded-xl flex items-center gap-2 shadow-2xl animate-bounce-slow">
+                <div className="w-5 h-5 rounded-full bg-[#D4AF37] flex items-center justify-center text-[10px] text-white">✓</div>
+                <div className="text-[10px] font-bold text-[#D4AF37] tracking-wider">ISO 27001 SECURED</div>
              </div>
           </div>
           {/* Decorative shapes */}
