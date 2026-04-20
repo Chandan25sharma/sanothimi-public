@@ -386,59 +386,74 @@ export default function Home() {
                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" /></svg>
                    </button>
                 </div>
-             </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* ═══ SPLIT ABOUT SECTION ═══ */}
+             </      {/* ═══ SPLIT ABOUT SECTION - Premium Aesthetic Overhaul ═══ */}
       <section className="split-about relative z-0 -mt-20 pt-20">
-        <div className="split-about-left relative bg-[#0A0F19] flex items-center justify-center py-20 lg:py-0 overflow-hidden">
-           <img src="/B-dev.jpg" alt="BrahamDev Sharma" className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-luminosity" />
-           <div className="absolute inset-0 bg-gradient-to-r from-[#0A0F19] to-transparent" />
+        <div className="split-about-left relative bg-[#001C44] flex items-center justify-center py-20 lg:py-0 overflow-hidden">
+           {/* Massive Brand Watermark Logo */}
+           <div className="absolute inset-0 flex items-center justify-center opacity-[0.03] pointer-events-none select-none">
+              <span className="text-[50rem] font-serif leading-none transform translate-y-12 text-white">S</span>
+           </div>
+           {/* Cinematic Ambient Glow */}
+           <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#EE2B47]/10 to-transparent" />
+           
            <div className="relative z-10 text-center">
-              <div className="w-40 h-40 bg-white/5 rounded-full border border-white/20 flex items-center justify-center mx-auto mb-8 shadow-3xl backdrop-blur-sm overflow-hidden text-white font-bold text-5xl">
-                 S
+              <div className="w-48 h-48 bg-white/5 rounded-full border border-white/20 flex items-center justify-center mx-auto mb-10 shadow-3xl backdrop-blur-xl group hover:border-[#EE2B47]/40 transition-all duration-700">
+                 <div className="w-40 h-40 rounded-full border border-white/10 flex items-center justify-center bg-gradient-to-br from-white/10 to-transparent">
+                    <span className="text-white text-7xl font-serif tracking-tighter group-hover:scale-110 transition-transform duration-700">S</span>
+                 </div>
               </div>
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full text-white/50 text-xs font-bold tracking-widest uppercase mb-4">
-                 SaaS Provider
+              <div className="inline-flex items-center gap-3 px-6 py-2.5 bg-white/5 border border-white/10 rounded-full text-white/60 text-[10px] font-black tracking-[0.2em] uppercase mb-6 backdrop-blur-sm">
+                 <span className="w-1.5 h-1.5 rounded-full bg-[#EE2B47] animate-pulse" />
+                 Global SaaS Standards
               </div>
-              <h3 className="text-white text-2xl font-serif">Product Excellence</h3>
+              <h3 className="text-white text-3xl font-serif tracking-tight">Product Excellence.</h3>
            </div>
         </div>
-        <div className="split-about-right flex flex-col justify-center">
-            <div ref={sAbout as React.RefObject<HTMLDivElement>}>
-                <h2 className="rs font-serif text-4xl md:text-5xl text-white leading-tight mb-8">
-                  We are Sanothimi,<br />a SaaS Provider
+
+        <div className="split-about-right flex flex-col justify-center bg-[#001C44] lg:bg-transparent">
+            <div ref={sAbout as React.RefObject<HTMLDivElement>} className="py-20 lg:py-0">
+                <div className="inline-flex items-center gap-2 text-[#EE2B47] text-[.7rem] font-black uppercase tracking-[.3em] mb-8">
+                   <span className="w-8 h-px bg-[#EE2B47]" />
+                   The Sanothimi Identity
+                </div>
+                <h2 className="rs font-serif text-5xl md:text-6xl text-white leading-[1.1] mb-10 tracking-tight">
+                  We are Sanothimi,<br /><span className="italic text-[#EE2B47]">a SaaS Provider.</span>
                 </h2>
-                <p className="rs d1 text-white/40 leading-relaxed mb-10 text-lg">
-                  Dedicated to providing clear, actionable digital transformation that respects the operational frameworks of your specific industry.
+                <p className="rs d1 text-white/50 leading-relaxed mb-12 text-lg max-w-xl">
+                  Dedicated to providing clear, actionable digital transformation that respects the operational frameworks of your specific industry while scaling globally.
                 </p>
-                <ul className="rs d2 space-y-4 mb-12">
-                  {['Enterprise Reliability','User-Centric Workflows','Scalable Architecture'].map(item => (
-                    <li key={item} className="flex items-center gap-3 text-white font-bold text-sm">
-                       <span className="w-5 h-5 rounded-full bg-[#EE2B47] flex items-center justify-center text-white text-[8px]">
-                          <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                          </svg>
+                
+                <ul className="rs d2 space-y-5 mb-16">
+                  {['Enterprise Scalability & Security','Intuitive User-Centric Workflows','Cloud-Native Scalable Architecture'].map(item => (
+                    <li key={item} className="flex items-center gap-4 text-white/80 font-bold text-sm tracking-wide">
+                       <span className="w-6 h-6 rounded-full bg-[#EE2B47]/10 border border-[#EE2B47]/30 flex items-center justify-center text-[#EE2B47]">
+                          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="3"><path d="M5 13l4 4L19 7" /></svg>
                        </span>
                        {item}
                     </li>
                   ))}
                 </ul>
-                <Link href="/contact" className="rs d3 btn bg-[#EE2B47] text-white px-10 py-4 rounded-full font-bold hover:bg-white hover:text-[#EE2B47] transition-all shadow-xl shadow-[#EE2B47]/20">
-                  Get Started
+
+                <Link href="/contact" className="rs d3 group inline-flex items-center gap-4 bg-[#EE2B47] text-white px-12 py-5 rounded-full font-bold hover:bg-white hover:text-[#EE2B47] transition-all duration-500 shadow-2xl shadow-[#EE2B47]/20">
+                  Get Started 
+                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5"><path d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                 </Link>
 
-                <div className="rs d4 mt-20 pt-12 border-t border-white/10 grid grid-cols-2 lg:grid-cols-4 gap-8">
+                {/* MODERNISED STATS DISCOVERY BAR */}
+                <div className="rs d4 mt-24 pt-12 border-t border-white/10 flex flex-wrap gap-x-16 gap-y-10">
                   {counters.map((c, i) => (
-                    <div key={STATS[i].label} ref={c.ref}>
-                     <div className="text-3xl font-bold text-white mb-2">{c.val}{STATS[i].suf}</div>
-                     <div className="text-[.6rem] uppercase tracking-widest text-[#D4AF37] font-bold leading-tight">{STATS[i].label}</div>
-                   </div>
+                    <div key={STATS[i].label} ref={c.ref} className="group">
+                      <div className="text-4xl font-serif font-bold text-white mb-3 flex items-baseline gap-1 group-hover:text-[#EE2B47] transition-colors">
+                        {c.val}<span className="text-xl text-[#EE2B47]">{STATS[i].suf}</span>
+                      </div>
+                      <div className="text-[9px] uppercase tracking-[0.3em] text-white/40 font-black leading-tight group-hover:text-white transition-colors">{STATS[i].label}</div>
+                    </div>
                   ))}
                 </div>
+            </div>
+        </div>
+      </section>
+            </div>
             </div>
         </div>
       </section>
