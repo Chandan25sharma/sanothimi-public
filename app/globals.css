@@ -159,7 +159,7 @@ body {
 .btn-gold-solid:hover { background: var(--accent-h); transform: translateY(-1px); }
 
 .text-grad {
-  background: linear-gradient(135deg, #EE2B47 0%, #001C44 100%);
+  background: linear-gradient(135deg, #EE2B47 0%, #FF6B8B 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -338,3 +338,10 @@ body {
 .float-y { animation: float-y 4s ease-in-out infinite; }
 
 @keyframes pulse-dot { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+/* ─── Scroll Utilities ─────────────────────── */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;    /* Firefox */
+}
