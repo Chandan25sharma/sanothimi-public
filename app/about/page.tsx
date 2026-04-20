@@ -69,46 +69,68 @@ export default function AboutPage() {
 
   return (
     <main>
-      {/* ── Page Hero ── */}
-      <div className="page-hero">
-        <div className="max-w-6xl mx-auto px-6 relative z-10">
-          <p className="text-[.72rem] font-bold uppercase tracking-[.2em] text-[#EE2B47] mb-3">Our Mission</p>
-          <h1 className="font-serif text-5xl text-white leading-tight">About<br />Sanothimi</h1>
+      {/* ── Cinematic Page Hero ── */}
+      <div className="relative pt-44 pb-32 bg-[#001C44] overflow-hidden">
+        {/* Massive Brand Watermark Logo */}
+        <div className="absolute inset-0 flex items-center justify-center opacity-[0.05] pointer-events-none select-none blur-[1px]">
+           <img src="/logo-no-background.png" alt="" className="w-[80%] h-auto object-contain max-h-[80%] transform rotate-[-5deg]" />
         </div>
+        
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
+           <div className="inline-flex items-center gap-2 text-[#EE2B47] text-[.7rem] font-black uppercase tracking-[.3em] mb-8">
+              <span className="w-8 h-px bg-[#EE2B47]" />
+              Our Mission
+           </div>
+           <h1 className="font-serif text-6xl md:text-8xl text-white leading-[1.1] tracking-tighter">
+             About<br /><span className="italic text-[#EE2B47]">Sanothimi.</span>
+           </h1>
+        </div>
+        
+        <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#001C44] to-transparent" />
       </div>
 
-      {/* ── Detailed Bio ── */}
-      <section ref={s1 as React.RefObject<HTMLDivElement>} className="py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          {/* Big statement */}
-          <h2 className="rs font-serif text-[1.75rem] md:text-[2.2rem] text-[#0A0F19] leading-snug max-w-4xl mb-16">
-            A dedicated technology partner based in Bhaktapur, Nepal, empowering institutions with world-class SaaS solutions.
-          </h2>
+      {/* ── Detailed Bio: The Sanothimi Narrative ── */}
+      <section ref={s1 as React.RefObject<HTMLDivElement>} className="py-32 bg-white relative z-10 -mt-10 rounded-t-[4rem]">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center mb-32">
+             <div className="rs">
+                <div className="inline-flex items-center gap-2 text-[#EE2B47] text-[.7rem] font-black uppercase tracking-[.3em] mb-8">
+                   Fundamental Values
+                </div>
+                <h2 className="font-serif text-4xl md:text-5xl text-[#001C44] leading-[1.2] mb-10">
+                   Empowering Institutions with <span className="italic">World-Class SaaS Solutions.</span>
+                </h2>
+                <div className="space-y-6 text-[#6B7280] text-lg leading-relaxed max-w-xl">
+                  <p>Based in Bhaktapur, Nepal, Sanothimi Technologies is a premier SaaS provider focused on bridging the gap between traditional operations and modern digital efficiency.</p>
+                  <p>From our flagship SchoolSathi ERP to our comprehensive business suites, we combine robust cloud technology with practical, localized insights.</p>
+                </div>
+                
+                <div className="pt-12 flex flex-wrap gap-4">
+                   <Link href="/contact" className="group inline-flex items-center gap-4 bg-[#EE2B47] text-white px-10 py-4 rounded-full font-bold hover:bg-[#001C44] transition-all duration-500 shadow-xl shadow-[#EE2B47]/20">
+                      Get Started with a Demo 
+                      <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5"><path d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                   </Link>
+                </div>
+             </div>
 
-          {/* Bio grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start mb-16">
-            {/* Photo placeholder */}
-            <div className="rs photo-fill h-[320px] rounded-2xl relative overflow-hidden flex items-center justify-center border border-gray-100 shadow-xl bg-gradient-to-br from-[#001C44] to-[#000E22]">
-              <div className="text-white font-bold text-9xl opacity-20">S</div>
-            </div>
-
-            {/* Text */}
-            <div className="rs d1 lg:col-span-2 space-y-4 text-[#6B7280] text-[.95rem] leading-relaxed">
-              <p>Sanothimi Technologies is a premier SaaS provider in Nepal, focused on bridging the gap between traditional operations and modern digital efficiency. Based in Bhaktapur, we serve institutions across the nation with specialized tools that simplify complex workflows.</p>
-              <p>From our flagship **SchoolSathi ERP** to our comprehensive business suites, we combine robust cloud technology with practical, localized insights. Our goal is to ensure that every organization we partner with achieves higher efficiency, data safety, and sustainable growth.</p>
-              <div className="pt-4 flex flex-wrap gap-3">
-                <Link href="/contact" className="btn btn-fill px-6 py-3 rounded-lg">Get Started with a Demo</Link>
-              </div>
-            </div>
+             <div className="rs d2 relative">
+                <div className="aspect-square rounded-[3rem] bg-[#001C44] overflow-hidden flex items-center justify-center p-20">
+                   <div className="absolute inset-0 opacity-[0.05] pointer-events-none">
+                      <img src="/logo-no-background.png" alt="" className="w-full h-full object-contain transform scale-150" />
+                   </div>
+                   <img src="/logo-no-background.png" alt="Sanothimi" className="relative z-10 w-full h-auto object-contain opacity-90 drop-shadow-2xl" />
+                </div>
+                {/* Float Badge */}
+                <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-white/80 backdrop-blur-xl border border-gray-100 rounded-full flex flex-col items-center justify-center text-center p-6 shadow-2xl">
+                   <div className="text-3xl font-serif font-bold text-[#EE2B47] mb-1">5+</div>
+                   <div className="text-[9px] font-black uppercase tracking-widest text-[#001C44]">Years Experience</div>
+                </div>
+             </div>
           </div>
 
-          {/* Certs */}
-          <div className="rs d2 flex flex-wrap gap-2.5">
-            {['SaaS Provider','ERP Solutions','Cloud Tech','Security First'].map((c) => (
-              <span key={c} className="text-[.78rem] font-bold text-[#001C44] bg-[#EE2B47]/10 border border-[#EE2B47]/25 px-3.5 py-1.5 rounded-full flex items-center gap-2">
-                <svg className="w-3 h-3 text-[#EE2B47]" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
+          <div className="rs d3 flex flex-wrap gap-3">
+            {['Global SaaS Standards','Localized Regional Expertise','Enterprise Data Security','99.9% Uptime Guarantee'].map((c) => (
+              <span key={c} className="text-[.75rem] font-black text-[#001C44] bg-gray-50 border border-gray-100 px-6 py-2.5 rounded-full uppercase tracking-wider hover:bg-[#EE2B47] hover:text-white hover:border-[#EE2B47] transition-all cursor-default">
                 {c}
               </span>
             ))}
@@ -116,30 +138,35 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── Career Timeline ── */}
-      <section className="py-24 bg-[#F9FAF9] relative overflow-hidden">
+      {/* ── Strategic Journey & Milestones ── */}
+      <section className="py-32 bg-[#001C44] relative overflow-hidden">
+        {/* Decorative Watermark */}
+        <div className="absolute top-0 right-0 opacity-[0.02] text-white text-[30rem] font-serif leading-none select-none">S</div>
+
         <div className="max-w-6xl mx-auto px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start">
             <div className="lg:col-span-2">
-              <p className="text-[.72rem] font-bold uppercase tracking-[.2em] text-[#EE2B47] mb-3">Professional Journey</p>
-              <h2 className="font-serif text-4xl text-[#0A0F19] leading-tight mb-8">Sanothimi Journey & Milestones</h2>
-              <p className="text-[#6B7280] leading-relaxed italic mb-8 border-l-2 border-[#EE2B47] pl-6">
+              <div className="inline-flex items-center gap-2 text-[#EE2B47] text-[.7rem] font-black uppercase tracking-[.3em] mb-8">
+                 Corporate Heritage
+              </div>
+              <h2 className="font-serif text-4xl text-white leading-[1.2] mb-10">Historical Milestones & <span className="italic">Evolution.</span></h2>
+              <p className="text-white/40 leading-relaxed italic mb-10 border-l-2 border-[#EE2B47] pl-8 text-lg">
                 &ldquo;Our growth has been driven by a relentless focus on creating tools that truly matter for the local institutions we serve.&rdquo;
               </p>
             </div>
-            <div className="lg:col-span-3 space-y-12 relative">
-              <div className="timeline-line" />
+            <div className="lg:col-span-3 space-y-16 relative pt-4">
+              <div className="absolute top-0 left-0 w-px h-full bg-white/10 ml-[11px]" />
               {EXPERIENCES.map((ex, i) => (
-                <div key={i} className="rs d1 timeline-item flex gap-10 relative">
-                  <div className="timeline-dot mt-1" />
+                <div key={i} className="rs d1 flex gap-12 relative group">
+                  <div className="w-6 h-6 rounded-full bg-[#001C44] border-4 border-white/10 group-hover:border-[#EE2B47] transition-all duration-500 z-10 mt-1.5" />
                   <div>
-                    <div className="flex items-center gap-3 mb-1">
-                      <span className="text-[.65rem] font-bold text-[#EE2B47] uppercase tracking-widest">{ex.year}</span>
-                      <span className="w-1 h-1 rounded-full bg-gray-300" />
-                      <span className="text-[.75rem] font-medium text-gray-400">{ex.location}</span>
+                    <div className="flex items-center gap-4 mb-3">
+                      <span className="text-xs font-black text-[#EE2B47] uppercase tracking-[.2em]">{ex.year}</span>
+                      <span className="w-1 h-1 rounded-full bg-white/20" />
+                      <span className="text-xs font-bold text-white/30 uppercase tracking-widest">{ex.location}</span>
                     </div>
-                    <h4 className="font-bold text-[#0A0F19] text-xl mb-1">{ex.company}</h4>
-                    <p className="text-[#6B7280] text-sm font-medium">{ex.role}</p>
+                    <h4 className="font-serif font-bold text-white text-2xl mb-2 group-hover:text-[#EE2B47] transition-colors">{ex.company}</h4>
+                    <p className="text-white/50 text-[.9rem] font-medium max-w-sm">{ex.role}</p>
                   </div>
                 </div>
               ))}
@@ -148,53 +175,59 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── Stats (dark) ── */}
-      <section ref={s2 as React.RefObject<HTMLDivElement>} className="bg-[#0A0F19] py-20">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-14">
-            {/* Stats text */}
-            <div>
-              <p className="rs text-[.72rem] font-bold uppercase tracking-[.2em] text-[#EE2B47] mb-3">By The Numbers</p>
-              <h2 className="rs d1 font-serif text-4xl text-white leading-tight mb-8">
-                5+ Years of<br />Measurable Results
-              </h2>
-              <div className="grid grid-cols-3 gap-5 mb-8">
-                { [
-                   { val:'Since 2019', label:'In Enterprise' },
-                   { val:'10K+', label:'Active Users' },
-                   { val:'99.9%', label:'Platform Uptime' },
-                 ].map((s) => (
-                   <div key={s.label} className="rs d2">
-                     <div className="font-serif text-2xl text-[#EE2B47] mb-1">{s.val}</div>
-                    <div className="text-white/35 text-[.72rem] font-semibold uppercase tracking-wider">{s.label}</div>
-                  </div>
-                ))}
+      {/* ── Stats Discovery Bar ── */}
+      <section ref={s2 as React.RefObject<HTMLDivElement>} className="bg-white py-24 border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-6">
+           {/* Ported Discovery Bar UI from Home */}
+           <div className="rs d4 flex flex-wrap justify-between items-center gap-12">
+              <div className="max-w-xs">
+                 <h2 className="font-serif text-3xl text-[#001C44] leading-tight">Scale Verified by <br />Performance Data.</h2>
               </div>
-            </div>
-          </div>
+              <div className="flex flex-wrap gap-x-16 gap-y-8">
+                { [
+                   { val:'Since 2019', suf:'', label:'In Enterprise' },
+                   { val:'10', suf:'K+', label:'Active Users' },
+                   { val:'99.9', suf:'%', label:'Platform Uptime' },
+                 ].map((s) => (
+                    <div key={s.label} className="group">
+                      <div className="text-4xl font-serif font-bold text-[#001C44] mb-3 flex items-baseline gap-1 group-hover:text-[#EE2B47] transition-colors">
+                        {s.val}<span className="text-xl text-[#EE2B47]">{s.suf}</span>
+                      </div>
+                      <div className="text-[9px] uppercase tracking-[0.3em] text-[#6B7280] font-black leading-tight group-hover:text-[#001C44] transition-colors">{s.label}</div>
+                    </div>
+                 ))}
+              </div>
+           </div>
         </div>
       </section>
 
-      {/* ── Why Choose Me ── */}
-      <section ref={s3 as React.RefObject<HTMLDivElement>} className="py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <p className="rs text-[.72rem] font-bold uppercase tracking-[.2em] text-[#EE2B47] mb-3">Why Choose Sanothimi</p>
-            <h2 className="rs d1 font-serif text-4xl text-[#0A0F19] leading-tight">Technology You Can Trust</h2>
+      {/* ── Why Choose Sanothimi: Cinematic Grid ── */}
+      <section ref={s3 as React.RefObject<HTMLDivElement>} className="py-32 bg-[#F9FAF9]">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="max-w-3xl mb-24">
+             <div className="inline-flex items-center gap-2 text-[#EE2B47] text-[.7rem] font-black uppercase tracking-[.3em] mb-8">
+                <span className="w-8 h-px bg-[#EE2B47]" />
+                Institutional Trust
+             </div>
+             <h2 className="rs font-serif text-4xl md:text-5xl text-[#001C44] leading-[1.15] mb-8">
+                Technology You Can <span className="text-[#EE2B47] italic">Trust Fully.</span>
+             </h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {WHY.map((w, i) => (
-              <div key={w.title} className={`rs d${i+1} why-card text-center`}>
-                <div className="w-14 h-14 rounded-2xl bg-[#EE2B47]/10 border border-[#EE2B47]/20 flex items-center justify-center text-2xl mx-auto mb-4 text-[#EE2B47]">{w.icon}</div>
-                <h3 className="font-bold text-[#0A0F19] text-[.95rem] mb-2">{w.title}</h3>
-                <p className="text-[#6B7280] text-[.82rem] leading-relaxed">{w.desc}</p>
+              <div key={w.title} className={`rs d${i+1} p-10 rounded-[2.5rem] bg-white border border-gray-100 group hover:bg-[#001C44] hover:border-[#001C44] transition-all duration-700 hover:-translate-y-4 shadow-sm hover:shadow-2xl hover:shadow-[#EE2B47]/20 flex flex-col items-start h-full`}>
+                <div className="w-14 h-14 rounded-2xl bg-gray-50 group-hover:bg-[#EE2B47] flex items-center justify-center text-[#001C44] group-hover:text-white mb-10 transition-all duration-500 scale-110">
+                   {w.icon}
+                </div>
+                <h3 className="font-serif font-bold text-[#001C44] text-[1.15rem] mb-6 leading-tight group-hover:text-white transition-colors">{w.title}</h3>
+                <p className="text-[#6B7280] text-[.85rem] leading-relaxed group-hover:text-white/60 transition-colors">{w.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <CTABanner title={'Scale Your Institution\nwith Sanothimi'} sub="Ready to get started?" cta="Get Started" />
+      <CTABanner title={'Scale Your Institution\nwith Sanothimi'} sub="Ready to get started with the regional SaaS leader?" cta="Get Started" />
     </main>
   );
 }
