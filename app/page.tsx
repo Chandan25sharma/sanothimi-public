@@ -386,12 +386,21 @@ export default function Home() {
                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" /></svg>
                    </button>
                 </div>
-             </      {/* ═══ SPLIT ABOUT SECTION - Premium Aesthetic Overhaul ═══ */}
+             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ SPLIT ABOUT SECTION - Premium Aesthetic Overhaul ═══ */}
       <section className="split-about relative z-0 -mt-20 pt-20">
         <div className="split-about-left relative bg-[#001C44] flex items-center justify-center py-20 lg:py-0 overflow-hidden">
-           {/* Massive Brand Watermark Logo */}
-           <div className="absolute inset-0 flex items-center justify-center opacity-[0.03] pointer-events-none select-none">
-              <span className="text-[50rem] font-serif leading-none transform translate-y-12 text-white">S</span>
+           {/* Massive Brand Watermark Logo - Official Asset */}
+           <div className="absolute inset-0 flex items-center justify-center opacity-[0.04] pointer-events-none select-none blur-[1px]">
+              <img 
+                src="/logo-no-background.png" 
+                alt="" 
+                className="w-[80%] h-auto object-contain max-h-[80%] transform rotate-[-5deg]" 
+              />
            </div>
            {/* Cinematic Ambient Glow */}
            <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#EE2B47]/10 to-transparent" />
@@ -399,11 +408,11 @@ export default function Home() {
            <div className="relative z-10 text-center">
               <div className="w-48 h-48 bg-white/5 rounded-full border border-white/20 flex items-center justify-center mx-auto mb-10 shadow-3xl backdrop-blur-xl group hover:border-[#EE2B47]/40 transition-all duration-700">
                  <div className="w-40 h-40 rounded-full border border-white/10 flex items-center justify-center bg-gradient-to-br from-white/10 to-transparent">
-                    <span className="text-white text-7xl font-serif tracking-tighter group-hover:scale-110 transition-transform duration-700">S</span>
+                    <img src="/logo-no-background.png" alt="Sanothimi Logo" className="w-24 h-24 object-contain group-hover:scale-110 transition-transform duration-700" />
                  </div>
               </div>
               <div className="inline-flex items-center gap-3 px-6 py-2.5 bg-white/5 border border-white/10 rounded-full text-white/60 text-[10px] font-black tracking-[0.2em] uppercase mb-6 backdrop-blur-sm">
-                 <span className="w-1.5 h-1.5 rounded-full bg-[#EE2B47] animate-pulse" />
+                 <span className="w-1.5 h-1.5 rounded-full bg-[#EE2B47]" />
                  Global SaaS Standards
               </div>
               <h3 className="text-white text-3xl font-serif tracking-tight">Product Excellence.</h3>
@@ -450,10 +459,6 @@ export default function Home() {
                     </div>
                   ))}
                 </div>
-            </div>
-        </div>
-      </section>
-            </div>
             </div>
         </div>
       </section>
