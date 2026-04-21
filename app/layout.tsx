@@ -4,15 +4,15 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: { template: '%s | BrahamDev Sharma', default: 'BrahamDev Sharma — . & CPA in Siraha, Nepal' },
-  description: 'BrahamDev Sharma is a professional CPA and . based in Siraha, Nepal, offering expert financial management and strategic advisory services.',
-  keywords: 'BrahamDev Sharma, Siraha, Nepal, CPA, ., Financial Management',
-  icons: { icon: '/B-dev.jpg', apple: '/B-dev.jpg' },
+  title: { template: '%s | Sanothimi', default: 'Sanothimi | Elite SaaS Engineering Hub' },
+  description: 'Sanothimi is Nepal\'s premier SaaS Engineering Hub, specializing in School Management ERPs, Enterprise Financial Systems, and bespoke cloud infrastructure.',
+  keywords: 'Sanothimi, SaaS Nepal, SchoolSathi, ERP Nepal, Cloud Engineering Bhaktapur, Fintech Nepal',
+  icons: { icon: '/logo-no-background.png', apple: '/logo-no-background.png' },
   openGraph: {
-    title: 'BrahamDev Sharma — .',
-    description: 'Expert financial guidance in Siraha, Nepal.',
+    title: 'Sanothimi — Elite SaaS Engineering',
+    description: 'Digitizing the institutional fabric of Nepal with world-class cloud infrastructure.',
     type: 'website',
-    images: [{ url: '/B-dev.jpg', width: 800, height: 800, alt: 'BrahamDev Sharma' }]
+    images: [{ url: '/logo-no-background.png', width: 800, height: 800, alt: 'Sanothimi' }]
   },
 };
 
@@ -24,9 +24,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-          '@context':'https://schema.org','@type':'Person',name:'BrahamDev Sharma',jobTitle:'., CPA',
-          telephone:'+977 980-6391489',email:'bdevsharma23@gmail.com',url:'https://brahamdev.com',
-          address:{'@type':'PostalAddress',addressLocality:'Siraha',addressRegion:'Siraha',addressCountry:'NP'},
+          '@context':'https://schema.org','@type':'Corporation',
+          name:'Sanothimi Private Limited',
+          alternateName: 'Sanothimi',
+          url:'https://sanothimi.com.np',
+          logo:'https://sanothimi.com.np/logo-no-background.png',
+          contactPoint: {
+            '@type': 'ContactPoint',
+            telephone: '+977 980-6391489',
+            contactType: 'technical support',
+            areaServed: 'NP',
+            availableLanguage: ['en', 'ne']
+          },
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Bhaktapur',
+            addressRegion: 'Bagmati',
+            addressCountry: 'NP'
+          }
         })}} />
       </head>
       <body>
