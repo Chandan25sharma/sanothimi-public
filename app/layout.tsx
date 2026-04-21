@@ -7,12 +7,12 @@ export const metadata: Metadata = {
   title: { template: '%s | Sanothimi', default: 'Sanothimi | Elite SaaS Engineering Hub' },
   description: 'Sanothimi is Nepal\'s premier SaaS Engineering Hub, specializing in School Management ERPs, Enterprise Financial Systems, and bespoke cloud infrastructure.',
   keywords: 'Sanothimi, SaaS Nepal, SchoolSathi, ERP Nepal, Cloud Engineering Bhaktapur, Fintech Nepal',
-  icons: { icon: '/logo-no-background.png', apple: '/logo-no-background.png' },
+  icons: { icon: '/icon.png', apple: '/icon.png' },
   openGraph: {
     title: 'Sanothimi — Elite SaaS Engineering',
     description: 'Digitizing the institutional fabric of Nepal with world-class cloud infrastructure.',
     type: 'website',
-    images: [{ url: '/logo-no-background.png', width: 800, height: 800, alt: 'Sanothimi' }]
+    images: [{ url: '/icon.png', width: 800, height: 800, alt: 'Sanothimi' }]
   },
 };
 
