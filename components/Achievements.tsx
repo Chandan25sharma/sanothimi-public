@@ -1,9 +1,12 @@
 'use client';
 import { achievements } from '@/data/portfolio';
 import { useEffect, useRef } from 'react';
+import { useLanguage, TranslationKey } from '@/context/LanguageContext';
 
 export default function Achievements() {
+  const { t } = useLanguage();
   const ref = useRef<HTMLElement>(null);
+  
   useEffect(() => {
     const obs = new IntersectionObserver((entries) => {
       entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add('visible'); });
@@ -20,7 +23,9 @@ export default function Achievements() {
           <h2 className="font-display text-4xl xl:text-5xl text-[#050d1a] mb-4">
             Awards &amp; <span className="text-gradient">Achievements</span>
           </h2>
-          <p className="text-slate-500 max-w-lg mx-auto">A career built on excellence, recognised by industry peers and professional bodies.</p>
+          <p className="text-slate-500 max-w-lg mx-auto">
+            {t('hero.socialProof')}
+          </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -38,10 +43,12 @@ export default function Achievements() {
                   </div>
                   <div className="text-[0.72rem] font-bold text-[#c9a84c] bg-[#c9a84c]/10 border border-[#c9a84c]/20 px-3 py-1 rounded-full tracking-widest">{a.year}</div>
                 </div>
-                <h3 className="font-semibold text-[#050d1a] text-[0.97rem] leading-snug mb-3">{a.title}</h3>
+                <h3 className="font-semibold text-[#050d1a] text-[0.97rem] leading-snug mb-3">
+                  {t(`ach.${a.id}.title` as TranslationKey)}
+                </h3>
                 <p className="text-slate-400 text-[0.83rem] leading-relaxed mb-5">{a.description}</p>
                 <div className="flex items-center gap-2 text-[0.78rem] font-semibold text-[#0d9488] bg-[#0d9488]/08 border border-[#0d9488]/15 rounded-xl px-3 py-2 w-fit">
-                  {a.metric}
+                  {t(`ach.${a.id}.metric` as TranslationKey)}
                 </div>
               </div>
             </div>

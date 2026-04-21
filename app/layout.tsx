@@ -2,6 +2,7 @@ import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import type { Metadata } from 'next';
 import './globals.css';
+import { LanguageProvider } from '@/context/LanguageContext';
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sanothimi.com.np"),
@@ -46,9 +47,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         })}} />
       </head>
       <body>
-        <Navbar />
-        <div className="pt-[70px]">{children}</div>
-        <Footer />
+        <LanguageProvider>
+          <Navbar />
+          <div className="pt-[70px]">{children}</div>
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );

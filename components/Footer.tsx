@@ -1,22 +1,25 @@
+'use client';
 import Link from 'next/link';
-
-const SERVICES = ['Tax Planning & Compliance', 'Financial Statement Preparation', 'Financial Analysis & Reporting', 'Consulting and Advisory', 'Accounting Services'];
-const QUICK = [{ label:'Home', href:'/' }, { label:'About', href:'/about' }, { label:'Services', href:'/services' }, { label:'Contact', href:'/contact' }];
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function Footer() {
+  const { t } = useLanguage();
+  
+  const QUICK = [
+    { label: t('nav.home'), href: '/' },
+    { label: t('nav.about'), href: '/about' },
+    { label: t('nav.services'), href: '/services' },
+    { label: t('nav.contact'), href: '/contact' }
+  ];
+
   return (
     <footer className="relative bg-[#000E22] text-white pt-24 pb-12 overflow-hidden border-t border-white/05">
       {/* Dynamic 'Singing' Background Identity */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        {/* Animated Neon Plasma */}
         <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-[#EE2B47]/10 blur-[120px] animate-pulse-slow rounded-full opacity-60" />
         <div className="absolute bottom-[-20%] right-[-10%] w-[60%] h-[60%] bg-[#EE2B47]/05 blur-[120px] animate-pulse-slow rounded-full opacity-40 delay-1000" />
-        
-        {/* Tech Grid Overlay */}
         <div className="absolute inset-0 opacity-[0.03]" 
              style={{ backgroundImage: 'radial-gradient(circle, #EE2B47 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
-        
-        {/* Scanning Light Streak */}
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/05 to-transparent -translate-x-full animate-shimmer" />
       </div>
 
@@ -39,11 +42,11 @@ export default function Footer() {
                 </div>
               </div>
               <p className="text-white/30 text-sm leading-relaxed max-w-xs font-medium">
-                Pioneering the digital frontier of Nepal. Building the infrastructure that powers tomorrow&apos;s educational and enterprise success.
+                {t('footer.motto')}
               </p>
             </div>
 
-            {/* Premium Social Links */}
+            {/* Social Links */}
             <div className="flex gap-4">
               {[
                 { label: 'LinkedIn', icon: 'M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z' },
@@ -60,22 +63,19 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Service Gallery */}
+          {/* Solution Stack */}
           <div className="space-y-8">
             <h4 className="text-[.7rem] font-black uppercase tracking-[.35em] text-[#EE2B47]/60">Solution Stack</h4>
-            <ul className="grid gap-4">
-              {SERVICES.map((s) => (
-                <li key={s} className="group/item">
-                  <Link href="/services" className="text-white/30 hover:text-white text-[0.9rem] font-bold tracking-tight transition-all duration-300 flex items-center gap-3">
-                    <span className="w-1 h-1 rounded-full bg-white/10 group-hover/item:w-4 group-hover/item:bg-[#EE2B47] transition-all" />
-                    {s}
-                  </Link>
-                </li>
-              ))}
+            <ul className="grid gap-4 text-white/30 text-[0.9rem] font-bold tracking-tight">
+              <li>SchoolSathi ERP</li>
+              <li>BizSuite Finance</li>
+              <li>CloudSec Hub</li>
+              <li>Automated Payroll</li>
+              <li>Fleet Logic</li>
             </ul>
           </div>
 
-          {/* Navigation Hub */}
+          {/* Platform Map */}
           <div className="space-y-8">
             <h4 className="text-[.7rem] font-black uppercase tracking-[.35em] text-[#EE2B47]/60">Platform Map</h4>
             <ul className="grid gap-4">
@@ -87,7 +87,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact Node */}
+          {/* Operational Nodes */}
           <div className="space-y-8">
             <h4 className="text-[.7rem] font-black uppercase tracking-[.35em] text-[#EE2B47]/60">Operational Nodes</h4>
             <div className="space-y-6">
@@ -112,16 +112,16 @@ export default function Footer() {
       <div className="relative z-10 border-t border-white/05 bg-black/40 backdrop-blur-3xl py-10">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
           <p className="text-white/20 text-[.65rem] font-black uppercase tracking-[.4em] text-center md:text-left">
-            &copy; {new Date().getFullYear()} Sanothimi Private Limited. <span className="text-white/05 mx-3">|</span> Engineered with Precision
+            &copy; {new Date().getFullYear()} Sanothimi Private Limited. <span className="text-white/05 mx-3">|</span> {t('footer.madeBy')}
           </p>
 
           <div className="flex gap-10 text-[.7rem] font-black uppercase tracking-[.3em]">
             <Link href="/privacy" className="group relative text-white/20 hover:text-[#EE2B47] transition-all">
-              Privacy Identity
+              Privacy Hub
               <span className="absolute -bottom-2 left-0 w-0 h-px bg-[#EE2B47] group-hover:w-full transition-all duration-500" />
             </Link>
             <Link href="/terms" className="group relative text-white/20 hover:text-[#EE2B47] transition-all">
-              Platform Terms
+              Legal Terms
               <span className="absolute -bottom-2 left-0 w-0 h-px bg-[#EE2B47] group-hover:w-full transition-all duration-500" />
             </Link>
           </div>

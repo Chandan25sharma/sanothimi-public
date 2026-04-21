@@ -1,16 +1,18 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
-
-const COUNTERS = [
-  { label: 'Uptime Reliability', val: 99, suf: '%' },
-  { label: 'Active Institutions', val: 50, suf: '+' },
-  { label: 'Avg. Efficiency Gain', val: 45, suf: '%' },
-  { label: 'Users Supported', val: 10, suf: 'K+', pre: '' },
-];
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function Hero() {
-  const [counts, setCounts] = useState(COUNTERS.map(() => 0));
+  const { t } = useLanguage();
+  const [counts, setCounts] = useState([0, 0, 0, 0]);
   const started = useRef(false);
+
+  const COUNTERS = [
+    { label: t('hero.stat.uptime'), val: 99, suf: '%' },
+    { label: t('hero.stat.institutions'), val: 50, suf: '+' },
+    { label: t('hero.stat.efficiency'), val: 45, suf: '%' },
+    { label: t('hero.stat.users'), val: 10, suf: 'K+', pre: '' },
+  ];
 
   useEffect(() => {
     const t = setTimeout(() => {
@@ -28,7 +30,7 @@ export default function Hero() {
       });
     }, 800);
     return () => clearTimeout(t);
-  }, []);
+  }, [t]); // Added t to dependencies as it may change on lang switch
 
   const goto = (id: string) => {
     const el = document.querySelector<HTMLElement>(id);
@@ -57,31 +59,31 @@ export default function Hero() {
             {/* Badge */}
             <div className="ha1 inline-flex items-center gap-2.5 mb-8 bg-[#EE2B47]/12 border border-[#EE2B47]/25 text-[#EE2B47] text-[.72rem] font-bold tracking-[.18em] uppercase px-4 py-2 rounded-full">
               <span className="w-1.5 h-1.5 rounded-full bg-[#EE2B47] animate-pulse" />
-              Next-Gen Institutional & Business ERP
+              {t('hero.badge')}
             </div>
 
-            {/* Headline — wiggscpa style: short, punchy, direct */}
+            {/* Headline */}
             <h1 className="ha2 font-display leading-[1.07]">
-              <span className="block text-white text-5xl xl:text-[3.6rem] font-bold xl:font-extrabold">Your Institution Deserves</span>
+              <span className="block text-white text-5xl xl:text-[3.6rem] font-bold xl:font-extrabold">{t('hero.title1')}</span>
               <span className="block text-5xl xl:text-[3.6rem] font-bold xl:font-extrabold text-white mt-1">
-                <span className="text-grad">Sanothimi</span> <span className="text-grad-gold">Smart Tech</span>
+                <span className="text-grad">Sanothimi</span> <span className="text-grad-gold">{t('hero.title2')}</span>
               </span>
             </h1>
 
             <p className="ha3 text-white/50 text-lg leading-relaxed mt-6 mb-4">
-              We don&apos;t just provide tools — we partner with your institution to <strong className="text-white/80 font-semibold">automate administrative workflows</strong>, secure your data, and provide the digital clarity to scale.
+              {t('hero.desc1')}
             </p>
             <p className="ha3 text-white/40 text-base leading-relaxed mb-10">
-              Sanothimi Technologies · Smart SaaS Solutions · Based in Bhaktapur, Nepal.
+              {t('hero.desc2')}
             </p>
 
             {/* CTAs */}
             <div className="ha4 flex flex-wrap gap-4 mb-12">
               <button onClick={() => goto('#contact')} className="btn-primary px-7 py-4 rounded-2xl text-base shadow-2xl">
-                🚀 Start Free Trial
+                🚀 {t('hero.cta.trial')}
               </button>
               <button onClick={() => goto('#services')} className="btn-ghost px-7 py-4 rounded-2xl text-base">
-                View Solutions →
+                {t('hero.cta.solutions')}
               </button>
             </div>
 
@@ -108,7 +110,7 @@ export default function Hero() {
               </div>
               <div>
                 <div className="text-[#EE2B47] text-sm tracking-wide">★★★★★</div>
-                <div className="text-white/35 text-xs mt-0.5">Trusted by 50+ Educational Institutions and 500+ Businesses</div>
+                <div className="text-white/35 text-xs mt-0.5">{t('hero.socialProof')}</div>
               </div>
             </div>
           </div>
@@ -120,7 +122,7 @@ export default function Hero() {
               <div className="absolute -inset-4 border border-[#D4AF37]/20 rounded-[2.5rem] animate-spin-slow opacity-20" />
               <div className="absolute -inset-8 border border-[#EE2B47]/10 rounded-[3rem] animate-reverse-spin opacity-10" />
 
-              {/* Main brand card - now with even more transparency to show BG */}
+              {/* Main brand card */}
               <div className="relative z-10 w-[420px] h-[520px] rounded-[2rem] overflow-hidden bg-[#001C44]/20 backdrop-blur-3xl border border-white/10 shadow-[0_30px_100px_rgba(0,0,0,0.5)] transition-all duration-700 group-hover:scale-[1.02] group-hover:shadow-[#EE2B47]/10">
                 <div className="absolute inset-0 opacity-20 pointer-events-none">
                    <img src="/image-1.png" alt="" className="w-full h-full object-cover" />
@@ -172,6 +174,11 @@ export default function Hero() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7"/>
           </svg>
         </button>
+      </div>
+    </section>
+  );
+}
+ton>
       </div>
     </section>
   );

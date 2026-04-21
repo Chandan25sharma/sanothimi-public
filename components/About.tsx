@@ -1,33 +1,36 @@
 'use client';
 import { useEffect, useRef } from 'react';
-
-const WHY = [
-  {
-    icon: '📊',
-    title: "All-in-One Institutional ERP",
-    desc: "SchoolSathi digitizes everything from attendance to automated billing, saving staff an average of 15 hours per week on repetitive administrative tasks.",
-  },
-  {
-    icon: '🔐',
-    title: 'Enterprise-Grade Security',
-    desc: "Your data is your most valuable asset. We use end-to-end encryption and redundant cloud backups to ensure 99.9% data availability and safety.",
-  },
-  {
-    icon: '⚙️',
-    title: 'Seamless Business Integration',
-    desc: "From inventory to payroll, our suites are designed to work together, providing a unified digital ecosystem for businesses of any scale.",
-  },
-  {
-    icon: '🌍',
-    title: 'Local Support, Global Tech',
-    desc: "We bring world-class SaaS architecture with the benefit of local expertise and 24/7 dedicated support right here in Nepal.",
-  },
-];
-
-const CERTS = ['SchoolSathi™', 'FinanceFlow', 'BizSuite', 'CloudSec Certified', 'SaaS Excellence'];
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function About() {
+  const { t } = useLanguage();
   const ref = useRef<HTMLElement>(null);
+  
+  const WHY = [
+    {
+      icon: '📊',
+      title: t('about.why.1.title'),
+      desc: t('about.why.1.desc'),
+    },
+    {
+      icon: '🔐',
+      title: t('about.why.2.title'),
+      desc: t('about.why.2.desc'),
+    },
+    {
+      icon: '⚙️',
+      title: t('about.why.3.title'),
+      desc: t('about.why.3.desc'),
+    },
+    {
+      icon: '🌍',
+      title: t('about.why.4.title'),
+      desc: t('about.why.4.desc'),
+    },
+  ];
+
+  const CERTS = ['SchoolSathi™', 'FinanceFlow', 'BizSuite', 'CloudSec Certified', 'SaaS Excellence'];
+
   useEffect(() => {
     const obs = new IntersectionObserver((entries) => {
       entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add('on'); });
@@ -44,32 +47,23 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 xl:gap-24 items-center mb-24">
           {/* Visual */}
           <div className="rv relative">
-            {/* Visual Frame with Glassy Background */}
             <div className="relative group perspective-1000">
               <div className="relative z-10 w-full h-[480px] rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-[#00122B]/40 backdrop-blur-3xl">
                 <div className="absolute inset-0 opacity-25 grayscale group-hover:grayscale-0 group-hover:opacity-40 transition-all duration-700">
                    <img src="/image-2.png" alt="" className="w-full h-full object-cover" />
                 </div>
                 <div className="absolute inset-0 bg-[#00122B]/60" />
-                
-                {/* Internal visual elements */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-48 h-48 border border-white/05 rounded-full flex items-center justify-center text-white/05 text-9xl font-bold">ST</div>
                 </div>
-                
-                {/* Overlay Text */}
                 <div className="absolute bottom-8 left-8 pb-4 border-b border-white/10 w-[70%] z-20">
                   <div className="text-[.6rem] font-bold text-[#D4AF37] uppercase tracking-[.3em] mb-1">Global Standard</div>
                   <h4 className="text-white font-serif text-2xl">Precision Engineering</h4>
                 </div>
               </div>
-
-              {/* Glassy texture background layer */}
               <div className="absolute -inset-10 opacity-20 pointer-events-none">
                  <img src="/image-2.png" alt="" className="w-full h-full object-cover blur-3xl" />
               </div>
-
-              {/* Decorative elements */}
               <div className="absolute -top-6 -right-6 w-24 h-24 bg-[#EE2B47]/20 blur-3xl animate-pulse" />
               <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-[#D4AF37]/10 blur-3xl" />
             </div>
@@ -84,16 +78,16 @@ export default function About() {
 
           {/* Copy */}
           <div>
-            <div className="rv kicker">About Sanothimi</div>
+            <div className="rv kicker">{t('about.kicker')}</div>
             <h2 className="rv d1 font-display text-4xl xl:text-5xl text-[#0a1628] leading-[1.1] mb-5">
-              We Build Software,<br/>
-              <span className="text-grad">Not Just Tools</span>
+              {t('about.title1')}<br/>
+              <span className="text-grad">{t('about.title2')}</span>
             </h2>
             <p className="rv d2 text-slate-500 leading-relaxed text-[1rem] mb-4">
-              Sanothimi Technologies is a leading SaaS provider dedicated to the digital evolution of educational institutions and SMEs. Our mission is to simplify complex administrative workflows through intuitive, secure, and scalable cloud solutions.
+              {t('about.desc1')}
             </p>
             <p className="rv d2 text-slate-500 leading-relaxed text-[1rem] mb-7">
-              From our flagship SchoolSathi ERP to our tailored financial suites, we bring enterprise-grade technology to organizations of all sizes. We combine international technical standards with a deep understanding of local operational needs.
+              {t('about.desc2')}
             </p>
             {/* Certs */}
             <div className="rv d3 flex flex-wrap gap-2 mb-8">
@@ -105,19 +99,19 @@ export default function About() {
             </div>
             <div className="rv d4 flex flex-wrap gap-3">
               <a href="#contact" onClick={(e)=>{e.preventDefault();document.querySelector<HTMLElement>('#contact')?.scrollIntoView({behavior:'smooth'})}} className="btn-primary px-6 py-3.5 rounded-2xl">
-                🚀 Get Started
+                🚀 {t('nav.getStarted')}
               </a>
               <a href="/contact" className="btn-dark px-6 py-3.5 rounded-2xl">
-                📞 Contact Sales
+                📞 {t('about.cta.contact')}
               </a>
             </div>
           </div>
         </div>
 
         <div className="rv">
-          <div className="kicker center justify-center">Why Choose Sanothimi</div>
+          <div className="kicker center justify-center">{t('about.why.kicker')}</div>
           <h3 className="text-center font-display text-3xl xl:text-4xl text-[#0a1628] mb-10">
-            Problems I <span className="text-grad">Actually Solve</span>
+            {t('about.why.title')}
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {WHY.map((w, i) => (

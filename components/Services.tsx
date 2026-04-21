@@ -1,9 +1,12 @@
 'use client';
 import { services } from '@/data/portfolio';
 import { useEffect, useRef } from 'react';
+import { useLanguage, TranslationKey } from '@/context/LanguageContext';
 
 export default function Services() {
+  const { t } = useLanguage();
   const ref = useRef<HTMLElement>(null);
+  
   useEffect(() => {
     const obs = new IntersectionObserver((entries) => {
       entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add('visible'); });
@@ -17,13 +20,15 @@ export default function Services() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="reveal grid grid-cols-1 lg:grid-cols-3 gap-10 mb-16">
           <div className="lg:col-span-2">
-            <div className="badge-label mb-4">What I Offer</div>
+            <div className="badge-label mb-4">{t('nav.services')}</div>
             <h2 className="font-display text-4xl xl:text-5xl text-[#050d1a] leading-tight">
-              Comprehensive <span className="text-gradient">Financial Services</span>
+              {t('about.title1')} <span className="text-gradient">Smart Solutions</span>
             </h2>
           </div>
           <div className="flex items-end">
-            <p className="text-slate-500 leading-relaxed">Tailored solutions covering every aspect of your financial needs — from compliance to growth strategy.</p>
+            <p className="text-slate-500 leading-relaxed">
+              {t('about.desc2')}
+            </p>
           </div>
         </div>
 
@@ -33,13 +38,14 @@ export default function Services() {
               <div className="svc-icon-wrap w-16 h-16 rounded-2xl bg-[#c9a84c]/10 flex items-center justify-center text-3xl mb-6 transition-colors duration-300">
                 {s.icon}
               </div>
-              <h3 className="svc-title font-semibold text-[#050d1a] text-[1.05rem] mb-3 transition-colors duration-300">{s.title}</h3>
-              <p className="svc-desc text-slate-500 text-[0.85rem] leading-relaxed mb-6 transition-colors duration-300">{s.description}</p>
+              <h3 className="svc-title font-semibold text-[#050d1a] text-[1.05rem] mb-3 transition-colors duration-300">
+                {t(`svc.${s.id}.title` as TranslationKey)}
+              </h3>
+              <p className="svc-desc text-slate-500 text-[0.85rem] leading-relaxed mb-6 transition-colors duration-300">
+                {t(`svc.${s.id}.desc` as TranslationKey)}
+              </p>
               <div className="svc-link flex items-center gap-2 text-[#0d9488] text-sm font-bold tracking-wide transition-colors duration-300">
-                Learn More
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
+                {t('nav.about')} →
               </div>
             </div>
           ))}
