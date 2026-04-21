@@ -121,7 +121,7 @@ export default function Home() {
            
            {/* THE SHINING ASSET: Premium 3D Tech Visual */}
            <div className="absolute top-0 right-0 w-full lg:w-2/3 h-full overflow-hidden">
-              <img src="/shining_hero.png" alt="" className="w-full h-full object-contain object-right opacity-80 mix-blend-screen scale-110" />
+              <img src="/image-2.png" alt="" className="w-full h-full object-contain object-right opacity-80 mix-blend-screen scale-110" />
               {/* Fade masks */}
               <div className="absolute inset-0 bg-gradient-to-r from-[#000E22] via-transparent to-transparent" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#000E22] via-[#000E22]/40 to-transparent" />
@@ -239,7 +239,7 @@ export default function Home() {
             <div className="relative perspective-2000">
               {/* Atmospheric Background Layer */}
               <div className="absolute -inset-10 z-0 opacity-10 blur-2xl">
-                 <img src="/shining_hero.png" alt="" className="w-full h-full object-cover rounded-full" />
+                 <img src="/image-2.png" alt="" className="w-full h-full object-cover rounded-full" />
               </div>
 
               {/* Layered Glass Stack */}
@@ -262,7 +262,7 @@ export default function Home() {
 
                  {/* Middle Case: Security Layer */}
                  <div className="rs d4 relative mx-auto w-full max-w-md aspect-video bg-[#000E22] rounded-3xl shadow-3xl overflow-hidden border border-white/10 z-20 group">
-                    <img src="/shining_hero.png" alt="" className="absolute inset-0 w-full h-full object-cover opacity-30 grayscale group-hover:grayscale-0 transition-all duration-1000" />
+                    <img src="/image-2.png" alt="" className="absolute inset-0 w-full h-full object-cover opacity-30 grayscale group-hover:grayscale-0 transition-all duration-1000" />
                     <div className="absolute inset-0 bg-gradient-to-tr from-[#000E22] via-transparent to-transparent" />
                     <div className="absolute bottom-6 left-6">
                        <div className="text-[10px] font-black text-[#EE2B47] uppercase tracking-[.3em] mb-1">Security Node</div>
@@ -469,7 +469,7 @@ export default function Home() {
        {/* ═══ CALL TO ACTION IMAGE - Enhanced with image-3 glassy background ═══ */}
        <section className="relative h-[400px] overflow-hidden slant-t-xl-rev z-10 flex items-center justify-center bg-[#001C44]">
           <div className="absolute inset-0 opacity-[.08] pointer-events-none">
-             <img src="/shining_hero.png" alt="" className="w-full h-full object-cover" />
+             <img src="/image-2.png" alt="" className="w-full h-full object-cover" />
           </div>
           <div className="absolute inset-0 bg-gradient-to-t from-[#000E22] via-[#000E22]/60 to-[#000E22]/10" />
           
