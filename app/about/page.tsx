@@ -54,18 +54,12 @@ const WHY = [
   },
 ];
 
-const EXPERIENCES = [
-  { company: 'SchoolSathi Core Launch', location: 'Bhaktapur, Nepal', role: 'Flagship ERP Product', year: '2023 - Present' },
-  { company: 'FinanceSuite Development', location: 'Bhaktapur, Nepal', role: 'Accounting SaaS', year: '2022' },
-  { company: 'Regional SME Outreach', location: 'Province 1 & 2', role: 'Business Digitization', year: '2021' },
-  { company: 'Cloud Infrastructure Setup', location: 'Nepal', role: 'Scalability Build', year: '2020' },
-  { company: 'Sanothimi Founding', location: 'Bhaktapur, Nepal', role: 'Company Inception', year: '2019' },
-];
 
 export default function AboutPage() {
   const s1 = useReveal();
   const s2 = useReveal();
   const s3 = useReveal();
+  const s4 = useReveal();
 
   return (
     <main>
@@ -138,41 +132,47 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── Strategic Journey & Milestones ── */}
-      <section className="py-32 bg-[#001C44] relative overflow-hidden">
-        {/* Decorative Watermark */}
-        <div className="absolute top-0 right-0 opacity-[0.02] text-white text-[30rem] font-serif leading-none select-none">S</div>
+      {/* ── THE NEW FRONTIER: HIGHLIGHTING INNOVATION ── */}
+      <section ref={s4 as React.RefObject<HTMLDivElement>} className="py-40 bg-[#00142D] relative overflow-hidden">
+         {/* Moving Gradient Background */}
+         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_120%,#EE2B4733,transparent_50%)]" />
+         
+         <div className="max-w-7xl mx-auto px-6 relative z-10">
+            <div className="text-center max-w-3xl mx-auto mb-24">
+               <div className="rs inline-flex items-center gap-3 px-6 py-2 bg-[#EE2B47] rounded-full text-white text-[10px] font-black uppercase tracking-[.3em] mb-8 shadow-xl shadow-[#EE2B47]/20">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+                  </span>
+                  Latest Innovation
+               </div>
+               <h2 className="rs d1 font-serif text-5xl md:text-7xl text-white leading-[1.1] mb-10 tracking-tight">
+                  Reinventing the <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/40">Platform Paradigm.</span>
+               </h2>
+               <p className="rs d2 text-white/40 text-xl leading-relaxed max-w-2xl mx-auto">
+                  A totally new ecosystem designed for the next era of organizational intelligence and global connectivity.
+               </p>
+            </div>
 
-        <div className="max-w-6xl mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start">
-            <div className="lg:col-span-2">
-              <div className="inline-flex items-center gap-2 text-[#EE2B47] text-[.7rem] font-black uppercase tracking-[.3em] mb-8">
-                 Corporate Heritage
-              </div>
-              <h2 className="font-serif text-4xl text-white leading-[1.2] mb-10">Historical Milestones & <span className="italic">Evolution.</span></h2>
-              <p className="text-white/40 leading-relaxed italic mb-10 border-l-2 border-[#EE2B47] pl-8 text-lg">
-                &ldquo;Our growth has been driven by a relentless focus on creating tools that truly matter for the local institutions we serve.&rdquo;
-              </p>
-            </div>
-            <div className="lg:col-span-3 space-y-16 relative pt-4">
-              <div className="absolute top-0 left-0 w-px h-full bg-white/10 ml-[11px]" />
-              {EXPERIENCES.map((ex, i) => (
-                <div key={i} className="rs d1 flex gap-12 relative group">
-                  <div className="w-6 h-6 rounded-full bg-[#001C44] border-4 border-white/10 group-hover:border-[#EE2B47] transition-all duration-500 z-10 mt-1.5" />
-                  <div>
-                    <div className="flex items-center gap-4 mb-3">
-                      <span className="text-xs font-black text-[#EE2B47] uppercase tracking-[.2em]">{ex.year}</span>
-                      <span className="w-1 h-1 rounded-full bg-white/20" />
-                      <span className="text-xs font-bold text-white/30 uppercase tracking-widest">{ex.location}</span>
-                    </div>
-                    <h4 className="font-serif font-bold text-white text-2xl mb-2 group-hover:text-[#EE2B47] transition-colors">{ex.company}</h4>
-                    <p className="text-white/50 text-[.9rem] font-medium max-w-sm">{ex.role}</p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+               {[
+                 { t:'Totally New Core', d:'A ground-up rebuild of our SaaS infrastructure featuring zero-lag processing and infinite horizontal scaling.', i: '01' },
+                 { t:'AI-Ready Framework', d:'Native integration for intelligent automation that learns your workflows and predicts institutional needs.', i: '02' },
+                 { t:'Hyper-Secure Hub', d:'Beyond encryption—a zero-trust security perimeter that protects every data point in real-time.', i: '03' }
+               ].map((item, i) => (
+                  <div key={i} className={`rs d${i+3} group relative p-12 rounded-[3.5rem] bg-white/5 border border-white/10 overflow-hidden hover:border-[#EE2B47]/40 transition-all duration-700`}>
+                     {/* Hover Shimmer Effect */}
+                     <div className="absolute -inset-1 bg-gradient-to-r from-transparent via-[#EE2B47]/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-[1.5s] ease-in-out" />
+                     
+                     <div className="relative z-10">
+                        <div className="text-[10px] font-black text-[#EE2B47] uppercase tracking-[.4em] mb-10 opacity-60">System Module {item.i}</div>
+                        <h3 className="font-serif text-3xl text-white mb-6 leading-tight group-hover:text-white transition-colors">{item.t}</h3>
+                        <p className="text-white/40 text-[.95rem] leading-relaxed group-hover:text-white/60 transition-colors">{item.d}</p>
+                     </div>
                   </div>
-                </div>
-              ))}
+               ))}
             </div>
-          </div>
-        </div>
+         </div>
       </section>
 
       {/* ── Stats Discovery Bar ── */}
