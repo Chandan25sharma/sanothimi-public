@@ -235,59 +235,62 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right Side: 3D Layered Glass Ecosystem */}
-            <div className="relative perspective-2000">
-              {/* Atmospheric Background Layer */}
-              <div className="absolute -inset-10 z-0 opacity-10 blur-2xl">
-                 <img src="/image-2.png" alt="" className="w-full h-full object-cover rounded-full" />
+            {/* Right Side: High-Clarity 3rd Gen Ecosystem Visual */}
+            <div className="relative perspective-2000 py-20 lg:py-0">
+              {/* THE SHINING ASSET: 3D Intelligence Sculpture */}
+              <div className="absolute inset-0 z-0 flex items-center justify-center translate-x-12 translate-y-12 scale-125 select-none pointer-events-none">
+                 {/* Plasma Pulse Glow */}
+                 <div className="absolute w-[80%] h-[80%] bg-[#EE2B47]/10 blur-[100px] animate-pulse-slow rounded-full" />
+                 <img src="/tech_intelligence.png" alt="" className="w-full h-full object-contain mix-blend-multiply opacity-90 drop-shadow-[0_0_50px_rgba(238,43,71,0.2)]" />
               </div>
 
-              {/* Layered Glass Stack */}
-              <div className="relative z-10 space-y-[-120px] lg:space-y-[-180px]">
+              {/* Layered Glass Stack - Modernized Depth */}
+              <div className="relative z-10 space-y-[-100px] lg:space-y-[-150px]">
                  
-                 {/* Top Case: UI Layer */}
-                 <div className="rs d3 relative ml-auto w-full max-w-sm aspect-video bg-white/40 backdrop-blur-3xl border border-white/60 rounded-3xl shadow-2xl p-6 transform rotate-[-2deg] hover:rotate-0 transition-transform duration-1000 z-30">
-                    <div className="flex items-center justify-between mb-8">
-                       <div className="w-10 h-10 rounded-xl bg-[#000E22] flex items-center justify-center p-2">
+                 {/* Top Node: Intelligence Layer */}
+                 <div className="rs d3 relative ml-auto w-full max-w-[340px] aspect-[4/3] bg-white/60 backdrop-blur-3xl border border-white/60 rounded-[3rem] shadow-2xl p-8 transform rotate-[-3deg] hover:rotate-0 hover:-translate-y-4 transition-all duration-700 z-30 group/node">
+                    <div className="flex items-center justify-between mb-10">
+                       <div className="w-12 h-12 rounded-2xl bg-[#000E22] flex items-center justify-center p-3 shadow-lg group-hover/node:bg-[#EE2B47] transition-colors">
                           <img src="/logo-no-background.png" alt="" className="w-full h-full object-contain brightness-0 invert" />
                        </div>
-                       <div className="h-5 w-20 bg-[#EE2B47]/10 rounded-full" />
+                       <div className="h-6 w-24 bg-[#EE2B47]/10 rounded-full animate-pulse" />
                     </div>
-                    <div className="space-y-3">
+                    <div className="space-y-4 mb-8">
                        <div className="h-2 w-3/4 bg-[#000E22]/05 rounded-full" />
                        <div className="h-2 w-1/2 bg-[#000E22]/05 rounded-full" />
+                       <div className="h-2 w-2/3 bg-[#000E22]/05 rounded-full" />
                     </div>
-                    <div className="absolute -bottom-4 -right-4 px-4 py-2 bg-[#D4AF37] text-white text-[9px] font-black tracking-widest rounded-lg shadow-xl uppercase">Live Dashboard</div>
+                    <div className="absolute -bottom-4 -right-4 px-5 py-2.5 bg-[#EE2B47] text-white text-[10px] font-black tracking-[0.2em] rounded-xl shadow-2xl shadow-[#EE2B47]/40 uppercase">Intelligence active</div>
                  </div>
 
-                 {/* Middle Case: Security Layer */}
-                 <div className="rs d4 relative mx-auto w-full max-w-md aspect-video bg-[#000E22] rounded-3xl shadow-3xl overflow-hidden border border-white/10 z-20 group">
-                    <img src="/image-2.png" alt="" className="absolute inset-0 w-full h-full object-cover opacity-30 grayscale group-hover:grayscale-0 transition-all duration-1000" />
-                    <div className="absolute inset-0 bg-gradient-to-tr from-[#000E22] via-transparent to-transparent" />
-                    <div className="absolute bottom-6 left-6">
-                       <div className="text-[10px] font-black text-[#EE2B47] uppercase tracking-[.3em] mb-1">Security Node</div>
-                       <div className="text-white font-bold text-sm tracking-wide">AES-256 Protocol Active</div>
+                 {/* Central Node: Security Core */}
+                 <div className="rs d4 relative mx-auto w-full max-w-[420px] aspect-video bg-[#000E22] rounded-[3.5rem] shadow-3xl overflow-hidden border border-white/10 z-20 group/sec">
+                    <img src="/image-2.png" alt="" className="absolute inset-0 w-full h-full object-cover opacity-20 grayscale group-hover/sec:grayscale-0 group-hover/sec:scale-105 transition-all duration-[2s]" />
+                    <div className="absolute inset-0 bg-gradient-to-tr from-[#000E22] via-[#000E22]/60 to-transparent" />
+                    <div className="absolute bottom-8 left-8">
+                       <div className="flex items-center gap-3 mb-2">
+                          <span className="w-2 h-2 rounded-full bg-[#EE2B47] shadow-[0_0_10px_#EE2B47]" />
+                          <div className="text-[10px] font-black text-white/40 uppercase tracking-[.4em]">Advanced Node</div>
+                       </div>
+                       <div className="text-white font-serif font-black text-xl tracking-tight">Enterprise Integrity</div>
                     </div>
                  </div>
 
-                 {/* Bottom Case: Infra Layer */}
-                 <div className="rs d5 relative mr-auto w-full max-w-sm aspect-video bg-white/10 backdrop-blur-2xl border border-white/20 rounded-3xl shadow-xl p-8 transform rotate-[3deg] hover:rotate-0 transition-transform duration-1000 z-10">
+                 {/* Bottom Node: Infra Architecture */}
+                 <div className="rs d5 relative mr-auto w-full max-w-[340px] aspect-[4/3] bg-white/20 backdrop-blur-2xl border border-white/30 rounded-[3rem] shadow-xl p-10 transform rotate-[4deg] hover:rotate-0 hover:translate-y-4 transition-all duration-700 z-10">
                     <div className="flex flex-col justify-end h-full">
-                       <div className="text-[10px] font-black text-[#000E22]/30 uppercase tracking-[.4em] mb-4">Infrastructure</div>
-                       <div className="flex gap-2">
-                          {[1,2,3,4].map(i => (
-                             <div key={i} className="flex-1 h-1 bg-[#000E22]/10 rounded-full overflow-hidden">
-                                <div className="h-full w-2/3 bg-[#D4AF37]" style={{ animationDelay: `${i*0.2}s` }} />
+                       <div className="text-[10px] font-black text-[#000E22]/40 uppercase tracking-[.4em] mb-6">Global Grid</div>
+                       <div className="space-y-3">
+                          {[1,2,3].map(i => (
+                             <div key={i} className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
+                                <div className="h-full w-2/3 bg-[#EE2B47]/40 animate-pulse" style={{ animationDelay: `${i*0.3}s` }} />
                              </div>
                           ))}
                        </div>
                     </div>
                  </div>
               </div>
-      {/* Decorative brand ornament */}
-              <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-[#EE2B47]/05 blur-3xl rounded-full -z-10" />
             </div>
-
           </div>
         </div>
       </section>
