@@ -111,11 +111,28 @@ export default function Home() {
     <main className="overflow-hidden">
       {/* ═══ UNIFIED GLASS DASHBOARD HERO ═══ */}
       <section className="relative min-h-screen flex flex-col items-center justify-center pt-24 pb-20 overflow-hidden bg-[#000E22]">
-        {/* Unified Full-Width Background */}
-        <div className="absolute inset-0 z-0">
-           <img src="/image-1.png" alt="" className="w-full h-full object-cover opacity-60 shadow-inner" />
-           <div className="absolute inset-0 bg-gradient-to-r from-[#000E22] via-[#000E22]/85 to-[#000E22]/40" />
-           <div className="absolute inset-0 bg-pattern opacity-30" />
+        {/* Unified Full-Width Background & Shining Tech Visual */}
+        <div className="absolute inset-0 z-0 select-none pointer-events-none">
+           {/* Base Deep Navy */}
+           <div className="absolute inset-0 bg-[#000E22]" />
+           
+           {/* Liquid Shine Pulse */}
+           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] bg-[radial-gradient(circle_at_70%_50%,#EE2B4715,transparent_40%)] animate-pulse-slow" />
+           
+           {/* THE SHINING ASSET: Premium 3D Tech Visual */}
+           <div className="absolute top-0 right-0 w-full lg:w-2/3 h-full overflow-hidden">
+              <img src="/shining_hero.png" alt="" className="w-full h-full object-contain object-right opacity-80 mix-blend-screen scale-110" />
+              {/* Fade masks */}
+              <div className="absolute inset-0 bg-gradient-to-r from-[#000E22] via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#000E22] via-[#000E22]/40 to-transparent" />
+           </div>
+
+           {/* Brand Watermark Integration */}
+           <div className="absolute top-0 right-0 p-20 opacity-[0.03] select-none">
+              <img src="/logo-no-background.png" alt="" className="w-[40rem] transform rotate-12" />
+           </div>
+
+           <div className="absolute inset-0 bg-pattern opacity-[0.12]" />
         </div>
 
         {/* Content Content - Responsive Layout */}
@@ -123,81 +140,51 @@ export default function Home() {
           
           {/* Left Side: Brand Story - Immediate Visibility */}
           <div ref={sTop as React.RefObject<HTMLDivElement>} className="flex flex-col items-start text-left z-10">
-            <h1 className="font-serif text-[4rem] md:text-[6rem] text-white leading-[0.95] mb-8 tracking-tighter shadow-sm">
-              Empowering Your<br />
-              <span className="text-grad">Digital Future</span>
+            <h1 className="font-serif text-[4rem] md:text-[6.5rem] text-white leading-[0.92] mb-10 tracking-tighter shadow-sm">
+              Modernizing<br />
+              <span className="italic text-[#EE2B47]">Institutional</span><br />
+              Reality.
             </h1>
             
-            <p className="text-white/60 text-lg md:text-xl max-w-lg mb-12 leading-relaxed">
-              Leading the digital transformation of institutions with smart ERP, finance, and business management tools built for the modern era.
+            <p className="text-white/40 text-xl md:text-2xl max-w-lg mb-14 leading-relaxed font-medium">
+              Bridging the gap between traditional operations and the high-speed digital economy. Sanothimi is the new standard of innovation.
             </p>
 
-            <div className="flex flex-wrap gap-6 items-center">
-              <Link href="/contact" className="btn btn-fill px-10 py-5 rounded-full text-lg shadow-[0_10px_40px_rgba(238,43,71,0.4)]">
-                Explore Our Solutions
+            <div className="flex flex-wrap gap-8 items-center">
+              <Link href="/contact" className="group relative bg-[#EE2B47] text-white px-12 py-5 rounded-full font-bold text-lg shadow-2xl shadow-[#EE2B47]/20 hover:bg-white hover:text-[#EE2B47] transition-all duration-500 overflow-hidden">
+                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-[.8s] ease-in-out" />
+                 Explore Our Solutions
               </Link>
+              
               <div className="flex items-center gap-4 py-2 px-6 rounded-full bg-white/05 border border-white/10 backdrop-blur-md">
                 <div className="flex -space-x-2">
                   {[1,2,3].map(i => (
-                    <div key={i} className="w-9 h-9 rounded-full border-2 border-[#000E22] bg-gray-600 overflow-hidden">
-                      <div className="w-full h-full bg-[#EE2B47]/30 flex items-center justify-center text-[11px] font-bold text-white">U{i}</div>
-                    </div>
+                    <div key={i} className="w-9 h-9 rounded-full border-2 border-[#000E22] bg-[#EE2B47]/20 flex items-center justify-center text-[10px] font-bold text-white">U{i}</div>
                   ))}
                 </div>
-                <div className="text-xs font-bold text-white/70">
-                  <div className="flex items-center gap-1 font-bold text-white">
-                    <svg className="w-3.5 h-3.5 text-[#EE2B47]" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                    4.9/5
-                  </div>
-                  <div className="text-white/30 font-normal">Expert Rating</div>
+                <div className="text-xs font-bold text-white/50">
+                   Next-Gen Hub Arrival
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right Side: Minimalist Typography & Brand Mission - Explicitly Visible */}
-          <div className="relative flex flex-col items-center lg:items-end text-center lg:text-right space-y-16 pr-4 md:pr-10 z-10">
-             {/* Glow Overlay to make text pop */}
-             <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[500px] h-[500px] bg-[#EE2B47]/10 blur-[120px] rounded-full -z-10 animate-pulse pointer-events-none" />
-
-             {/* Supporting Brand Pillar 1 */}
-             <div className="flex flex-col items-center lg:items-end">
-                <div className="text-[#D4AF37] text-[.65rem] font-bold uppercase tracking-[.6em] mb-4">Evolution</div>
-                <h3 className="font-serif text-3xl md:text-5xl text-white leading-tight">
-                   Modernizing Industry<br />Standards.
-                </h3>
+          {/* Right Side: Hidden Module for Asset Clarity */}
+          <div className="hidden lg:block relative h-[600px]">
+             {/* The asset occupies the bg layer above */}
+             <div className="absolute bottom-20 right-0 bg-white/5 backdrop-blur-3xl border border-white/10 p-10 rounded-[3rem] shadow-2xl rs d3">
+                <div className="text-[.6rem] font-black uppercase tracking-[.4em] text-[#EE2B47] mb-2 leading-none">Security Core</div>
+                <div className="text-4xl font-serif font-bold text-white mb-2 leading-none">100% Integrity</div>
+                <div className="text-white/30 text-[.85rem] font-medium">Global SaaS Infrastructure Architecture</div>
              </div>
-
-             {/* Supporting Brand Pillar 2 */}
-             <div className="flex flex-col items-center lg:items-end">
-                <div className="text-[#EE2B47] text-[.65rem] font-bold uppercase tracking-[.6em] mb-4">Security</div>
-                <h3 className="font-serif text-3xl md:text-5xl text-white leading-tight">
-                   Integrity at Every<br />Digital Layer.
-                </h3>
-             </div>
-
-             {/* Supporting Brand Pillar 3 */}
-             <div className="flex flex-col items-center lg:items-end">
-                <div className="text-white/40 text-[.65rem] font-bold uppercase tracking-[.6em] mb-4">Foundation</div>
-                <h3 className="font-serif text-3xl md:text-5xl text-white leading-tight">
-                   Built to Scale for<br />the Next Century.
-                </h3>
-             </div>
-
-             {/* Minimalist divider element */}
-             <div className="hidden lg:block w-px h-32 bg-gradient-to-b from-transparent via-[#EE2B47]/20 to-transparent" />
           </div>
-          {/* Decorative shapes */}
-          <div className="absolute top-20 right-20 w-32 h-32 rounded-full bg-[#EE2B47]/10 blur-3xl animate-pulse" />
-          <div className="absolute bottom-20 left-20 w-48 h-48 rounded-full bg-[#D4AF37]/10 blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
         </div>
-        {/* Integrated Logo Strip - Seamlessly blended into the Hero visual bottom */}
-        <div className="absolute bottom-0 left-0 w-full z-20 py-12 border-t border-white/05 bg-gradient-to-t from-[#000E22] to-transparent backdrop-blur-lg">
+
+        {/* Integrated Logo Strip */}
+        <div className="absolute bottom-0 left-0 w-full z-20 py-12 border-t border-white/05 bg-gradient-to-t from-[#000E22] to-transparent">
           <div className="max-w-7xl mx-auto px-6">
             <div className="flex items-center gap-10 md:gap-20 justify-center flex-wrap opacity-40 grayscale hover:grayscale-0 transition-all duration-700">
-               <span className="text-white text-[.65rem] font-bold uppercase tracking-[.4em] whitespace-nowrap border-r border-white/20 pr-10 mr-[-10px]">As seen on</span>
+               <span className="text-white text-[.65rem] font-bold uppercase tracking-[.4em] border-r border-white/20 pr-10 mr-[-10px] select-none">Enterprise Standards</span>
                {LOGOS.map((l) => (
                  <span key={l} className="text-white/70 text-[.6rem] font-bold tracking-[.45em] uppercase hover:text-white transition-colors">{l}</span>
                ))}
@@ -252,7 +239,7 @@ export default function Home() {
             <div className="relative perspective-2000">
               {/* Atmospheric Background Layer */}
               <div className="absolute -inset-10 z-0 opacity-10 blur-2xl">
-                 <img src="/image-2.png" alt="" className="w-full h-full object-cover rounded-full" />
+                 <img src="/shining_hero.png" alt="" className="w-full h-full object-cover rounded-full" />
               </div>
 
               {/* Layered Glass Stack */}
@@ -275,7 +262,7 @@ export default function Home() {
 
                  {/* Middle Case: Security Layer */}
                  <div className="rs d4 relative mx-auto w-full max-w-md aspect-video bg-[#000E22] rounded-3xl shadow-3xl overflow-hidden border border-white/10 z-20 group">
-                    <img src="/image-2.png" alt="" className="absolute inset-0 w-full h-full object-cover opacity-30 grayscale group-hover:grayscale-0 transition-all duration-1000" />
+                    <img src="/shining_hero.png" alt="" className="absolute inset-0 w-full h-full object-cover opacity-30 grayscale group-hover:grayscale-0 transition-all duration-1000" />
                     <div className="absolute inset-0 bg-gradient-to-tr from-[#000E22] via-transparent to-transparent" />
                     <div className="absolute bottom-6 left-6">
                        <div className="text-[10px] font-black text-[#EE2B47] uppercase tracking-[.3em] mb-1">Security Node</div>
@@ -352,7 +339,7 @@ export default function Home() {
                                <div key={m} className="flex items-center gap-4 group/m">
                                   <div className="w-1.5 h-1.5 rounded-full bg-[#EE2B47]/40 group-hover/m:bg-[#EE2B47] transition-colors" />
                                   <span className="text-[#000E22] text-[11px] font-bold tracking-wide whitespace-nowrap">{m}</span>
-                               </div>
+                                </div>
                              ))}
                           </div>
                        </div>
@@ -482,7 +469,7 @@ export default function Home() {
        {/* ═══ CALL TO ACTION IMAGE - Enhanced with image-3 glassy background ═══ */}
        <section className="relative h-[400px] overflow-hidden slant-t-xl-rev z-10 flex items-center justify-center bg-[#001C44]">
           <div className="absolute inset-0 opacity-[.08] pointer-events-none">
-             <img src="/image-3.png" alt="" className="w-full h-full object-cover" />
+             <img src="/shining_hero.png" alt="" className="w-full h-full object-cover" />
           </div>
           <div className="absolute inset-0 bg-gradient-to-t from-[#000E22] via-[#000E22]/60 to-[#000E22]/10" />
           
@@ -557,4 +544,3 @@ export default function Home() {
     </main>
   );
 }
-
