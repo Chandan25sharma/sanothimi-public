@@ -237,11 +237,17 @@ export default function Home() {
 
             {/* Right Side: High-Clarity 3rd Gen Ecosystem Visual */}
             <div className="relative perspective-2000 py-20 lg:py-0">
-              {/* THE SHINING ASSET: 3D Intelligence Sculpture */}
-              <div className="absolute inset-0 z-0 flex items-center justify-center translate-x-12 translate-y-12 scale-125 select-none pointer-events-none">
-                 {/* Plasma Pulse Glow */}
-                 <div className="absolute w-[80%] h-[80%] bg-[#EE2B47]/10 blur-[100px] animate-pulse-slow rounded-full" />
-                 <img src="/tech_intelligence.png" alt="" className="w-full h-full object-contain mix-blend-multiply opacity-90 drop-shadow-[0_0_50px_rgba(238,43,71,0.2)]" />
+              {/* THE SHINING ASSET: Atmospheric 3D Intelligence Sculpture */}
+              <div className="absolute inset-0 z-0 flex items-center justify-center translate-x-24 scale-150 select-none pointer-events-none">
+                 {/* Integrated Plasma Atmosphere */}
+                 <div className="absolute w-[100%] h-[100%] bg-gradient-to-tr from-[#EE2B47]/10 via-transparent to-[#EE2B47]/05 blur-[120px] animate-pulse-slow rounded-full" />
+                 
+                 <img 
+                   src="/tech_intelligence.png" 
+                   alt="" 
+                   className="w-full h-full object-contain mix-blend-multiply opacity-40 grayscale-[0.3] brightness-110"
+                   style={{ maskImage: 'radial-gradient(circle, black 30%, transparent 75%)', WebkitMaskImage: 'radial-gradient(circle, black 30%, transparent 75%)' }}
+                 />
               </div>
 
               {/* Layered Glass Stack - Modernized Depth */}

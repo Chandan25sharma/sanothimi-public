@@ -33,8 +33,8 @@ const INFO = [
       </svg>
     ), 
     label:'Direct Line', 
-    val:'+977 980-6391489', 
-    href:'tel:+9779806391489' 
+    val:'+977 9704714937', 
+    href:'tel:+9779704714937' 
   },
   { 
     icon: (
