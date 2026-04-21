@@ -88,7 +88,47 @@ export const TRANSLATIONS = {
     'footer.platform': 'Platform',
     'footer.legal': 'Legal',
     'footer.rights': 'All Institutional Rights Reserved.',
-    'footer.madeBy': 'Elevated by Sanothimi Core Engineering'
+    'footer.madeBy': 'Elevated by Sanothimi Core Engineering',
+
+    // Home Page Specific
+    'home.hero.title1': 'Modernizing',
+    'home.hero.title2': 'Institutional',
+    'home.hero.title3': 'Reality.',
+    'home.hero.desc': 'Bridging the gap between traditional operations and the high-speed digital economy. Sanothimi is the new standard of innovation.',
+    'home.hero.cta': 'Explore Our Solutions',
+    'home.hero.hub': 'Next-Gen Hub Arrival',
+    'home.hero.integrity': '100% Integrity',
+    'home.hero.infra': 'Global SaaS Infrastructure Architecture',
+
+    'home.showcase.badge': 'Standard of Excellence',
+    'home.showcase.title1': 'Modernizing',
+    'home.showcase.title2': 'Institutional Reality',
+    'home.showcase.intel': 'Intelligence',
+    'home.showcase.intel.desc': 'Predictive analytics for informed decisioning',
+    'home.showcase.sec': 'Security',
+    'home.showcase.sec.desc': 'Enterprise-grade encryption and protocol compliance',
+    'home.showcase.logistics': 'Logistics',
+    'home.showcase.logistics.desc': 'Unified flow management for global operations',
+
+    'home.suite.kicker': 'Our Technology Suite',
+    'home.suite.title1': 'Solutions Designed',
+    'home.suite.title2': 'for the Future.',
+    'home.suite.desc': 'Comprehensive, modular cloud-based tools designed to digitize every layer of your organizational workflow.',
+    'home.suite.ecosystem': 'Service Ecosystem',
+    'home.suite.discovery': 'Discovery Platform',
+
+    'home.about.kicker': 'The Sanothimi Identity',
+    'home.about.title1': 'We are Sanothimi,',
+    'home.about.title2': 'a SaaS Provider.',
+    'home.about.desc': 'Dedicated to providing clear, actionable digital transformation that respects the operational frameworks of your specific industry while scaling globally.',
+    'home.about.feat1': 'Enterprise Scalability & Security',
+    'home.about.feat2': 'Intuitive User-Centric Workflows',
+    'home.about.feat3': 'Cloud-Native Scalable Architecture',
+
+    'home.why.kicker': 'Strategic Advantage',
+    'home.why.title1': 'Why Leaders Choose Sanothimi for',
+    'home.why.title2': 'Digital Transformation.',
+    'home.why.desc': 'We provide a level of expertise and personal attention that ensures your institution stays efficient, secure, and thrives in the digital age.',
   },
   np: {
     // Navbar
@@ -179,7 +219,47 @@ export const TRANSLATIONS = {
     'footer.platform': 'प्लेटफर्म',
     'footer.legal': 'कानूनी',
     'footer.rights': 'सबै संस्थागत अधिकारहरू सुरक्षित छन्।',
-    'footer.madeBy': 'सानोठिमी कोर इन्जिनियरिङ् द्वारा निर्मित'
+    'footer.madeBy': 'सानोठिमी कोर इन्जिनियरिङ् द्वारा निर्मित',
+
+    // Home Page Specific
+    'home.hero.title1': 'आधुनिकीकरण',
+    'home.hero.title2': 'संस्थागत',
+    'home.hero.title3': 'यथार्थ।',
+    'home.hero.desc': 'परम्परागत सञ्चालन र उच्च-गतिको डिजिटल अर्थतन्त्र बीचको खाडललाई कम गर्दै। सानोठिमी नवीनताको नयाँ मानक हो।',
+    'home.hero.cta': 'हाम्रा समाधानहरू अन्वेषण गर्नुहोस्',
+    'home.hero.hub': 'अर्को पुस्ताको हब आगमन',
+    'home.hero.integrity': '१००% अखण्डता',
+    'home.hero.infra': 'विश्वव्यापी साास पूर्वाधार आर्किटेक्चर',
+
+    'home.showcase.badge': 'उत्कृष्टताको मानक',
+    'home.showcase.title1': 'आधुनिकीकरण',
+    'home.showcase.title2': 'संस्थागत यथार्थ',
+    'home.showcase.intel': 'बौद्धिकता',
+    'home.showcase.intel.desc': 'सूचित निर्णयका लागि भविष्यवाणी गर्ने विश्लेषण',
+    'home.showcase.sec': 'सुरक्षा',
+    'home.showcase.sec.desc': 'इन्टरप्राइज-ग्रेड इन्क्रिप्शन र प्रोटोकल अनुपालन',
+    'home.showcase.logistics': 'रसद',
+    'home.showcase.logistics.desc': 'विश्वव्यापी परिचालनका लागि एकीकृत प्रवाह व्यवस्थापन',
+
+    'home.suite.kicker': 'हाम्रो प्रविधि सुइट',
+    'home.suite.title1': 'भविष्यका लागि',
+    'home.suite.title2': 'डिजाइन गरिएका समाधानहरू।',
+    'home.suite.desc': 'तपाईंको संगठनात्मक कार्यप्रवाहको प्रत्येक तहलाई डिजिटल बनाउन डिजाइन गरिएको व्यापक, मोड्युलर क्लाउड-आधारित उपकरणहरू।',
+    'home.suite.ecosystem': 'सेवा इकोसिस्टम',
+    'home.suite.discovery': 'खोज प्लेटफर्म',
+
+    'home.about.kicker': 'सानोठिमी पहिचान',
+    'home.about.title1': 'हामी सानोठिमी हौं,',
+    'home.about.title2': 'एक साास प्रदायक।',
+    'home.about.desc': 'विश्वव्यापी रूपमा स्केलिंग गर्दा तपाईंको विशिष्ट उद्योगको परिचालन ढाँचाहरूलाई सम्मान गर्ने स्पष्ट र कार्यान्वयन योग्य डिजिटल रूपान्तरण प्रदान गर्न समर्पित।',
+    'home.about.feat1': 'इन्टरप्राइज स्केलेबिलिटी र सुरक्षा',
+    'home.about.feat2': 'सहज प्रयोगकर्ता-केन्द्रित कार्यप्रवाह',
+    'home.about.feat3': 'क्लाउड-नेटिभ स्केलेबल आर्किटेक्चर',
+
+    'home.why.kicker': 'रणनीतिक लाभ',
+    'home.why.title1': 'नेताहरूले किन डिजिटल रूपान्तरणको लागि',
+    'home.why.title2': 'सानोठिमी रोज्छन्।',
+    'home.why.desc': 'हामी विशेषज्ञता र व्यक्तिगत ध्यानको स्तर प्रदान गर्दछौं जसले तपाईंको संस्था कुशल, सुरक्षित रहन र डिजिटल युगमा फस्टाउन सुनिश्चित गर्दछ।',
   }
 };
 

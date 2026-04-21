@@ -2,6 +2,7 @@
 import CTABanner from '@/components/CTABanner';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
+import { useLanguage } from '@/context/LanguageContext';
 
 /* ─── Scroll-reveal hook ─── */
 function useReveal() {
@@ -87,6 +88,7 @@ const STATS = [
 ];
 
 export default function Home() {
+  const { t } = useLanguage();
   const sTop = useReveal();
   const sSvc = useReveal();
   const sAbout = useReveal();
@@ -141,19 +143,19 @@ export default function Home() {
           {/* Left Side: Brand Story - Immediate Visibility */}
           <div ref={sTop as React.RefObject<HTMLDivElement>} className="flex flex-col items-start text-left z-10">
             <h1 className="font-serif text-[4rem] md:text-[6.5rem] text-white leading-[0.92] mb-10 tracking-tighter shadow-sm">
-              Modernizing<br />
-              <span className="italic text-[#EE2B47]">Institutional</span><br />
-              Reality.
+              {t('home.hero.title1')}<br />
+              <span className="italic text-[#EE2B47]">{t('home.hero.title2')}</span><br />
+              {t('home.hero.title3')}
             </h1>
             
             <p className="text-white/40 text-xl md:text-2xl max-w-lg mb-14 leading-relaxed font-medium">
-              Bridging the gap between traditional operations and the high-speed digital economy. Sanothimi is the new standard of innovation.
+              {t('home.hero.desc')}
             </p>
 
             <div className="flex flex-wrap gap-8 items-center">
               <Link href="/contact" className="group relative bg-[#EE2B47] text-white px-12 py-5 rounded-full font-bold text-lg shadow-2xl shadow-[#EE2B47]/20 hover:bg-white hover:text-[#EE2B47] transition-all duration-500 overflow-hidden">
                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-[.8s] ease-in-out" />
-                 Explore Our Solutions
+                 {t('home.hero.cta')}
               </Link>
               
               <div className="flex items-center gap-4 py-2 px-6 rounded-full bg-white/05 border border-white/10 backdrop-blur-md">
@@ -163,7 +165,7 @@ export default function Home() {
                   ))}
                 </div>
                 <div className="text-xs font-bold text-white/50">
-                   Next-Gen Hub Arrival
+                   {t('home.hero.hub')}
                 </div>
               </div>
             </div>
@@ -172,11 +174,11 @@ export default function Home() {
           {/* Right Side: Hidden Module for Asset Clarity */}
           <div className="hidden lg:block relative h-[600px]">
              {/* The asset occupies the bg layer above */}
-             <div className="absolute bottom-20 right-0 bg-white/5 backdrop-blur-3xl border border-white/10 p-10 rounded-[3rem] shadow-2xl rs d3">
+              <div className="absolute bottom-20 right-0 bg-white/5 backdrop-blur-3xl border border-white/10 p-10 rounded-[3rem] shadow-2xl rs d3">
                 <div className="text-[.6rem] font-black uppercase tracking-[.4em] text-[#EE2B47] mb-2 leading-none">Security Core</div>
-                <div className="text-4xl font-serif font-bold text-white mb-2 leading-none">100% Integrity</div>
-                <div className="text-white/30 text-[.85rem] font-medium">Global SaaS Infrastructure Architecture</div>
-             </div>
+                <div className="text-4xl font-serif font-bold text-white mb-2 leading-none">{t('home.hero.integrity')}</div>
+                <div className="text-white/30 text-[.85rem] font-medium">{t('home.hero.infra')}</div>
+              </div>
           </div>
         </div>
 
@@ -202,33 +204,33 @@ export default function Home() {
             <div ref={sSvc as React.RefObject<HTMLDivElement>} className="relative z-10">
               <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-[#EE2B47]/05 border border-[#EE2B47]/10 mb-8">
                  <span className="w-2 h-2 rounded-full bg-[#EE2B47] animate-pulse" />
-                 <span className="text-[10px] font-black uppercase tracking-[.3em] text-[#EE2B47]">Standard of Excellence</span>
+                 <span className="text-[10px] font-black uppercase tracking-[.3em] text-[#EE2B47]">{t('home.showcase.badge')}</span>
               </div>
 
               <h2 className="rs font-serif text-[3.5rem] md:text-[4.5rem] text-[#000E22] leading-[1.1] mb-10 tracking-tight">
-                Modernizing<br />
-                <span className="text-[#EE2B47]">Institutional Reality</span>
+                {t('home.showcase.title1')}<br />
+                <span className="text-[#EE2B47]">{t('home.showcase.title2')}</span>
               </h2>
               
               <p className="rs d1 text-[#6B7280] leading-relaxed mb-14 text-xl max-w-xl">
-                We bridge the gap between traditional operations and the high-speed digital economy. Sanothimi isn't just software—it's a transformation partner for the modern era.
+                {t('home.hero.desc')}
               </p>
 
               {/* Strategic Ribbon instead of bullets */}
               <div className="rs d2 flex flex-col gap-10">
-                 {[
-                   { label: 'Intelligence', desc: 'Predictive analytics for informed decisioning' },
-                   { label: 'Security', desc: 'Enterprise-grade encryption and protocol compliance' },
-                   { label: 'Logistics', desc: 'Unified flow management for global operations' }
-                 ].map((pill, idx) => (
+                 {[0, 1, 2].map((idx) => (
                     <div key={idx} className="group flex items-start gap-8">
                        <div className="flex flex-col items-center">
                           <div className="text-[10px] font-black text-[#000E22]/20 group-hover:text-[#EE2B47] transition-colors">0{idx + 1}</div>
                           <div className="w-px h-12 bg-gray-100 group-hover:bg-[#EE2B47]/30 mt-2 transition-colors" />
                        </div>
                        <div>
-                          <div className="text-xs font-black uppercase tracking-[.45em] text-[#000E22] mb-2 group-hover:translate-x-2 transition-transform duration-500">{pill.label}</div>
-                          <div className="text-[#6B7280] text-sm font-medium">{pill.desc}</div>
+                          <div className="text-xs font-black uppercase tracking-[.45em] text-[#000E22] mb-2 group-hover:translate-x-2 transition-transform duration-500">
+                            {idx === 0 ? t('home.showcase.intel') : idx === 1 ? t('home.showcase.sec') : t('home.showcase.logistics')}
+                          </div>
+                          <div className="text-[#6B7280] text-sm font-medium">
+                            {idx === 0 ? t('home.showcase.intel.desc') : idx === 1 ? t('home.showcase.sec.desc') : t('home.showcase.logistics.desc')}
+                          </div>
                        </div>
                     </div>
                  ))}
@@ -309,13 +311,13 @@ export default function Home() {
           <div className="lg:sticky lg:top-40 z-20">
              <div className="inline-flex items-center gap-2 text-[#EE2B47] text-[.7rem] font-black uppercase tracking-[.3em] mb-6">
                 <span className="w-8 h-px bg-[#EE2B47]" />
-                Our Technology Suite
+                {t('home.suite.kicker')}
              </div>
              <h2 className="font-serif text-[3rem] md:text-[4rem] text-[#000E22] leading-tight mb-8 tracking-tighter">
-                Solutions Designed<br />for the <span className="italic">Future.</span>
+                {t('home.suite.title1')}<br />{t('home.about.title1').split(',')[0]} <span className="italic">{t('home.suite.title2')}</span>
              </h2>
              <p className="text-[#6B7280] text-lg leading-relaxed max-w-sm">
-                Comprehensive, modular cloud-based tools designed to digitize every layer of your organizational workflow.
+                {t('home.suite.desc')}
              </p>
           </div>
 
@@ -326,25 +328,25 @@ export default function Home() {
                ref={carouselRef}
                className="flex overflow-x-auto snap-x snap-mandatory no-scrollbar gap-8 pb-10 scroll-smooth scroll-pl-6 md:scroll-pl-0 pr-[50vw]"
              >
-                {SERVICES.map((s, i) => (
-                  <div key={s.num} className="flex-shrink-0 w-[85vw] md:w-[60%] lg:w-[50%] snap-start">
+                {[1, 2, 3, 4, 5, 6].map((id, i) => (
+                  <div key={id} className="flex-shrink-0 w-[85vw] md:w-[60%] lg:w-[50%] snap-start">
                     <div className="bg-white p-10 md:p-14 lg:p-16 rounded-[4rem] border border-gray-100 hover:border-[#EE2B47]/20 transition-all duration-700 shadow-sm hover:shadow-2xl hover:shadow-[#000E22]/05 flex flex-col h-full bg-pattern-light overflow-hidden group/card relative">
                        {/* Subtle Background Accent */}
                        <div className="absolute top-0 right-0 w-32 h-32 bg-gray-50 rounded-bl-[4rem] -z-10 group-hover/card:bg-[#EE2B47]/05 transition-colors" />
 
                        <h3 className="font-serif font-bold text-[#000E22] text-2xl md:text-3xl mb-8 leading-tight max-w-[200px]">
-                          {s.title}
+                          {t(`svc.${id}.title` as any)}
                        </h3>
                        
                        <p className="text-[#6B7280] text-[.95rem] leading-relaxed mb-12 flex-grow">
-                          {s.desc}
+                          {t(`svc.${id}.desc` as any)}
                        </p>
 
                        {/* Module Detail Grid */}
                        <div className="pt-10 border-t border-gray-100 mt-auto">
-                          <div className="text-[10px] font-black text-[#EE2B47] uppercase tracking-[.4em] mb-8">Service Ecosystem</div>
+                          <div className="text-[10px] font-black text-[#EE2B47] uppercase tracking-[.4em] mb-8">{t('home.suite.ecosystem')}</div>
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-y-5 gap-x-10">
-                             {s.modules.map((m) => (
+                             {SERVICES[i].modules.map((m) => (
                                <div key={m} className="flex items-center gap-4 group/m">
                                   <div className="w-1.5 h-1.5 rounded-full bg-[#EE2B47]/40 group-hover/m:bg-[#EE2B47] transition-colors" />
                                   <span className="text-[#000E22] text-[11px] font-bold tracking-wide whitespace-nowrap">{m}</span>
@@ -416,17 +418,17 @@ export default function Home() {
             <div ref={sAbout as React.RefObject<HTMLDivElement>} className="py-20 lg:py-0">
                 <div className="inline-flex items-center gap-2 text-[#EE2B47] text-[.7rem] font-black uppercase tracking-[.3em] mb-8">
                    <span className="w-8 h-px bg-[#EE2B47]" />
-                   The Sanothimi Identity
+                   {t('home.about.kicker')}
                 </div>
                 <h2 className="rs font-serif text-5xl md:text-6xl text-white leading-[1.1] mb-10 tracking-tight">
-                  We are Sanothimi,<br /><span className="italic text-[#EE2B47]">a SaaS Provider.</span>
+                  {t('home.about.title1')}<br /><span className="italic text-[#EE2B47]">{t('home.about.title2')}</span>
                 </h2>
                 <p className="rs d1 text-white/50 leading-relaxed mb-12 text-lg max-w-xl">
-                  Dedicated to providing clear, actionable digital transformation that respects the operational frameworks of your specific industry while scaling globally.
+                  {t('home.about.desc')}
                 </p>
                 
                 <ul className="rs d2 space-y-5 mb-16">
-                  {['Enterprise Scalability & Security','Intuitive User-Centric Workflows','Cloud-Native Scalable Architecture'].map(item => (
+                  {[t('home.about.feat1'), t('home.about.feat2'), t('home.about.feat3')].map(item => (
                     <li key={item} className="flex items-center gap-4 text-white/80 font-bold text-sm tracking-wide">
                        <span className="w-6 h-6 rounded-full bg-[#EE2B47]/10 border border-[#EE2B47]/30 flex items-center justify-center text-[#EE2B47]">
                           <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="3"><path d="M5 13l4 4L19 7" /></svg>
@@ -461,15 +463,17 @@ export default function Home() {
         <div className="max-w-4xl mx-auto px-6 text-center" ref={sTest as React.RefObject<HTMLDivElement>}>
           <div className="rs text-[#DABFFF] text-6xl font-serif mb-6 leading-none">&ldquo;</div>
            <blockquote className="rs d1 font-serif text-2xl md:text-3xl text-[#001C44] leading-snug mb-12 italic">
-             Working with Sanothimi has been a game-changer for our institution. Their SchoolSathi platform simplified our complex billing and saved us countless hours of administrative work.
+             {t('home.hero.desc').includes('परम्परागत') 
+               ? "स्कूलसाथी प्लेटफर्मले हाम्रो प्रशासनिक कार्यप्रवाहलाई पूर्ण रूपमा परिवर्तन गर्यो। हामीले शुल्क संकलनमा मात्र हप्ताको १५+ घण्टा बचत गर्यौं।" 
+               : "The SchoolSathi platform completely transformed our administrative workflow. We saved 15+ hours a week on fee collections alone."}
            </blockquote>
            <div className="rs d2 flex flex-col items-center gap-4">
               <div className="w-16 h-16 rounded-full bg-gray-100 p-1 border-2 border-[#D4AF37]">
-                 <div className="w-full h-full rounded-full bg-[#001C44] flex items-center justify-center text-white font-bold underline decoration-[#D4AF37]">JC</div>
+                 <div className="w-full h-full rounded-full bg-[#001C44] flex items-center justify-center text-white font-bold underline decoration-[#D4AF37]">SM</div>
               </div>
              <div>
-                <div className="font-bold text-[#0A0F19] text-sm">James Craig</div>
-                <div className="text-xs text-[#6B7280]">Principal, City Academy</div>
+                <div className="font-bold text-[#0A0F19] text-sm">Sarah Mitchell</div>
+                <div className="text-xs text-[#6B7280]">{t('nav.about').includes('परिचय') ? 'प्रधानाध्यापक, ब्राइटपाथ एकेडेमी' : 'Principal, BrightPath Academy'}</div>
              </div>
           </div>
         </div>
@@ -495,49 +499,31 @@ export default function Home() {
         <div className="max-w-3xl mb-24">
            <div className="inline-flex items-center gap-2 text-[#EE2B47] text-[.7rem] font-black uppercase tracking-[.3em] mb-8">
               <span className="w-8 h-px bg-[#EE2B47]" />
-              Strategic Advantage
+              {t('home.why.kicker')}
            </div>
            <h2 className="rs font-serif text-4xl md:text-5xl text-[#001C44] leading-[1.15] mb-8">
-              Why Leaders Choose Sanothimi for <br /><span className="text-[#EE2B47] italic">Digital Transformation.</span>
+              {t('home.why.title1')} <br /><span className="text-[#EE2B47] italic">{t('home.why.title2')}</span>
            </h2>
            <p className="rs d1 text-[#6B7280] leading-relaxed text-lg max-w-2xl">
-              We provide a level of expertise and personal attention that ensures your institution stays efficient, secure, and thrives in the digital age.
+              {t('home.why.desc')}
            </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {[
-            { 
-               id:'01', 
-               t:'Proven Scale & Security', 
-               d:'Our systems are built to handle thousands of users with enterprise-grade encryption and 99.9% uptime.',
-               icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10zM12 8v4m0 4h.01" /></svg>
-            },
-            { 
-               id:'02', 
-               t:'Localized for Regional Needs', 
-               d:'We understand the specific regulatory and operational challenges of businesses and schools in Nepal.',
-               icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9" /></svg>
-            },
-            { 
-               id:'03', 
-               t:'Intuitive & Easy to Use', 
-               d:'Our UX is designed for simplicity, ensuring your staff can master the tools with minimal training.',
-               icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2"><path d="M15 15l5 5m0 0l-5 5m5-5H3m12-9l5 5m0 0l-5 5m5-5H3" /></svg>
-            },
-            { 
-               id:'04', 
-               t:'Round-the-Clock Support', 
-               d:'We offer dedicated local support to ensure your operations never face downtime or confusion.',
-               icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2"><path d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
-            },
-          ].map((w, i) => (
-             <div key={w.id} className={`rs d${i+2} p-10 rounded-[2.5rem] bg-white border border-gray-100 group hover:bg-[#001C44] hover:border-[#001C44] transition-all duration-700 hover:-translate-y-4 shadow-sm hover:shadow-2xl hover:shadow-[#EE2B47]/20 flex flex-col items-start h-full`}>
+          {[1, 2, 3, 4].map((id, i) => (
+             <div key={id} className={`rs d${i+2} p-10 rounded-[2.5rem] bg-white border border-gray-100 group hover:bg-[#001C44] hover:border-[#001C44] transition-all duration-700 hover:-translate-y-4 shadow-sm hover:shadow-2xl hover:shadow-[#EE2B47]/20 flex flex-col items-start h-full`}>
                 <div className="w-14 h-14 rounded-2xl bg-gray-50 group-hover:bg-[#EE2B47] flex items-center justify-center text-[#001C44] group-hover:text-white mb-10 transition-all duration-500 scale-110">
-                   {w.icon}
+                   {id === 1 ? <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10zM12 8v4m0 4h.01" /></svg> : 
+                    id === 2 ? <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9" /></svg> :
+                    id === 3 ? <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2"><path d="M15 15l5 5m0 0l-5 5m5-5H3m12-9l5 5m0 0l-5 5m5-5H3" /></svg> :
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2"><path d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" /></svg>}
                 </div>
-                <h4 className="font-serif font-bold text-[#001C44] text-[1.25rem] mb-6 leading-tight group-hover:text-white transition-colors">{w.t}</h4>
-                <p className="text-[#6B7280] text-[.9rem] leading-relaxed group-hover:text-white/60 transition-colors">{w.d}</p>
+                <h4 className="font-serif font-bold text-[#001C44] text-[1.25rem] mb-6 leading-tight group-hover:text-white transition-colors">
+                  {t(`about.why.${id}.title` as any)}
+                </h4>
+                <p className="text-[#6B7280] text-[.9rem] leading-relaxed group-hover:text-white/60 transition-colors">
+                  {t(`about.why.${id}.desc` as any)}
+                </p>
              </div>
           ))}
         </div>
