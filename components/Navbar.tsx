@@ -8,111 +8,213 @@ export default function Navbar() {
   const { language, setLanguage, t } = useLanguage();
   const path = usePathname();
   const [scrolled, setScrolled] = useState(false);
+  const [pastHero, setPastHero] = useState(false);
   const [open, setOpen] = useState(false);
 
+  const isHome = path === '/';
+
   const LINKS = [
-    { label: t('nav.home'), href: '/', icon: <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg> },
-    { label: t('nav.about'), href: '/about', icon: <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg> },
-    { label: t('nav.services'), href: '/services', icon: <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg> },
-    { label: t('nav.contact'), href: '/contact', icon: <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg> },
+    { label: t('nav.home'),     href: '/' },
+    { label: t('nav.about'),    href: '/about' },
+    { label: t('nav.services'), href: '/services' },
+    { label: 'Pricing',         href: '/pricing' },
+    { label: t('nav.contact'),  href: '/contact' },
   ];
 
   useEffect(() => {
-    const fn = () => setScrolled(window.scrollY > 20);
+    const fn = () => {
+      setScrolled(window.scrollY > 24);
+      setPastHero(window.scrollY > window.innerHeight * 0.65);
+    };
     window.addEventListener('scroll', fn, { passive: true });
     return () => window.removeEventListener('scroll', fn);
   }, []);
 
+  // Close mobile menu on route change
+  useEffect(() => { setOpen(false); }, [path]);
+
+  const openSearch = () =>
+    window.dispatchEvent(new KeyboardEvent('keydown', { key: 'k', ctrlKey: true, bubbles: true }));
+
+  /* ── Style tokens ── */
+  // Dark mode: home page before scrolling past the hero section
+  const dark = isHome && !pastHero;
+
+  const headerBg = dark
+    ? 'bg-[#000E22]/85 border-white/8'
+    : scrolled
+      ? 'bg-white/96 border-gray-100 shadow-sm shadow-black/6'
+      : 'bg-white/80 border-gray-100';
+
+  const linkBase = dark ? 'text-white/45 hover:text-white' : 'text-[#001C44]/55 hover:text-[#001C44]';
+  const linkActive = 'text-[#EE2B47]';
+  const logoMain  = dark ? 'text-white' : 'text-[#001C44]';
+  const logoBg    = dark ? 'bg-white/10 border-white/10' : 'bg-[#001C44]/8 border-[#001C44]/8';
+  const langBg    = dark ? 'bg-white/6 border-white/8'   : 'bg-gray-100/70 border-gray-200/60';
+  const langActiveBg = dark ? 'bg-white/18 text-white'    : 'bg-white text-[#EE2B47] shadow-sm';
+  const langInactive = dark ? 'text-white/30 hover:text-white/60' : 'text-[#001C44]/40 hover:text-[#001C44]/70';
+  const searchBtn = dark
+    ? 'text-white/25 bg-white/5 border-white/8 hover:bg-white/10 hover:text-white/50 hover:border-white/15'
+    : 'text-[#001C44]/30 bg-gray-50 border-gray-200 hover:bg-gray-100 hover:text-[#001C44]/60';
+  const hamLine = dark ? 'bg-white/55' : 'bg-[#001C44]/55';
+  const hamBg   = dark ? 'bg-white/6 border-white/8'  : 'bg-gray-50 border-gray-200';
+  const mobileMenuBg = dark
+    ? 'bg-[#000E22]/98 backdrop-blur-2xl border-white/6'
+    : 'bg-white/98 backdrop-blur-2xl border-gray-100';
+  const mobileLinkBase   = dark ? 'text-white/45 hover:bg-white/5 hover:text-white/80'  : 'text-[#001C44]/55 hover:bg-gray-50 hover:text-[#001C44]';
+  const mobileLinkActive = 'bg-[#EE2B47]/10 text-[#EE2B47] border border-[#EE2B47]/15';
+  const mobileDivider    = dark ? 'border-white/8' : 'border-gray-100';
+
   return (
-    <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
-        scrolled 
-          ? 'top-4 max-w-5xl mx-auto rounded-[2rem] glass shadow-2xl shadow-[#EE2B47]/10 border border-white/40' 
-          : 'bg-white/70 backdrop-blur-xl border-b border-gray-100'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 h-[75px] flex items-center justify-between">
-        {/* Logo Rebuilt with Official Asset */}
-        <Link href="/" className="flex items-center gap-4 group">
-          <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center p-2.6 shadow-xl shadow-[#001C44]/05 border border-gray-100 group-hover:scale-105 transition-all duration-500">
-             <img src="/logo-no-background.png" alt="Sanothimi" className="w-full h-full object-contain" />
+    <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-400 backdrop-blur-2xl border-b ${headerBg}`}>
+      <div className="max-w-7xl mx-auto px-6 h-[70px] flex items-center justify-between gap-8">
+
+        {/* ── Logo ── */}
+        <Link href="/" className="flex items-center gap-3 group flex-shrink-0">
+          <div className={`w-8 h-8 rounded-lg border flex items-center justify-center p-1.5 transition-all duration-300 group-hover:scale-105 ${logoBg}`}>
+            <img
+              src="/logo-no-background.png"
+              alt="Sanothimi"
+              className="w-full h-full object-contain brightness-0 invert"
+            />
           </div>
           <div className="leading-tight">
-            <div className="font-serif font-bold text-[#001C44] text-[1.25rem] tracking-tight">Sanothimi</div>
-            <div className="text-[.6rem] text-[#EE2B47] font-black tracking-[.25em] uppercase">{t('nav.solutions')}</div>
+            <div className={`font-serif font-bold text-[1.05rem] tracking-tight leading-none transition-colors ${logoMain}`}>
+              Sanothimi
+            </div>
+            <div className="text-[.5rem] text-[#EE2B47] font-black tracking-[.35em] uppercase mt-0.5">
+              Technologies
+            </div>
           </div>
         </Link>
 
-        {/* Desktop nav with High-Fidelity Icons */}
-        <nav className="hidden md:flex items-center gap-10" aria-label="Main navigation">
-          {LINKS.map((l) => (
-            <Link key={l.href} href={l.href} className={`flex items-center gap-2 text-[0.88rem] font-bold tracking-tight transition-all hover:text-[#EE2B47] group ${path === l.href ? 'text-[#EE2B47]' : 'text-[#001C44]/70'}`}>
-              <span className={`transition-transform group-hover:scale-110 ${path === l.href ? 'text-[#EE2B47]' : 'text-[#EE2B47]/40 group-hover:text-[#EE2B47]'}`}>{l.icon}</span>
-              {l.label}
-            </Link>
-          ))}
+        {/* ── Desktop nav ── */}
+        <nav className="hidden md:flex items-center gap-0.5 flex-1 justify-center" aria-label="Main navigation">
+          {LINKS.map((l) => {
+            const active = path === l.href;
+            return (
+              <Link
+                key={l.href}
+                href={l.href}
+                className={`relative px-4 py-2 rounded-xl text-[.83rem] font-semibold transition-all duration-200 ${
+                  active ? linkActive : linkBase
+                }`}
+              >
+                {l.label}
+                {active && (
+                  <span className="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#EE2B47]" />
+                )}
+              </Link>
+            );
+          })}
         </nav>
 
-        {/* Action Core */}
-        <div className="flex items-center gap-4 md:gap-7">
-          {/* Premium Language Switcher */}
-          <div className="hidden sm:flex items-center p-1 bg-gray-50 rounded-xl border border-gray-100 shadow-inner">
-            <button 
-              onClick={() => setLanguage('en')}
-              className={`px-3 py-1.5 rounded-lg text-[0.65rem] font-black transition-all ${language === 'en' ? 'bg-white text-[#EE2B47] shadow-sm' : 'text-[#001C44]/40 hover:text-[#001C44]'}`}
-            >
-              EN
-            </button>
-            <button 
-              onClick={() => setLanguage('np')}
-              className={`px-3 py-1.5 rounded-lg text-[0.65rem] font-black transition-all ${language === 'np' ? 'bg-white text-[#EE2B47] shadow-sm' : 'text-[#001C44]/40 hover:text-[#001C44]'}`}
-            >
-              NP
-            </button>
+        {/* ── Right actions ── */}
+        <div className="flex items-center gap-2.5 flex-shrink-0">
+
+          {/* Language toggle */}
+          <div className={`hidden sm:flex items-center rounded-lg border p-0.5 gap-0.5 ${langBg}`}>
+            {(['en', 'np'] as const).map((lang) => (
+              <button
+                key={lang}
+                onClick={() => setLanguage(lang)}
+                className={`px-2.5 py-1 rounded-md text-[.6rem] font-black uppercase tracking-widest transition-all ${
+                  language === lang ? langActiveBg : langInactive
+                }`}
+              >
+                {lang}
+              </button>
+            ))}
           </div>
-          
-          <Link href="/contact" className="group relative flex items-center gap-3 bg-[#EE2B47] text-white px-7 py-3 rounded-2xl font-black uppercase tracking-widest text-[.65rem] shadow-xl shadow-[#EE2B47]/20 hover:bg-[#001C44] transition-all duration-500 overflow-hidden">
-             {t('nav.getStarted')}
-             <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="3"><path d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+
+          {/* ⌘K search */}
+          <button
+            onClick={openSearch}
+            className={`hidden lg:flex items-center gap-1.5 px-2.5 py-2 rounded-xl border text-[.65rem] font-bold transition-all ${searchBtn}`}
+            aria-label="Open search"
+          >
+            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+              <circle cx="11" cy="11" r="8" /><path d="M21 21l-4.35-4.35" />
+            </svg>
+            <kbd className="text-[.52rem] opacity-60">⌘K</kbd>
+          </button>
+
+          {/* CTA */}
+          <Link
+            href="/contact"
+            className="group flex items-center gap-1.5 bg-[#EE2B47] text-white px-5 py-2.5 rounded-xl font-bold text-[.78rem] shadow-lg shadow-[#EE2B47]/25 hover:bg-[#D91E36] hover:shadow-[#EE2B47]/40 hover:-translate-y-px transition-all duration-200"
+          >
+            {t('nav.getStarted')}
+            <svg
+              className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform"
+              fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5"
+            >
+              <path d="M9 5l7 7-7 7" />
+            </svg>
           </Link>
 
           {/* Hamburger */}
           <button
             onClick={() => setOpen(!open)}
-            className="md:hidden w-12 h-12 flex flex-col items-center justify-center gap-1.5 rounded-2xl bg-gray-50 border border-gray-100"
+            className={`md:hidden w-10 h-10 flex flex-col items-center justify-center gap-[5px] rounded-xl border transition-all ${hamBg}`}
             aria-label="Toggle menu"
           >
-            <span className={`w-6 h-[2px] bg-[#EE2B47] rounded-full transition-all duration-500 ${open ? 'rotate-45 translate-y-[8px]' : ''}`} />
-            <span className={`w-5 h-[2px] bg-[#001C44] rounded-full transition-all duration-500 ${open ? 'opacity-0' : ''}`} />
-            <span className={`w-6 h-[2px] bg-[#EE2B47] rounded-full transition-all duration-500 ${open ? '-rotate-45 -translate-y-[8px]' : ''}`} />
+            <span className={`w-[18px] h-[1.5px] rounded-full transition-all duration-300 ${hamLine} ${open ? 'rotate-45 translate-y-[6.5px]' : ''}`} />
+            <span className={`w-[13px] h-[1.5px] rounded-full transition-all duration-300 ${hamLine} ${open ? 'opacity-0 w-0' : ''}`} />
+            <span className={`w-[18px] h-[1.5px] rounded-full transition-all duration-300 ${hamLine} ${open ? '-rotate-45 -translate-y-[6.5px]' : ''}`} />
           </button>
         </div>
       </div>
 
-      {/* Mobile menu Rebuilt */}
-      <div className={`md:hidden overflow-hidden transition-all duration-700 glass border-t border-gray-100 ${open ? 'max-h-[700px] opacity-100 pb-10' : 'max-h-0 opacity-0'}`}>
-        <div className="px-6 py-6 flex flex-col gap-2">
-          {/* Mobile Lang Switch */}
-          <div className="flex items-center gap-2 mb-4 p-4 bg-[#EE2B47]/05 rounded-2xl">
-            <span className="text-[0.65rem] font-black text-[#EE2B47] uppercase tracking-widest mr-auto">Select Language</span>
-            <button onClick={() => setLanguage('en')} className={`px-4 py-2 rounded-xl text-xs font-bold ${language === 'en' ? 'bg-[#EE2B47] text-white' : 'text-[#001C44]/60'}`}>English</button>
-            <button onClick={() => setLanguage('np')} className={`px-4 py-2 rounded-xl text-xs font-bold ${language === 'np' ? 'bg-[#EE2B47] text-white' : 'text-[#001C44]/60'}`}>नेपाली</button>
+      {/* ── Mobile menu ── */}
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-400 border-t ${mobileMenuBg} ${mobileDivider} ${open ? 'max-h-[520px] opacity-100' : 'max-h-0 opacity-0'}`}
+      >
+        <div className="px-5 py-5 flex flex-col gap-1">
+          {LINKS.map((l) => {
+            const active = path === l.href;
+            return (
+              <Link
+                key={l.href}
+                href={l.href}
+                onClick={() => setOpen(false)}
+                className={`flex items-center justify-between px-4 py-3.5 rounded-2xl text-[.9rem] font-semibold transition-all ${
+                  active ? mobileLinkActive : mobileLinkBase
+                }`}
+              >
+                {l.label}
+                {active && (
+                  <svg className="w-3.5 h-3.5 text-[#EE2B47]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                    <path d="M9 5l7 7-7 7" />
+                  </svg>
+                )}
+              </Link>
+            );
+          })}
+
+          <div className={`flex items-center gap-2 mt-4 pt-4 border-t ${mobileDivider}`}>
+            {(['en', 'np'] as const).map((lang) => (
+              <button
+                key={lang}
+                onClick={() => setLanguage(lang)}
+                className={`flex-1 py-2.5 rounded-xl text-[.72rem] font-black uppercase tracking-widest transition-all ${
+                  language === lang
+                    ? 'bg-[#EE2B47] text-white shadow-md shadow-[#EE2B47]/20'
+                    : dark ? 'bg-white/5 text-white/30' : 'bg-gray-100 text-[#001C44]/40'
+                }`}
+              >
+                {lang === 'en' ? 'English' : 'नेपाली'}
+              </button>
+            ))}
           </div>
 
-          {LINKS.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              onClick={() => setOpen(false)}
-              className={`flex items-center gap-4 py-5 px-6 rounded-2xl border-b border-gray-50 text-[1rem] font-serif font-bold transition-all ${path === l.href ? 'bg-[#EE2B47]/05 text-[#EE2B47] border-[#EE2B47]/10 scale-[1.02]' : 'text-[#001C44]/70 hover:bg-gray-50'}`}
-            >
-              <span className={path === l.href ? 'text-[#EE2B47]' : 'text-gray-300'}>{l.icon}</span>
-              {l.label}
-            </Link>
-          ))}
-          <Link href="/contact" onClick={() => setOpen(false)} className="mt-8 flex justify-center py-5 bg-[#EE2B47] text-white rounded-[2rem] font-black uppercase tracking-widest text-xs shadow-2xl shadow-[#EE2B47]/30">
-            {t('nav.getStarted')}
+          <Link
+            href="/contact"
+            onClick={() => setOpen(false)}
+            className="mt-2 flex justify-center items-center gap-2 py-4 bg-[#EE2B47] text-white rounded-2xl font-bold text-[.85rem] shadow-lg shadow-[#EE2B47]/20 hover:bg-[#D91E36] transition-all"
+          >
+            Get Free Demo
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5"><path d="M9 5l7 7-7 7" /></svg>
           </Link>
         </div>
       </div>
