@@ -1,9 +1,8 @@
 'use client';
 import CTABanner from '@/components/CTABanner';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
-import { useLanguage } from '@/context/LanguageContext';
 
 /* ─── Animation helpers ──────────────────────────────────────────────── */
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -114,16 +113,18 @@ function DashboardPreview() {
       <div className="px-4 py-3 flex items-center gap-2.5">
         <div className="w-1.5 h-1.5 rounded-full bg-[#EE2B47] animate-pulse flex-shrink-0" />
         <div className="overflow-hidden h-4 flex-1 relative">
-          <motion.span
-            key={actIdx}
-            initial={{ y: 14, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: -14, opacity: 0 }}
-            transition={{ duration: 0.25 }}
-            className="absolute text-[.65rem] text-gray-400 font-medium whitespace-nowrap"
-          >
-            {ACTIVITIES[actIdx]}
-          </motion.span>
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.span
+              key={actIdx}
+              initial={{ y: 14, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -14, opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              className="absolute text-[.65rem] text-gray-400 font-medium whitespace-nowrap"
+            >
+              {ACTIVITIES[actIdx]}
+            </motion.span>
+          </AnimatePresence>
         </div>
       </div>
     </div>
@@ -189,7 +190,6 @@ const DIFFERENTIATORS = [
 
 /* ─── Page ───────────────────────────────────────────────────────────── */
 export default function Home() {
-  const { t } = useLanguage();
   const counters = [
     useCounter(STATS[0].target, STATS[0].delay),
     useCounter(STATS[1].target, STATS[1].delay),

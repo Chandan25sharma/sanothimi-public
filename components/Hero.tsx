@@ -178,8 +178,3 @@ export default function Hero() {
     </section>
   );
 }
-ton>
-      </div>
-    </section>
-  );
-}

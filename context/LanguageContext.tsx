@@ -1,6 +1,7 @@
 'use client';
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { TRANSLATIONS, TranslationKey } from '@/lib/translations';
+export type { TranslationKey };
 
 type Language = 'en' | 'np';
 
