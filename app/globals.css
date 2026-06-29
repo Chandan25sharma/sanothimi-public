@@ -774,3 +774,98 @@ body {
   background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
   background-size: 28px 28px;
 }
+
+/* ═══════════════════════════════════════════════
+   ERP SIMULATION EXPERIENCE
+═══════════════════════════════════════════════ */
+
+/* Scanline effect for boot sequence */
+@keyframes scanline {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+.animate-scanline {
+  animation: scanline 3s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to bottom, transparent, rgba(74,222,128,0.3), transparent);
+}
+
+/* Pulsing ring for active workflow node */
+@keyframes node-ping {
+  0%   { transform: scale(1);   opacity: 0.7; }
+  70%  { transform: scale(1.8); opacity: 0; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+.node-ping {
+  animation: node-ping 1.5s ease-out infinite;
+}
+
+/* Activity feed ticker */
+@keyframes ticker-up {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+.ticker-in {
+  animation: ticker-up 0.3s ease-out forwards;
+}
+
+/* Panel shimmer on module switch */
+@keyframes panel-flash {
+  0%   { opacity: 0.15; }
+  100% { opacity: 0; }
+}
+.panel-flash {
+  animation: panel-flash 0.5s ease-out forwards;
+  pointer-events: none;
+}
+
+/* Cursor blink in boot sequence */
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+.cursor-blink {
+  animation: cursor-blink 0.7s step-end infinite;
+}
+
+/* System grid lines (subtle crt feel) */
+.system-grid {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Glow badge for active module indicator */
+.module-active-glow {
+  box-shadow: 0 0 12px currentColor, 0 0 24px currentColor;
+}
+
+/* Data packet travelling animation on SVG paths */
+@keyframes data-flow {
+  0%   { stroke-dashoffset: 100; }
+  100% { stroke-dashoffset: 0; }
+}
+.data-flow-path {
+  stroke-dasharray: 6 4;
+  animation: data-flow 1.5s linear infinite;
+}
+
+/* Metric card pulse */
+@keyframes metric-pulse {
+  0%, 100% { box-shadow: none; }
+  50%       { box-shadow: 0 0 0 2px currentColor; }
+}
+
+/* Status indicator */
+@keyframes status-breathe {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50%       { opacity: 1;   transform: scale(1.15); }
+}
+.status-breathe {
+  animation: status-breathe 2s ease-in-out infinite;
+}
