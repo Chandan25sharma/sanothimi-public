@@ -45,23 +45,19 @@ export default function TermsPage() {
       <div className="read-progress" style={{ width: `${progress}%` }} />
 
       {/* ── Page Header ── */}
-      <div className="relative bg-[#082C66] pt-44 pb-24 overflow-hidden">
-        <div className="absolute inset-0 bg-pattern-dark opacity-100 pointer-events-none" />
-        <div className="absolute inset-0 pointer-events-none select-none">
-          <div className="absolute top-0 right-1/3 w-[500px] h-[500px] bg-[#D32F2F]/7 rounded-full blur-[120px]" />
-        </div>
+      <div className="relative bg-white pt-44 pb-16 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-[#D32F2F]/10 border border-[#D32F2F]/20 mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#D32F2F]" />
-            <span className="text-[10px] font-black uppercase tracking-[.3em] text-[#D32F2F]">
-              {t('legal.terms.hero.kicker')}
-            </span>
+          <div className="text-[#D32F2F] text-[.65rem] font-black uppercase tracking-[.3em] mb-6">
+            {t('legal.terms.hero.kicker')}
           </div>
-          <h1 className="font-serif text-5xl md:text-7xl text-white leading-tight mb-8 tracking-tighter">
+          <h1 className="font-serif text-5xl md:text-6xl text-[#0D47A1] leading-tight mb-8 tracking-tight">
             {t('legal.terms.hero.title1')}{' '}
-            <span className="italic text-grad">{t('legal.terms.hero.title2')}</span>
+            <span className="relative inline-block">
+              {t('legal.terms.hero.title2')}
+              <span className="absolute left-0 -bottom-1 w-full h-[3px] bg-[#D32F2F] rounded-full" />
+            </span>
           </h1>
-          <div className="flex flex-wrap items-center gap-8 text-[11px] font-black uppercase tracking-widest text-white/30">
+          <div className="flex flex-wrap items-center gap-8 text-[11px] font-black uppercase tracking-widest text-gray-400">
             <span className="flex items-center gap-2 text-[#D32F2F]">
               <span className="w-1 h-1 rounded-full bg-current" /> {t('legal.terms.hero.date')}
             </span>
@@ -69,7 +65,6 @@ export default function TermsPage() {
             <span>{t('legal.terms.hero.version')}</span>
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-white to-transparent" />
       </div>
 
       {/* ── Main layout ── */}

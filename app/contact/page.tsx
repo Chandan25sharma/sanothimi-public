@@ -103,41 +103,30 @@ export default function ContactPage() {
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           01. CINEMATIC HERO
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <div className="relative pt-48 pb-44 bg-[#082C66] overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none select-none">
-          <div className="absolute top-0 left-1/3 w-[600px] h-[600px] bg-[#D32F2F]/8 rounded-full blur-[120px] glow-orb" />
-          <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-[#0D47A1]/60 rounded-full blur-[100px]" />
-        </div>
-        <div className="absolute inset-0 bg-pattern-dark pointer-events-none" />
-        <div className="absolute inset-0 flex items-center justify-end opacity-[0.025] pointer-events-none select-none overflow-hidden">
-          <img src="/logo-icon-sano.png" alt="" className="w-[55%] h-auto object-contain transform rotate-[-6deg]" />
-        </div>
-
+      <div className="relative pt-44 pb-20 bg-white overflow-hidden">
         <div className="max-w-6xl mx-auto px-6 relative z-10">
-          <div className="inline-flex items-center gap-3 px-5 py-2.5 bg-[#D32F2F]/10 border border-[#D32F2F]/25 rounded-full mb-12 backdrop-blur-sm">
-            <span className="live-dot live-dot-red" />
-            <span className="text-[#D32F2F] text-[.65rem] font-black uppercase tracking-[.3em]">
-              {t('contact_pg.hero.kicker')}
-            </span>
+          <div className="text-[#D32F2F] text-[.7rem] font-black uppercase tracking-[.3em] mb-6">
+            {t('contact_pg.hero.kicker')}
           </div>
 
-          <h1 className="font-serif text-6xl md:text-8xl lg:text-[9rem] text-white leading-[1.0] tracking-tighter">
+          <h1 className="font-serif text-5xl md:text-7xl text-[#0D47A1] leading-[1.1] tracking-tight">
             {t('contact_pg.hero.title1')}<br />
-            <span className="italic text-grad">{t('contact_pg.hero.title2')}</span>
+            <span className="relative inline-block">
+              {t('contact_pg.hero.title2')}
+              <span className="absolute left-0 -bottom-1 w-full h-[3px] bg-[#D32F2F] rounded-full" />
+            </span>
           </h1>
 
-          <p className="text-white/35 text-lg md:text-xl max-w-2xl leading-relaxed mt-10">
+          <p className="text-gray-500 text-lg md:text-xl max-w-2xl leading-relaxed mt-10">
             Reach out and our team will respond within 24 hours — typically much faster.
           </p>
 
           {/* Response time badge */}
-          <div className="mt-10 inline-flex items-center gap-3 px-5 py-3 bg-white/5 border border-white/10 rounded-full backdrop-blur-sm">
+          <div className="mt-10 inline-flex items-center gap-3 px-5 py-3 bg-[#F8FAFC] border border-gray-100 rounded-full">
             <div className="live-dot" />
-            <span className="text-white/60 text-[.7rem] font-bold">Average response time: <span className="text-white font-black">&lt; 2 hours</span></span>
+            <span className="text-gray-500 text-[.7rem] font-bold">Average response time: <span className="text-[#0D47A1] font-black">&lt; 2 hours</span></span>
           </div>
         </div>
-
-        <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-white to-transparent" />
       </div>
 
 
@@ -392,6 +381,7 @@ export default function ContactPage() {
         title={'Ready for Global\nExpansion?'}
         sub="Connect with Nepal's leading SaaS architecture team today."
         cta="Initiate Demo"
+        ctaHref="/demo"
       />
     </main>
   );

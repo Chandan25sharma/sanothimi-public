@@ -72,40 +72,24 @@ export default function ServicesPage() {
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           01. CINEMATIC HERO
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <div className="relative pt-48 pb-44 bg-[#082C66] overflow-hidden">
-
-        {/* Gradient orbs */}
-        <div className="absolute inset-0 pointer-events-none select-none">
-          <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-[#D32F2F]/8 rounded-full blur-[120px] glow-orb" />
-          <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-[#0D47A1]/60 rounded-full blur-[100px]" />
-        </div>
-
-        <div className="absolute inset-0 bg-pattern-dark pointer-events-none" />
-
-        {/* Watermark */}
-        <div className="absolute inset-0 flex items-center justify-end opacity-[0.025] pointer-events-none select-none overflow-hidden">
-          <img src="/logo-icon-sano.png" alt="" className="w-[55%] h-auto object-contain transform rotate-[-6deg]" />
-        </div>
-
+      <div className="relative pt-44 pb-20 bg-white overflow-hidden">
         <div className="max-w-6xl mx-auto px-6 relative z-10">
-          <div className="inline-flex items-center gap-3 px-5 py-2.5 bg-[#D32F2F]/10 border border-[#D32F2F]/25 rounded-full mb-12 backdrop-blur-sm">
-            <span className="live-dot live-dot-red" />
-            <span className="text-[#D32F2F] text-[.65rem] font-black uppercase tracking-[.3em]">
-              {t('services_pg.hero.kicker')}
-            </span>
+          <div className="text-[#D32F2F] text-[.7rem] font-black uppercase tracking-[.3em] mb-6">
+            {t('services_pg.hero.kicker')}
           </div>
 
-          <h1 className="font-serif text-6xl md:text-8xl lg:text-[9rem] text-white leading-[1.0] tracking-tighter">
+          <h1 className="font-serif text-5xl md:text-7xl text-[#0D47A1] leading-[1.1] tracking-tight">
             {t('services_pg.hero.title1')}<br />
-            <span className="italic text-grad">{t('services_pg.hero.title2')}</span>
+            <span className="relative inline-block">
+              {t('services_pg.hero.title2')}
+              <span className="absolute left-0 -bottom-1 w-full h-[3px] bg-[#D32F2F] rounded-full" />
+            </span>
           </h1>
 
-          <p className="text-white/35 text-lg md:text-xl max-w-2xl leading-relaxed mt-10">
+          <p className="text-gray-500 text-lg md:text-xl max-w-2xl leading-relaxed mt-10">
             Enterprise-grade software solutions designed for the unique institutional landscape of Nepal and beyond.
           </p>
         </div>
-
-        <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-white to-transparent" />
       </div>
 
 
@@ -155,9 +139,10 @@ export default function ServicesPage() {
             {([1, 2, 3, 4, 5, 6] as const).map((id, i) => (
               <div
                 key={id}
+                id={`svc-${id}`}
                 onMouseEnter={() => setHovered(i)}
                 onMouseLeave={() => setHovered(null)}
-                className={`rs d${(i % 2) + 2} group svc-premium relative flex flex-col h-full cursor-default`}
+                className={`rs d${(i % 2) + 2} group svc-premium relative flex flex-col h-full cursor-default scroll-mt-28`}
               >
                 {/* Service number watermark */}
                 <div className="absolute top-8 right-10 font-serif text-[5rem] font-bold text-gray-50 leading-none select-none pointer-events-none transition-all duration-500 group-hover:text-[#D32F2F]/5">

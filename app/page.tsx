@@ -205,13 +205,7 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════
           01 · HERO
       ══════════════════════════════════════════════════ */}
-      <section className="relative bg-[#0D47A1] overflow-hidden pt-28 pb-20 lg:pb-0 lg:pt-32 min-h-[90vh] flex items-center">
-        {/* Subtle dot grid */}
-        <div className="absolute inset-0 bg-pattern-dark pointer-events-none opacity-60" />
-        {/* Gradient orbs */}
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#D32F2F]/6 rounded-full blur-[140px] pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#0A2ADB]/8 rounded-full blur-[100px] pointer-events-none" />
-
+      <section className="relative bg-white overflow-hidden pt-40 pb-24 lg:pt-44 lg:pb-32">
         <div className="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center w-full">
 
           {/* Left: Copy */}
@@ -219,92 +213,94 @@ export default function Home() {
             initial="hidden"
             animate="visible"
             variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
-            className="pb-20 lg:pb-32"
           >
-            {/* Badge */}
-            <motion.div variants={fadeUp} className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/8 border border-white/12 mb-8">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#D32F2F] animate-pulse" />
-              <span className="text-white/70 text-[.65rem] font-black uppercase tracking-[.3em]">Nepal's #1 Institutional ERP Platform</span>
+            {/* Kicker */}
+            <motion.div variants={fadeUp} className="text-[#D32F2F] text-[.7rem] font-black uppercase tracking-[.3em] mb-6">
+              Nepal's #1 Institutional ERP Platform
             </motion.div>
 
             {/* Headline */}
-            <motion.h1 variants={fadeUp} className="font-serif text-[2.8rem] md:text-[3.8rem] lg:text-[4.2rem] text-white leading-[1.08] tracking-tight mb-6">
+            <motion.h1 variants={fadeUp} className="font-serif text-[2.6rem] md:text-[3.4rem] lg:text-[3.8rem] text-[#0D47A1] leading-[1.1] tracking-tight mb-6">
               Modernize Your<br />
               Institution.<br />
-              <span className="italic text-[#D32F2F]">Command with Clarity.</span>
+              <span className="relative inline-block">
+                Command with Clarity.
+                <span className="absolute left-0 -bottom-1 w-full h-[3px] bg-[#D32F2F] rounded-full" />
+              </span>
             </motion.h1>
 
             {/* Subheadline */}
-            <motion.p variants={fadeUp} className="text-white/50 text-lg md:text-xl max-w-xl leading-relaxed mb-10">
+            <motion.p variants={fadeUp} className="text-[#64748B] text-lg md:text-xl max-w-xl leading-relaxed mb-10">
               Sanothimi delivers enterprise-grade ERP for schools, businesses, and organizations across Nepal — from finance to HR to inventory, on a single cloud platform.
             </motion.p>
 
-            {/* CTAs */}
-            <motion.div variants={fadeUp} className="flex flex-wrap gap-4 mb-14">
+            {/* CTA */}
+            <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-6 mb-14">
               <Link
-                href="/contact"
-                className="group flex items-center gap-2.5 bg-[#D32F2F] text-white px-8 py-4 rounded-xl font-bold text-[.88rem] shadow-xl shadow-[#D32F2F]/25 hover:bg-white hover:text-[#D32F2F] transition-all duration-300"
+                href="/demo"
+                className="flex items-center gap-2.5 bg-[#D32F2F] text-white px-7 py-3.5 rounded-full font-semibold text-[.88rem] hover:bg-[#B71C1C] transition-all duration-200"
               >
-                Request Free Demo
-                <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5"><path d="M9 5l7 7-7 7"/></svg>
+                Explore Our Solutions
               </Link>
               <Link
                 href="/services"
-                className="flex items-center gap-2 text-white/50 font-semibold text-[.88rem] hover:text-white transition-colors"
+                className="flex items-center gap-2 text-[#0D47A1] font-semibold text-[.88rem] hover:text-[#D32F2F] transition-colors"
               >
-                Explore Solutions
+                See How It Works
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2"><path d="M9 5l7 7-7 7"/></svg>
               </Link>
             </motion.div>
 
             {/* Trust row */}
-            <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-6 pt-8 border-t border-white/8">
+            <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-6 pt-8 border-t border-gray-100">
               {[
                 { val: '50+',   label: 'Institutions' },
                 { val: '10K+',  label: 'Daily users' },
                 { val: '99.9%', label: 'Uptime SLA' },
               ].map((s, i) => (
-                <div key={s.label} className={`flex items-center gap-3 ${i > 0 ? 'pl-6 border-l border-white/10' : ''}`}>
-                  <div className="text-[1.6rem] font-serif font-bold text-white leading-none">{s.val}</div>
-                  <div className="text-white/30 text-[.72rem] font-medium leading-tight">{s.label}</div>
+                <div key={s.label} className={`flex items-center gap-3 ${i > 0 ? 'pl-6 border-l border-gray-200' : ''}`}>
+                  <div className="text-[1.6rem] font-serif font-bold text-[#0D47A1] leading-none">{s.val}</div>
+                  <div className="text-gray-400 text-[.72rem] font-medium leading-tight">{s.label}</div>
                 </div>
               ))}
             </motion.div>
           </motion.div>
 
-          {/* Right: Dashboard preview */}
+          {/* Right: Dashboard preview with geometric accent shapes */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease }}
             className="hidden lg:block relative"
           >
-            {/* Floating "certified" badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 0.4 }}
-              className="absolute -top-4 -right-4 z-20 px-4 py-2.5 bg-[#D4AF37] rounded-2xl shadow-xl"
-            >
-              <div className="text-[.55rem] font-black uppercase tracking-widest text-[#0D47A1]">ISO 27001</div>
-              <div className="text-[.58rem] font-bold text-[#0D47A1]/70">Certified Secure</div>
-            </motion.div>
+            {/* Geometric accent shapes */}
+            <div className="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
+              <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full border-[16px] border-[#0D47A1]/8" />
+              <div className="absolute -bottom-14 -right-6 w-28 h-28 rounded-full bg-[#D32F2F]/8" />
+              <div className="absolute top-1/3 -left-8 flex gap-2">
+                {[40, 60, 30, 50].map((h, i) => (
+                  <div key={i} className="w-2.5 rounded-full bg-[#0D47A1]/12" style={{ height: h }} />
+                ))}
+              </div>
+            </div>
 
-            <DashboardPreview />
+            <div className="relative z-10">
+              <DashboardPreview />
+            </div>
 
-            {/* Bottom floating badge */}
+            {/* Floating badge — Azentio-style */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1, duration: 0.4 }}
-              className="absolute -bottom-5 -left-5 z-20 flex items-center gap-3 bg-white px-4 py-3 rounded-2xl shadow-xl border border-gray-100"
+              className="absolute -bottom-6 -left-6 z-20 flex items-center gap-3.5 bg-[#0D47A1] px-5 py-4 rounded-2xl shadow-2xl shadow-[#0D47A1]/30 max-w-[230px]"
             >
-              <div className="w-8 h-8 rounded-xl bg-green-50 flex items-center justify-center border border-green-100">
-                <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2"><path d="M5 13l4 4L19 7"/></svg>
+              <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center flex-shrink-0">
+                <svg className="w-5 h-5 text-[#D32F2F]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
               </div>
               <div>
-                <div className="text-[.72rem] font-bold text-[#0D47A1]">Data migrated successfully</div>
-                <div className="text-[.6rem] text-gray-400">2 min ago · Auto-synced</div>
+                <div className="text-[.78rem] font-bold text-[#D32F2F] leading-tight">School ERP</div>
+                <div className="text-[.72rem] text-white/70 leading-snug">Live in weeks, not months</div>
               </div>
             </motion.div>
           </motion.div>
@@ -654,7 +650,7 @@ export default function Home() {
                 View Full Pricing
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5"><path d="M9 5l7 7-7 7"/></svg>
               </Link>
-              <Link href="/contact" className="flex items-center gap-2 bg-[#D32F2F] text-white px-8 py-4 rounded-xl font-bold text-[.88rem] hover:bg-white hover:text-[#D32F2F] transition-all shadow-lg shadow-[#D32F2F]/20">
+              <Link href="/demo" className="flex items-center gap-2 bg-[#D32F2F] text-white px-8 py-4 rounded-xl font-bold text-[.88rem] hover:bg-white hover:text-[#D32F2F] transition-all shadow-lg shadow-[#D32F2F]/20">
                 Book Demo
               </Link>
             </motion.div>

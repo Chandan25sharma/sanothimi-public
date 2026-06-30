@@ -97,47 +97,40 @@ export default function PricingPage() {
       {/* ═══════════════════════════════════════════════
           HERO
       ═══════════════════════════════════════════════ */}
-      <section className="relative bg-[#082C66] pt-40 pb-32 overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none select-none">
-          <div className="absolute inset-0 bg-pattern-dark opacity-100" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#D32F2F]/5 rounded-full blur-[160px]" />
-        </div>
-
+      <section className="relative bg-white pt-44 pb-16 overflow-hidden">
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
-          <div className="inline-flex items-center gap-3 px-5 py-2.5 bg-[#D32F2F]/10 border border-[#D32F2F]/20 rounded-full mb-10">
-            <span className="live-dot live-dot-red" />
-            <span className="text-[#D32F2F] text-[.62rem] font-black uppercase tracking-[.3em]">Simple, Transparent Pricing</span>
-          </div>
+          <div className="text-[#D32F2F] text-[.7rem] font-black uppercase tracking-[.3em] mb-6">Simple, Transparent Pricing</div>
 
-          <h1 className="font-serif text-5xl md:text-7xl text-white leading-[0.95] mb-8 tracking-tighter">
-            Start free,<br /><span className="italic text-[#D32F2F]">scale as you grow</span>
+          <h1 className="font-serif text-5xl md:text-6xl text-[#0D47A1] leading-[1.1] mb-8 tracking-tight">
+            Start free,<br />
+            <span className="relative inline-block">
+              scale as you grow
+              <span className="absolute left-0 -bottom-1 w-full h-[3px] bg-[#D32F2F] rounded-full" />
+            </span>
           </h1>
-          <p className="text-white/35 text-xl max-w-2xl mx-auto mb-14 leading-relaxed">
+          <p className="text-gray-500 text-xl max-w-2xl mx-auto mb-14 leading-relaxed">
             No hidden fees, no long-term lock-in. Choose the plan that fits your institution and upgrade at any time.
           </p>
 
           {/* Billing toggle */}
-          <div className="inline-flex items-center gap-5 p-2 bg-white/5 border border-white/10 rounded-2xl">
+          <div className="inline-flex items-center gap-2 p-2 bg-gray-100 rounded-2xl">
             <button
               onClick={() => setAnnual(false)}
-              className={`px-7 py-3 rounded-xl text-sm font-bold transition-all ${!annual ? 'bg-white text-[#0D47A1] shadow-lg' : 'text-white/40 hover:text-white/70'}`}
+              className={`px-7 py-3 rounded-xl text-sm font-bold transition-all ${!annual ? 'bg-white text-[#0D47A1] shadow-md' : 'text-gray-400 hover:text-gray-600'}`}
             >
               Monthly
             </button>
             <button
               onClick={() => setAnnual(true)}
-              className={`flex items-center gap-3 px-7 py-3 rounded-xl text-sm font-bold transition-all ${annual ? 'bg-white text-[#0D47A1] shadow-lg' : 'text-white/40 hover:text-white/70'}`}
+              className={`flex items-center gap-3 px-7 py-3 rounded-xl text-sm font-bold transition-all ${annual ? 'bg-white text-[#0D47A1] shadow-md' : 'text-gray-400 hover:text-gray-600'}`}
             >
               Annual
-              <span className="px-2 py-0.5 bg-green-500/15 border border-green-500/25 rounded-full text-[9px] font-black text-green-400 uppercase tracking-widest">
+              <span className="px-2 py-0.5 bg-green-100 rounded-full text-[9px] font-black text-green-700 uppercase tracking-widest">
                 Save 20%
               </span>
             </button>
           </div>
         </div>
-
-        {/* Fade to white */}
-        <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-white to-transparent" />
       </section>
 
 

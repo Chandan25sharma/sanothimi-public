@@ -70,65 +70,46 @@ export default function AboutPage() {
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           01. CINEMATIC HERO
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <div className="relative pt-48 pb-44 bg-[#082C66] overflow-hidden">
-
-        {/* Animated gradient orbs */}
-        <div className="absolute inset-0 pointer-events-none select-none">
-          <div className="absolute top-0 left-1/4 w-[700px] h-[700px] bg-[#D32F2F]/8 rounded-full blur-[130px] glow-orb" />
-          <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-[#0D47A1]/60 rounded-full blur-[100px]" />
-          <div className="absolute top-1/3 right-0 w-[300px] h-[300px] bg-[#D4AF37]/6 rounded-full blur-[80px]" />
-        </div>
-
-        {/* Dot grid */}
-        <div className="absolute inset-0 bg-pattern-dark opacity-100 pointer-events-none" />
-
-        {/* Watermark logo */}
-        <div className="absolute inset-0 flex items-center justify-end opacity-[0.025] pointer-events-none select-none overflow-hidden">
-          <img src="/logo-icon-sano.png" alt="" className="w-[55%] h-auto object-contain transform rotate-[-8deg]" />
-        </div>
-
+      <div className="relative pt-44 pb-20 bg-white overflow-hidden">
         <div className="max-w-6xl mx-auto px-6 relative z-10">
-          {/* Live kicker */}
-          <div className="inline-flex items-center gap-3 px-5 py-2.5 bg-[#D32F2F]/10 border border-[#D32F2F]/25 rounded-full mb-12 backdrop-blur-sm">
-            <span className="live-dot live-dot-red" />
-            <span className="text-[#D32F2F] text-[.65rem] font-black uppercase tracking-[.3em]">
-              {t('about_pg.mission.kicker')}
-            </span>
+          {/* Kicker */}
+          <div className="text-[#D32F2F] text-[.7rem] font-black uppercase tracking-[.3em] mb-6">
+            {t('about_pg.mission.kicker')}
           </div>
 
-          <h1 className="font-serif text-6xl md:text-8xl lg:text-[9rem] text-white leading-[1.0] tracking-tighter mb-8">
+          <h1 className="font-serif text-5xl md:text-7xl text-[#0D47A1] leading-[1.1] tracking-tight mb-8">
             {t('about_pg.mission.title1')}<br />
-            <span className="italic text-grad">{t('about_pg.mission.title2')}</span>
+            <span className="relative inline-block">
+              {t('about_pg.mission.title2')}
+              <span className="absolute left-0 -bottom-1 w-full h-[3px] bg-[#D32F2F] rounded-full" />
+            </span>
           </h1>
 
-          <p className="text-white/35 text-lg md:text-xl max-w-2xl leading-relaxed mt-10">
+          <p className="text-gray-500 text-lg md:text-xl max-w-2xl leading-relaxed mt-10">
             Nepal&apos;s premier SaaS engineering hub — digitizing institutions with enterprise-grade cloud infrastructure and human-centred design.
           </p>
 
           {/* Quick stats ribbon */}
-          <div className="mt-20 flex flex-wrap gap-x-16 gap-y-6">
+          <div className="mt-16 flex flex-wrap gap-x-16 gap-y-6 pt-10 border-t border-gray-100">
             {[
               { val: '5+', label: 'Years Operating' },
               { val: '10K+', label: 'Active Users' },
               { val: '99.9%', label: 'Uptime SLA' },
             ].map((s) => (
               <div key={s.label} className="flex items-baseline gap-2">
-                <span className="font-serif text-3xl font-bold text-white">{s.val}</span>
-                <span className="text-[.6rem] font-black uppercase tracking-[.25em] text-white/30">{s.label}</span>
+                <span className="font-serif text-3xl font-bold text-[#0D47A1]">{s.val}</span>
+                <span className="text-[.6rem] font-black uppercase tracking-[.25em] text-gray-400">{s.label}</span>
               </div>
             ))}
           </div>
         </div>
-
-        {/* Bottom wave into white */}
-        <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-white to-transparent" />
       </div>
 
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           02. MISSION & VALUES
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section ref={s1 as React.RefObject<HTMLDivElement>} className="py-32 bg-white relative z-10 -mt-16">
+      <section id="about-values" ref={s1 as React.RefObject<HTMLDivElement>} className="py-32 bg-white relative z-10 -mt-16 scroll-mt-28">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
 
@@ -206,7 +187,7 @@ export default function AboutPage() {
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           03. INNOVATION MODULES (dark)
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section ref={s4 as React.RefObject<HTMLDivElement>} className="py-40 bg-[#082C66] relative overflow-hidden">
+      <section id="about-innovation" ref={s4 as React.RefObject<HTMLDivElement>} className="py-40 bg-[#082C66] relative overflow-hidden scroll-mt-28">
         <div className="absolute inset-0 pointer-events-none select-none">
           <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-[#D32F2F]/7 rounded-full blur-[120px]" />
         </div>
@@ -261,7 +242,7 @@ export default function AboutPage() {
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           04. MILESTONE TIMELINE
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section ref={sTimeline as React.RefObject<HTMLDivElement>} className="py-32 bg-white overflow-hidden">
+      <section id="about-journey" ref={sTimeline as React.RefObject<HTMLDivElement>} className="py-32 bg-white overflow-hidden scroll-mt-28">
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-24">
             <div className="rs section-kicker justify-center mb-8">
@@ -344,7 +325,7 @@ export default function AboutPage() {
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           06. WHY CHOOSE SANOTHIMI
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section ref={s3 as React.RefObject<HTMLDivElement>} className="py-32 bg-white">
+      <section id="about-trust" ref={s3 as React.RefObject<HTMLDivElement>} className="py-32 bg-white scroll-mt-28">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-3xl mb-24">
             <div className="section-kicker mb-8">
