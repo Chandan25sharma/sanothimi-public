@@ -64,13 +64,13 @@ export default function About() {
               <div className="absolute -inset-10 opacity-20 pointer-events-none">
                  <img src="/image-2.png" alt="" className="w-full h-full object-cover blur-3xl" />
               </div>
-              <div className="absolute -top-6 -right-6 w-24 h-24 bg-[#EE2B47]/20 blur-3xl animate-pulse" />
+              <div className="absolute -top-6 -right-6 w-24 h-24 bg-[#D32F2F]/20 blur-3xl animate-pulse" />
               <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-[#D4AF37]/10 blur-3xl" />
             </div>
 
             {/* Red badge */}
             <div className="absolute -bottom-5 -right-5 w-36 h-36 rounded-2xl flex flex-col items-center justify-center text-center shadow-2xl float-y z-20"
-              style={{ background:'linear-gradient(135deg,#EE2B47,#A00E2C)', boxShadow:'0 20px 40px rgba(238,43,71,.4)' }}>
+              style={{ background:'linear-gradient(135deg,#D32F2F,#A00E2C)', boxShadow:'0 20px 40px rgba(211,47,47,.4)' }}>
               <strong className="font-display text-4xl text-white font-bold leading-none">50+</strong>
               <span className="text-white/80 text-[.65rem] font-bold uppercase tracking-wider mt-1">Institutions<br/>Digitized</span>
             </div>
@@ -92,7 +92,7 @@ export default function About() {
             {/* Certs */}
             <div className="rv d3 flex flex-wrap gap-2 mb-8">
               {CERTS.map((c) => (
-                <span key={c} className="text-[.75rem] font-bold text-[#001C44] bg-[#EE2B47]/10 border border-[#EE2B47]/25 px-3.5 py-1.5 rounded-full">
+                <span key={c} className="text-[.75rem] font-bold text-[#0D47A1] bg-[#D32F2F]/10 border border-[#D32F2F]/25 px-3.5 py-1.5 rounded-full">
                   ✓ {c}
                 </span>
               ))}
@@ -116,7 +116,7 @@ export default function About() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {WHY.map((w, i) => (
               <div key={w.title} className={`rv d${i+1} why-row`}>
-                <div className="w-12 h-12 rounded-2xl bg-[#EE2B47]/10 border border-[#EE2B47]/20 flex items-center justify-center text-2xl shrink-0 text-[#EE2B47]">
+                <div className="w-12 h-12 rounded-2xl bg-[#D32F2F]/10 border border-[#D32F2F]/20 flex items-center justify-center text-2xl shrink-0 text-[#D32F2F]">
                   {w.icon}
                 </div>
                 <div>

@@ -45,15 +45,15 @@ export default function TermsPage() {
       <div className="read-progress" style={{ width: `${progress}%` }} />
 
       {/* ── Page Header ── */}
-      <div className="relative bg-[#000E22] pt-44 pb-24 overflow-hidden">
+      <div className="relative bg-[#082C66] pt-44 pb-24 overflow-hidden">
         <div className="absolute inset-0 bg-pattern-dark opacity-100 pointer-events-none" />
         <div className="absolute inset-0 pointer-events-none select-none">
-          <div className="absolute top-0 right-1/3 w-[500px] h-[500px] bg-[#EE2B47]/7 rounded-full blur-[120px]" />
+          <div className="absolute top-0 right-1/3 w-[500px] h-[500px] bg-[#D32F2F]/7 rounded-full blur-[120px]" />
         </div>
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-[#EE2B47]/10 border border-[#EE2B47]/20 mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#EE2B47]" />
-            <span className="text-[10px] font-black uppercase tracking-[.3em] text-[#EE2B47]">
+          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-[#D32F2F]/10 border border-[#D32F2F]/20 mb-8">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#D32F2F]" />
+            <span className="text-[10px] font-black uppercase tracking-[.3em] text-[#D32F2F]">
               {t('legal.terms.hero.kicker')}
             </span>
           </div>
@@ -62,7 +62,7 @@ export default function TermsPage() {
             <span className="italic text-grad">{t('legal.terms.hero.title2')}</span>
           </h1>
           <div className="flex flex-wrap items-center gap-8 text-[11px] font-black uppercase tracking-widest text-white/30">
-            <span className="flex items-center gap-2 text-[#EE2B47]">
+            <span className="flex items-center gap-2 text-[#D32F2F]">
               <span className="w-1 h-1 rounded-full bg-current" /> {t('legal.terms.hero.date')}
             </span>
             <span>{t('legal.terms.hero.status')}</span>
@@ -84,24 +84,24 @@ export default function TermsPage() {
                 <svg className="w-12 h-12 -rotate-90" viewBox="0 0 48 48">
                   <circle cx="24" cy="24" r="20" fill="none" stroke="#E2E8F0" strokeWidth="4" />
                   <circle
-                    cx="24" cy="24" r="20" fill="none" stroke="#EE2B47" strokeWidth="4"
+                    cx="24" cy="24" r="20" fill="none" stroke="#D32F2F" strokeWidth="4"
                     strokeDasharray={`${2 * Math.PI * 20}`}
                     strokeDashoffset={`${2 * Math.PI * 20 * (1 - progress / 100)}`}
                     strokeLinecap="round"
                     className="transition-all duration-300"
                   />
                 </svg>
-                <span className="absolute inset-0 flex items-center justify-center text-[10px] font-black text-[#001C44]">{progress}%</span>
+                <span className="absolute inset-0 flex items-center justify-center text-[10px] font-black text-[#0D47A1]">{progress}%</span>
               </div>
               <div>
-                <div className="text-[10px] font-black uppercase tracking-widest text-[#EE2B47] mb-0.5">Reading</div>
-                <div className="text-xs font-bold text-[#001C44]">Terms of Service</div>
+                <div className="text-[10px] font-black uppercase tracking-widest text-[#D32F2F] mb-0.5">Reading</div>
+                <div className="text-xs font-bold text-[#0D47A1]">Terms of Service</div>
               </div>
             </div>
 
             {/* Section nav */}
             <div>
-              <div className="text-[.62rem] font-black uppercase tracking-[.4em] text-[#EE2B47] mb-5 px-3">
+              <div className="text-[.62rem] font-black uppercase tracking-[.4em] text-[#D32F2F] mb-5 px-3">
                 {t('legal.nav.hub')}
               </div>
               <nav className="flex flex-col gap-1">
@@ -118,14 +118,14 @@ export default function TermsPage() {
             </div>
 
             {/* Legal inquiry */}
-            <div className="p-6 bg-[#001C44] rounded-2xl">
-              <p className="text-[10px] font-black text-[#EE2B47] uppercase tracking-widest mb-3 leading-none">
+            <div className="p-6 bg-[#0D47A1] rounded-2xl">
+              <p className="text-[10px] font-black text-[#D32F2F] uppercase tracking-widest mb-3 leading-none">
                 {t('legal.inquiry.hub')}
               </p>
               <p className="text-xs text-white/50 mb-5 leading-relaxed">{t('legal.inquiry.desc')}</p>
               <a
                 href="mailto:legal@sanothimi.com.np"
-                className="text-xs font-black text-white hover:text-[#EE2B47] transition-colors underline decoration-white/20"
+                className="text-xs font-black text-white hover:text-[#D32F2F] transition-colors underline decoration-white/20"
               >
                 {t('legal.inquiry.cta')}
               </a>
@@ -138,10 +138,10 @@ export default function TermsPage() {
               {TERMS_SECTIONS.map((s) => (
                 <section key={s.id} id={s.id} className="scroll-mt-36">
                   <div className="flex items-center gap-4 mb-8">
-                    <div className="w-8 h-8 rounded-lg bg-[#EE2B47]/10 flex items-center justify-center flex-shrink-0">
-                      <span className="w-2 h-2 rounded-full bg-[#EE2B47]" />
+                    <div className="w-8 h-8 rounded-lg bg-[#D32F2F]/10 flex items-center justify-center flex-shrink-0">
+                      <span className="w-2 h-2 rounded-full bg-[#D32F2F]" />
                     </div>
-                    <h2 className="font-serif text-3xl md:text-4xl text-[#001C44] leading-tight tracking-tight">
+                    <h2 className="font-serif text-3xl md:text-4xl text-[#0D47A1] leading-tight tracking-tight">
                       {s.title}
                     </h2>
                   </div>
@@ -158,7 +158,7 @@ export default function TermsPage() {
             <div className="mt-24 pt-12 border-t border-gray-100">
               <div className="bg-[#F9FAFB] rounded-[2.5rem] p-10 md:p-16 border border-gray-100 flex flex-col md:flex-row items-center justify-between gap-10">
                 <div className="max-w-md">
-                  <h3 className="text-2xl font-serif text-[#001C44] mb-4">{t('legal.print.title')}</h3>
+                  <h3 className="text-2xl font-serif text-[#0D47A1] mb-4">{t('legal.print.title')}</h3>
                   <p className="text-sm text-[#6B7280] leading-relaxed">{t('legal.print.desc')}</p>
                 </div>
                 <PrintButton />

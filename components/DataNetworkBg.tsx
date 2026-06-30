@@ -15,7 +15,7 @@ interface Props {
   accentColor?: string;
 }
 
-export default function DataNetworkBg({ accentColor = '#EE2B47' }: Props) {
+export default function DataNetworkBg({ accentColor = '#D32F2F' }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animRef = useRef<number>(0);
   const nodesRef = useRef<Node[]>([]);

@@ -55,11 +55,13 @@ function DashboardPreview() {
   }, []);
 
   return (
-    <div className="w-full rounded-2xl overflow-hidden shadow-2xl shadow-[#001C44]/20 border border-gray-100 bg-white">
+    <div className="w-full rounded-2xl overflow-hidden shadow-2xl shadow-[#0D47A1]/20 border border-gray-100 bg-white">
       {/* Title bar */}
-      <div className="flex items-center justify-between px-5 py-3 bg-[#001C44]">
+      <div className="flex items-center justify-between px-5 py-3 bg-[#0D47A1]">
         <div className="flex items-center gap-2.5">
-          <img src="/logo-no-background.png" alt="" className="w-5 h-5 object-contain brightness-0 invert opacity-70" />
+          <div className="w-5 h-5 rounded bg-white/95 p-0.5 flex items-center justify-center">
+            <img src="/logo-icon-sano.png" alt="" className="w-full h-full object-contain" />
+          </div>
           <span className="text-white/60 text-[.62rem] font-black uppercase tracking-widest">Sanothimi ERP — SchoolSathi</span>
         </div>
         <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-green-500/15 border border-green-500/20">
@@ -77,7 +79,7 @@ function DashboardPreview() {
         ].map((k) => (
           <div key={k.label} className="bg-white rounded-xl p-3 border border-gray-100 shadow-sm">
             <div className="text-[.55rem] font-black text-gray-400 uppercase tracking-wider mb-1.5">{k.label}</div>
-            <div className="text-[1rem] font-serif font-bold text-[#001C44] leading-none mb-1.5">{k.val}</div>
+            <div className="text-[1rem] font-serif font-bold text-[#0D47A1] leading-none mb-1.5">{k.val}</div>
             <div className={`text-[.6rem] font-bold ${k.up ? 'text-green-600' : 'text-red-500'}`}>{k.change}</div>
           </div>
         ))}
@@ -99,7 +101,7 @@ function DashboardPreview() {
                 transition={{ duration: 0.6, delay: i * 0.07, ease }}
                 style={{
                   height: `${h}%`,
-                  background: i === 5 ? '#EE2B47' : i === 4 ? '#001C44' : '#001C4425',
+                  background: i === 5 ? '#D32F2F' : i === 4 ? '#0D47A1' : '#0D47A125',
                   borderRadius: '3px 3px 0 0',
                 }}
               />
@@ -111,7 +113,7 @@ function DashboardPreview() {
 
       {/* Live activity ticker */}
       <div className="px-4 py-3 flex items-center gap-2.5">
-        <div className="w-1.5 h-1.5 rounded-full bg-[#EE2B47] animate-pulse flex-shrink-0" />
+        <div className="w-1.5 h-1.5 rounded-full bg-[#D32F2F] animate-pulse flex-shrink-0" />
         <div className="overflow-hidden h-4 flex-1 relative">
           <AnimatePresence mode="wait" initial={false}>
             <motion.span
@@ -135,7 +137,7 @@ function DashboardPreview() {
 const SOLUTIONS = [
   {
     num: '01', icon: 'M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z',
-    title: 'School ERP',      sub: 'SchoolSathi',         color: '#EE2B47',
+    title: 'School ERP',      sub: 'SchoolSathi',         color: '#D32F2F',
     desc: 'End-to-end institution management from admissions to graduation.',
     feats: ['Student admissions & profiles', 'Automated fee collection', 'Attendance & exam management', 'Parent portal & communication'],
   },
@@ -166,7 +168,7 @@ const STEPS = [
 ];
 
 const USE_CASES = [
-  { industry: 'Educational Institutions', icon: '🎓', color: '#EE2B47', bg: 'bg-red-50 border-red-100',
+  { industry: 'Educational Institutions', icon: '🎓', color: '#D32F2F', bg: 'bg-red-50 border-red-100',
     items: ['Schools & colleges', 'Training academies', 'Coaching centres'], desc: 'SchoolSathi powers end-to-end administration for campuses of any size.' },
   { industry: 'Business Enterprises',     icon: '🏢', color: '#2563EB', bg: 'bg-blue-50 border-blue-100',
     items: ['Retail & distribution', 'Manufacturing', 'Service companies'],  desc: 'FinanceCore and StockMate bring real-time financial control to growing businesses.' },
@@ -203,11 +205,11 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════
           01 · HERO
       ══════════════════════════════════════════════════ */}
-      <section className="relative bg-[#001C44] overflow-hidden pt-28 pb-20 lg:pb-0 lg:pt-32 min-h-[90vh] flex items-center">
+      <section className="relative bg-[#0D47A1] overflow-hidden pt-28 pb-20 lg:pb-0 lg:pt-32 min-h-[90vh] flex items-center">
         {/* Subtle dot grid */}
         <div className="absolute inset-0 bg-pattern-dark pointer-events-none opacity-60" />
         {/* Gradient orbs */}
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#EE2B47]/6 rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#D32F2F]/6 rounded-full blur-[140px] pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#0A2ADB]/8 rounded-full blur-[100px] pointer-events-none" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center w-full">
@@ -221,7 +223,7 @@ export default function Home() {
           >
             {/* Badge */}
             <motion.div variants={fadeUp} className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/8 border border-white/12 mb-8">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#EE2B47] animate-pulse" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#D32F2F] animate-pulse" />
               <span className="text-white/70 text-[.65rem] font-black uppercase tracking-[.3em]">Nepal's #1 Institutional ERP Platform</span>
             </motion.div>
 
@@ -229,7 +231,7 @@ export default function Home() {
             <motion.h1 variants={fadeUp} className="font-serif text-[2.8rem] md:text-[3.8rem] lg:text-[4.2rem] text-white leading-[1.08] tracking-tight mb-6">
               Modernize Your<br />
               Institution.<br />
-              <span className="italic text-[#EE2B47]">Command with Clarity.</span>
+              <span className="italic text-[#D32F2F]">Command with Clarity.</span>
             </motion.h1>
 
             {/* Subheadline */}
@@ -241,7 +243,7 @@ export default function Home() {
             <motion.div variants={fadeUp} className="flex flex-wrap gap-4 mb-14">
               <Link
                 href="/contact"
-                className="group flex items-center gap-2.5 bg-[#EE2B47] text-white px-8 py-4 rounded-xl font-bold text-[.88rem] shadow-xl shadow-[#EE2B47]/25 hover:bg-white hover:text-[#EE2B47] transition-all duration-300"
+                className="group flex items-center gap-2.5 bg-[#D32F2F] text-white px-8 py-4 rounded-xl font-bold text-[.88rem] shadow-xl shadow-[#D32F2F]/25 hover:bg-white hover:text-[#D32F2F] transition-all duration-300"
               >
                 Request Free Demo
                 <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5"><path d="M9 5l7 7-7 7"/></svg>
@@ -284,8 +286,8 @@ export default function Home() {
               transition={{ delay: 0.8, duration: 0.4 }}
               className="absolute -top-4 -right-4 z-20 px-4 py-2.5 bg-[#D4AF37] rounded-2xl shadow-xl"
             >
-              <div className="text-[.55rem] font-black uppercase tracking-widest text-[#001C44]">ISO 27001</div>
-              <div className="text-[.58rem] font-bold text-[#001C44]/70">Certified Secure</div>
+              <div className="text-[.55rem] font-black uppercase tracking-widest text-[#0D47A1]">ISO 27001</div>
+              <div className="text-[.58rem] font-bold text-[#0D47A1]/70">Certified Secure</div>
             </motion.div>
 
             <DashboardPreview />
@@ -301,7 +303,7 @@ export default function Home() {
                 <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2"><path d="M5 13l4 4L19 7"/></svg>
               </div>
               <div>
-                <div className="text-[.72rem] font-bold text-[#001C44]">Data migrated successfully</div>
+                <div className="text-[.72rem] font-bold text-[#0D47A1]">Data migrated successfully</div>
                 <div className="text-[.6rem] text-gray-400">2 min ago · Auto-synced</div>
               </div>
             </motion.div>
@@ -350,8 +352,8 @@ export default function Home() {
             <motion.div variants={fadeUp} className="section-kicker mb-6">
               <span className="section-kicker-line" />Solutions
             </motion.div>
-            <motion.h2 variants={fadeUp} className="font-serif text-4xl md:text-5xl text-[#001C44] leading-[1.15] mb-4">
-              One platform.<br /><span className="italic text-[#EE2B47]">Every department covered.</span>
+            <motion.h2 variants={fadeUp} className="font-serif text-4xl md:text-5xl text-[#0D47A1] leading-[1.15] mb-4">
+              One platform.<br /><span className="italic text-[#D32F2F]">Every department covered.</span>
             </motion.h2>
             <motion.p variants={fadeUp} className="text-[#64748B] text-lg leading-relaxed">
               Modular ERP suites that connect — not siloed tools that create more work.
@@ -368,7 +370,7 @@ export default function Home() {
               <motion.div
                 key={s.num}
                 variants={fadeUp}
-                whileHover={{ y: -6, boxShadow: '0 20px 48px rgba(0,28,68,0.10)' }}
+                whileHover={{ y: -6, boxShadow: '0 20px 48px rgba(13,71,161,0.10)' }}
                 transition={{ duration: 0.2 }}
                 className="group bg-white border border-gray-100 rounded-2xl p-7 flex flex-col cursor-pointer"
                 style={{ borderTopColor: s.color, borderTopWidth: 3 }}
@@ -383,7 +385,7 @@ export default function Home() {
                   </svg>
                 </div>
                 {/* Title */}
-                <div className="font-serif text-xl text-[#001C44] font-bold mb-1">{s.title}</div>
+                <div className="font-serif text-xl text-[#0D47A1] font-bold mb-1">{s.title}</div>
                 <div className="text-[.62rem] font-black uppercase tracking-widest mb-4" style={{ color: s.color }}>{s.sub}</div>
                 {/* Desc */}
                 <p className="text-[#64748B] text-[.82rem] leading-relaxed mb-6">{s.desc}</p>
@@ -422,8 +424,8 @@ export default function Home() {
             <motion.div variants={fadeUp} className="section-kicker justify-center mb-6">
               <span className="section-kicker-line" />Implementation Process<span className="section-kicker-line" />
             </motion.div>
-            <motion.h2 variants={fadeUp} className="font-serif text-4xl md:text-5xl text-[#001C44] leading-[1.15]">
-              Live in weeks, <span className="italic text-[#EE2B47]">not months</span>
+            <motion.h2 variants={fadeUp} className="font-serif text-4xl md:text-5xl text-[#0D47A1] leading-[1.15]">
+              Live in weeks, <span className="italic text-[#D32F2F]">not months</span>
             </motion.h2>
           </motion.div>
 
@@ -442,23 +444,23 @@ export default function Home() {
               >
                 {/* Circle */}
                 <div className="relative w-20 h-20 mb-7">
-                  <div className="w-full h-full rounded-full bg-white border-2 border-gray-100 shadow-md flex items-center justify-center group-hover:border-[#EE2B47] transition-all">
-                    <svg className="w-7 h-7 text-[#001C44]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.8">
+                  <div className="w-full h-full rounded-full bg-white border-2 border-gray-100 shadow-md flex items-center justify-center group-hover:border-[#D32F2F] transition-all">
+                    <svg className="w-7 h-7 text-[#0D47A1]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.8">
                       <path strokeLinecap="round" strokeLinejoin="round" d={step.icon} />
                     </svg>
                   </div>
-                  <div className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-[#EE2B47] text-white text-[.6rem] font-black flex items-center justify-center shadow-md">
+                  <div className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-[#D32F2F] text-white text-[.6rem] font-black flex items-center justify-center shadow-md">
                     {step.n}
                   </div>
                 </div>
-                <h3 className="font-serif text-xl text-[#001C44] font-bold mb-3">{step.title}</h3>
+                <h3 className="font-serif text-xl text-[#0D47A1] font-bold mb-3">{step.title}</h3>
                 <p className="text-[#64748B] text-[.85rem] leading-relaxed max-w-xs">{step.desc}</p>
               </motion.div>
             ))}
           </div>
 
           <div className="text-center mt-14">
-            <Link href="/contact" className="inline-flex items-center gap-2 bg-[#001C44] text-white px-8 py-4 rounded-xl font-bold text-[.88rem] hover:bg-[#EE2B47] transition-all duration-300 shadow-lg">
+            <Link href="/contact" className="inline-flex items-center gap-2 bg-[#0D47A1] text-white px-8 py-4 rounded-xl font-bold text-[.88rem] hover:bg-[#D32F2F] transition-all duration-300 shadow-lg">
               Book Your Free Consultation
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5"><path d="M9 5l7 7-7 7"/></svg>
             </Link>
@@ -470,21 +472,21 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════
           05 · STATS
       ══════════════════════════════════════════════════ */}
-      <section className="py-20 bg-[#001C44] relative overflow-hidden">
+      <section className="py-20 bg-[#0D47A1] relative overflow-hidden">
         <div className="absolute inset-0 bg-pattern-dark pointer-events-none opacity-40" />
-        <div className="absolute right-0 top-0 w-96 h-96 bg-[#EE2B47]/6 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute right-0 top-0 w-96 h-96 bg-[#D32F2F]/6 rounded-full blur-[120px] pointer-events-none" />
         <div className="max-w-6xl mx-auto px-6 relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             {counters.map((c, i) => (
               <div key={STATS[i].label} ref={c.ref} className="text-center group">
                 <div className="flex items-baseline justify-center gap-0.5 mb-2">
-                  <span className="text-5xl md:text-6xl font-serif font-bold text-white group-hover:text-[#EE2B47] transition-colors duration-400">
+                  <span className="text-5xl md:text-6xl font-serif font-bold text-white group-hover:text-[#D32F2F] transition-colors duration-400">
                     {c.val}
                   </span>
-                  <span className="text-2xl font-serif text-[#EE2B47] font-bold">{STATS[i].suf}</span>
+                  <span className="text-2xl font-serif text-[#D32F2F] font-bold">{STATS[i].suf}</span>
                 </div>
                 <div className="text-[.65rem] font-black uppercase tracking-[.3em] text-white/30">{STATS[i].label}</div>
-                <div className="mt-4 mx-auto h-px w-6 bg-[#EE2B47]/30 group-hover:w-14 group-hover:bg-[#EE2B47] transition-all duration-500" />
+                <div className="mt-4 mx-auto h-px w-6 bg-[#D32F2F]/30 group-hover:w-14 group-hover:bg-[#D32F2F] transition-all duration-500" />
               </div>
             ))}
           </div>
@@ -505,8 +507,8 @@ export default function Home() {
             <motion.div variants={fadeUp} className="section-kicker justify-center mb-6">
               <span className="section-kicker-line" />Who We Serve<span className="section-kicker-line" />
             </motion.div>
-            <motion.h2 variants={fadeUp} className="font-serif text-4xl md:text-5xl text-[#001C44] leading-[1.15]">
-              Built for your <span className="italic text-[#EE2B47]">industry</span>
+            <motion.h2 variants={fadeUp} className="font-serif text-4xl md:text-5xl text-[#0D47A1] leading-[1.15]">
+              Built for your <span className="italic text-[#D32F2F]">industry</span>
             </motion.h2>
           </motion.div>
 
@@ -524,7 +526,7 @@ export default function Home() {
                 className={`p-8 rounded-2xl border ${u.bg} cursor-default`}
               >
                 <div className="text-4xl mb-5">{u.icon}</div>
-                <h3 className="font-serif text-xl text-[#001C44] font-bold mb-3">{u.industry}</h3>
+                <h3 className="font-serif text-xl text-[#0D47A1] font-bold mb-3">{u.industry}</h3>
                 <p className="text-[#64748B] text-[.85rem] leading-relaxed mb-5">{u.desc}</p>
                 <ul className="space-y-2">
                   {u.items.map((item) => (
@@ -554,8 +556,8 @@ export default function Home() {
             <motion.div variants={fadeUp} className="section-kicker mb-6">
               <span className="section-kicker-line" />Why Sanothimi
             </motion.div>
-            <motion.h2 variants={fadeUp} className="font-serif text-4xl md:text-5xl text-[#001C44] leading-[1.15] mb-4">
-              The enterprise standard,<br /><span className="italic text-[#EE2B47]">built for Nepal.</span>
+            <motion.h2 variants={fadeUp} className="font-serif text-4xl md:text-5xl text-[#0D47A1] leading-[1.15] mb-4">
+              The enterprise standard,<br /><span className="italic text-[#D32F2F]">built for Nepal.</span>
             </motion.h2>
             <motion.p variants={fadeUp} className="text-[#64748B] text-lg leading-relaxed">
               Global ERP expertise. Local knowledge. Personal service.
@@ -571,16 +573,16 @@ export default function Home() {
               <motion.div
                 key={d.title}
                 variants={fadeUp}
-                whileHover={{ y: -4, borderColor: '#EE2B47' }}
+                whileHover={{ y: -4, borderColor: '#D32F2F' }}
                 transition={{ duration: 0.2 }}
                 className="bg-white border border-gray-100 rounded-2xl p-7 flex flex-col"
               >
-                <div className="w-11 h-11 rounded-xl bg-[#001C44] flex items-center justify-center mb-5">
+                <div className="w-11 h-11 rounded-xl bg-[#0D47A1] flex items-center justify-center mb-5">
                   <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.8">
                     <path strokeLinecap="round" strokeLinejoin="round" d={d.icon} />
                   </svg>
                 </div>
-                <h4 className="font-serif text-[1.05rem] font-bold text-[#001C44] mb-3">{d.title}</h4>
+                <h4 className="font-serif text-[1.05rem] font-bold text-[#0D47A1] mb-3">{d.title}</h4>
                 <p className="text-[#64748B] text-[.82rem] leading-relaxed">{d.desc}</p>
               </motion.div>
             ))}
@@ -600,16 +602,16 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.55, ease }}
           >
-            <div className="font-serif text-[5rem] text-[#EE2B47] opacity-15 leading-none mb-2 select-none">&ldquo;</div>
-            <blockquote className="font-serif text-2xl md:text-3xl text-[#001C44] leading-snug italic -mt-10 mb-10">
+            <div className="font-serif text-[5rem] text-[#D32F2F] opacity-15 leading-none mb-2 select-none">&ldquo;</div>
+            <blockquote className="font-serif text-2xl md:text-3xl text-[#0D47A1] leading-snug italic -mt-10 mb-10">
               SchoolSathi transformed how we manage 1,200 students. Fee collection that used to take our staff two weeks now runs automatically. It paid for itself in the first month.
             </blockquote>
             <div className="flex flex-col items-center gap-3">
-              <div className="w-12 h-12 rounded-full bg-[#001C44] flex items-center justify-center text-white font-bold text-base border-2 border-[#D4AF37]">
+              <div className="w-12 h-12 rounded-full bg-[#0D47A1] flex items-center justify-center text-white font-bold text-base border-2 border-[#D4AF37]">
                 SM
               </div>
               <div>
-                <div className="font-bold text-[#001C44] text-sm">Sarah Mitchell</div>
+                <div className="font-bold text-[#0D47A1] text-sm">Sarah Mitchell</div>
                 <div className="text-xs text-[#64748B]">Principal · BrightPath Academy, Kathmandu</div>
               </div>
               {/* Stars */}
@@ -629,9 +631,9 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════
           09 · PRICING CTA
       ══════════════════════════════════════════════════ */}
-      <section className="py-20 bg-[#001C44] relative overflow-hidden">
+      <section className="py-20 bg-[#0D47A1] relative overflow-hidden">
         <div className="absolute inset-0 bg-pattern-dark pointer-events-none opacity-40" />
-        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-72 h-72 bg-[#EE2B47]/7 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-72 h-72 bg-[#D32F2F]/7 rounded-full blur-[100px] pointer-events-none" />
         <div className="max-w-5xl mx-auto px-6 relative z-10">
           <motion.div
             initial="hidden" whileInView="visible" viewport={{ once: true }}
@@ -639,20 +641,20 @@ export default function Home() {
             className="flex flex-col lg:flex-row items-center justify-between gap-12"
           >
             <div>
-              <motion.div variants={fadeUp} className="text-[.62rem] font-black uppercase tracking-[.4em] text-[#EE2B47] mb-4">Transparent Pricing</motion.div>
+              <motion.div variants={fadeUp} className="text-[.62rem] font-black uppercase tracking-[.4em] text-[#D32F2F] mb-4">Transparent Pricing</motion.div>
               <motion.h2 variants={fadeUp} className="font-serif text-3xl md:text-4xl text-white leading-tight mb-3">
-                Starts at <span className="text-[#EE2B47]">Rs. 2,999</span>/month
+                Starts at <span className="text-[#D32F2F]">Rs. 2,999</span>/month
               </motion.h2>
               <motion.p variants={fadeUp} className="text-white/40 text-[.92rem]">
                 No hidden fees. Cancel anytime. Free 30-day demo included.
               </motion.p>
             </div>
             <motion.div variants={fadeUp} className="flex flex-wrap gap-4 flex-shrink-0">
-              <Link href="/pricing" className="flex items-center gap-2 bg-white text-[#001C44] px-8 py-4 rounded-xl font-bold text-[.88rem] hover:bg-[#F1F5F9] transition-all shadow-lg">
+              <Link href="/pricing" className="flex items-center gap-2 bg-white text-[#0D47A1] px-8 py-4 rounded-xl font-bold text-[.88rem] hover:bg-[#F1F5F9] transition-all shadow-lg">
                 View Full Pricing
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5"><path d="M9 5l7 7-7 7"/></svg>
               </Link>
-              <Link href="/contact" className="flex items-center gap-2 bg-[#EE2B47] text-white px-8 py-4 rounded-xl font-bold text-[.88rem] hover:bg-white hover:text-[#EE2B47] transition-all shadow-lg shadow-[#EE2B47]/20">
+              <Link href="/contact" className="flex items-center gap-2 bg-[#D32F2F] text-white px-8 py-4 rounded-xl font-bold text-[.88rem] hover:bg-white hover:text-[#D32F2F] transition-all shadow-lg shadow-[#D32F2F]/20">
                 Book Demo
               </Link>
             </motion.div>

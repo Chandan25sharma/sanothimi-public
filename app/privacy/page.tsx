@@ -51,15 +51,15 @@ export default function PrivacyPage() {
       />
 
       {/* ── Page Header ── */}
-      <div className="relative bg-[#000E22] pt-44 pb-24 overflow-hidden">
+      <div className="relative bg-[#082C66] pt-44 pb-24 overflow-hidden">
         <div className="absolute inset-0 bg-pattern-dark opacity-100 pointer-events-none" />
         <div className="absolute inset-0 pointer-events-none select-none">
-          <div className="absolute top-0 left-1/3 w-[500px] h-[500px] bg-[#EE2B47]/7 rounded-full blur-[120px]" />
+          <div className="absolute top-0 left-1/3 w-[500px] h-[500px] bg-[#D32F2F]/7 rounded-full blur-[120px]" />
         </div>
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-[#EE2B47]/10 border border-[#EE2B47]/20 mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#EE2B47]" />
-            <span className="text-[10px] font-black uppercase tracking-[.3em] text-[#EE2B47]">
+          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-[#D32F2F]/10 border border-[#D32F2F]/20 mb-8">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#D32F2F]" />
+            <span className="text-[10px] font-black uppercase tracking-[.3em] text-[#D32F2F]">
               {t('legal.privacy.hero.kicker')}
             </span>
           </div>
@@ -68,7 +68,7 @@ export default function PrivacyPage() {
             <span className="italic text-grad">{t('legal.privacy.hero.title2')}</span>
           </h1>
           <div className="flex flex-wrap items-center gap-8 text-[11px] font-black uppercase tracking-widest text-white/30">
-            <span className="flex items-center gap-2 text-[#EE2B47]">
+            <span className="flex items-center gap-2 text-[#D32F2F]">
               <span className="w-1 h-1 rounded-full bg-current" />
               {t('legal.terms.hero.date')}
             </span>
@@ -92,24 +92,24 @@ export default function PrivacyPage() {
                   <circle cx="24" cy="24" r="20" fill="none" stroke="#E2E8F0" strokeWidth="4" />
                   <circle
                     cx="24" cy="24" r="20" fill="none"
-                    stroke="#EE2B47" strokeWidth="4"
+                    stroke="#D32F2F" strokeWidth="4"
                     strokeDasharray={`${2 * Math.PI * 20}`}
                     strokeDashoffset={`${2 * Math.PI * 20 * (1 - progress / 100)}`}
                     strokeLinecap="round"
                     className="transition-all duration-300"
                   />
                 </svg>
-                <span className="absolute inset-0 flex items-center justify-center text-[10px] font-black text-[#001C44]">{progress}%</span>
+                <span className="absolute inset-0 flex items-center justify-center text-[10px] font-black text-[#0D47A1]">{progress}%</span>
               </div>
               <div>
-                <div className="text-[10px] font-black uppercase tracking-widest text-[#EE2B47] mb-0.5">Reading</div>
-                <div className="text-xs font-bold text-[#001C44]">Privacy Policy</div>
+                <div className="text-[10px] font-black uppercase tracking-widest text-[#D32F2F] mb-0.5">Reading</div>
+                <div className="text-xs font-bold text-[#0D47A1]">Privacy Policy</div>
               </div>
             </div>
 
             {/* Section nav */}
             <div>
-              <div className="text-[.62rem] font-black uppercase tracking-[.4em] text-[#EE2B47] mb-5 px-3">
+              <div className="text-[.62rem] font-black uppercase tracking-[.4em] text-[#D32F2F] mb-5 px-3">
                 {t('legal.privacy.sidebar.title')}
               </div>
               <nav className="flex flex-col gap-1">
@@ -126,8 +126,8 @@ export default function PrivacyPage() {
             </div>
 
             {/* Data request card */}
-            <div className="p-6 bg-[#001C44] rounded-2xl">
-              <p className="text-[10px] font-black text-[#EE2B47] uppercase tracking-widest mb-3 leading-none">
+            <div className="p-6 bg-[#0D47A1] rounded-2xl">
+              <p className="text-[10px] font-black text-[#D32F2F] uppercase tracking-widest mb-3 leading-none">
                 {t('legal.privacy.crd.title')}
               </p>
               <p className="text-xs text-white/50 mb-5 leading-relaxed">
@@ -135,7 +135,7 @@ export default function PrivacyPage() {
               </p>
               <a
                 href="mailto:privacy@sanothimi.com.np"
-                className="text-xs font-black text-white hover:text-[#EE2B47] transition-colors underline decoration-white/20"
+                className="text-xs font-black text-white hover:text-[#D32F2F] transition-colors underline decoration-white/20"
               >
                 {t('legal.privacy.crd.cta')}
               </a>
@@ -150,10 +150,10 @@ export default function PrivacyPage() {
               {PRIVACY_SECTIONS.map((s) => (
                 <section key={s.id} id={s.id} className="scroll-mt-36">
                   <div className="flex items-center gap-4 mb-8">
-                    <div className="w-8 h-8 rounded-lg bg-[#EE2B47]/10 flex items-center justify-center flex-shrink-0">
-                      <span className="w-2 h-2 rounded-full bg-[#EE2B47]" />
+                    <div className="w-8 h-8 rounded-lg bg-[#D32F2F]/10 flex items-center justify-center flex-shrink-0">
+                      <span className="w-2 h-2 rounded-full bg-[#D32F2F]" />
                     </div>
-                    <h2 className="font-serif text-3xl md:text-4xl text-[#001C44] leading-tight tracking-tight">
+                    <h2 className="font-serif text-3xl md:text-4xl text-[#0D47A1] leading-tight tracking-tight">
                       {s.title}
                     </h2>
                   </div>
@@ -168,14 +168,14 @@ export default function PrivacyPage() {
 
             {/* Bottom CTA */}
             <div className="mt-24 pt-12 border-t border-gray-100">
-              <div className="bg-[#001C44] rounded-[2.5rem] p-10 md:p-14 flex flex-col md:flex-row items-center justify-between gap-10 text-white relative overflow-hidden">
+              <div className="bg-[#0D47A1] rounded-[2.5rem] p-10 md:p-14 flex flex-col md:flex-row items-center justify-between gap-10 text-white relative overflow-hidden">
                 <div className="absolute inset-0 bg-pattern-dark pointer-events-none" />
-                <div className="absolute top-0 right-0 w-64 h-64 bg-[#EE2B47]/8 blur-[80px] pointer-events-none" />
+                <div className="absolute top-0 right-0 w-64 h-64 bg-[#D32F2F]/8 blur-[80px] pointer-events-none" />
                 <div className="max-w-md relative z-10">
                   <h3 className="text-2xl font-serif mb-4">{t('legal.privacy.extract.title')}</h3>
                   <p className="text-sm text-white/50 leading-relaxed">{t('legal.privacy.extract.desc')}</p>
                 </div>
-                <button className="relative z-10 bg-[#EE2B47] text-white px-10 py-5 rounded-2xl font-bold hover:bg-white hover:text-[#001C44] transition-all duration-500 shadow-xl shadow-[#EE2B47]/20 whitespace-nowrap">
+                <button className="relative z-10 bg-[#D32F2F] text-white px-10 py-5 rounded-2xl font-bold hover:bg-white hover:text-[#0D47A1] transition-all duration-500 shadow-xl shadow-[#D32F2F]/20 whitespace-nowrap">
                   {t('legal.privacy.extract.cta')}
                 </button>
               </div>

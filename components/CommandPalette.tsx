@@ -81,12 +81,12 @@ export default function CommandPalette() {
       onClick={() => setOpen(false)}
     >
       {/* Backdrop */}
-      <div className="absolute inset-0 bg-[#000E22]/85 backdrop-blur-md" />
+      <div className="absolute inset-0 bg-[#082C66]/85 backdrop-blur-md" />
 
       {/* Palette panel */}
       <div
         className="relative w-full max-w-2xl rounded-3xl overflow-hidden shadow-2xl shadow-black/60"
-        style={{ background: 'rgba(0,14,34,0.92)', border: '1px solid rgba(255,255,255,0.08)', backdropFilter: 'blur(32px)' }}
+        style={{ background: 'rgba(8,44,102,0.92)', border: '1px solid rgba(255,255,255,0.08)', backdropFilter: 'blur(32px)' }}
         onClick={(e) => e.stopPropagation()}
       >
 
@@ -132,11 +132,11 @@ export default function CommandPalette() {
                         data-idx={idx}
                         onClick={() => setOpen(false)}
                         onMouseEnter={() => setSelected(idx)}
-                        className={`flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-150 ${isActive ? 'bg-[#EE2B47]/12 border border-[#EE2B47]/20' : 'hover:bg-white/4'}`}
+                        className={`flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-150 ${isActive ? 'bg-[#D32F2F]/12 border border-[#D32F2F]/20' : 'hover:bg-white/4'}`}
                       >
                         {/* Icon */}
-                        <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors ${isActive ? 'bg-[#EE2B47]/20' : 'bg-white/5'}`}>
-                          <svg className={`w-4 h-4 ${isActive ? 'text-[#EE2B47]' : 'text-white/35'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.8">
+                        <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors ${isActive ? 'bg-[#D32F2F]/20' : 'bg-white/5'}`}>
+                          <svg className={`w-4 h-4 ${isActive ? 'text-[#D32F2F]' : 'text-white/35'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.8">
                             <path strokeLinecap="round" strokeLinejoin="round" d={cmd.icon} />
                           </svg>
                         </div>
@@ -153,7 +153,7 @@ export default function CommandPalette() {
                           </div>
                         )}
                         <svg
-                          className={`w-3.5 h-3.5 flex-shrink-0 transition-all ${isActive ? 'text-[#EE2B47] translate-x-0.5' : 'text-white/10'}`}
+                          className={`w-3.5 h-3.5 flex-shrink-0 transition-all ${isActive ? 'text-[#D32F2F] translate-x-0.5' : 'text-white/10'}`}
                           fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5"
                         >
                           <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />

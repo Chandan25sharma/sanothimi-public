@@ -1,129 +1,166 @@
 'use client';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
+import { useState, type FormEvent } from 'react';
+
+const COMPANY = [
+  { label: 'About', href: '/about' },
+  { label: 'Services', href: '/services' },
+  { label: 'Pricing', href: '/pricing' },
+  { label: 'Contact', href: '/contact' },
+];
+
+const SOLUTIONS = [
+  { label: 'School ERP — SchoolSathi', href: '/services' },
+  { label: 'Financial Suite — FinanceCore', href: '/services' },
+  { label: 'Inventory Control — StockMate', href: '/services' },
+  { label: 'HR & Payroll — HRDesk', href: '/services' },
+];
+
+const LEGAL = [
+  { label: 'Privacy Policy', href: '/privacy' },
+  { label: 'Terms & Conditions', href: '/terms' },
+];
+
+const SOCIALS = [
+  { label: 'LinkedIn', icon: 'M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z', dot: true },
+  { label: 'Facebook', icon: 'M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z' },
+  { label: 'Instagram', icon: 'M16 11.37A4 4 0 1112.63 8 4 4 0 016 11.37zm1.5-4.87h.01M7.5 21h10a2.5 2.5 0 002.5-2.5V7.5A2.5 2.5 0 0017.5 5h-10A2.5 2.5 0 005 7.5v11A2.5 2.5 0 007.5 21z' },
+];
 
 export default function Footer() {
   const { t } = useLanguage();
-  
-  const QUICK = [
-    { label: t('nav.home'), href: '/' },
-    { label: t('nav.about'), href: '/about' },
-    { label: t('nav.services'), href: '/services' },
-    { label: t('nav.contact'), href: '/contact' }
-  ];
+  const [email, setEmail] = useState('');
+  const [subscribed, setSubscribed] = useState(false);
+
+  const handleSubscribe = (e: FormEvent) => {
+    e.preventDefault();
+    if (email) setSubscribed(true);
+  };
 
   return (
-    <footer className="relative bg-[#000E22] text-white pt-24 pb-12 overflow-hidden border-t border-white/05">
-      {/* Dynamic 'Singing' Background Identity */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-[#EE2B47]/10 blur-[120px] animate-pulse-slow rounded-full opacity-60" />
-        <div className="absolute bottom-[-20%] right-[-10%] w-[60%] h-[60%] bg-[#EE2B47]/05 blur-[120px] animate-pulse-slow rounded-full opacity-40 delay-1000" />
-        <div className="absolute inset-0 opacity-[0.03]" 
-             style={{ backgroundImage: 'radial-gradient(circle, #EE2B47 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/05 to-transparent -translate-x-full animate-shimmer" />
-      </div>
+    <footer className="bg-[#082C66] text-white">
+      <div className="max-w-7xl mx-auto px-6 py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-8 gap-y-14">
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 mb-20">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 lg:gap-20">
-          {/* Brand & Narrative */}
-          <div className="space-y-8">
-            <div className="group cursor-default">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="relative w-14 h-14 rounded-2xl bg-white p-3 shadow-[0_0_40px_rgba(238,43,71,0.15)] transition-all duration-700 group-hover:shadow-[0_0_60px_rgba(238,43,71,0.3)] group-hover:scale-105">
-                  <img src="/logo-no-background.png" alt="Sanothimi" className="w-full h-full object-contain" />
-                  <div className="absolute inset-0 bg-white/40 blur-lg rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                </div>
-                <div>
-                  <h3 className="font-serif font-black text-2xl tracking-tighter leading-none">Sanothimi</h3>
-                  <p className="text-[.6rem] text-[#EE2B47] tracking-[.4em] uppercase font-black mt-2 flex items-center gap-2">
-                    <span className="w-8 h-px bg-[#EE2B47]/30" />
-                    Elite SaaS
-                  </p>
-                </div>
+          {/* Brand + newsletter */}
+          <div className="lg:col-span-4">
+            <Link href="/" className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 rounded-xl bg-white p-2 flex items-center justify-center flex-shrink-0">
+                <img src="/logo-icon-sano.png" alt="Sanothimi" className="w-full h-full object-contain" />
               </div>
-              <p className="text-white/30 text-sm leading-relaxed max-w-xs font-medium">
-                {t('footer.motto')}
-              </p>
-            </div>
+              <span className="font-bold text-xl tracking-tight">Sanothimi</span>
+            </Link>
+            <p className="text-white/45 text-[.85rem] leading-relaxed max-w-xs mb-7">
+              {t('footer.motto')}
+            </p>
 
-            {/* Social Links */}
-            <div className="flex gap-4">
-              {[
-                { label: 'LinkedIn', icon: 'M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z' },
-                { label: 'Instagram', icon: 'M16 11.37A4 4 0 1112.63 8 4 4 0 016 11.37zm1.5-4.87h.01M7.5 21h10a2.5 2.5 0 002.5-2.5V7.5A2.5 2.5 0 0017.5 5h-10A2.5 2.5 0 005 7.5v11A2.5 2.5 0 007.5 21z' },
-                { label: 'Facebook', icon: 'M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z' }
-              ].map((s, i) => (
-                <a key={i} href="#" className="w-11 h-11 rounded-xl bg-white/03 border border-white/05 flex items-center justify-center text-white/20 hover:text-white hover:bg-[#EE2B47] hover:border-[#EE2B47] transition-all duration-500 shadow-xl" aria-label={s.label}>
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+            {/* Social */}
+            <div className="flex gap-2.5 mb-10">
+              {SOCIALS.map((s) => (
+                <a
+                  key={s.label}
+                  href="#"
+                  aria-label={s.label}
+                  className="w-9 h-9 rounded-lg bg-white/6 border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:bg-[#D32F2F] hover:border-[#D32F2F] transition-all duration-200"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
                     <path d={s.icon} />
-                    {s.label === 'LinkedIn' && <circle cx="4" cy="4" r="2" />}
+                    {s.dot && <circle cx="4" cy="4" r="2" />}
                   </svg>
                 </a>
               ))}
             </div>
+
+            {/* Newsletter */}
+            <p className="text-[.78rem] font-bold text-white/70 mb-3">Get the latest insights straight to your inbox</p>
+            {subscribed ? (
+              <div className="flex items-center gap-2 text-[.82rem] text-green-400 font-semibold">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5"><path d="M5 13l4 4L19 7"/></svg>
+                Thanks — you&rsquo;re subscribed.
+              </div>
+            ) : (
+              <form onSubmit={handleSubscribe} className="flex gap-2 max-w-xs">
+                <input
+                  type="email"
+                  required
+                  placeholder="Work email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="flex-1 min-w-0 bg-white/8 border border-white/15 rounded-lg px-3.5 py-2.5 text-[.82rem] text-white placeholder:text-white/35 outline-none focus:border-[#D32F2F] focus:bg-white/12 transition-all"
+                />
+                <button
+                  type="submit"
+                  className="px-4 py-2.5 rounded-lg bg-[#D32F2F] hover:bg-[#B71C1C] text-white text-[.8rem] font-bold transition-all flex-shrink-0"
+                >
+                  Subscribe
+                </button>
+              </form>
+            )}
           </div>
 
-          {/* Solution Stack */}
-          <div className="space-y-8">
-            <h4 className="text-[.7rem] font-black uppercase tracking-[.35em] text-[#EE2B47]/60">Solution Stack</h4>
-            <ul className="grid gap-4 text-white/30 text-[0.9rem] font-bold tracking-tight">
-              <li>SchoolSathi ERP</li>
-              <li>BizSuite Finance</li>
-              <li>CloudSec Hub</li>
-              <li>Automated Payroll</li>
-              <li>Fleet Logic</li>
-            </ul>
-          </div>
-
-          {/* Platform Map */}
-          <div className="space-y-8">
-            <h4 className="text-[.7rem] font-black uppercase tracking-[.35em] text-[#EE2B47]/60">Platform Map</h4>
-            <ul className="grid gap-4">
-              {QUICK.map((l) => (
+          {/* Company */}
+          <div className="lg:col-span-2 lg:col-start-6">
+            <h4 className="text-[.72rem] font-bold uppercase tracking-[.2em] text-white/35 mb-5">Company</h4>
+            <ul className="space-y-3.5">
+              {COMPANY.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-white/30 hover:text-white text-[0.9rem] font-bold tracking-tight transition-all duration-300 hover:translate-x-1 inline-block">{l.label}</Link>
+                  <Link href={l.href} className="text-white/55 hover:text-white text-[.88rem] font-medium transition-colors">
+                    {l.label}
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Operational Nodes */}
-          <div className="space-y-8">
-            <h4 className="text-[.7rem] font-black uppercase tracking-[.35em] text-[#EE2B47]/60">Operational Nodes</h4>
-            <div className="space-y-6">
-              <div className="space-y-1">
-                <p className="text-[10px] text-white/20 font-black uppercase tracking-widest">Connect Hub</p>
-                <a href="tel:+9779806391489" className="text-white/60 hover:text-[#EE2B47] text-lg font-black transition-colors block leading-none tracking-tighter">+977 980-6391489</a>
-              </div>
-              <div className="space-y-1">
-                <p className="text-[10px] text-white/20 font-black uppercase tracking-widest">Digital Terminal</p>
-                <a href="mailto:info@sanothimi.com.np" className="text-white/60 hover:text-[#EE2B47] text-md font-bold transition-colors block truncate">info@sanothimi.com.np</a>
-              </div>
-              <div className="space-y-1">
-                <p className="text-[10px] text-white/20 font-black uppercase tracking-widest">Global Base</p>
-                <p className="text-white/40 text-[0.9rem] font-medium leading-relaxed">Sanothimi, Bhaktapur, Nepal</p>
-              </div>
-            </div>
+          {/* Solutions */}
+          <div className="lg:col-span-3">
+            <h4 className="text-[.72rem] font-bold uppercase tracking-[.2em] text-white/35 mb-5">Solutions</h4>
+            <ul className="space-y-3.5">
+              {SOLUTIONS.map((l) => (
+                <li key={l.label}>
+                  <Link href={l.href} className="text-white/55 hover:text-white text-[.88rem] font-medium transition-colors">
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div className="lg:col-span-3">
+            <h4 className="text-[.72rem] font-bold uppercase tracking-[.2em] text-white/35 mb-5">Contact</h4>
+            <ul className="space-y-4">
+              <li>
+                <a href="tel:+9779806391489" className="text-white/80 hover:text-white text-[.92rem] font-semibold transition-colors">
+                  +977 980-6391489
+                </a>
+              </li>
+              <li>
+                <a href="mailto:info@sanothimi.com.np" className="text-white/55 hover:text-white text-[.88rem] font-medium transition-colors break-all">
+                  info@sanothimi.com.np
+                </a>
+              </li>
+              <li className="text-white/55 text-[.88rem] font-medium leading-relaxed">
+                Sanothimi, Bhaktapur, Nepal
+              </li>
+            </ul>
           </div>
         </div>
       </div>
 
-      {/* Glassmorphic Footer Bar */}
-      <div className="relative z-10 border-t border-white/05 bg-black/40 backdrop-blur-3xl py-10">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
-          <p className="text-white/20 text-[.65rem] font-black uppercase tracking-[.4em] text-center md:text-left">
-            &copy; {new Date().getFullYear()} Sanothimi Private Limited. <span className="text-white/05 mx-3">|</span> {t('footer.madeBy')}
+      {/* Bottom bar */}
+      <div className="border-t border-white/10">
+        <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-white/35 text-[.78rem] font-medium text-center md:text-left">
+            &copy; {new Date().getFullYear()} Sanothimi Private Limited. {t('footer.rights')}
           </p>
-
-          <div className="flex gap-10 text-[.7rem] font-black uppercase tracking-[.3em]">
-            <Link href="/privacy" className="group relative text-white/20 hover:text-[#EE2B47] transition-all">
-              Privacy Hub
-              <span className="absolute -bottom-2 left-0 w-0 h-px bg-[#EE2B47] group-hover:w-full transition-all duration-500" />
-            </Link>
-            <Link href="/terms" className="group relative text-white/20 hover:text-[#EE2B47] transition-all">
-              Legal Terms
-              <span className="absolute -bottom-2 left-0 w-0 h-px bg-[#EE2B47] group-hover:w-full transition-all duration-500" />
-            </Link>
+          <div className="flex items-center gap-6">
+            {LEGAL.map((l) => (
+              <Link key={l.href} href={l.href} className="text-white/35 hover:text-white text-[.78rem] font-medium transition-colors">
+                {l.label}
+              </Link>
+            ))}
           </div>
         </div>
       </div>

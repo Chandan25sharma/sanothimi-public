@@ -72,25 +72,25 @@ export default function ServicesPage() {
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           01. CINEMATIC HERO
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <div className="relative pt-48 pb-44 bg-[#000E22] overflow-hidden">
+      <div className="relative pt-48 pb-44 bg-[#082C66] overflow-hidden">
 
         {/* Gradient orbs */}
         <div className="absolute inset-0 pointer-events-none select-none">
-          <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-[#EE2B47]/8 rounded-full blur-[120px] glow-orb" />
-          <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-[#001C44]/60 rounded-full blur-[100px]" />
+          <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-[#D32F2F]/8 rounded-full blur-[120px] glow-orb" />
+          <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-[#0D47A1]/60 rounded-full blur-[100px]" />
         </div>
 
         <div className="absolute inset-0 bg-pattern-dark pointer-events-none" />
 
         {/* Watermark */}
         <div className="absolute inset-0 flex items-center justify-end opacity-[0.025] pointer-events-none select-none overflow-hidden">
-          <img src="/logo-no-background.png" alt="" className="w-[55%] h-auto object-contain transform rotate-[-6deg]" />
+          <img src="/logo-icon-sano.png" alt="" className="w-[55%] h-auto object-contain transform rotate-[-6deg]" />
         </div>
 
         <div className="max-w-6xl mx-auto px-6 relative z-10">
-          <div className="inline-flex items-center gap-3 px-5 py-2.5 bg-[#EE2B47]/10 border border-[#EE2B47]/25 rounded-full mb-12 backdrop-blur-sm">
+          <div className="inline-flex items-center gap-3 px-5 py-2.5 bg-[#D32F2F]/10 border border-[#D32F2F]/25 rounded-full mb-12 backdrop-blur-sm">
             <span className="live-dot live-dot-red" />
-            <span className="text-[#EE2B47] text-[.65rem] font-black uppercase tracking-[.3em]">
+            <span className="text-[#D32F2F] text-[.65rem] font-black uppercase tracking-[.3em]">
               {t('services_pg.hero.kicker')}
             </span>
           </div>
@@ -115,17 +115,17 @@ export default function ServicesPage() {
       <section className="bg-white border-b border-gray-100 relative z-10 -mt-16">
         <div className="max-w-7xl mx-auto px-6 py-20 flex flex-wrap justify-between items-center gap-12">
           <div className="max-w-xs">
-            <h2 className="font-serif text-3xl text-[#001C44] leading-tight">
+            <h2 className="font-serif text-3xl text-[#0D47A1] leading-tight">
               {t('services_pg.disco.title')}
             </h2>
           </div>
           <div className="flex flex-wrap gap-x-12 gap-y-8">
             {([1, 2, 3] as const).map((id) => (
               <div key={id} className="group">
-                <div className="text-[9px] uppercase tracking-[0.3em] text-[#EE2B47] font-black mb-2">
+                <div className="text-[9px] uppercase tracking-[0.3em] text-[#D32F2F] font-black mb-2">
                   {t(`services_pg.disco.${id}.label` as 'services_pg.disco.1.label')}
                 </div>
-                <div className="text-xl font-serif font-bold text-[#001C44] group-hover:text-[#EE2B47] transition-colors">
+                <div className="text-xl font-serif font-bold text-[#0D47A1] group-hover:text-[#D32F2F] transition-colors">
                   {t(`services_pg.disco.${id}.desc` as 'services_pg.disco.1.desc')}
                 </div>
               </div>
@@ -145,9 +145,9 @@ export default function ServicesPage() {
               <span className="section-kicker-line" />
               {t('services_pg.portfolio.kicker')}
             </div>
-            <h2 className="rs d1 font-serif text-4xl md:text-5xl text-[#001C44] leading-[1.15] mb-8">
+            <h2 className="rs d1 font-serif text-4xl md:text-5xl text-[#0D47A1] leading-[1.15] mb-8">
               {t('services_pg.portfolio.title1')}<br />
-              <span className="text-[#EE2B47] italic">{t('services_pg.portfolio.title2')}</span>
+              <span className="text-[#D32F2F] italic">{t('services_pg.portfolio.title2')}</span>
             </h2>
           </div>
 
@@ -160,17 +160,17 @@ export default function ServicesPage() {
                 className={`rs d${(i % 2) + 2} group svc-premium relative flex flex-col h-full cursor-default`}
               >
                 {/* Service number watermark */}
-                <div className="absolute top-8 right-10 font-serif text-[5rem] font-bold text-gray-50 leading-none select-none pointer-events-none transition-all duration-500 group-hover:text-[#EE2B47]/5">
+                <div className="absolute top-8 right-10 font-serif text-[5rem] font-bold text-gray-50 leading-none select-none pointer-events-none transition-all duration-500 group-hover:text-[#D32F2F]/5">
                   0{id}
                 </div>
 
                 {/* Icon */}
-                <div className="w-16 h-16 rounded-2xl bg-[#F9FAFB] group-hover:bg-[#EE2B47] flex items-center justify-center text-[#001C44] group-hover:text-white mb-10 transition-all duration-500 relative z-10">
+                <div className="w-16 h-16 rounded-2xl bg-[#F9FAFB] group-hover:bg-[#D32F2F] flex items-center justify-center text-[#0D47A1] group-hover:text-white mb-10 transition-all duration-500 relative z-10">
                   {SVC_ICONS[i]}
                 </div>
 
                 {/* Title */}
-                <h3 className="font-serif text-2xl md:text-3xl text-[#001C44] mb-5 leading-tight relative z-10">
+                <h3 className="font-serif text-2xl md:text-3xl text-[#0D47A1] mb-5 leading-tight relative z-10">
                   {t(`svc.${id}.title` as 'svc.1.title')}
                 </h3>
 
@@ -183,7 +183,7 @@ export default function ServicesPage() {
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6 mb-10 relative z-10">
                   {SVC_BULLETS[i].map((b) => (
                     <li key={b} className="flex items-center gap-3 text-[#6B7280] text-[.82rem] font-medium">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#EE2B47] flex-shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#D32F2F] flex-shrink-0" />
                       {b}
                     </li>
                   ))}
@@ -193,13 +193,13 @@ export default function ServicesPage() {
                 <div className="mt-auto pt-8 border-t border-gray-100 flex flex-wrap gap-4 relative z-10">
                   <Link
                     href="/contact"
-                    className="flex-1 min-w-[130px] text-center bg-[#001C44] text-white px-6 py-3.5 rounded-full font-bold text-sm hover:bg-[#EE2B47] transition-all duration-500"
+                    className="flex-1 min-w-[130px] text-center bg-[#0D47A1] text-white px-6 py-3.5 rounded-full font-bold text-sm hover:bg-[#D32F2F] transition-all duration-500"
                   >
                     {t('services_pg.portfolio.cta1')}
                   </Link>
                   <Link
                     href="/contact"
-                    className="flex-1 min-w-[130px] text-center border-2 border-gray-100 text-[#001C44] px-6 py-3.5 rounded-full font-bold text-sm hover:border-[#EE2B47] hover:text-[#EE2B47] transition-all duration-500"
+                    className="flex-1 min-w-[130px] text-center border-2 border-gray-100 text-[#0D47A1] px-6 py-3.5 rounded-full font-bold text-sm hover:border-[#D32F2F] hover:text-[#D32F2F] transition-all duration-500"
                   >
                     {t('services_pg.portfolio.cta2')}
                   </Link>
@@ -214,7 +214,7 @@ export default function ServicesPage() {
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           04. DEPLOYMENT LIFECYCLE
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section ref={s2 as React.RefObject<HTMLDivElement>} className="py-32 bg-[#000E22] relative overflow-hidden">
+      <section ref={s2 as React.RefObject<HTMLDivElement>} className="py-32 bg-[#082C66] relative overflow-hidden">
         {/* Decorative S watermark */}
         <div className="absolute top-0 right-0 opacity-[0.015] text-white text-[28rem] font-serif leading-none select-none pointer-events-none">
           S
@@ -230,7 +230,7 @@ export default function ServicesPage() {
             </div>
             <h2 className="rs d1 font-serif text-4xl md:text-5xl text-white leading-[1.2] mb-6">
               {t('services_pg.process.title1')}{' '}
-              <br /><span className="italic text-[#EE2B47]">{t('services_pg.process.title2')}</span>
+              <br /><span className="italic text-[#D32F2F]">{t('services_pg.process.title2')}</span>
             </h2>
             <p className="rs d2 text-white/40 text-lg leading-relaxed">
               From first conversation to live deployment — we handle every detail of your digital transformation.
@@ -240,19 +240,19 @@ export default function ServicesPage() {
           {/* Process steps with connecting arrows */}
           <div className="relative grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {/* Connecting line on desktop */}
-            <div className="hidden md:block absolute top-[52px] left-[calc(16.67%+20px)] right-[calc(16.67%+20px)] h-px bg-gradient-to-r from-[#EE2B47]/50 via-[#EE2B47]/30 to-[#EE2B47]/50" />
+            <div className="hidden md:block absolute top-[52px] left-[calc(16.67%+20px)] right-[calc(16.67%+20px)] h-px bg-gradient-to-r from-[#D32F2F]/50 via-[#D32F2F]/30 to-[#D32F2F]/50" />
 
             {([1, 2, 3] as const).map((id, i) => (
               <div
                 key={id}
-                className={`rs d${i + 2} group relative bg-white/5 border border-white/10 rounded-[2.5rem] p-10 text-center hover:border-[#EE2B47]/40 hover:bg-white/[0.08] transition-all duration-500`}
+                className={`rs d${i + 2} group relative bg-white/5 border border-white/10 rounded-[2.5rem] p-10 text-center hover:border-[#D32F2F]/40 hover:bg-white/[0.08] transition-all duration-500`}
               >
                 {/* Step number circle */}
-                <div className="relative w-16 h-16 rounded-full bg-[#001C44] border border-white/10 flex items-center justify-center mx-auto mb-8 group-hover:bg-[#EE2B47] group-hover:border-[#EE2B47] transition-all duration-500 shadow-xl">
+                <div className="relative w-16 h-16 rounded-full bg-[#0D47A1] border border-white/10 flex items-center justify-center mx-auto mb-8 group-hover:bg-[#D32F2F] group-hover:border-[#D32F2F] transition-all duration-500 shadow-xl">
                   <div className="text-white group-hover:text-white transition-colors">
                     {PROCESS_ICONS[i]}
                   </div>
-                  <div className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-[#EE2B47] text-white text-[10px] font-black flex items-center justify-center">
+                  <div className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-[#D32F2F] text-white text-[10px] font-black flex items-center justify-center">
                     0{id}
                   </div>
                 </div>
@@ -271,7 +271,7 @@ export default function ServicesPage() {
           <div className="rs d5 mt-20 inline-flex flex-wrap items-center justify-center gap-8 px-10 py-5 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm">
             {['Zero Data Loss', '99.9% Uptime SLA', '24/7 Support', 'Free Migration'].map((item) => (
               <div key={item} className="flex items-center gap-2.5 text-white/50 text-[.75rem] font-bold">
-                <svg className="w-4 h-4 text-[#EE2B47]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5"><path d="M5 13l4 4L19 7" /></svg>
+                <svg className="w-4 h-4 text-[#D32F2F]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5"><path d="M5 13l4 4L19 7" /></svg>
                 {item}
               </div>
             ))}

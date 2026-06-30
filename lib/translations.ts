@@ -84,11 +84,11 @@ export const TRANSLATIONS = {
     'ach.6.metric': '🔥 High Growth',
 
     // Footer
-    'footer.motto': 'The Standard of Excellence in Institutional Digital Evolution.',
+    'footer.motto': 'Enterprise ERP for schools, businesses, and institutions across Nepal.',
     'footer.platform': 'Platform',
     'footer.legal': 'Legal',
-    'footer.rights': 'All Institutional Rights Reserved.',
-    'footer.madeBy': 'Elevated by Sanothimi Core Engineering',
+    'footer.rights': 'All rights reserved.',
+    'footer.madeBy': 'Built by Sanothimi Technologies',
 
     // Home Page Specific
     'home.hero.title1': 'Modernizing',
@@ -345,11 +345,11 @@ export const TRANSLATIONS = {
     'ach.6.metric': '🔥 उच्च वृद्धि',
 
     // Footer
-    'footer.motto': 'संस्थागत डिजिटल विकासमा उत्कृष्टताको मानक।',
+    'footer.motto': 'नेपालभरका विद्यालय, व्यवसाय र संस्थाहरूका लागि इन्टरप्राइज ERP।',
     'footer.platform': 'प्लेटफर्म',
     'footer.legal': 'कानूनी',
-    'footer.rights': 'सबै संस्थागत अधिकारहरू सुरक्षित छन्।',
-    'footer.madeBy': 'सानोठिमी कोर इन्जिनियरिङ् द्वारा निर्मित',
+    'footer.rights': 'सर्वाधिकार सुरक्षित।',
+    'footer.madeBy': 'सानोठिमी टेक्नोलोजिज द्वारा निर्मित',
 
     // Home Page Specific
     'home.hero.title1': 'आधुनिकीकरण',
