@@ -168,12 +168,27 @@ const STEPS = [
 ];
 
 const USE_CASES = [
-  { industry: 'Educational Institutions', icon: '🎓', color: '#D32F2F', bg: 'bg-red-50 border-red-100',
-    items: ['Schools & colleges', 'Training academies', 'Coaching centres'], desc: 'SchoolSathi powers end-to-end administration for campuses of any size.' },
-  { industry: 'Business Enterprises',     icon: '🏢', color: '#2563EB', bg: 'bg-blue-50 border-blue-100',
-    items: ['Retail & distribution', 'Manufacturing', 'Service companies'],  desc: 'FinanceCore and StockMate bring real-time financial control to growing businesses.' },
-  { industry: 'NGOs & Government',        icon: '🌏', color: '#059669', bg: 'bg-emerald-50 border-emerald-100',
-    items: ['Non-profit organizations', 'Development agencies', 'Public institutions'], desc: 'Transparent reporting and compliance tools built for accountability.' },
+  {
+    industry: 'Educational Institutions',
+    icon: 'M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z',
+    color: '#D32F2F', iconBg: 'bg-red-50', cardBg: 'bg-white border-gray-100',
+    items: ['Schools & colleges', 'Training academies', 'Coaching centres'],
+    desc: 'SchoolSathi powers end-to-end administration for campuses of any size.',
+  },
+  {
+    industry: 'Business Enterprises',
+    icon: 'M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z',
+    color: '#2563EB', iconBg: 'bg-blue-50', cardBg: 'bg-white border-gray-100',
+    items: ['Retail & distribution', 'Manufacturing', 'Service companies'],
+    desc: 'FinanceCore and StockMate bring real-time financial control to growing businesses.',
+  },
+  {
+    industry: 'NGOs & Government',
+    icon: 'M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 004 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
+    color: '#059669', iconBg: 'bg-emerald-50', cardBg: 'bg-white border-gray-100',
+    items: ['Non-profit organizations', 'Development agencies', 'Public institutions'],
+    desc: 'Transparent reporting and compliance tools built for accountability.',
+  },
 ];
 
 const STATS = [
@@ -519,15 +534,19 @@ export default function Home() {
                 variants={fadeUp}
                 whileHover={{ y: -5 }}
                 transition={{ duration: 0.2 }}
-                className={`p-8 rounded-2xl border ${u.bg} cursor-default`}
+                className={`p-6 sm:p-8 rounded-2xl border ${u.cardBg} cursor-default shadow-sm`}
               >
-                <div className="text-4xl mb-5">{u.icon}</div>
-                <h3 className="font-serif text-xl text-[#0D47A1] font-bold mb-3">{u.industry}</h3>
-                <p className="text-[#64748B] text-[.85rem] leading-relaxed mb-5">{u.desc}</p>
+                <div className={`w-12 h-12 rounded-xl ${u.iconBg} flex items-center justify-center mb-5`}>
+                  <svg className="w-6 h-6" style={{ color: u.color }} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.8">
+                    <path strokeLinecap="round" strokeLinejoin="round" d={u.icon} />
+                  </svg>
+                </div>
+                <h3 className="font-serif text-lg sm:text-xl text-[#0D47A1] font-bold mb-2">{u.industry}</h3>
+                <p className="text-[#64748B] text-[.82rem] leading-relaxed mb-4">{u.desc}</p>
                 <ul className="space-y-2">
                   {u.items.map((item) => (
-                    <li key={item} className="flex items-center gap-2.5 text-[.8rem] font-medium text-[#374151]">
-                      <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ background: u.color }} />
+                    <li key={item} className="flex items-center gap-2.5 text-[.78rem] font-medium text-[#374151]">
+                      <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: u.color }} />
                       {item}
                     </li>
                   ))}

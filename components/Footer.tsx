@@ -45,11 +45,11 @@ export default function Footer() {
     <footer className="bg-[#F8FAFC] border-t border-gray-200">
 
       {/* Main grid */}
-      <div className="max-w-7xl mx-auto px-6 py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-8 gap-y-14">
+      <div className="max-w-7xl mx-auto px-6 py-10 md:py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-8 gap-y-10 md:gap-y-14">
 
           {/* Brand + newsletter */}
-          <div className="lg:col-span-4">
+          <div className="lg:col-span-4 pb-8 border-b border-gray-200 lg:pb-0 lg:border-0">
             <Link href="/" className="flex items-center gap-2.5 mb-5">
               <img src="/logo-icon-sano.png" alt="Sanothimi" className="w-8 h-8 object-contain" />
               <div className="leading-tight">
@@ -58,7 +58,7 @@ export default function Footer() {
               </div>
             </Link>
 
-            <p className="text-gray-500 text-[.85rem] leading-relaxed max-w-xs mb-7">
+            <p className="text-gray-500 text-[.85rem] leading-relaxed max-w-xs mb-6">
               {t('footer.motto')}
             </p>
 
@@ -106,53 +106,58 @@ export default function Footer() {
             )}
           </div>
 
-          {/* Company */}
-          <div className="lg:col-span-2 lg:col-start-6">
-            <h4 className="text-[.68rem] font-bold uppercase tracking-[.2em] text-gray-400 mb-5">Company</h4>
-            <ul className="space-y-3">
-              {COMPANY.map((l) => (
-                <li key={l.href}>
-                  <Link href={l.href} className="text-gray-500 hover:text-[#D32F2F] text-[.87rem] font-medium transition-colors">
-                    {l.label}
-                  </Link>
+          {/* Nav columns — 2-col on mobile, unfold at lg */}
+          <div className="lg:col-span-8 lg:col-start-5 grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-8">
+
+            {/* Company */}
+            <div>
+              <h4 className="text-[.66rem] font-bold uppercase tracking-[.2em] text-gray-400 mb-4">Company</h4>
+              <ul className="space-y-2.5">
+                {COMPANY.map((l) => (
+                  <li key={l.href}>
+                    <Link href={l.href} className="text-gray-500 hover:text-[#D32F2F] text-[.83rem] font-medium transition-colors">
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Solutions */}
+            <div>
+              <h4 className="text-[.66rem] font-bold uppercase tracking-[.2em] text-gray-400 mb-4">Solutions</h4>
+              <ul className="space-y-2.5">
+                {SOLUTIONS.map((l) => (
+                  <li key={l.label}>
+                    <Link href={l.href} className="text-gray-500 hover:text-[#D32F2F] text-[.83rem] font-medium transition-colors">
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Contact — full width on mobile (col-span-2), single col on md+ */}
+            <div className="col-span-2 md:col-span-1">
+              <h4 className="text-[.66rem] font-bold uppercase tracking-[.2em] text-gray-400 mb-4">Contact</h4>
+              <ul className="space-y-3">
+                <li>
+                  <a href="tel:+9779806391489" className="text-[#0D47A1] hover:text-[#D32F2F] text-[.88rem] font-semibold transition-colors">
+                    +977 980-6391489
+                  </a>
                 </li>
-              ))}
-            </ul>
+                <li>
+                  <a href="mailto:info@sanothimi.com.np" className="text-gray-500 hover:text-[#D32F2F] text-[.83rem] font-medium transition-colors break-all">
+                    info@sanothimi.com.np
+                  </a>
+                </li>
+                <li className="text-gray-500 text-[.83rem] font-medium">
+                  Sanothimi, Bhaktapur, Nepal
+                </li>
+              </ul>
+            </div>
           </div>
 
-          {/* Solutions */}
-          <div className="lg:col-span-3">
-            <h4 className="text-[.68rem] font-bold uppercase tracking-[.2em] text-gray-400 mb-5">Solutions</h4>
-            <ul className="space-y-3">
-              {SOLUTIONS.map((l) => (
-                <li key={l.label}>
-                  <Link href={l.href} className="text-gray-500 hover:text-[#D32F2F] text-[.87rem] font-medium transition-colors">
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div className="lg:col-span-3">
-            <h4 className="text-[.68rem] font-bold uppercase tracking-[.2em] text-gray-400 mb-5">Contact</h4>
-            <ul className="space-y-3.5">
-              <li>
-                <a href="tel:+9779806391489" className="text-[#0D47A1] hover:text-[#D32F2F] text-[.92rem] font-semibold transition-colors">
-                  +977 980-6391489
-                </a>
-              </li>
-              <li>
-                <a href="mailto:info@sanothimi.com.np" className="text-gray-500 hover:text-[#D32F2F] text-[.87rem] font-medium transition-colors break-all">
-                  info@sanothimi.com.np
-                </a>
-              </li>
-              <li className="text-gray-500 text-[.87rem] font-medium leading-relaxed">
-                Sanothimi, Bhaktapur, Nepal
-              </li>
-            </ul>
-          </div>
         </div>
       </div>
 
