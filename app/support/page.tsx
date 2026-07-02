@@ -83,7 +83,7 @@ export default function SupportPage() {
       <div className="relative pt-40 pb-16 bg-white overflow-hidden">
         <div className="max-w-5xl mx-auto px-6 relative z-10 text-center">
           <div className="text-[#D32F2F] text-[.7rem] font-black uppercase tracking-[.3em] mb-6">Support Center</div>
-          <h1 className="font-serif text-5xl md:text-6xl text-[#0D47A1] leading-[1.15] tracking-tight">
+          <h1 className="font-serif text-[2.2rem] sm:text-5xl md:text-6xl text-[#0D47A1] leading-[1.15] tracking-tight">
             We&rsquo;re here{' '}
             <span className="relative inline-block">
               to help.

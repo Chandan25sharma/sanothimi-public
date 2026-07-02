@@ -14,10 +14,10 @@ const COMPANY = [
 ];
 
 const SOLUTIONS = [
-  { label: 'School ERP — SchoolSathi', href: '/services' },
-  { label: 'Financial Suite — FinanceCore', href: '/services' },
-  { label: 'Inventory Control — StockMate', href: '/services' },
-  { label: 'HR & Payroll — HRDesk', href: '/services' },
+  { label: 'School ERP — SchoolSathi', href: '/services#svc-1' },
+  { label: 'Financial Suite — FinanceCore', href: '/services#svc-2' },
+  { label: 'Inventory Control — StockMate', href: '/services#svc-3' },
+  { label: 'HR & Payroll — HRDesk', href: '/services#svc-4' },
 ];
 
 const LEGAL = [
@@ -42,30 +42,34 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#082C66] text-white">
+    <footer className="bg-[#F8FAFC] border-t border-gray-200">
+
+      {/* Main grid */}
       <div className="max-w-7xl mx-auto px-6 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-8 gap-y-14">
 
           {/* Brand + newsletter */}
           <div className="lg:col-span-4">
-            <Link href="/" className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-xl bg-white p-2 flex items-center justify-center flex-shrink-0">
-                <img src="/logo-icon-sano.png" alt="Sanothimi" className="w-full h-full object-contain" />
+            <Link href="/" className="flex items-center gap-2.5 mb-5">
+              <img src="/logo-icon-sano.png" alt="Sanothimi" className="w-8 h-8 object-contain" />
+              <div className="leading-tight">
+                <div className="font-bold text-[1.02rem] tracking-tight text-[#0D47A1]">Sanothimi</div>
+                <div className="text-[.5rem] text-[#D32F2F] font-black tracking-[.35em] uppercase">Technologies</div>
               </div>
-              <span className="font-bold text-xl tracking-tight">Sanothimi</span>
             </Link>
-            <p className="text-white/45 text-[.85rem] leading-relaxed max-w-xs mb-7">
+
+            <p className="text-gray-500 text-[.85rem] leading-relaxed max-w-xs mb-7">
               {t('footer.motto')}
             </p>
 
             {/* Social */}
-            <div className="flex gap-2.5 mb-10">
+            <div className="flex gap-2.5 mb-9">
               {SOCIALS.map((s) => (
                 <a
                   key={s.label}
                   href="#"
                   aria-label={s.label}
-                  className="w-9 h-9 rounded-lg bg-white/6 border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:bg-[#D32F2F] hover:border-[#D32F2F] transition-all duration-200"
+                  className="w-9 h-9 rounded-lg bg-white border border-gray-200 flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#D32F2F] hover:border-[#D32F2F] transition-all duration-200 shadow-sm"
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
                     <path d={s.icon} />
@@ -76,9 +80,9 @@ export default function Footer() {
             </div>
 
             {/* Newsletter */}
-            <p className="text-[.78rem] font-bold text-white/70 mb-3">Get the latest insights straight to your inbox</p>
+            <p className="text-[.78rem] font-semibold text-gray-600 mb-3">Get the latest insights straight to your inbox</p>
             {subscribed ? (
-              <div className="flex items-center gap-2 text-[.82rem] text-green-400 font-semibold">
+              <div className="flex items-center gap-2 text-[.82rem] text-green-600 font-semibold">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5"><path d="M5 13l4 4L19 7"/></svg>
                 Thanks — you&rsquo;re subscribed.
               </div>
@@ -90,7 +94,7 @@ export default function Footer() {
                   placeholder="Work email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="flex-1 min-w-0 bg-white/8 border border-white/15 rounded-lg px-3.5 py-2.5 text-[.82rem] text-white placeholder:text-white/35 outline-none focus:border-[#D32F2F] focus:bg-white/12 transition-all"
+                  className="flex-1 min-w-0 bg-white border border-gray-200 rounded-lg px-3.5 py-2.5 text-[.82rem] text-[#0D47A1] placeholder:text-gray-400 outline-none focus:border-[#D32F2F] transition-all shadow-sm"
                 />
                 <button
                   type="submit"
@@ -104,11 +108,11 @@ export default function Footer() {
 
           {/* Company */}
           <div className="lg:col-span-2 lg:col-start-6">
-            <h4 className="text-[.72rem] font-bold uppercase tracking-[.2em] text-white/35 mb-5">Company</h4>
-            <ul className="space-y-3.5">
+            <h4 className="text-[.68rem] font-bold uppercase tracking-[.2em] text-gray-400 mb-5">Company</h4>
+            <ul className="space-y-3">
               {COMPANY.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-white/55 hover:text-white text-[.88rem] font-medium transition-colors">
+                  <Link href={l.href} className="text-gray-500 hover:text-[#D32F2F] text-[.87rem] font-medium transition-colors">
                     {l.label}
                   </Link>
                 </li>
@@ -118,11 +122,11 @@ export default function Footer() {
 
           {/* Solutions */}
           <div className="lg:col-span-3">
-            <h4 className="text-[.72rem] font-bold uppercase tracking-[.2em] text-white/35 mb-5">Solutions</h4>
-            <ul className="space-y-3.5">
+            <h4 className="text-[.68rem] font-bold uppercase tracking-[.2em] text-gray-400 mb-5">Solutions</h4>
+            <ul className="space-y-3">
               {SOLUTIONS.map((l) => (
                 <li key={l.label}>
-                  <Link href={l.href} className="text-white/55 hover:text-white text-[.88rem] font-medium transition-colors">
+                  <Link href={l.href} className="text-gray-500 hover:text-[#D32F2F] text-[.87rem] font-medium transition-colors">
                     {l.label}
                   </Link>
                 </li>
@@ -132,19 +136,19 @@ export default function Footer() {
 
           {/* Contact */}
           <div className="lg:col-span-3">
-            <h4 className="text-[.72rem] font-bold uppercase tracking-[.2em] text-white/35 mb-5">Contact</h4>
-            <ul className="space-y-4">
+            <h4 className="text-[.68rem] font-bold uppercase tracking-[.2em] text-gray-400 mb-5">Contact</h4>
+            <ul className="space-y-3.5">
               <li>
-                <a href="tel:+9779806391489" className="text-white/80 hover:text-white text-[.92rem] font-semibold transition-colors">
+                <a href="tel:+9779806391489" className="text-[#0D47A1] hover:text-[#D32F2F] text-[.92rem] font-semibold transition-colors">
                   +977 980-6391489
                 </a>
               </li>
               <li>
-                <a href="mailto:info@sanothimi.com.np" className="text-white/55 hover:text-white text-[.88rem] font-medium transition-colors break-all">
+                <a href="mailto:info@sanothimi.com.np" className="text-gray-500 hover:text-[#D32F2F] text-[.87rem] font-medium transition-colors break-all">
                   info@sanothimi.com.np
                 </a>
               </li>
-              <li className="text-white/55 text-[.88rem] font-medium leading-relaxed">
+              <li className="text-gray-500 text-[.87rem] font-medium leading-relaxed">
                 Sanothimi, Bhaktapur, Nepal
               </li>
             </ul>
@@ -153,14 +157,14 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-white/35 text-[.78rem] font-medium text-center md:text-left">
+      <div className="bg-white border-t border-gray-200">
+        <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-gray-400 text-[.78rem] font-medium text-center md:text-left">
             &copy; {new Date().getFullYear()} Sanothimi Private Limited. {t('footer.rights')}
           </p>
           <div className="flex items-center gap-6">
             {LEGAL.map((l) => (
-              <Link key={l.href} href={l.href} className="text-white/35 hover:text-white text-[.78rem] font-medium transition-colors">
+              <Link key={l.href} href={l.href} className="text-gray-400 hover:text-[#D32F2F] text-[.78rem] font-medium transition-colors">
                 {l.label}
               </Link>
             ))}

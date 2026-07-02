@@ -56,7 +56,7 @@ export default function PrivacyPage() {
           <div className="text-[#D32F2F] text-[.65rem] font-black uppercase tracking-[.3em] mb-6">
             {t('legal.privacy.hero.kicker')}
           </div>
-          <h1 className="font-serif text-5xl md:text-6xl text-[#0D47A1] leading-tight mb-8 tracking-tight">
+          <h1 className="font-serif text-[2.2rem] sm:text-5xl md:text-6xl text-[#0D47A1] leading-tight mb-8 tracking-tight">
             {t('legal.privacy.hero.title1')}{' '}
             <span className="relative inline-block">
               {t('legal.privacy.hero.title2')}

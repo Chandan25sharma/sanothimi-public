@@ -101,7 +101,7 @@ export default function PricingPage() {
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
           <div className="text-[#D32F2F] text-[.7rem] font-black uppercase tracking-[.3em] mb-6">Simple, Transparent Pricing</div>
 
-          <h1 className="font-serif text-5xl md:text-6xl text-[#0D47A1] leading-[1.1] mb-8 tracking-tight">
+          <h1 className="font-serif text-[2.2rem] sm:text-5xl md:text-6xl text-[#0D47A1] leading-[1.1] mb-8 tracking-tight">
             Start free,<br />
             <span className="relative inline-block">
               scale as you grow

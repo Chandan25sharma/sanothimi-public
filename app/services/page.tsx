@@ -78,7 +78,7 @@ export default function ServicesPage() {
             {t('services_pg.hero.kicker')}
           </div>
 
-          <h1 className="font-serif text-5xl md:text-7xl text-[#0D47A1] leading-[1.1] tracking-tight">
+          <h1 className="font-serif text-[2.2rem] sm:text-5xl md:text-7xl text-[#0D47A1] leading-[1.1] tracking-tight">
             {t('services_pg.hero.title1')}<br />
             <span className="relative inline-block">
               {t('services_pg.hero.title2')}

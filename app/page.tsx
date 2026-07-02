@@ -235,16 +235,16 @@ export default function Home() {
             </motion.p>
 
             {/* CTA */}
-            <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-6 mb-14">
+            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 mb-12">
               <Link
                 href="/demo"
-                className="flex items-center gap-2.5 bg-[#D32F2F] text-white px-7 py-3.5 rounded-full font-semibold text-[.88rem] hover:bg-[#B71C1C] transition-all duration-200"
+                className="inline-flex items-center justify-center gap-2.5 bg-[#D32F2F] text-white px-7 py-3.5 rounded-full font-semibold text-[.88rem] hover:bg-[#B71C1C] transition-all duration-200 w-full sm:w-auto"
               >
                 Explore Our Solutions
               </Link>
               <Link
                 href="/services"
-                className="flex items-center gap-2 text-[#0D47A1] font-semibold text-[.88rem] hover:text-[#D32F2F] transition-colors"
+                className="flex items-center justify-center sm:justify-start gap-2 text-[#0D47A1] font-semibold text-[.88rem] hover:text-[#D32F2F] transition-colors"
               >
                 See How It Works
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2"><path d="M9 5l7 7-7 7"/></svg>
@@ -252,15 +252,15 @@ export default function Home() {
             </motion.div>
 
             {/* Trust row */}
-            <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-6 pt-8 border-t border-gray-100">
+            <motion.div variants={fadeUp} className="grid grid-cols-3 pt-8 border-t border-gray-100">
               {[
                 { val: '50+',   label: 'Institutions' },
                 { val: '10K+',  label: 'Daily users' },
                 { val: '99.9%', label: 'Uptime SLA' },
               ].map((s, i) => (
-                <div key={s.label} className={`flex items-center gap-3 ${i > 0 ? 'pl-6 border-l border-gray-200' : ''}`}>
-                  <div className="text-[1.6rem] font-serif font-bold text-[#0D47A1] leading-none">{s.val}</div>
-                  <div className="text-gray-400 text-[.72rem] font-medium leading-tight">{s.label}</div>
+                <div key={s.label} className={`flex flex-col gap-1 ${i === 0 ? 'pr-4' : i === 1 ? 'px-4 border-l border-r border-gray-200' : 'pl-4'}`}>
+                  <div className="text-[1.2rem] sm:text-[1.5rem] font-serif font-bold text-[#0D47A1] leading-none">{s.val}</div>
+                  <div className="text-gray-400 text-[.6rem] sm:text-[.7rem] font-medium leading-tight">{s.label}</div>
                 </div>
               ))}
             </motion.div>
@@ -337,7 +337,7 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════
           03 · SOLUTIONS
       ══════════════════════════════════════════════════ */}
-      <section className="py-24 bg-white">
+      <section className="py-14 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           {/* Header */}
           <motion.div
@@ -410,7 +410,7 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════
           04 · HOW IT WORKS
       ══════════════════════════════════════════════════ */}
-      <section className="py-24 bg-[#F8FAFC] border-y border-gray-100">
+      <section className="py-14 md:py-24 bg-[#F8FAFC] border-y border-gray-100">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-60px' }}
@@ -468,7 +468,7 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════
           05 · STATS
       ══════════════════════════════════════════════════ */}
-      <section className="py-20 bg-[#0D47A1] relative overflow-hidden">
+      <section className="py-14 md:py-20 bg-[#0D47A1] relative overflow-hidden">
         <div className="absolute inset-0 bg-pattern-dark pointer-events-none opacity-40" />
         <div className="absolute right-0 top-0 w-96 h-96 bg-[#D32F2F]/6 rounded-full blur-[120px] pointer-events-none" />
         <div className="max-w-6xl mx-auto px-6 relative z-10">
@@ -493,7 +493,7 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════
           06 · INDUSTRY USE CASES
       ══════════════════════════════════════════════════ */}
-      <section className="py-24 bg-white">
+      <section className="py-14 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-60px' }}
@@ -542,7 +542,7 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════
           07 · WHY CHOOSE SANOTHIMI
       ══════════════════════════════════════════════════ */}
-      <section className="py-24 bg-[#F8FAFC] border-y border-gray-100">
+      <section className="py-14 md:py-24 bg-[#F8FAFC] border-y border-gray-100">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-60px' }}
@@ -590,7 +590,7 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════
           08 · TESTIMONIAL
       ══════════════════════════════════════════════════ */}
-      <section className="py-24 bg-white">
+      <section className="py-14 md:py-24 bg-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -627,7 +627,7 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════
           09 · PRICING CTA
       ══════════════════════════════════════════════════ */}
-      <section className="py-20 bg-[#0D47A1] relative overflow-hidden">
+      <section className="py-14 md:py-20 bg-[#0D47A1] relative overflow-hidden">
         <div className="absolute inset-0 bg-pattern-dark pointer-events-none opacity-40" />
         <div className="absolute left-0 top-1/2 -translate-y-1/2 w-72 h-72 bg-[#D32F2F]/7 rounded-full blur-[100px] pointer-events-none" />
         <div className="max-w-5xl mx-auto px-6 relative z-10">

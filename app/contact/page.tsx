@@ -109,7 +109,7 @@ export default function ContactPage() {
             {t('contact_pg.hero.kicker')}
           </div>
 
-          <h1 className="font-serif text-5xl md:text-7xl text-[#0D47A1] leading-[1.1] tracking-tight">
+          <h1 className="font-serif text-[2.2rem] sm:text-5xl md:text-7xl text-[#0D47A1] leading-[1.1] tracking-tight">
             {t('contact_pg.hero.title1')}<br />
             <span className="relative inline-block">
               {t('contact_pg.hero.title2')}

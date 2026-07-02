@@ -77,7 +77,7 @@ export default function AboutPage() {
             {t('about_pg.mission.kicker')}
           </div>
 
-          <h1 className="font-serif text-5xl md:text-7xl text-[#0D47A1] leading-[1.1] tracking-tight mb-8">
+          <h1 className="font-serif text-[2.2rem] sm:text-5xl md:text-7xl text-[#0D47A1] leading-[1.1] tracking-tight mb-8">
             {t('about_pg.mission.title1')}<br />
             <span className="relative inline-block">
               {t('about_pg.mission.title2')}
@@ -199,7 +199,7 @@ export default function AboutPage() {
               <span className="live-dot" style={{ background: 'rgba(255,255,255,0.8)' }} />
               {t('about_pg.innov.kicker')}
             </div>
-            <h2 className="rs d1 font-serif text-5xl md:text-7xl text-white leading-[1.1] mb-8 tracking-tight">
+            <h2 className="rs d1 font-serif text-[2.2rem] sm:text-5xl md:text-7xl text-white leading-[1.1] mb-8 tracking-tight">
               {t('about_pg.innov.title1')} <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/30">
                 {t('about_pg.innov.title2')}
@@ -309,7 +309,7 @@ export default function AboutPage() {
               { ref: c3.ref, val: c3.val, suf: '+', label: 'Institutions Digitized' },
             ] as const).map((s, i) => (
               <div key={i} ref={s.ref} className="group text-center md:text-left">
-                <div className="text-5xl md:text-6xl font-serif font-bold text-[#0D47A1] mb-2 flex items-baseline justify-center md:justify-start gap-1 group-hover:text-[#D32F2F] transition-colors duration-500">
+                <div className="text-[2.2rem] sm:text-5xl md:text-6xl font-serif font-bold text-[#0D47A1] mb-2 flex items-baseline justify-center md:justify-start gap-1 group-hover:text-[#D32F2F] transition-colors duration-500">
                   {s.val}
                   <span className="text-2xl text-[#D32F2F]">{s.suf}</span>
                 </div>
