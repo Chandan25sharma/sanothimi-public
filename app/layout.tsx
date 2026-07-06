@@ -1,17 +1,16 @@
-import Footer from '@/components/Footer';
-import Navbar from '@/components/Navbar';
 import CommandPalette from '@/components/CommandPalette';
 import CookieConsent from '@/components/CookieConsent';
+import Footer from '@/components/Footer';
+import Navbar from '@/components/Navbar';
+import { LanguageProvider } from '@/context/LanguageContext';
 import type { Metadata } from 'next';
 import './globals.css';
-import { LanguageProvider } from '@/context/LanguageContext';
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://sanothimi.com.np"),
+  metadataBase: new URL("https://sanothimi.com"),
   title: { template: '%s | Sanothimi', default: 'Sanothimi | Elite SaaS Engineering Hub' },
   description: 'Sanothimi is Nepal\'s premier SaaS Engineering Hub, specializing in School Management ERPs, Enterprise Financial Systems, and bespoke cloud infrastructure.',
   keywords: 'Sanothimi, SaaS Nepal, SchoolSathi, ERP Nepal, Cloud Engineering Bhaktapur, Fintech Nepal',
-  icons: { icon: '/icon.png', apple: '/icon.png' },
   openGraph: {
     title: 'Sanothimi — Elite SaaS Engineering',
     description: 'Digitizing the institutional fabric of Nepal with world-class cloud infrastructure.',
@@ -31,11 +30,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           '@context':'https://schema.org','@type':'Corporation',
           name:'Sanothimi Private Limited',
           alternateName: 'Sanothimi',
-          url:'https://sanothimi.com.np',
+          url:'https://sanothimi.com',
           logo:'https://sanothimi.com.np/logo-full.png',
           contactPoint: {
             '@type': 'ContactPoint',
-            telephone: '+977 980-6391489',
+            telephone: '+977 9704714937',
             contactType: 'technical support',
             areaServed: 'NP',
             availableLanguage: ['en', 'ne']

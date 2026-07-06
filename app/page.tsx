@@ -205,6 +205,57 @@ const DIFFERENTIATORS = [
   { icon: 'M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z', title: 'Cloud-Native & Secure',    desc: 'AES-256 encryption, daily backups, and 99.9% uptime. Your data never leaves Nepal.' },
 ];
 
+/* ─── Process flow data ─────────────────────────────────────────────── */
+const FLOW_TABS = [
+  {
+    id: 'school', label: 'School ERP', color: '#D32F2F',
+    steps: [
+      { icon: 'M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z', label: 'Student Admitted', desc: 'Profile created instantly' },
+      { icon: 'M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z', label: 'Fee Assigned', desc: 'Auto-calculated, parent notified' },
+      { icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4', label: 'Attendance Marked', desc: 'Daily via portal or app' },
+      { icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z', label: 'Exam Graded', desc: 'Marks entered & averaged' },
+      { icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z', label: 'Report Generated', desc: 'Parent portal updated live' },
+    ],
+  },
+  {
+    id: 'finance', label: 'Finance', color: '#2563EB',
+    steps: [
+      { icon: 'M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z', label: 'Invoice Created', desc: 'Auto-numbered with VAT' },
+      { icon: 'M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2zM10 8.5a.5.5 0 11-1 0 .5.5 0 011 0zm5 5a.5.5 0 11-1 0 .5.5 0 011 0z', label: 'VAT Computed', desc: 'IRD-compliant auto-filing' },
+      { icon: 'M4 6h16M4 10h16M4 14h16M4 18h16', label: 'Journal Entry', desc: 'Double-entry auto-posted' },
+      { icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z', label: 'CFO Approves', desc: 'Role-based auth flow' },
+      { icon: 'M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z', label: 'Payment Posted', desc: 'Bank sync & reconciled' },
+    ],
+  },
+  {
+    id: 'inventory', label: 'Inventory', color: '#059669',
+    steps: [
+      { icon: 'M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z', label: 'Low Stock Alert', desc: 'Threshold auto-triggered' },
+      { icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2', label: 'PO Raised', desc: 'Auto-draft to best vendor' },
+      { icon: 'M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z', label: 'Vendor Confirms', desc: 'ETA & invoice received' },
+      { icon: 'M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A2 2 0 013 12V7a4 4 0 014-4z', label: 'Goods Received', desc: 'Barcode scan on delivery' },
+      { icon: 'M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4', label: 'Stock Updated', desc: 'Real-time across all sites' },
+    ],
+  },
+  {
+    id: 'hr', label: 'HR & Payroll', color: '#D97706',
+    steps: [
+      { icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z', label: 'Time Logged', desc: 'Biometric or app check-in' },
+      { icon: 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z', label: 'Leave Calculated', desc: 'Balance deducted, notified' },
+      { icon: 'M13 7h8m0 0v8m0-8l-8 8-4-4-6 6', label: 'Overtime Added', desc: 'Nepal labor law compliant' },
+      { icon: 'M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z', label: 'Payroll Run', desc: 'Tax deducted at source' },
+      { icon: 'M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z', label: 'Salary Disbursed', desc: 'Bank transfer + slip sent' },
+    ],
+  },
+];
+
+const FLOW_STATS = {
+  school:    [{ val: '1,247', label: 'Active students' }, { val: '98.2%', label: 'Fee collection rate' }, { val: '<5 min', label: 'Avg. admission time' }, { val: '100%', label: 'Paperless workflows' }],
+  finance:   [{ val: '2,400+', label: 'Invoices / month' }, { val: '100%', label: 'VAT compliant' }, { val: '<1 hr', label: 'Month-end close' }, { val: '0', label: 'Manual reconciliations' }],
+  inventory: [{ val: '12,500', label: 'SKUs tracked' }, { val: '99.8%', label: 'Stock accuracy' }, { val: '2 min', label: 'Reorder trigger time' }, { val: '40%', label: 'Less stockouts' }],
+  hr:        [{ val: '500+', label: 'Staff managed' }, { val: '100%', label: 'On-time payroll' }, { val: '0', label: 'Compliance violations' }, { val: '4 hrs', label: 'Monthly payroll time' }],
+};
+
 /* ─── Page ───────────────────────────────────────────────────────────── */
 export default function Home() {
   const counters = [
@@ -213,6 +264,14 @@ export default function Home() {
     useCounter(STATS[2].target, STATS[2].delay),
     useCounter(STATS[3].target, STATS[3].delay),
   ];
+
+  const [flowTab, setFlowTab] = useState('school');
+  const [flowStep, setFlowStep] = useState(0);
+  useEffect(() => {
+    setFlowStep(0);
+    const id = setInterval(() => setFlowStep((s) => (s + 1) % 5), 1800);
+    return () => clearInterval(id);
+  }, [flowTab]);
 
   return (
     <main className="bg-white overflow-hidden">
@@ -418,6 +477,198 @@ export default function Home() {
               </motion.div>
             ))}
           </motion.div>
+        </div>
+      </section>
+
+
+      {/* ══════════════════════════════════════════════════
+          03.5 · INTERACTIVE PROCESS FLOW
+      ══════════════════════════════════════════════════ */}
+      <section className="py-14 md:py-24 bg-white border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-6">
+
+          {/* Header */}
+          <motion.div
+            initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-60px' }}
+            variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
+            className="text-center mb-12"
+          >
+            <motion.div variants={fadeUp} className="section-kicker justify-center mb-6">
+              <span className="section-kicker-line" />Live Workflow<span className="section-kicker-line" />
+            </motion.div>
+            <motion.h2 variants={fadeUp} className="font-serif text-4xl md:text-5xl text-[#0D47A1] leading-[1.15]">
+              See your data <span className="italic text-[#D32F2F]">flow in real time.</span>
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-[#64748B] text-lg leading-relaxed mt-4 max-w-xl mx-auto">
+              Every action triggers the next. No manual handoffs, no data silos — just seamless automation.
+            </motion.p>
+          </motion.div>
+
+          {/* Tab selector */}
+          <div className="flex items-center justify-center gap-2 mb-10 flex-wrap">
+            {FLOW_TABS.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setFlowTab(tab.id)}
+                className={`px-5 py-2.5 rounded-full text-[.82rem] font-bold transition-all duration-300 ${
+                  flowTab === tab.id
+                    ? 'text-white shadow-lg scale-105'
+                    : 'bg-[#F1F5F9] text-gray-500 hover:text-gray-800'
+                }`}
+                style={flowTab === tab.id ? { background: tab.color } : {}}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Flow diagram */}
+          <AnimatePresence mode="wait">
+            {FLOW_TABS.filter((t) => t.id === flowTab).map((tab) => (
+              <motion.div
+                key={tab.id}
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -16 }}
+                transition={{ duration: 0.3 }}
+              >
+                {/* Desktop: horizontal flow */}
+                <div className="hidden md:flex items-start gap-0">
+                  {tab.steps.flatMap((step, i) => {
+                    const isActive = flowStep === i;
+                    const isPast = flowStep > i;
+                    const nodes = [
+                      <motion.div
+                        key={`s${i}`}
+                        animate={{ scale: isActive ? 1.04 : 1, y: isActive ? -4 : 0 }}
+                        transition={{ duration: 0.35 }}
+                        className="flex-1 flex flex-col items-center text-center p-5 rounded-2xl border bg-white cursor-default"
+                        style={{
+                          borderColor: isActive ? tab.color + '40' : isPast ? tab.color + '15' : '#F1F5F9',
+                          boxShadow: isActive ? `0 8px 32px ${tab.color}20` : undefined,
+                        }}
+                      >
+                        <div
+                          className="w-12 h-12 rounded-xl flex items-center justify-center mb-3 transition-all duration-500"
+                          style={{ background: isActive ? tab.color : isPast ? tab.color + '15' : '#F1F5F9' }}
+                        >
+                          <svg
+                            className="w-5 h-5"
+                            style={{ color: isActive ? '#fff' : isPast ? tab.color : '#94A3B8' }}
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.8"
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" d={step.icon} />
+                          </svg>
+                        </div>
+                        <div
+                          className="font-bold text-[.78rem] mb-1 leading-tight transition-colors duration-300"
+                          style={{ color: isActive ? tab.color : isPast ? '#64748B' : '#94A3B8' }}
+                        >
+                          {step.label}
+                        </div>
+                        <div className="text-[.66rem] text-gray-400 leading-relaxed hidden lg:block">{step.desc}</div>
+                        {isActive && (
+                          <div
+                            className="mt-2.5 px-2.5 py-0.5 rounded-full text-white text-[.56rem] font-black uppercase tracking-widest animate-pulse"
+                            style={{ background: tab.color }}
+                          >
+                            live
+                          </div>
+                        )}
+                      </motion.div>,
+                    ];
+                    if (i < tab.steps.length - 1) {
+                      nodes.push(
+                        <div
+                          key={`a${i}`}
+                          className="flex-shrink-0 w-8 flex items-start justify-center pt-[1.6rem]"
+                        >
+                          <svg
+                            className="w-4 h-4 transition-colors duration-500"
+                            style={{ color: isPast || isActive ? tab.color : '#E2E8F0' }}
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5"
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/>
+                          </svg>
+                        </div>
+                      );
+                    }
+                    return nodes;
+                  })}
+                </div>
+
+                {/* Mobile: vertical stack */}
+                <div className="md:hidden flex flex-col gap-3">
+                  {tab.steps.map((step, i) => {
+                    const isActive = flowStep === i;
+                    return (
+                      <div
+                        key={i}
+                        className="flex items-center gap-4 p-4 rounded-xl bg-white border transition-all duration-300"
+                        style={{ borderColor: isActive ? tab.color + '50' : '#F1F5F9' }}
+                      >
+                        <div
+                          className="w-10 h-10 rounded-xl flex-shrink-0 flex items-center justify-center transition-all duration-300"
+                          style={{ background: isActive ? tab.color : tab.color + '12' }}
+                        >
+                          <svg
+                            className="w-4 h-4"
+                            style={{ color: isActive ? '#fff' : tab.color }}
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2"
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" d={step.icon} />
+                          </svg>
+                        </div>
+                        <div className="flex-1">
+                          <div className="font-bold text-[.82rem]" style={{ color: isActive ? tab.color : '#0D47A1' }}>{step.label}</div>
+                          <div className="text-[.72rem] text-gray-400">{step.desc}</div>
+                        </div>
+                        {isActive && (
+                          <div className="w-2 h-2 rounded-full flex-shrink-0 animate-pulse" style={{ background: tab.color }} />
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {/* Step progress dots */}
+                <div className="flex items-center justify-center gap-2.5 mt-8">
+                  {tab.steps.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setFlowStep(i)}
+                      className="rounded-full transition-all duration-300"
+                      style={{
+                        width: flowStep === i ? '1.75rem' : '0.375rem',
+                        height: '0.375rem',
+                        background: flowStep === i ? tab.color : '#E2E8F0',
+                      }}
+                    />
+                  ))}
+                </div>
+
+                {/* Stats row */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
+                  {FLOW_STATS[tab.id as keyof typeof FLOW_STATS].map((stat) => (
+                    <div
+                      key={stat.label}
+                      className="bg-[#F8FAFC] border border-gray-100 rounded-2xl p-5 text-center hover:border-gray-200 transition-colors"
+                    >
+                      <div
+                        className="font-serif text-[1.6rem] font-bold leading-none mb-2"
+                        style={{ color: tab.color }}
+                      >
+                        {stat.val}
+                      </div>
+                      <div className="text-[.68rem] text-gray-400 font-medium uppercase tracking-wide leading-tight">
+                        {stat.label}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
       </section>
 
