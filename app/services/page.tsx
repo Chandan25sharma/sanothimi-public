@@ -1,5 +1,6 @@
 'use client';
 import CTABanner from '@/components/CTABanner';
+import { Himalaya, Lattice, Mandala, NepalSun, NetworkGraph } from '@/components/BgDecorations';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
@@ -72,7 +73,16 @@ export default function ServicesPage() {
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           01. CINEMATIC HERO
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <div className="relative pt-44 pb-20 bg-white overflow-hidden">
+      <div className="relative pt-24 pb-20 bg-white overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
+          <NetworkGraph className="absolute inset-0 w-full h-full" />
+          <Mandala className="absolute -top-24 -right-24 w-[540px] h-[540px] text-[#0D47A1] opacity-[0.06]" />
+          <NepalSun className="absolute top-1/2 -translate-y-1/2 -left-20 w-[320px] h-[320px] text-[#D32F2F] opacity-[0.05]" />
+          <Lattice className="absolute inset-0 w-full h-full text-[#0D47A1] opacity-[0.018]" size={48} />
+          <div className="absolute -bottom-40 right-1/4 w-[600px] h-[600px] rounded-full border border-[#0D47A1]/[0.05]" />
+          <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-[#0D47A1]/[0.03] blur-[120px]" />
+          <Himalaya className="absolute bottom-0 left-0 w-full text-[#0D47A1] opacity-[0.04]" />
+        </div>
         <div className="max-w-6xl mx-auto px-6 relative z-10">
           <div className="text-[#D32F2F] text-[.7rem] font-black uppercase tracking-[.3em] mb-6">
             {t('services_pg.hero.kicker')}

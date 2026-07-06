@@ -1,6 +1,6 @@
 'use client';
-import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
+import Link from 'next/link';
 import { useState, type FormEvent } from 'react';
 
 const COMPANY = [
@@ -143,7 +143,7 @@ export default function Footer() {
               <ul className="space-y-3">
                 <li>
                   <a href="tel:+9779806391489" className="text-[#0D47A1] hover:text-[#D32F2F] text-[.88rem] font-semibold transition-colors">
-                    +977 980-6391489
+                    +977 9704714937
                   </a>
                 </li>
                 <li>

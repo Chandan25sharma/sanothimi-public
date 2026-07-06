@@ -1,5 +1,6 @@
 'use client';
 import CTABanner from '@/components/CTABanner';
+import { Himalaya, Mandala, NepalMoon, NetworkGraph } from '@/components/BgDecorations';
 import emailjs from '@emailjs/browser';
 import { useEffect, useRef, useState } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
@@ -103,7 +104,15 @@ export default function ContactPage() {
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           01. CINEMATIC HERO
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <div className="relative pt-44 pb-20 bg-white overflow-hidden">
+      <div className="relative pt-24 pb-20 bg-white overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
+          <NetworkGraph className="absolute inset-0 w-full h-full" />
+          <Mandala className="absolute -top-20 -right-20 w-[500px] h-[500px] text-[#0D47A1] opacity-[0.06]" />
+          <NepalMoon className="absolute bottom-10 -left-16 w-[300px] h-[300px] text-[#D32F2F] opacity-[0.05]" />
+          <div className="absolute top-1/3 left-1/3 w-[500px] h-[500px] rounded-full border border-[#0D47A1]/[0.04]" />
+          <div className="absolute top-0 right-1/4 w-80 h-80 rounded-full bg-[#0D47A1]/[0.025] blur-[100px]" />
+          <Himalaya className="absolute bottom-0 left-0 w-full text-[#0D47A1] opacity-[0.04]" />
+        </div>
         <div className="max-w-6xl mx-auto px-6 relative z-10">
           <div className="text-[#D32F2F] text-[.7rem] font-black uppercase tracking-[.3em] mb-6">
             {t('contact_pg.hero.kicker')}

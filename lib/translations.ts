@@ -158,7 +158,7 @@ export const TRANSLATIONS = {
     'about_pg.innov.3.d': 'Beyond encryption—a zero-trust security perimeter that protects every data point in real-time.',
 
     'about_pg.stats.title': 'Scale Verified by Performance Data.',
-    'about_pg.stats.1.val': 'Since 2019',
+    'about_pg.stats.1.val': 'Since 2025',
     'about_pg.stats.1.label': 'In Enterprise',
     'about_pg.stats.2.label': 'Active Users',
     'about_pg.stats.3.label': 'Platform Uptime',

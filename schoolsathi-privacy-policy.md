@@ -546,7 +546,7 @@ For privacy-related questions, requests, or complaints:
 Sanothimi Private Limited
 Sanothimi, Bhaktapur, Nepal
 Email: privacy@sanothimi.com.np
-Phone: +977-1-663XXXX
+Phone: +977-9704714937
 Office Hours: Sunday – Friday, 10:00 AM – 5:00 PM NPT
 
 **Response Commitment:**

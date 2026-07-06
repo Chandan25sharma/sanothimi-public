@@ -1,8 +1,9 @@
 'use client';
 import CTABanner from '@/components/CTABanner';
+import { Himalaya, Lattice, Mandala, NepalSun, NetworkGraph } from '@/components/BgDecorations';
+import { useLanguage } from '@/context/LanguageContext';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
-import { useLanguage } from '@/context/LanguageContext';
 
 function useReveal(selector = '.rs') {
   const ref = useRef<HTMLElement>(null);
@@ -44,11 +45,11 @@ function useCounter(target: number, delay = 0) {
 }
 
 const MILESTONES = [
-  { year: '2019', title: 'Company Founded', desc: 'Sanothimi Private Limited was incorporated in Bhaktapur with a mission to digitize Nepal\'s institutions through world-class SaaS.' },
-  { year: '2020', title: 'SchoolSathi Launch', desc: 'Released our flagship educational ERP to 5 pioneering schools — automating admissions, fee management, and attendance.' },
-  { year: '2021', title: 'Financial Suite', desc: 'Expanded into cloud-based, VAT-compliant accounting solutions purpose-built for enterprises and SMEs across Nepal.' },
-  { year: '2022', title: 'Enterprise Scale', desc: 'Onboarded 25+ institutions and introduced Business Intelligence dashboards with real-time KPI monitoring.' },
-  { year: '2025', title: '10K+ Daily Users', desc: 'Now serving 10,000+ active users across educational, financial, and enterprise verticals — with 99.9% uptime.' },
+  { year: '2025', title: 'Company Founded', desc: 'Sanothimi Private Limited was incorporated in Bhaktapur with a mission to digitize Nepal\'s institutions through world-class SaaS.' },
+  { year: '2025', title: 'SchoolSathi Launch', desc: 'Released our flagship educational ERP to 5 pioneering schools — automating admissions, fee management, and attendance.' },
+  { year: '2025', title: 'Financial Suite', desc: 'Expanded into cloud-based, VAT-compliant accounting solutions purpose-built for enterprises and SMEs across Nepal.' },
+  { year: '2026', title: 'Enterprise Scale', desc: 'Onboarded 25+ institutions and introduced Business Intelligence dashboards with real-time KPI monitoring.' },
+  { year: '2026', title: '10K+ Daily Users', desc: 'Now serving 10,000+ active users across educational, financial, and enterprise verticals — with 99.9% uptime.' },
 ];
 
 export default function AboutPage() {
@@ -70,7 +71,16 @@ export default function AboutPage() {
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           01. CINEMATIC HERO
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <div className="relative pt-44 pb-20 bg-white overflow-hidden">
+      <div className="relative pt-24 pb-20 bg-white overflow-hidden">
+        {/* Nepal-inspired background decorations */}
+        <div className="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
+          <NetworkGraph className="absolute inset-0 w-full h-full" />
+          <Mandala className="absolute -top-20 -right-20 w-[520px] h-[520px] text-[#0D47A1] opacity-[0.06]" />
+          <NepalSun className="absolute bottom-10 -left-16 w-[300px] h-[300px] text-[#D32F2F] opacity-[0.05]" />
+          <div className="absolute top-1/2 -translate-y-1/2 left-1/3 w-[600px] h-[600px] rounded-full border border-[#0D47A1]/[0.04]" />
+          <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-[#0D47A1]/[0.025] blur-[120px]" />
+          <Himalaya className="absolute bottom-0 left-0 w-full text-[#0D47A1] opacity-[0.04]" />
+        </div>
         <div className="max-w-6xl mx-auto px-6 relative z-10">
           {/* Kicker */}
           <div className="text-[#D32F2F] text-[.7rem] font-black uppercase tracking-[.3em] mb-6">
@@ -109,8 +119,11 @@ export default function AboutPage() {
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           02. MISSION & VALUES
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section id="about-values" ref={s1 as React.RefObject<HTMLDivElement>} className="py-32 bg-white relative z-10 -mt-16 scroll-mt-28">
-        <div className="max-w-7xl mx-auto px-6">
+      <section id="about-values" ref={s1 as React.RefObject<HTMLDivElement>} className="py-32 bg-white relative z-10 -mt-16 scroll-mt-28 overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
+          <Lattice className="absolute inset-0 w-full h-full text-[#0D47A1] opacity-[0.022]" size={52} />
+        </div>
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
 
             {/* Story */}

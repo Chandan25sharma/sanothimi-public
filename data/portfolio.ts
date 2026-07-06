@@ -1,10 +1,10 @@
 import type {
-    Achievement,
-    BlogPost,
-    Experience,
-    Project,
-    Service,
-    Skill, SoftSkill, Testimonial,
+  Achievement,
+  BlogPost,
+  Experience,
+  Project,
+  Service,
+  Skill, SoftSkill, Testimonial,
 } from '@/types';
 
 export const experiences: Experience[] = [
@@ -40,7 +40,7 @@ export const experiences: Experience[] = [
     id: 3,
     title: 'Core Infrastructure Development',
     company: 'Sanothimi Tech',
-    duration: '2019 – 2021',
+    duration: '2025 – 2026',
     icon: '🏗️',
     responsibilities: [
       'Architected the central Sanothimi Cloud platform for high scalability and 99.9% uptime',

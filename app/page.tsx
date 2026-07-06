@@ -1,4 +1,5 @@
 'use client';
+import { Himalaya, Lattice, Mandala, NepalMoon, NepalSun, NetworkGraph } from '@/components/BgDecorations';
 import CTABanner from '@/components/CTABanner';
 import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
@@ -279,7 +280,23 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════
           01 · HERO
       ══════════════════════════════════════════════════ */}
-      <section className="relative bg-white overflow-hidden pt-40 pb-24 lg:pt-44 lg:pb-32">
+      <section className="relative bg-white overflow-hidden pt-16 pb-16 lg:pt-24 lg:pb-24">
+        {/* ── Hero background decorations ── */}
+        <div className="absolute inset-0 pointer-events-none select-none overflow-hidden" aria-hidden="true">
+          {/* Network graph — full hero, echoes the logo motif */}
+          <NetworkGraph className="absolute inset-0 w-full h-full" />
+          {/* Mandala — top right, behind dashboard */}
+          <Mandala className="absolute -top-24 -right-24 w-[560px] h-[560px] text-[#0D47A1] opacity-[0.10]" />
+          {/* Nepal sun — top left accent */}
+          <NepalSun className="absolute -top-16 -left-16 w-[320px] h-[320px] text-[#D32F2F] opacity-[0.10]" />
+          {/* Large plain rings for depth */}
+          <div className="absolute top-1/3 -right-60 w-[900px] h-[900px] rounded-full border border-[#0D47A1]/[0.04]" />
+          <div className="absolute -bottom-60 -left-40 w-[700px] h-[700px] rounded-full border border-[#D32F2F]/[0.04]" />
+          {/* Soft glow orb */}
+          <div className="absolute top-0 right-1/3 w-[500px] h-[500px] rounded-full bg-[#0D47A1]/[0.08] blur-[120px]" />
+          {/* Himalaya ridge at bottom */}
+          <Himalaya className="absolute bottom-0 left-0 w-full text-[#0D47A1] opacity-[0.04]" />
+        </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center w-full">
 
           {/* Left: Copy */}
@@ -400,7 +417,7 @@ export default function Home() {
             <div className="md:ml-auto flex-shrink-0">
               <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-50 border border-green-100 text-green-700 text-[.62rem] font-black uppercase tracking-widest">
                 <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-                Nepal-based since 2019
+                Nepal-based since 2025
               </span>
             </div>
           </div>
@@ -411,8 +428,15 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════
           03 · SOLUTIONS
       ══════════════════════════════════════════════════ */}
-      <section className="py-14 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="py-14 md:py-24 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
+          {/* Lattice pattern — full cover, very faint */}
+          <Lattice className="absolute inset-0 w-full h-full text-[#0D47A1] opacity-[0.125]" size={48} />
+          <div className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full border border-[#0D47A1]/[0.06]" />
+          <div className="absolute -bottom-40 -right-40 w-[700px] h-[700px] rounded-full border border-[#D32F2F]/[0.05]" />
+          <div className="absolute top-1/2 -translate-y-1/2 right-0 w-72 h-72 rounded-full bg-[#0D47A1]/[0.025] blur-[80px]" />
+        </div>
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           {/* Header */}
           <motion.div
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-60px' }}
@@ -484,8 +508,13 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════
           03.5 · INTERACTIVE PROCESS FLOW
       ══════════════════════════════════════════════════ */}
-      <section className="py-14 md:py-24 bg-white border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="py-14 md:py-24 bg-white border-b border-gray-100 relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
+          <div className="absolute -top-56 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full border border-[#0D47A1]/[0.05]" />
+          <div className="absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full border border-[#D32F2F]/[0.05]" />
+          <div className="absolute top-1/2 -translate-y-1/2 -left-24 w-64 h-64 rounded-full bg-[#D32F2F]/[0.025] blur-[80px]" />
+        </div>
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
 
           {/* Header */}
           <motion.div
@@ -759,8 +788,13 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════
           06 · INDUSTRY USE CASES
       ══════════════════════════════════════════════════ */}
-      <section className="py-14 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="py-14 md:py-24 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
+          <div className="absolute -bottom-48 -left-48 w-[700px] h-[700px] rounded-full border border-[#059669]/[0.07]" />
+          <div className="absolute -top-32 -right-32 w-[550px] h-[550px] rounded-full border border-[#0D47A1]/[0.05]" />
+          <div className="absolute bottom-0 right-1/4 w-80 h-80 rounded-full bg-[#059669]/[0.025] blur-[100px]" />
+        </div>
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <motion.div
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-60px' }}
             variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
@@ -860,8 +894,14 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════
           08 · TESTIMONIAL
       ══════════════════════════════════════════════════ */}
-      <section className="py-14 md:py-24 bg-white">
-        <div className="max-w-4xl mx-auto px-6 text-center">
+      <section className="py-14 md:py-24 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
+          {/* Nepal moon centred behind the quote */}
+          <NepalMoon className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] text-[#0D47A1] opacity-[0.06]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full border border-[#0D47A1]/[0.04]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full bg-[#0D47A1]/[0.025] blur-[80px]" />
+        </div>
+        <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
