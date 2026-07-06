@@ -7,7 +7,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://sanothimi.com"),
+  metadataBase: new URL("https://www.sanothimi.com"),
   title: { template: '%s | Sanothimi', default: 'Sanothimi | Elite SaaS Engineering Hub' },
   description: 'Sanothimi is Nepal\'s premier SaaS Engineering Hub, specializing in School Management ERPs, Enterprise Financial Systems, and bespoke cloud infrastructure.',
   keywords: 'Sanothimi, SaaS Nepal, SchoolSathi, ERP Nepal, Cloud Engineering Bhaktapur, Fintech Nepal',
@@ -30,8 +30,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           '@context':'https://schema.org','@type':'Corporation',
           name:'Sanothimi Private Limited',
           alternateName: 'Sanothimi',
-          url:'https://sanothimi.com',
-          logo:'https://sanothimi.com.np/logo-full.png',
+          url:'https://www.sanothimi.com',
+          logo:'https://www.sanothimi.com/logo-full.png',
           contactPoint: {
             '@type': 'ContactPoint',
             telephone: '+977 9704714937',

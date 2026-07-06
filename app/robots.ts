@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       { userAgent: '*', allow: '/' },
     ],
-    sitemap: 'https://sanothimi.com/sitemap.xml',
-    host: 'https://sanothimi.com',
+    sitemap: 'https://www.sanothimi.com/sitemap.xml',
+    host: 'https://www.sanothimi.com',
   };
 }
