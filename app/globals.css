@@ -957,3 +957,8 @@ body {
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
   mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
 }
+
+/* Angled-edge section divider — slanted top/bottom instead of a flat rectangle */
+.section-angled {
+  clip-path: polygon(0 1.5vw, 100% 0, 100% calc(100% - 1.5vw), 0 100%);
+}

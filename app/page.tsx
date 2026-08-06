@@ -799,7 +799,8 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════
           05 · STATS
       ══════════════════════════════════════════════════ */}
-      <section className="py-14 md:py-20 bg-[#0D47A1] relative overflow-hidden">
+      <section className="section-angled py-20 md:py-28 bg-gradient-to-br from-[#0A3A85] via-[#0D47A1] to-[#123F8F] relative overflow-hidden">
+        <Lattice className="absolute inset-0 w-full h-full text-white opacity-[0.04]" size={64} />
         <div className="absolute inset-0 bg-pattern-dark pointer-events-none opacity-40" />
         <div className="absolute right-0 top-0 w-96 h-96 bg-[#D32F2F]/8 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute left-0 bottom-0 w-72 h-72 bg-white/[0.04] rounded-full blur-[100px] pointer-events-none" />
@@ -815,8 +816,10 @@ export default function Home() {
                 ref={c.ref}
                 variants={fadeUp}
                 whileHover={{ y: -4 }}
-                className="group relative text-center bg-white/[0.04] border border-white/10 rounded-2xl p-5 md:p-8 overflow-hidden backdrop-blur-sm transition-colors duration-300 hover:bg-white/[0.07] hover:border-white/20"
+                className="group relative text-center bg-white/[0.04] border border-white/10 rounded-tl-[2rem] rounded-br-[2rem] rounded-tr-lg rounded-bl-lg p-5 md:p-8 overflow-hidden backdrop-blur-sm transition-colors duration-300 hover:bg-white/[0.07] hover:border-white/20"
               >
+                {/* Zigzag lattice texture */}
+                <Lattice className="absolute inset-0 w-full h-full text-white opacity-[0.06]" size={26} />
                 {/* Hover glow */}
                 <div className="absolute -top-8 -right-8 w-28 h-28 rounded-full bg-[#D32F2F]/25 blur-[40px] opacity-0 scale-75 transition-all duration-500 group-hover:opacity-100 group-hover:scale-100 pointer-events-none" />
 
