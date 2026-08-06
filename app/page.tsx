@@ -217,10 +217,14 @@ const USE_CASES = [
 ];
 
 const STATS = [
-  { target: 99, suf: '.9%', labelKey: 'h2.stat.uptime' as TranslationKey,  delay: 0 },
-  { target: 50, suf: '+',   labelKey: 'h2.stat.institutions' as TranslationKey, delay: 150 },
-  { target: 10, suf: 'K+',  labelKey: 'h2.stat.users' as TranslationKey,   delay: 300 },
-  { target: 5,  suf: '+',   labelKey: 'h2.stat.years' as TranslationKey,   delay: 450 },
+  { target: 99, suf: '.9%', labelKey: 'h2.stat.uptime' as TranslationKey,  delay: 0,
+    icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z' },
+  { target: 50, suf: '+',   labelKey: 'h2.stat.institutions' as TranslationKey, delay: 150,
+    icon: 'M3 21h18M5 21V7l8-4v18m4 0V11l4 2v8M9 9h.01M9 12h.01M9 15h.01' },
+  { target: 10, suf: 'K+',  labelKey: 'h2.stat.users' as TranslationKey,   delay: 300,
+    icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z' },
+  { target: 5,  suf: '+',   labelKey: 'h2.stat.years' as TranslationKey,   delay: 450,
+    icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z' },
 ];
 
 const DIFFERENTIATORS = [
@@ -797,22 +801,39 @@ export default function Home() {
       ══════════════════════════════════════════════════ */}
       <section className="py-14 md:py-20 bg-[#0D47A1] relative overflow-hidden">
         <div className="absolute inset-0 bg-pattern-dark pointer-events-none opacity-40" />
-        <div className="absolute right-0 top-0 w-96 h-96 bg-[#D32F2F]/6 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute right-0 top-0 w-96 h-96 bg-[#D32F2F]/8 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute left-0 bottom-0 w-72 h-72 bg-white/[0.04] rounded-full blur-[100px] pointer-events-none" />
         <div className="max-w-6xl mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+          <motion.div
+            initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-60px' }}
+            variants={{ visible: { transition: { staggerChildren: 0.09 } } }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6"
+          >
             {counters.map((c, i) => (
-              <div key={STATS[i].labelKey} ref={c.ref} className="text-center group">
-                <div className="flex items-baseline justify-center gap-0.5 mb-2">
-                  <span className="text-5xl md:text-6xl font-serif font-bold text-white group-hover:text-[#D32F2F] transition-colors duration-400">
+              <motion.div
+                key={STATS[i].labelKey}
+                ref={c.ref}
+                variants={fadeUp}
+                whileHover={{ y: -4 }}
+                className="group relative text-center bg-white/[0.04] border border-white/10 rounded-2xl p-5 md:p-8 overflow-hidden backdrop-blur-sm transition-colors duration-300 hover:bg-white/[0.07] hover:border-white/20"
+              >
+                {/* Hover glow */}
+                <div className="absolute -top-8 -right-8 w-28 h-28 rounded-full bg-[#D32F2F]/25 blur-[40px] opacity-0 scale-75 transition-all duration-500 group-hover:opacity-100 group-hover:scale-100 pointer-events-none" />
+
+                <div className="relative inline-flex items-center justify-center w-10 h-10 md:w-11 md:h-11 rounded-xl bg-white/10 mb-4 transition-colors duration-300 group-hover:bg-[#D32F2F]">
+                  <AnimatedIcon d={STATS[i].icon} className="w-5 h-5 text-white" delay={i * 120} />
+                </div>
+
+                <div className="relative flex items-baseline justify-center gap-0.5 mb-1.5">
+                  <span className="text-4xl md:text-5xl font-serif font-bold text-white leading-none">
                     {c.val}
                   </span>
-                  <span className="text-2xl font-serif text-[#D32F2F] font-bold">{STATS[i].suf}</span>
+                  <span className="text-xl font-serif text-[#D32F2F] font-bold">{STATS[i].suf}</span>
                 </div>
-                <div className="text-[.65rem] font-black uppercase tracking-[.3em] text-white/30">{t(STATS[i].labelKey)}</div>
-                <div className="mt-4 mx-auto h-px w-6 bg-[#D32F2F]/30 group-hover:w-14 group-hover:bg-[#D32F2F] transition-all duration-500" />
-              </div>
+                <div className="relative text-[.62rem] font-black uppercase tracking-[.25em] text-white/40">{t(STATS[i].labelKey)}</div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
