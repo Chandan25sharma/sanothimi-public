@@ -1,5 +1,5 @@
 'use client';
-import { Himalaya, Lattice, Mandala, NepalMoon, NepalSun, NetworkGraph } from '@/components/BgDecorations';
+import { Himalaya, Lattice, Mandala, NepalMoon, NepalSun } from '@/components/BgDecorations';
 import CTABanner from '@/components/CTABanner';
 import SpotlightCard from '@/components/SpotlightCard';
 import { useLanguage } from '@/context/LanguageContext';
