@@ -64,17 +64,17 @@ export default function BusinessConvergence({ nodes, hubTitle, hubSub }: Props) 
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1, duration: 0.5 }}
-            className="absolute left-0 flex items-center gap-3 bg-white border border-gray-100 rounded-xl shadow-sm px-4 py-3 -translate-y-1/2"
-            style={{ top: `${(nodeY(i) / VB_H) * 100}%`, width: '15%', minWidth: 150 }}
+            className="absolute left-0 flex items-center gap-3 bg-white border border-gray-100 rounded-xl shadow-sm px-4 py-3 -translate-y-1/2 whitespace-nowrap"
+            style={{ top: `${(nodeY(i) / VB_H) * 100}%` }}
           >
             <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: `${node.color}14` }}>
               <svg className="w-4.5 h-4.5" style={{ color: node.color }} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.8">
                 <path strokeLinecap="round" strokeLinejoin="round" d={node.icon} />
               </svg>
             </div>
-            <div className="min-w-0">
-              <div className="font-bold text-[.8rem] text-[#0D47A1] leading-tight truncate">{node.label}</div>
-              <div className="text-[.62rem] font-black uppercase tracking-widest truncate" style={{ color: node.color }}>{node.sub}</div>
+            <div>
+              <div className="font-bold text-[.8rem] text-[#0D47A1] leading-tight">{node.label}</div>
+              <div className="text-[.62rem] font-black uppercase tracking-widest" style={{ color: node.color }}>{node.sub}</div>
             </div>
           </motion.div>
         ))}
