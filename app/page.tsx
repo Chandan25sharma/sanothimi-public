@@ -1,4 +1,5 @@
 'use client';
+import AnimatedIcon from '@/components/AnimatedIcon';
 import { Himalaya, Lattice, Mandala, NepalMoon, NepalSun } from '@/components/BgDecorations';
 import CTABanner from '@/components/CTABanner';
 import SpotlightCard from '@/components/SpotlightCard';
@@ -481,7 +482,7 @@ export default function Home() {
             variants={{ visible: { transition: { staggerChildren: 0.09 } } }}
             className="flex md:grid md:grid-cols-2 lg:grid-cols-4 gap-5 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none no-scrollbar -mx-6 px-6 md:mx-0 md:px-0 pb-2 md:pb-0"
           >
-            {SOLUTIONS.map((s) => (
+            {SOLUTIONS.map((s, i) => (
               <SpotlightCard
                 key={s.num}
                 variants={fadeUp}
@@ -504,9 +505,7 @@ export default function Home() {
                   className="relative w-11 h-11 rounded-xl flex items-center justify-center mb-5"
                   style={{ background: `${s.color}12` }}
                 >
-                  <svg className="w-5 h-5" style={{ color: s.color }} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.8">
-                    <path strokeLinecap="round" strokeLinejoin="round" d={s.icon} />
-                  </svg>
+                  <AnimatedIcon d={s.icon} className="w-5 h-5" delay={i * 120} style={{ color: s.color }} />
                 </motion.div>
                 {/* Title */}
                 <div className="relative font-serif text-xl text-[#0D47A1] font-bold mb-1">{t(s.titleKey)}</div>
@@ -846,7 +845,7 @@ export default function Home() {
             variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
             className="flex md:grid md:grid-cols-3 gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none no-scrollbar -mx-6 px-6 md:mx-0 md:px-0 pb-2 md:pb-0"
           >
-            {USE_CASES.map((u) => (
+            {USE_CASES.map((u, i) => (
               <SpotlightCard
                 key={u.industryKey}
                 variants={fadeUp}
@@ -866,9 +865,7 @@ export default function Home() {
                   transition={{ type: 'spring', stiffness: 300, damping: 12 }}
                   className={`relative w-12 h-12 rounded-xl ${u.iconBg} flex items-center justify-center mb-5`}
                 >
-                  <svg className="w-6 h-6" style={{ color: u.color }} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.8">
-                    <path strokeLinecap="round" strokeLinejoin="round" d={u.icon} />
-                  </svg>
+                  <AnimatedIcon d={u.icon} className="w-6 h-6" delay={i * 120} style={{ color: u.color }} />
                 </motion.div>
                 <h3 className="relative font-serif text-lg sm:text-xl text-[#0D47A1] font-bold mb-2">{t(u.industryKey)}</h3>
                 <p className="relative text-[#64748B] text-[.82rem] leading-relaxed mb-5">{t(u.descKey)}</p>
