@@ -869,3 +869,91 @@ body {
 .status-breathe {
   animation: status-breathe 2s ease-in-out infinite;
 }
+
+/* ═══════════════════════════════════════════════
+   HOVER.DEV-STYLE INTERACTION PRIMITIVES
+═══════════════════════════════════════════════ */
+
+/* Shine sweep on hover — for primary CTA buttons */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.btn-shine::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 30%, rgba(255,255,255,0.5) 50%, transparent 70%);
+  background-size: 250% 100%;
+  background-position: -200% 0;
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+}
+.btn-shine:hover::after {
+  opacity: 1;
+  animation: shimmer-slide 1.1s ease;
+}
+
+/* Animated gradient border on hover — for feature/solution cards */
+.glow-border-card {
+  position: relative;
+  z-index: 0;
+}
+.glow-border-card::before {
+  content: '';
+  position: absolute;
+  inset: -1.5px;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(115deg, var(--card-glow, #D32F2F), transparent 35%, transparent 65%, var(--card-glow, #D32F2F));
+  background-size: 220% 220%;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.35s;
+  z-index: -1;
+  animation: border-flow 3s linear infinite paused;
+}
+.glow-border-card:hover::before {
+  opacity: 1;
+  animation-play-state: running;
+}
+
+/* Mouse-tracked spotlight glow — set --x/--y from JS on mousemove */
+.spotlight-card {
+  position: relative;
+}
+.spotlight-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(280px circle at var(--x, 50%) var(--y, 50%), var(--spot-color, rgba(13,71,161,0.10)), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+.spotlight-card:hover::before {
+  opacity: 1;
+}
+
+/* Seamless infinite marquee */
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 28s linear infinite;
+}
+.marquee-mask:hover .marquee-track {
+  animation-play-state: paused;
+}
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
