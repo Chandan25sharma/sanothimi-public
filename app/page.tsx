@@ -475,11 +475,11 @@ export default function Home() {
             </motion.p>
           </motion.div>
 
-          {/* Cards */}
+          {/* Cards — horizontal snap-scroll on mobile, grid from md up */}
           <motion.div
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-60px' }}
             variants={{ visible: { transition: { staggerChildren: 0.09 } } }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5"
+            className="flex md:grid md:grid-cols-2 lg:grid-cols-4 gap-5 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none no-scrollbar -mx-6 px-6 md:mx-0 md:px-0 pb-2 md:pb-0"
           >
             {SOLUTIONS.map((s) => (
               <SpotlightCard
@@ -488,7 +488,7 @@ export default function Home() {
                 whileHover={{ y: -6, boxShadow: '0 20px 48px rgba(13,71,161,0.10)' }}
                 transition={{ duration: 0.2 }}
                 spotColor={`${s.color}18`}
-                className="glow-border-card group bg-white border border-gray-100 rounded-2xl p-7 flex flex-col cursor-pointer overflow-hidden"
+                className="glow-border-card group bg-white border border-gray-100 rounded-2xl p-7 flex flex-col cursor-pointer overflow-hidden snap-start shrink-0 w-[82vw] sm:w-[340px] md:w-auto"
                 style={{ borderTopColor: s.color, borderTopWidth: 3, '--card-glow': s.color } as React.CSSProperties}
               >
                 {/* Number */}
@@ -532,9 +532,9 @@ export default function Home() {
       ══════════════════════════════════════════════════ */}
       <section className="py-14 md:py-24 bg-white border-b border-gray-100 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
-          <div className="absolute -top-56 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full border border-[#0D47A1]/[0.05]" />
-          <div className="absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full border border-[#D32F2F]/[0.05]" />
-          <div className="absolute top-1/2 -translate-y-1/2 -left-24 w-64 h-64 rounded-full bg-[#D32F2F]/[0.025] blur-[80px]" />
+          <div className="hidden md:block absolute -top-56 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full border border-[#0D47A1]/[0.05]" />
+          <div className="hidden md:block absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full border border-[#D32F2F]/[0.05]" />
+          <div className="absolute top-1/2 -translate-y-1/2 -left-24 w-40 h-40 md:w-64 md:h-64 rounded-full bg-[#D32F2F]/[0.025] blur-[80px]" />
         </div>
         <div className="max-w-7xl mx-auto px-6 relative z-10">
 
@@ -555,13 +555,13 @@ export default function Home() {
             </motion.p>
           </motion.div>
 
-          {/* Tab selector */}
-          <div className="flex items-center justify-center gap-2 mb-10 flex-wrap">
+          {/* Tab selector — horizontal scroll on mobile, wraps centered from md up */}
+          <div className="flex items-center gap-2 mb-10 overflow-x-auto no-scrollbar -mx-6 px-6 md:mx-0 md:px-0 md:flex-wrap md:justify-center md:overflow-visible">
             {FLOW_TABS.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setFlowTab(tab.id)}
-                className={`px-5 py-2.5 rounded-full text-[.82rem] font-bold transition-all duration-300 ${
+                className={`flex-shrink-0 whitespace-nowrap px-5 py-2.5 rounded-full text-[.82rem] font-bold transition-all duration-300 ${
                   flowTab === tab.id
                     ? 'text-white shadow-lg scale-105'
                     : 'bg-[#F1F5F9] text-gray-500 hover:text-gray-800'
@@ -648,23 +648,26 @@ export default function Home() {
                   })}
                 </div>
 
-                {/* Mobile: vertical stack */}
-                <div className="md:hidden flex flex-col gap-3">
+                {/* Mobile: vertical timeline */}
+                <div className="md:hidden relative flex flex-col gap-3">
+                  {/* Connecting line through the icon column */}
+                  <div className="absolute left-[1.75rem] top-5 bottom-5 w-px bg-gray-200" />
                   {tab.steps.map((step, i) => {
                     const isActive = flowStep === i;
+                    const isPast = flowStep > i;
                     return (
                       <div
                         key={i}
-                        className="flex items-center gap-4 p-4 rounded-xl bg-white border transition-all duration-300"
-                        style={{ borderColor: isActive ? tab.color + '50' : '#F1F5F9' }}
+                        className="relative flex items-center gap-4 p-4 rounded-xl bg-white border transition-all duration-300"
+                        style={{ borderColor: isActive ? tab.color + '50' : '#F1F5F9', boxShadow: isActive ? `0 8px 24px ${tab.color}18` : undefined }}
                       >
                         <div
-                          className="w-10 h-10 rounded-xl flex-shrink-0 flex items-center justify-center transition-all duration-300"
-                          style={{ background: isActive ? tab.color : tab.color + '12' }}
+                          className="relative z-10 w-10 h-10 rounded-xl flex-shrink-0 flex items-center justify-center transition-all duration-300"
+                          style={{ background: isActive ? tab.color : isPast ? tab.color + '30' : tab.color + '12' }}
                         >
                           <svg
                             className="w-4 h-4"
-                            style={{ color: isActive ? '#fff' : tab.color }}
+                            style={{ color: isActive || isPast ? '#fff' : tab.color }}
                             fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2"
                           >
                             <path strokeLinecap="round" strokeLinejoin="round" d={step.icon} />
