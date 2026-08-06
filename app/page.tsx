@@ -1,6 +1,7 @@
 'use client';
 import AnimatedIcon from '@/components/AnimatedIcon';
 import { Himalaya, Lattice, Mandala, NepalMoon, NepalSun } from '@/components/BgDecorations';
+import BusinessConvergence from '@/components/BusinessConvergence';
 import CTABanner from '@/components/CTABanner';
 import SpotlightCard from '@/components/SpotlightCard';
 import { useLanguage } from '@/context/LanguageContext';
@@ -534,6 +535,36 @@ export default function Home() {
               </SpotlightCard>
             ))}
           </motion.div>
+        </div>
+      </section>
+
+
+      {/* ══════════════════════════════════════════════════
+          03.2 · BUSINESS CONVERGENCE
+      ══════════════════════════════════════════════════ */}
+      <section className="py-14 md:py-24 bg-[#F8FAFC] border-y border-gray-100 relative overflow-hidden">
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
+          <motion.div
+            initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-60px' }}
+            variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
+            className="text-center max-w-2xl mx-auto mb-14"
+          >
+            <motion.div variants={fadeUp} className="section-kicker justify-center mb-6">
+              <span className="section-kicker-line" />{t('h2.converge.kicker')}<span className="section-kicker-line" />
+            </motion.div>
+            <motion.h2 variants={fadeUp} className="font-serif text-4xl md:text-5xl text-[#0D47A1] leading-[1.15]">
+              {t('h2.converge.title1')} <span className="italic text-[#D32F2F]">{t('h2.converge.title2')}</span>
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-[#64748B] text-lg leading-relaxed mt-4">
+              {t('h2.converge.desc')}
+            </motion.p>
+          </motion.div>
+
+          <BusinessConvergence
+            hubTitle={t('h2.converge.hubTitle')}
+            hubSub={t('h2.converge.hubSub')}
+            nodes={SOLUTIONS.map((s) => ({ icon: s.icon, color: s.color, label: t(s.titleKey), sub: s.sub }))}
+          />
         </div>
       </section>
 
