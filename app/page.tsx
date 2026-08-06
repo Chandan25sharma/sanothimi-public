@@ -488,25 +488,33 @@ export default function Home() {
                 whileHover={{ y: -6, boxShadow: '0 20px 48px rgba(13,71,161,0.10)' }}
                 transition={{ duration: 0.2 }}
                 spotColor={`${s.color}18`}
-                className="glow-border-card group bg-white border border-gray-100 rounded-2xl p-7 flex flex-col cursor-pointer overflow-hidden snap-start shrink-0 w-[82vw] sm:w-[340px] md:w-auto"
-                style={{ borderTopColor: s.color, borderTopWidth: 3, '--card-glow': s.color } as React.CSSProperties}
+                className="group relative bg-white border border-gray-100 hover:border-gray-200 rounded-2xl p-7 flex flex-col cursor-pointer overflow-hidden snap-start shrink-0 w-[82vw] sm:w-[340px] md:w-auto transition-colors duration-300"
               >
+                {/* Animated corner glow — blooms in on hover */}
+                <div
+                  className="absolute -top-12 -right-12 w-40 h-40 rounded-full blur-[55px] opacity-0 scale-75 transition-all duration-500 group-hover:opacity-100 group-hover:scale-100 pointer-events-none"
+                  style={{ background: `${s.color}30` }}
+                />
                 {/* Number */}
-                <div className="text-[.58rem] font-black uppercase tracking-[.4em] text-gray-300 mb-5">{s.num}</div>
+                <div className="relative text-[.58rem] font-black uppercase tracking-[.4em] text-gray-300 mb-5">{s.num}</div>
                 {/* Icon */}
-                <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-5 transition-all duration-300 group-hover:scale-110"
-                     style={{ background: `${s.color}12` }}>
+                <motion.div
+                  whileHover={{ rotate: 8, scale: 1.12 }}
+                  transition={{ type: 'spring', stiffness: 300, damping: 12 }}
+                  className="relative w-11 h-11 rounded-xl flex items-center justify-center mb-5"
+                  style={{ background: `${s.color}12` }}
+                >
                   <svg className="w-5 h-5" style={{ color: s.color }} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.8">
                     <path strokeLinecap="round" strokeLinejoin="round" d={s.icon} />
                   </svg>
-                </div>
+                </motion.div>
                 {/* Title */}
-                <div className="font-serif text-xl text-[#0D47A1] font-bold mb-1">{t(s.titleKey)}</div>
-                <div className="text-[.62rem] font-black uppercase tracking-widest mb-4" style={{ color: s.color }}>{s.sub}</div>
+                <div className="relative font-serif text-xl text-[#0D47A1] font-bold mb-1">{t(s.titleKey)}</div>
+                <div className="relative text-[.62rem] font-black uppercase tracking-widest mb-4" style={{ color: s.color }}>{s.sub}</div>
                 {/* Desc */}
-                <p className="text-[#64748B] text-[.82rem] leading-relaxed mb-6">{t(s.descKey)}</p>
+                <p className="relative text-[#64748B] text-[.82rem] leading-relaxed mb-6">{t(s.descKey)}</p>
                 {/* Feature list */}
-                <ul className="space-y-2 mb-7 flex-1">
+                <ul className="relative space-y-2 mb-7 flex-1">
                   {s.featKeys.map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-[.78rem] text-[#374151]">
                       <svg className="w-3.5 h-3.5 flex-shrink-0 mt-0.5" style={{ color: s.color }} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5"><path d="M5 13l4 4L19 7"/></svg>
@@ -515,7 +523,7 @@ export default function Home() {
                   ))}
                 </ul>
                 {/* CTA link */}
-                <Link href="/services" className="flex items-center gap-1.5 text-[.75rem] font-bold transition-colors mt-auto"
+                <Link href="/services" className="relative flex items-center gap-1.5 text-[.75rem] font-bold transition-colors mt-auto"
                       style={{ color: s.color }}>
                   {t('h2.solutions.learnMore')}
                   <svg className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5"><path d="M9 5l7 7-7 7"/></svg>
