@@ -850,7 +850,7 @@ export default function Home() {
                 {/* Animated corner glow — blooms in on hover */}
                 <div
                   className="absolute -top-10 -right-10 w-36 h-36 rounded-full blur-[50px] opacity-0 scale-75 transition-all duration-500 group-hover:opacity-100 group-hover:scale-100 pointer-events-none"
-                  style={{ background: u.color }}
+                  style={{ background: `${u.color}35` }}
                 />
 
                 <motion.div
