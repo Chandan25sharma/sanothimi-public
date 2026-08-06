@@ -397,7 +397,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="relative z-10">
+            <div className="relative z-10 pb-16">
               <DashboardPreview />
             </div>
 
@@ -406,7 +406,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1, duration: 0.4 }}
-              className="absolute -bottom-6 -left-6 z-20 flex items-center gap-3.5 bg-[#0D47A1] px-5 py-4 rounded-2xl shadow-2xl shadow-[#0D47A1]/30 max-w-[230px]"
+              className="absolute left-6 top-full -mt-10 z-20 flex items-center gap-3.5 bg-[#0D47A1] px-5 py-4 rounded-2xl shadow-2xl shadow-[#0D47A1]/30 max-w-[230px]"
             >
               <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center flex-shrink-0">
                 <svg className="w-5 h-5 text-[#D32F2F]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
