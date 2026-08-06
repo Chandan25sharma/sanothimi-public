@@ -842,26 +842,30 @@ export default function Home() {
               <SpotlightCard
                 key={u.industryKey}
                 variants={fadeUp}
-                whileHover={{ y: -5 }}
+                whileHover={{ y: -6, boxShadow: '0 20px 48px rgba(13,71,161,0.10)' }}
                 transition={{ duration: 0.2 }}
                 spotColor={`${u.color}18`}
-                className={`p-6 sm:p-8 rounded-2xl border ${u.cardBg} cursor-default shadow-sm overflow-hidden`}
+                className={`glow-border-card group p-6 sm:p-8 rounded-2xl border ${u.cardBg} cursor-default shadow-sm overflow-hidden`}
+                style={{ borderTopColor: u.color, borderTopWidth: 3, '--card-glow': u.color } as React.CSSProperties}
               >
-                <div className={`w-12 h-12 rounded-xl ${u.iconBg} flex items-center justify-center mb-5`}>
+                <div className={`w-12 h-12 rounded-xl ${u.iconBg} flex items-center justify-center mb-5 transition-all duration-300 group-hover:scale-110`}>
                   <svg className="w-6 h-6" style={{ color: u.color }} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.8">
                     <path strokeLinecap="round" strokeLinejoin="round" d={u.icon} />
                   </svg>
                 </div>
                 <h3 className="font-serif text-lg sm:text-xl text-[#0D47A1] font-bold mb-2">{t(u.industryKey)}</h3>
-                <p className="text-[#64748B] text-[.82rem] leading-relaxed mb-4">{t(u.descKey)}</p>
-                <ul className="space-y-2">
+                <p className="text-[#64748B] text-[.82rem] leading-relaxed mb-5">{t(u.descKey)}</p>
+                <div className="flex flex-wrap gap-2">
                   {u.itemKeys.map((item) => (
-                    <li key={item} className="flex items-center gap-2.5 text-[.78rem] font-medium text-[#374151]">
-                      <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: u.color }} />
+                    <span
+                      key={item}
+                      className="text-[.72rem] font-bold px-3 py-1.5 rounded-full"
+                      style={{ background: `${u.color}0F`, color: u.color }}
+                    >
                       {t(item)}
-                    </li>
+                    </span>
                   ))}
-                </ul>
+                </div>
               </SpotlightCard>
             ))}
           </motion.div>
