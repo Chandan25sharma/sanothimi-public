@@ -46,6 +46,8 @@ const SVC_ICONS = [
   </svg>,
 ];
 
+const SVC_STATUS: Array<'live' | 'soon' | null> = ['live', 'soon', 'soon', null, null, null];
+
 const SVC_BULLETS = [
   ['Automated Fee Collection', 'Exam & Result Management', 'Parent Portal', 'Digital Attendance'],
   ['Localized VAT Reporting', 'Cloud Ledger Sync', 'Multi-User Control', 'Financial Statements'],
@@ -159,9 +161,22 @@ export default function ServicesPage() {
                   0{id}
                 </div>
 
-                {/* Icon */}
-                <div className="w-16 h-16 rounded-2xl bg-[#F9FAFB] group-hover:bg-[#D32F2F] flex items-center justify-center text-[#0D47A1] group-hover:text-white mb-10 transition-all duration-500 relative z-10">
-                  {SVC_ICONS[i]}
+                {/* Icon + status badge */}
+                <div className="flex items-center justify-between mb-10 relative z-10">
+                  <div className="w-16 h-16 rounded-2xl bg-[#F9FAFB] group-hover:bg-[#D32F2F] flex items-center justify-center text-[#0D47A1] group-hover:text-white transition-all duration-500">
+                    {SVC_ICONS[i]}
+                  </div>
+                  {SVC_STATUS[i] === 'live' && (
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-50 border border-green-100 text-green-700 text-[.62rem] font-black uppercase tracking-widest">
+                      <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+                      {t('services_pg.badge.live')}
+                    </span>
+                  )}
+                  {SVC_STATUS[i] === 'soon' && (
+                    <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-gray-100 text-gray-500 text-[.62rem] font-black uppercase tracking-widest">
+                      {t('services_pg.badge.soon')}
+                    </span>
+                  )}
                 </div>
 
                 {/* Title */}
@@ -183,6 +198,14 @@ export default function ServicesPage() {
                     </li>
                   ))}
                 </ul>
+
+                {/* Trial highlight — SchoolSathi only */}
+                {SVC_STATUS[i] === 'live' && (
+                  <div className="mb-8 px-4 py-2.5 rounded-lg bg-green-50 border border-green-100 text-green-700 text-[.78rem] font-bold flex items-center gap-2 relative z-10 w-fit">
+                    <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V6m0 2v8m0 0v2m0-2c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    {t('services_pg.trial')}
+                  </div>
+                )}
 
                 {/* CTA buttons */}
                 <div className="mt-auto pt-8 border-t border-gray-100 flex flex-wrap gap-4 relative z-10">

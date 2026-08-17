@@ -163,25 +163,25 @@ const TRUST_ITEMS: TranslationKey[] = ['h2.trust.item1', 'h2.trust.item2', 'h2.t
 const SOLUTIONS = [
   {
     num: '01', icon: 'M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z',
-    titleKey: 'h2.sol.1.title' as TranslationKey, sub: 'SchoolSathi', color: '#D32F2F',
+    titleKey: 'h2.sol.1.title' as TranslationKey, sub: 'SchoolSathi', color: '#D32F2F', status: 'live' as const,
     descKey: 'h2.sol.1.desc' as TranslationKey,
     featKeys: ['h2.sol.1.feat1', 'h2.sol.1.feat2', 'h2.sol.1.feat3', 'h2.sol.1.feat4'] as TranslationKey[],
   },
   {
     num: '02', icon: 'M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z',
-    titleKey: 'h2.sol.2.title' as TranslationKey, sub: 'FinanceCore', color: '#2563EB',
+    titleKey: 'h2.sol.2.title' as TranslationKey, sub: 'FinanceCore', color: '#2563EB', status: 'soon' as const,
     descKey: 'h2.sol.2.desc' as TranslationKey,
     featKeys: ['h2.sol.2.feat1', 'h2.sol.2.feat2', 'h2.sol.2.feat3', 'h2.sol.2.feat4'] as TranslationKey[],
   },
   {
     num: '03', icon: 'M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4',
-    titleKey: 'h2.sol.3.title' as TranslationKey, sub: 'StockMate', color: '#059669',
+    titleKey: 'h2.sol.3.title' as TranslationKey, sub: 'StockMate', color: '#059669', status: 'soon' as const,
     descKey: 'h2.sol.3.desc' as TranslationKey,
     featKeys: ['h2.sol.3.feat1', 'h2.sol.3.feat2', 'h2.sol.3.feat3', 'h2.sol.3.feat4'] as TranslationKey[],
   },
   {
     num: '04', icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z',
-    titleKey: 'h2.sol.4.title' as TranslationKey, sub: 'HRDesk', color: '#D97706',
+    titleKey: 'h2.sol.4.title' as TranslationKey, sub: 'HRDesk', color: '#D97706', status: 'soon' as const,
     descKey: 'h2.sol.4.desc' as TranslationKey,
     featKeys: ['h2.sol.4.feat1', 'h2.sol.4.feat2', 'h2.sol.4.feat3', 'h2.sol.4.feat4'] as TranslationKey[],
   },
@@ -333,6 +333,21 @@ export default function Home() {
             animate="visible"
             variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
           >
+            {/* Launch announcement */}
+            <motion.div variants={fadeUp} className="mb-6">
+              <Link
+                href="/demo"
+                className="inline-flex items-center gap-2.5 pl-2 pr-4 py-1.5 rounded-full bg-green-50 border border-green-100 hover:border-green-200 transition-colors group"
+              >
+                <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-green-600 text-white text-[.6rem] font-black uppercase tracking-widest">
+                  <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                  {t('h2.launch.badge')}
+                </span>
+                <span className="text-green-800 text-[.78rem] font-bold">{t('h2.launch.text')}</span>
+                <svg className="w-3.5 h-3.5 text-green-700 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5"><path d="M9 5l7 7-7 7"/></svg>
+              </Link>
+            </motion.div>
+
             {/* Kicker */}
             <motion.div variants={fadeUp} className="text-[#D32F2F] text-[.7rem] font-black uppercase tracking-[.3em] mb-6">
               {t('h2.hero.kicker')}
@@ -501,8 +516,20 @@ export default function Home() {
                   className="absolute -top-12 -right-12 w-40 h-40 rounded-full blur-[55px] opacity-0 scale-75 transition-all duration-500 group-hover:opacity-100 group-hover:scale-100 pointer-events-none"
                   style={{ background: `${s.color}30` }}
                 />
-                {/* Number */}
-                <div className="relative text-[.58rem] font-black uppercase tracking-[.4em] text-gray-300 mb-5">{s.num}</div>
+                {/* Number + status badge */}
+                <div className="relative flex items-center justify-between mb-5">
+                  <div className="text-[.58rem] font-black uppercase tracking-[.4em] text-gray-300">{s.num}</div>
+                  {s.status === 'live' ? (
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-green-50 border border-green-100 text-green-700 text-[.58rem] font-black uppercase tracking-widest">
+                      <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+                      {t('h2.sol.badge.live')}
+                    </span>
+                  ) : (
+                    <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-gray-100 text-gray-500 text-[.58rem] font-black uppercase tracking-widest">
+                      {t('h2.sol.badge.soon')}
+                    </span>
+                  )}
+                </div>
                 {/* Icon */}
                 <motion.div
                   whileHover={{ rotate: 8, scale: 1.12 }}
@@ -526,6 +553,13 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
+                {/* Trial highlight — SchoolSathi only */}
+                {s.status === 'live' && (
+                  <div className="relative mb-5 px-3 py-2 rounded-lg bg-green-50 border border-green-100 text-green-700 text-[.7rem] font-bold flex items-center gap-1.5">
+                    <svg className="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V6m0 2v8m0 0v2m0-2c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    {t('h2.sol.trial')}
+                  </div>
+                )}
                 {/* CTA link */}
                 <Link href="/services" className="relative flex items-center gap-1.5 text-[.75rem] font-bold transition-colors mt-auto"
                       style={{ color: s.color }}>

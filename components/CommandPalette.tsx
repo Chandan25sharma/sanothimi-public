@@ -174,7 +174,7 @@ export default function CommandPalette() {
             <span className="flex items-center gap-1.5"><kbd className="px-1.5 py-0.5 bg-white/5 border border-white/10 rounded text-[.58rem]">↵</kbd> open</span>
             <span className="flex items-center gap-1.5"><kbd className="px-1.5 py-0.5 bg-white/5 border border-white/10 rounded text-[.58rem]">esc</kbd> close</span>
           </div>
-          <div className="text-[.58rem] font-black text-white/12 uppercase tracking-widest">Sanothimi ERP</div>
+          <div className="text-[.58rem] font-black text-white/12 uppercase tracking-widest">CoERP by Sanothimi</div>
         </div>
       </div>
     </div>

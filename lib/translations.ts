@@ -184,6 +184,9 @@ export const TRANSLATIONS = {
     'services_pg.portfolio.title2': 'Sanothimi Enterprise.',
     'services_pg.portfolio.cta1': 'Consult Now',
     'services_pg.portfolio.cta2': 'View Demo',
+    'services_pg.badge.live': 'Live',
+    'services_pg.badge.soon': 'Coming Soon',
+    'services_pg.trial': '1 Month Free Trial · 100% Nepal-Made',
 
     'services_pg.process.kicker': 'Implementation Logic',
     'services_pg.process.title1': 'Focused, Professional &',
@@ -274,6 +277,9 @@ export const TRANSLATIONS = {
     'h2.hero.badgeTitle': 'School ERP',
     'h2.hero.badgeDesc': 'Live in weeks, not months',
 
+    'h2.launch.badge': 'Now Live',
+    'h2.launch.text': 'SchoolSathi has officially launched — get 1 month free',
+
     'h2.dash.title': 'CoERP — SchoolSathi',
     'h2.dash.live': 'Live',
     'h2.dash.kpi.students': 'Students',
@@ -323,6 +329,9 @@ export const TRANSLATIONS = {
     'h2.sol.4.feat2': 'Attendance & leave tracking',
     'h2.sol.4.feat3': 'Recruitment pipeline',
     'h2.sol.4.feat4': 'Performance management',
+    'h2.sol.badge.live': 'Live',
+    'h2.sol.badge.soon': 'Coming Soon',
+    'h2.sol.trial': '1 Month Free Trial · 100% Nepal-Made',
 
     'h2.flow.kicker': 'Live Workflow',
     'h2.flow.title1': 'See your data',
@@ -607,6 +616,9 @@ export const TRANSLATIONS = {
     'services_pg.portfolio.title2': 'सानोठिमी इन्टरप्राइज।',
     'services_pg.portfolio.cta1': 'अहिले परामर्श लिनुहोस्',
     'services_pg.portfolio.cta2': 'डेमो हेर्नुहोस्',
+    'services_pg.badge.live': 'लाइभ',
+    'services_pg.badge.soon': 'चाँडै आउँदैछ',
+    'services_pg.trial': '१ महिना नि:शुल्क ट्रायल · १००% नेपालमा निर्मित',
 
     'services_pg.process.kicker': 'कार्यान्वयन तर्क',
     'services_pg.process.title1': 'केन्द्रित, व्यावसायिक र',
@@ -697,6 +709,9 @@ export const TRANSLATIONS = {
     'h2.hero.badgeTitle': 'स्कूल इआरपी',
     'h2.hero.badgeDesc': 'महिनौं होइन, हप्तामै सुरु',
 
+    'h2.launch.badge': 'अहिले लाइभ',
+    'h2.launch.text': 'स्कूलसाथी आधिकारिक रूपमा सुरु भयो — १ महिना नि:शुल्क पाउनुहोस्',
+
     'h2.dash.title': 'CoERP — स्कूलसाथी',
     'h2.dash.live': 'लाइभ',
     'h2.dash.kpi.students': 'विद्यार्थीहरू',
@@ -746,6 +761,9 @@ export const TRANSLATIONS = {
     'h2.sol.4.feat2': 'हाजिरी र बिदा ट्र्याकिङ',
     'h2.sol.4.feat3': 'भर्ना पाइपलाइन',
     'h2.sol.4.feat4': 'कार्यसम्पादन व्यवस्थापन',
+    'h2.sol.badge.live': 'लाइभ',
+    'h2.sol.badge.soon': 'चाँडै आउँदैछ',
+    'h2.sol.trial': '१ महिना नि:शुल्क ट्रायल · १००% नेपालमा निर्मित',
 
     'h2.flow.kicker': 'प्रत्यक्ष कार्यप्रवाह',
     'h2.flow.title1': 'तपाईंको डाटा',
