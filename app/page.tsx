@@ -84,7 +84,7 @@ function DashboardPreview() {
       <div className="flex items-center justify-between px-5 py-3 bg-[#0D47A1]">
         <div className="flex items-center gap-2.5">
           <div className="w-5 h-5 rounded bg-white/95 p-0.5 flex items-center justify-center">
-            <img src="/logo-icon-sano.png" alt="" className="w-full h-full object-contain" />
+            <img src="/sanothimi-logo0icon.png" alt="" className="w-full h-full object-contain" />
           </div>
           <span className="text-white/60 text-[.62rem] font-black uppercase tracking-widest">{t('h2.dash.title')}</span>
         </div>

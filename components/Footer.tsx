@@ -51,7 +51,7 @@ export default function Footer() {
           {/* Brand + newsletter */}
           <div className="lg:col-span-4 pb-8 border-b border-gray-200 lg:pb-0 lg:border-0">
             <Link href="/" className="flex items-center gap-2.5 mb-5">
-              <img src="/logo-icon-sano.png" alt="Sanothimi" className="w-8 h-8 object-contain" />
+              <img src="/sanothimi-logo0icon.png" alt="Sanothimi" className="w-8 h-8 object-contain" />
               <div className="leading-tight">
                 <div className="font-bold text-[1.02rem] tracking-tight text-[#0D47A1]">Sanothimi</div>
                 <div className="text-[.5rem] text-[#D32F2F] font-black tracking-[.35em] uppercase">Technologies</div>

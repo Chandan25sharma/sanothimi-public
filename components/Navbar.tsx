@@ -151,7 +151,7 @@ export default function Navbar() {
 
         {/* ── Logo ── */}
         <Link href="/" className="flex items-center gap-2.5 group flex-shrink-0">
-          <img src="/logo-icon-sano.png" alt="Sanothimi" className="w-8 h-8 object-contain transition-transform duration-300 group-hover:scale-105" />
+          <img src="/sanothimi-logo0icon.png" alt="Sanothimi" className="w-8 h-8 object-contain transition-transform duration-300 group-hover:scale-105" />
           <div className="leading-tight">
             <div className="font-bold text-[1.05rem] tracking-tight leading-none text-[#0D47A1]">
               Sanothimi
