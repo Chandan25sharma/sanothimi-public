@@ -274,7 +274,7 @@ export const TRANSLATIONS = {
     'h2.hero.badgeTitle': 'School ERP',
     'h2.hero.badgeDesc': 'Live in weeks, not months',
 
-    'h2.dash.title': 'Sanothimi ERP — SchoolSathi',
+    'h2.dash.title': 'CoERP — SchoolSathi',
     'h2.dash.live': 'Live',
     'h2.dash.kpi.students': 'Students',
     'h2.dash.kpi.fee': 'Fee Collected',
@@ -412,15 +412,15 @@ export const TRANSLATIONS = {
     'h2.pricing.bookDemo': 'Book Demo',
 
     'h2.banner.title': 'Ready to modernize\nyour institution?',
-    'h2.banner.sub': 'Join 50+ institutions across Nepal running on Sanothimi ERP.',
+    'h2.banner.sub': 'Join 50+ institutions across Nepal running on CoERP by Sanothimi.',
     'h2.banner.cta': 'Get Started Today',
 
     'h2.converge.kicker': 'Unified Platform',
     'h2.converge.title1': 'Every department.',
     'h2.converge.title2': 'One connected platform.',
     'h2.converge.desc': 'School admissions, finance, inventory, and HR all feed into a single source of truth — no more switching between disconnected tools.',
-    'h2.converge.hubTitle': 'Sanothimi',
-    'h2.converge.hubSub': 'One Platform',
+    'h2.converge.hubTitle': 'CoERP',
+    'h2.converge.hubSub': 'Powered by Sanothimi',
   },
   np: {
     // Navbar
@@ -697,7 +697,7 @@ export const TRANSLATIONS = {
     'h2.hero.badgeTitle': 'स्कूल इआरपी',
     'h2.hero.badgeDesc': 'महिनौं होइन, हप्तामै सुरु',
 
-    'h2.dash.title': 'सानोठिमी इआरपी — स्कूलसाथी',
+    'h2.dash.title': 'CoERP — स्कूलसाथी',
     'h2.dash.live': 'लाइभ',
     'h2.dash.kpi.students': 'विद्यार्थीहरू',
     'h2.dash.kpi.fee': 'शुल्क संकलन',
@@ -835,15 +835,15 @@ export const TRANSLATIONS = {
     'h2.pricing.bookDemo': 'डेमो बुक गर्नुहोस्',
 
     'h2.banner.title': 'तपाईंको संस्था आधुनिकीकरण\nगर्न तयार हुनुहुन्छ?',
-    'h2.banner.sub': 'नेपालभर सानोठिमी इआरपीमा चलिरहेका ५०+ संस्थाहरूसँग जोडिनुहोस्।',
+    'h2.banner.sub': 'नेपालभर सानोठिमीको CoERP मा चलिरहेका ५०+ संस्थाहरूसँग जोडिनुहोस्।',
     'h2.banner.cta': 'आजै सुरु गर्नुहोस्',
 
     'h2.converge.kicker': 'एकीकृत प्लेटफर्म',
     'h2.converge.title1': 'हरेक विभाग।',
     'h2.converge.title2': 'एउटै जोडिएको प्लेटफर्म।',
     'h2.converge.desc': 'विद्यार्थी भर्ना, वित्त, इन्भेन्टरी, र मानव संसाधन सबै एउटै स्रोतमा प्रवाहित हुन्छन् — छुट्टाछुट्टै उपकरणहरू बदल्नु पर्दैन।',
-    'h2.converge.hubTitle': 'सानोठिमी',
-    'h2.converge.hubSub': 'एउटै प्लेटफर्म',
+    'h2.converge.hubTitle': 'CoERP',
+    'h2.converge.hubSub': 'सानोठिमी द्वारा संचालित',
   }
 };
 
