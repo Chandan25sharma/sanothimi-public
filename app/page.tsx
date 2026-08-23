@@ -1,12 +1,12 @@
 'use client';
 import AnimatedIcon from '@/components/AnimatedIcon';
-import { Himalaya, Lattice, Mandala, NepalMoon, NepalSun } from '@/components/BgDecorations';
+import { Himalaya, Lattice, NepalMoon } from '@/components/BgDecorations';
 import BusinessConvergence from '@/components/BusinessConvergence';
 import CTABanner from '@/components/CTABanner';
 import SpotlightCard from '@/components/SpotlightCard';
 import { useLanguage } from '@/context/LanguageContext';
 import type { TranslationKey } from '@/lib/translations';
-import { AnimatePresence, motion, useMotionTemplate, useMotionValue, useSpring } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 
@@ -57,29 +57,8 @@ function DashboardPreview() {
     return () => clearInterval(id);
   }, []);
 
-  /* Subtle 3D tilt-on-hover, hover.dev-style */
-  const rotX = useMotionValue(0);
-  const rotY = useMotionValue(0);
-  const sRotX = useSpring(rotX, { stiffness: 200, damping: 20 });
-  const sRotY = useSpring(rotY, { stiffness: 200, damping: 20 });
-  const transform = useMotionTemplate`perspective(1000px) rotateX(${sRotX}deg) rotateY(${sRotY}deg)`;
-
-  const onMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const px = (e.clientX - rect.left) / rect.width - 0.5;
-    const py = (e.clientY - rect.top) / rect.height - 0.5;
-    rotY.set(px * 8);
-    rotX.set(py * -8);
-  };
-  const onMouseLeave = () => { rotX.set(0); rotY.set(0); };
-
   return (
-    <motion.div
-      onMouseMove={onMouseMove}
-      onMouseLeave={onMouseLeave}
-      style={{ transform }}
-      className="w-full rounded-2xl overflow-hidden shadow-2xl shadow-[#0D47A1]/20 border border-gray-100 bg-white"
-    >
+    <div className="w-full rounded-2xl overflow-hidden shadow-2xl shadow-[#0D47A1]/20 border border-gray-100 bg-white">
       {/* Title bar */}
       <div className="flex items-center justify-between px-5 py-3 bg-[#0D47A1]">
         <div className="flex items-center gap-2.5">
@@ -153,7 +132,7 @@ function DashboardPreview() {
           </AnimatePresence>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
@@ -163,7 +142,7 @@ const TRUST_ITEMS: TranslationKey[] = ['h2.trust.item1', 'h2.trust.item2', 'h2.t
 const SOLUTIONS = [
   {
     num: '01', icon: 'M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z',
-    titleKey: 'h2.sol.1.title' as TranslationKey, sub: 'SchoolSathi', color: '#D32F2F', status: 'live' as const,
+    titleKey: 'h2.sol.1.title' as TranslationKey, sub: 'NUVORA', color: '#D32F2F', status: 'live' as const,
     descKey: 'h2.sol.1.desc' as TranslationKey,
     featKeys: ['h2.sol.1.feat1', 'h2.sol.1.feat2', 'h2.sol.1.feat3', 'h2.sol.1.feat4'] as TranslationKey[],
   },
@@ -311,17 +290,13 @@ export default function Home() {
           01 · HERO
       ══════════════════════════════════════════════════ */}
       <section className="relative bg-white overflow-hidden pt-16 pb-16 lg:pt-24 lg:pb-24">
-        {/* ── Hero background decorations ── */}
+        {/* ── Hero background decorations (kept minimal for an enterprise-clean look) ── */}
         <div className="absolute inset-0 pointer-events-none select-none overflow-hidden" aria-hidden="true">
-          {/* Mandala — top right, behind dashboard */}
-          <Mandala className="absolute -top-24 -right-24 w-[560px] h-[560px] text-[#0D47A1] opacity-[0.10]" />
-          {/* Nepal sun — top left accent */}
-          <NepalSun className="absolute -top-16 -left-16 w-[320px] h-[320px] text-[#D32F2F] opacity-[0.10]" />
           {/* Large plain rings for depth */}
           <div className="absolute top-1/3 -right-60 w-[900px] h-[900px] rounded-full border border-[#0D47A1]/[0.04]" />
           <div className="absolute -bottom-60 -left-40 w-[700px] h-[700px] rounded-full border border-[#D32F2F]/[0.04]" />
           {/* Soft glow orb */}
-          <div className="absolute top-0 right-1/3 w-[500px] h-[500px] rounded-full bg-[#0D47A1]/[0.08] blur-[120px]" />
+          <div className="absolute top-0 right-1/3 w-[500px] h-[500px] rounded-full bg-[#0D47A1]/[0.06] blur-[120px]" />
           {/* Himalaya ridge at bottom */}
           <Himalaya className="absolute bottom-0 left-0 w-full text-[#0D47A1] opacity-[0.04]" />
         </div>
@@ -372,7 +347,7 @@ export default function Home() {
             <motion.div variants={fadeUp} className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 mb-12">
               <Link
                 href="/demo"
-                className="btn-shine inline-flex items-center justify-center gap-2.5 bg-[#D32F2F] text-white px-7 py-3.5 rounded-full font-semibold text-[.88rem] hover:bg-[#B71C1C] hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#D32F2F]/30 transition-all duration-200 w-full sm:w-auto"
+                className="inline-flex items-center justify-center gap-2.5 bg-[#D32F2F] text-white px-7 py-3.5 rounded-full font-semibold text-[.88rem] hover:bg-[#B71C1C] transition-colors duration-200 w-full sm:w-auto"
               >
                 {t('h2.hero.cta1')}
               </Link>
@@ -553,7 +528,7 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                {/* Trial highlight — SchoolSathi only */}
+                {/* Trial highlight — NUVORA only */}
                 {s.status === 'live' && (
                   <div className="relative mb-5 px-3 py-2 rounded-lg bg-green-50 border border-green-100 text-green-700 text-[.7rem] font-bold flex items-center gap-1.5">
                     <svg className="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V6m0 2v8m0 0v2m0-2c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>

@@ -1,9 +1,9 @@
 'use client';
-import CTABanner from '@/components/CTABanner';
 import { Himalaya, Lattice, Mandala, NepalSun, NetworkGraph } from '@/components/BgDecorations';
+import CTABanner from '@/components/CTABanner';
+import { useLanguage } from '@/context/LanguageContext';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
-import { useLanguage } from '@/context/LanguageContext';
 
 function useReveal() {
   const ref = useRef<HTMLElement>(null);
@@ -199,7 +199,7 @@ export default function ServicesPage() {
                   ))}
                 </ul>
 
-                {/* Trial highlight — SchoolSathi only */}
+                {/* Trial highlight — NUVORA only */}
                 {SVC_STATUS[i] === 'live' && (
                   <div className="mb-8 px-4 py-2.5 rounded-lg bg-green-50 border border-green-100 text-green-700 text-[.78rem] font-bold flex items-center gap-2 relative z-10 w-fit">
                     <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V6m0 2v8m0 0v2m0-2c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>

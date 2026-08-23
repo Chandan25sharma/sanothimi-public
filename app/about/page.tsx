@@ -1,6 +1,6 @@
 'use client';
-import CTABanner from '@/components/CTABanner';
 import { Himalaya, Lattice, Mandala, NepalSun, NetworkGraph } from '@/components/BgDecorations';
+import CTABanner from '@/components/CTABanner';
 import { useLanguage } from '@/context/LanguageContext';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
@@ -46,7 +46,7 @@ function useCounter(target: number, delay = 0) {
 
 const MILESTONES = [
   { year: '2025', title: 'Company Founded', desc: 'Sanothimi Private Limited was incorporated in Bhaktapur with a mission to digitize Nepal\'s institutions through world-class SaaS.' },
-  { year: '2025', title: 'SchoolSathi Launch', desc: 'Released our flagship educational ERP to 5 pioneering schools — automating admissions, fee management, and attendance.' },
+  { year: '2025', title: 'NUVORA Launch', desc: 'Released our flagship educational ERP to 5 pioneering schools — automating admissions, fee management, and attendance.' },
   { year: '2025', title: 'Financial Suite', desc: 'Expanded into cloud-based, VAT-compliant accounting solutions purpose-built for enterprises and SMEs across Nepal.' },
   { year: '2026', title: 'Enterprise Scale', desc: 'Onboarded 25+ institutions and introduced Business Intelligence dashboards with real-time KPI monitoring.' },
   { year: '2026', title: '10K+ Daily Users', desc: 'Now serving 10,000+ active users across educational, financial, and enterprise verticals — with 99.9% uptime.' },
@@ -170,10 +170,10 @@ export default function AboutPage() {
               <div className="aspect-square rounded-[3rem] bg-[#0D47A1] overflow-hidden flex items-center justify-center p-16 relative shimmer-card">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_40%_40%,#D32F2F12,transparent_65%)]" />
                 <div className="absolute inset-0 opacity-[0.035] pointer-events-none">
-                  <img src="/logo-icon-sano.png" alt="" className="w-full h-full object-contain scale-150" />
+                  <img src="/sanothimi-logo0icon.png" alt="" className="w-full h-full object-contain scale-150" />
                 </div>
                 <img
-                  src="/logo-icon-sano.png"
+                  src="/sanothimi-logo0icon.png"
                   alt="Sanothimi"
                   className="relative z-10 w-3/4 h-auto object-contain opacity-90 drop-shadow-2xl float-y"
                 />

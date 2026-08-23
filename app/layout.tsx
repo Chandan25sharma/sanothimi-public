@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.sanothimi.com"),
   title: { template: '%s | Sanothimi', default: 'Sanothimi | Elite SaaS Engineering Hub' },
   description: 'Sanothimi is Nepal\'s premier SaaS Engineering Hub, specializing in School Management ERPs, Enterprise Financial Systems, and bespoke cloud infrastructure.',
-  keywords: 'Sanothimi, SaaS Nepal, SchoolSathi, ERP Nepal, Cloud Engineering Bhaktapur, Fintech Nepal',
+  keywords: 'Sanothimi, SaaS Nepal, NUVORA, ERP Nepal, Cloud Engineering Bhaktapur, Fintech Nepal',
   icons: {
     icon: [{ url: '/sanothimi-logo0icon.png', type: 'image/png' }],
     apple: [{ url: '/sanothimi-logo0icon.png' }],

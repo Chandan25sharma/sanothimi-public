@@ -1,6 +1,6 @@
 'use client';
-import { useEffect, useRef } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
+import { useEffect, useRef } from 'react';
 
 export default function About() {
   const { t } = useLanguage();
@@ -46,7 +46,7 @@ export default function About() {
     },
   ];
 
-  const CERTS = ['SchoolSathi™', 'FinanceFlow', 'BizSuite', 'CloudSec Certified', 'SaaS Excellence'];
+  const CERTS = ['NUVORA™', 'FinanceFlow', 'BizSuite', 'CloudSec Certified', 'SaaS Excellence'];
 
   useEffect(() => {
     const obs = new IntersectionObserver((entries) => {

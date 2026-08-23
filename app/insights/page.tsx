@@ -68,13 +68,13 @@ export default function InsightsPage() {
               <div className="relative z-10">
                 <div className="text-[.6rem] font-black uppercase tracking-[.25em] text-[#D32F2F] mb-4">Education · Kathmandu</div>
                 <div className="font-serif text-3xl text-white leading-tight mb-2">BrightPath Academy</div>
-                <div className="text-white/40 text-sm">1,200+ students · SchoolSathi ERP</div>
+                <div className="text-white/40 text-sm">1,200+ students · NUVORA ERP</div>
               </div>
             </div>
             <div className="lg:col-span-3 p-10 flex flex-col justify-center">
               <div className="font-serif text-[5rem] text-[#D32F2F] opacity-15 leading-none mb-2 select-none">&ldquo;</div>
               <blockquote className="text-xl text-[#0D47A1] leading-relaxed italic -mt-8 mb-6">
-                SchoolSathi transformed how we manage 1,200 students. Fee collection that used to take our staff two weeks now runs automatically. It paid for itself in the first month.
+                NUVORA transformed how we manage 1,200 students. Fee collection that used to take our staff two weeks now runs automatically. It paid for itself in the first month.
               </blockquote>
               <div>
                 <div className="font-bold text-[#0D47A1] text-sm">Sarah Mitchell</div>

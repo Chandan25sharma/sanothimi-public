@@ -1,5 +1,5 @@
 # PRIVACY POLICY
-## SchoolSathi School Management Software
+## NUVORA School Management Software
 ## Effective Date: April 21, 2026
 ## Last Updated: April 21, 2026
 
@@ -7,9 +7,9 @@
 
 # PREAMBLE
 
-SchoolSathi ("we," "our," "us," or "the Company") is a school management software-as-a-service (SaaS) product developed and operated by **Sanothimi Private Limited**, a company registered under the laws of Nepal with registration number 294812/080/081, having its registered office at Sanothimi, Bhaktapur, Nepal.
+NUVORA ("we," "our," "us," or "the Company") is a school management software-as-a-service (SaaS) product developed and operated by **Sanothimi Private Limited**, a company registered under the laws of Nepal with registration number 294812/080/081, having its registered office at Sanothimi, Bhaktapur, Nepal.
 
-We are committed to protecting the privacy and security of all personal information entrusted to us by schools, staff, students, parents, and all other users of our platform. This Privacy Policy explains in detail how we collect, use, store, protect, share, and handle personal data when you use SchoolSathi.
+We are committed to protecting the privacy and security of all personal information entrusted to us by schools, staff, students, parents, and all other users of our platform. This Privacy Policy explains in detail how we collect, use, store, protect, share, and handle personal data when you use NUVORA.
 
 This policy is written in compliance with:
 - The Individual Privacy Act, 2018 (Nepal)
@@ -17,7 +17,7 @@ This policy is written in compliance with:
 - The Information Technology Policy, 2072 BS (Nepal)
 - General international best practices for data protection
 
-Please read this policy carefully before using SchoolSathi. By using our service, you agree to the practices described in this document.
+Please read this policy carefully before using NUVORA. By using our service, you agree to the practices described in this document.
 
 ---
 
@@ -25,21 +25,21 @@ Please read this policy carefully before using SchoolSathi. By using our service
 
 For the purposes of this Privacy Policy, the following terms have the meanings assigned below:
 
-**"SchoolSathi"** refers to the school management software platform, including the web application, mobile applications, APIs, and all related services operated by **Sanothimi Private Limited**.
+**"NUVORA"** refers to the school management software platform, including the web application, mobile applications, APIs, and all related services operated by **Sanothimi Private Limited**.
 
-**"Company"** refers to **Sanothimi Private Limited**, the legal entity that owns, develops, and operates SchoolSathi.
+**"Company"** refers to **Sanothimi Private Limited**, the legal entity that owns, develops, and operates NUVORA.
 
-**"School"** or **"Client"** refers to any educational institution — including schools, colleges, or similar bodies — that has subscribed to SchoolSathi under a valid subscription agreement.
+**"School"** or **"Client"** refers to any educational institution — including schools, colleges, or similar bodies — that has subscribed to NUVORA under a valid subscription agreement.
 
-**"School Admin"** refers to the designated administrator appointed by the School to manage the SchoolSathi account for that institution.
+**"School Admin"** refers to the designated administrator appointed by the School to manage the NUVORA account for that institution.
 
-**"Staff"** or **"School Staff"** refers to teachers, accountants, receptionists, transport staff, administrators, and all other employees of the School whose data is entered into SchoolSathi.
+**"Staff"** or **"School Staff"** refers to teachers, accountants, receptionists, transport staff, administrators, and all other employees of the School whose data is entered into NUVORA.
 
-**"Student"** refers to any person enrolled as a learner at a School that uses SchoolSathi.
+**"Student"** refers to any person enrolled as a learner at a School that uses NUVORA.
 
-**"Parent"** or **"Guardian"** refers to the parent, guardian, or other person responsible for a Student, whose contact or personal information may be recorded in SchoolSathi.
+**"Parent"** or **"Guardian"** refers to the parent, guardian, or other person responsible for a Student, whose contact or personal information may be recorded in NUVORA.
 
-**"Super Admin"** refers to the Company's designated personnel who have administrative access to the SchoolSathi platform for operational and support purposes.
+**"Super Admin"** refers to the Company's designated personnel who have administrative access to the NUVORA platform for operational and support purposes.
 
 **"Personal Data"** means any information relating to an identified or identifiable natural person.
 
@@ -59,19 +59,19 @@ For the purposes of this Privacy Policy, the following terms have the meanings a
 
 This Privacy Policy applies to:
 
-2.1 **Schools and Institutional Clients** who have entered into a subscription agreement with the Company to use SchoolSathi.
+2.1 **Schools and Institutional Clients** who have entered into a subscription agreement with the Company to use NUVORA.
 
-2.2 **School Administrators** who manage the SchoolSathi account on behalf of their school.
+2.2 **School Administrators** who manage the NUVORA account on behalf of their school.
 
 2.3 **School Staff** including teachers, accountants, and support staff whose information is recorded in the system.
 
-2.4 **Students** whose academic, personal, and financial records are maintained within SchoolSathi.
+2.4 **Students** whose academic, personal, and financial records are maintained within NUVORA.
 
 2.5 **Parents and Guardians** whose contact information and financial records are recorded in connection with their child's education.
 
 2.6 **Visitors** who visit our website at sanothimi.com.np or any of our marketing pages without creating an account.
 
-2.7 **Prospective Clients** who inquire about SchoolSathi before subscribing.
+2.7 **Prospective Clients** who inquire about NUVORA before subscribing.
 
 ---
 
@@ -79,7 +79,7 @@ This Privacy Policy applies to:
 
 ## 3.1 Data Collected from Schools (Institutional Data)
 
-When a school subscribes to SchoolSathi, we collect:
+When a school subscribes to NUVORA, we collect:
 
 - School name (English and Nepali)
 - School registration number and PAN/VAT number
@@ -91,7 +91,7 @@ When a school subscribes to SchoolSathi, we collect:
 
 ## 3.2 Data Collected about Students
 
-Schools enter the following student data into SchoolSathi. This data is owned by the School and processed by us on their behalf:
+Schools enter the following student data into NUVORA. This data is owned by the School and processed by us on their behalf:
 
 **Identity Data:**
 - Full name in English and Nepali (Devanagari)
@@ -133,7 +133,7 @@ Schools enter the following student data into SchoolSathi. This data is owned by
 
 ## 3.3 Data Collected about Staff
 
-Schools enter the following staff data into SchoolSathi:
+Schools enter the following staff data into NUVORA:
 
 **Identity Data:**
 - Full name in English and Nepali
@@ -174,7 +174,7 @@ Schools enter the following staff data into SchoolSathi:
 
 ## 3.5 Technical and Usage Data
 
-When users access SchoolSathi, we automatically collect:
+When users access NUVORA, we automatically collect:
 
 - IP address
 - Device type, operating system, and browser version
@@ -197,7 +197,7 @@ We do not collect, and schools must not enter:
 
 # PART 4 — HOW WE USE THE DATA
 
-## 4.1 Providing the SchoolSathi Service
+## 4.1 Providing the NUVORA Service
 
 We use the data entered by schools to:
 
@@ -264,13 +264,13 @@ We process personal data on the following legal bases:
 5.4 **Consent:** For optional features such as SMS notifications to parents, we rely on the School's confirmation that parent consent has been obtained.
 
 **Important Note on Minor Students:**
-Student data belongs to minors who cannot consent on their own behalf. Schools, as institutions with legal responsibility for students, act as the appropriate authority to enter and manage student data within SchoolSathi. Schools must ensure they have appropriate authorization under Nepal law to process student data in this manner.
+Student data belongs to minors who cannot consent on their own behalf. Schools, as institutions with legal responsibility for students, act as the appropriate authority to enter and manage student data within NUVORA. Schools must ensure they have appropriate authorization under Nepal law to process student data in this manner.
 
 ---
 
 # PART 6 — DATA SHARING AND DISCLOSURE
 
-## 6.1 Within SchoolSathi (Role-Based Access)
+## 6.1 Within NUVORA (Role-Based Access)
 
 Data is strictly controlled by role:
 
@@ -283,7 +283,7 @@ Data is strictly controlled by role:
 
 ## 6.2 Third-Party Service Providers
 
-We share data with carefully selected third parties who help us operate SchoolSathi:
+We share data with carefully selected third parties who help us operate NUVORA:
 
 | Service Provider | Purpose | Data Shared | Location |
 |-----------------|---------|-------------|----------|
@@ -324,7 +324,7 @@ If the Company is acquired, merged, or its assets are sold, student and school d
 
 ## 7.1 Where Data is Stored
 
-All SchoolSathi data is stored on MongoDB Atlas servers located in the Singapore region (closest available to Nepal with high availability). Data is encrypted at rest and in transit.
+All NUVORA data is stored on MongoDB Atlas servers located in the Singapore region (closest available to Nepal with high availability). Data is encrypted at rest and in transit.
 
 ## 7.2 Security Measures
 
@@ -387,11 +387,11 @@ Under Nepal's Individual Privacy Act, 2018, individuals have the following right
 
 ## 8.1 Right to Access
 
-Any individual (student, staff, parent) may request access to their personal data held in SchoolSathi. Requests should be made through the School Admin. The School Admin can generate data exports for individuals.
+Any individual (student, staff, parent) may request access to their personal data held in NUVORA. Requests should be made through the School Admin. The School Admin can generate data exports for individuals.
 
 ## 8.2 Right to Correction
 
-Individuals may request correction of inaccurate personal data. This is handled through the School Admin who can edit records within SchoolSathi.
+Individuals may request correction of inaccurate personal data. This is handled through the School Admin who can edit records within NUVORA.
 
 ## 8.3 Right to Deletion
 
@@ -399,15 +399,15 @@ Individuals may request deletion of their personal data, subject to the retentio
 
 ## 8.4 Right to Data Portability
 
-Schools may export all their data from SchoolSathi in standard formats (PDF, Excel, JSON) at any time using the built-in export functions.
+Schools may export all their data from NUVORA in standard formats (PDF, Excel, JSON) at any time using the built-in export functions.
 
 ## 8.5 Right to Withdraw Consent
 
-For processing based on consent (such as SMS notifications), schools and parents may withdraw consent at any time by adjusting settings within SchoolSathi or contacting us.
+For processing based on consent (such as SMS notifications), schools and parents may withdraw consent at any time by adjusting settings within NUVORA or contacting us.
 
 ## 8.6 How to Exercise Rights
 
-- **Through School Admin:** Most rights can be exercised by asking the School Admin to make changes within SchoolSathi.
+- **Through School Admin:** Most rights can be exercised by asking the School Admin to make changes within NUVORA.
 - **Direct Request to Company:** For requests the School Admin cannot fulfill, contact us at privacy@sanothimi.com.np
 - **Response Time:** We will respond to verified requests within 30 calendar days.
 
@@ -415,13 +415,13 @@ For processing based on consent (such as SMS notifications), schools and parents
 
 # PART 9 — DATA OF MINORS (STUDENTS)
 
-9.1 SchoolSathi is designed for use by schools and is not directed at children directly. Students do not independently create accounts — all student data is entered and managed by the School.
+9.1 NUVORA is designed for use by schools and is not directed at children directly. Students do not independently create accounts — all student data is entered and managed by the School.
 
 9.2 Schools are responsible for ensuring they have appropriate legal authority to process student data under Nepal law, including the Children's Act, 2075 BS and applicable education regulations.
 
-9.3 We process student data only as instructed by the School (Data Controller). We do not process student data for any purpose beyond providing the SchoolSathi service.
+9.3 We process student data only as instructed by the School (Data Controller). We do not process student data for any purpose beyond providing the NUVORA service.
 
-9.4 Student photographs uploaded to SchoolSathi are used only for:
+9.4 Student photographs uploaded to NUVORA are used only for:
 - Display within the school's account (student profiles, admit cards, ID cards, report cards)
 - Never for any marketing, advertising, or external purpose
 
@@ -431,7 +431,7 @@ For processing based on consent (such as SMS notifications), schools and parents
 
 # PART 10 — SMS AND COMMUNICATIONS
 
-10.1 SchoolSathi may send SMS messages to parents on behalf of schools. These messages include:
+10.1 NUVORA may send SMS messages to parents on behalf of schools. These messages include:
 - Exam result notifications
 - Attendance alerts
 - Fee due reminders
@@ -443,7 +443,7 @@ For processing based on consent (such as SMS notifications), schools and parents
 
 10.4 We do not send marketing SMS messages to parents or students.
 
-10.5 Email communications from SchoolSathi to School Admins include:
+10.5 Email communications from NUVORA to School Admins include:
 - Account setup and login credentials
 - Subscription renewal notices
 - Service update announcements
@@ -453,7 +453,7 @@ For processing based on consent (such as SMS notifications), schools and parents
 
 # PART 11 — COOKIES AND TRACKING
 
-11.1 SchoolSathi uses the following types of cookies:
+11.1 NUVORA uses the following types of cookies:
 
 **Strictly Necessary Cookies:**
 - Session cookie: Maintains user login session (httpOnly, secure, expires in 8 hours)
@@ -462,7 +462,7 @@ For processing based on consent (such as SMS notifications), schools and parents
 **Functional Cookies:**
 - User preferences: Stores display preferences (language, date format)
 
-11.2 SchoolSathi does NOT use:
+11.2 NUVORA does NOT use:
 - Advertising cookies or tracking pixels
 - Third-party analytics cookies (such as Google Analytics) within the school management application
 - Social media tracking cookies
@@ -473,14 +473,14 @@ For processing based on consent (such as SMS notifications), schools and parents
 
 # PART 12 — INTERNATIONAL DATA TRANSFERS
 
-12.1 SchoolSathi stores data on MongoDB Atlas servers in Singapore, which is outside Nepal.
+12.1 NUVORA stores data on MongoDB Atlas servers in Singapore, which is outside Nepal.
 
 12.2 We have selected Singapore as our primary hosting location because:
 - It is the geographically nearest high-availability cloud region to Nepal
 - Singapore has strong data protection laws (PDPA)
 - It provides the best performance (low latency) for Nepal-based users
 
-12.3 By subscribing to SchoolSathi, Schools agree to this international data transfer as necessary for service provision.
+12.3 By subscribing to NUVORA, Schools agree to this international data transfer as necessary for service provision.
 
 12.4 We ensure all international service providers maintain data security standards equivalent to or exceeding Nepal's requirements.
 
@@ -503,23 +503,23 @@ For processing based on consent (such as SMS notifications), schools and parents
 
 # PART 14 — SCHOOL RESPONSIBILITIES (DATA CONTROLLER OBLIGATIONS)
 
-As Data Controllers, Schools using SchoolSathi are responsible for:
+As Data Controllers, Schools using NUVORA are responsible for:
 
 14.1 Ensuring they have legal authority to collect and process student and staff personal data.
 
 14.2 Obtaining appropriate consents from parents/guardians for student data processing.
 
-14.3 Informing staff that their personal data is processed in SchoolSathi.
+14.3 Informing staff that their personal data is processed in NUVORA.
 
-14.4 Ensuring only authorized persons have access to the SchoolSathi account.
+14.4 Ensuring only authorized persons have access to the NUVORA account.
 
 14.5 Immediately reporting any suspected data breach or unauthorized access to us.
 
-14.6 Ensuring the accuracy of data entered into SchoolSathi.
+14.6 Ensuring the accuracy of data entered into NUVORA.
 
 14.7 Complying with applicable Nepal education and data protection laws.
 
-14.8 Not entering data into SchoolSathi beyond what is necessary for school management purposes.
+14.8 Not entering data into NUVORA beyond what is necessary for school management purposes.
 
 ---
 
@@ -530,9 +530,9 @@ As Data Controllers, Schools using SchoolSathi are responsible for:
 15.2 When we make significant changes, we will:
 - Post the updated policy on our website with the new effective date
 - Send an email notification to all School Admin accounts
-- Display a notice within SchoolSathi for 30 days
+- Display a notice within NUVORA for 30 days
 
-15.3 Your continued use of SchoolSathi after the effective date of the updated policy constitutes acceptance of the changes.
+15.3 Your continued use of NUVORA after the effective date of the updated policy constitutes acceptance of the changes.
 
 15.4 If you disagree with the changes, you may export your data and terminate your subscription.
 

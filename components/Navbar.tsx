@@ -1,10 +1,10 @@
 'use client';
+import MegaMenu, { type MegaColumn } from '@/components/MegaMenu';
+import { useLanguage } from '@/context/LanguageContext';
+import { AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { AnimatePresence } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
-import { useLanguage } from '@/context/LanguageContext';
-import MegaMenu, { type MegaColumn } from '@/components/MegaMenu';
 
 const ABOUT_COLUMNS: MegaColumn[] = [
   {
@@ -35,7 +35,7 @@ const SERVICES_COLUMNS: MegaColumn[] = [
   {
     title: 'School ERP',
     items: [
-      { label: 'SchoolSathi Core', href: '/services#svc-1', desc: 'Admissions, attendance, exams & billing' },
+      { label: 'NUVORA Core', href: '/services#svc-1', desc: 'Admissions, attendance, exams & billing' },
     ],
   },
   {

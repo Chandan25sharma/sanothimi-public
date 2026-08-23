@@ -1,10 +1,10 @@
 import type {
-  Achievement,
-  BlogPost,
-  Experience,
-  Project,
-  Service,
-  Skill, SoftSkill, Testimonial,
+    Achievement,
+    BlogPost,
+    Experience,
+    Project,
+    Service,
+    Skill, SoftSkill, Testimonial,
 } from '@/types';
 
 export const experiences: Experience[] = [
@@ -15,7 +15,7 @@ export const experiences: Experience[] = [
     duration: '2023 – Present',
     icon: '🚀',
     responsibilities: [
-      'Launched SchoolSathi, a comprehensive School Management System now used by 50+ institutions',
+      'Launched NUVORA, a comprehensive School Management System now used by 50+ institutions',
       'Implemented automated billing and financial reporting modules for educational institutions',
       'Integrated real-time parent-teacher communication portals across mobile and web platforms',
       'Developed a robust student information system (SIS) handling 20,000+ active records',
@@ -53,7 +53,7 @@ export const experiences: Experience[] = [
 ];
 
 export const achievements: Achievement[] = [
-  { id: 1, icon: '🏫', year: '2024', title: 'Top Educational Tech Provider', description: 'Recognized as the most innovative School ERP provider in the region for our flagship SchoolSathi platform.', metric: '🏆 #1 Rated School ERP' },
+  { id: 1, icon: '🏫', year: '2024', title: 'Top Educational Tech Provider', description: 'Recognized as the most innovative School ERP provider in the region for our flagship NUVORA platform.', metric: '🏆 #1 Rated School ERP' },
   { id: 2, icon: '👥', year: '2023', title: '10,000+ Daily Active Users', description: 'Our platform ecosystem successfully supports over 10,000 teachers, students, and admins every single day.', metric: '📈 10K+ DAU' },
   { id: 3, icon: '💼', year: '2022', title: '500+ Businesses Empowered', description: 'Successfully implemented business tools and financial systems for over 500 SMEs across different sectors.', metric: '💰 500+ Clients' },
   { id: 4, icon: '🌍', year: '2023', title: 'National Digitization Award', description: 'Awarded for significant contribution to the digital transformation of rural and urban educational institutions.', metric: '🎖️ Excellence Award' },
@@ -62,7 +62,7 @@ export const achievements: Achievement[] = [
 ];
 
 export const services: Service[] = [
-  { id: 1, icon: '🏫', title: 'School ERP (SchoolSathi)', description: 'Complete management system for admissions, attendance, exams, and billing. Integrated mobile app for parents and teachers.' },
+  { id: 1, icon: '🏫', title: 'School ERP (NUVORA)', description: 'Complete management system for admissions, attendance, exams, and billing. Integrated mobile app for parents and teachers.' },
   { id: 2, icon: '💰', title: 'Finance & Accounting', description: 'Cloud-based accounting software tailored for local business needs. Automated ledgers, VAT reports, and financial statements.' },
   { id: 3, icon: '🏢', title: 'Business Management Suite', description: 'End-to-end tools for inventory, sales, and employee management. Real-time dashboards for data-driven decision making.' },
   { id: 4, icon: '📊', title: 'Business Intelligence', description: 'Advanced analytics and reporting tools to gain deep insights into your operational performance and growth trends.' },
@@ -74,7 +74,7 @@ export const projects: Project[] = [
   {
     id: 1, tag: 'Education', tagIcon: '🎓',
     title: 'City Academy Digital Overhaul',
-    description: 'Full-scale implementation of SchoolSathi ERP across 3 campuses, digitizing 5,000+ student records and automating all fee collections.',
+    description: 'Full-scale implementation of NUVORA ERP across 3 campuses, digitizing 5,000+ student records and automating all fee collections.',
     bgGradient: 'from-[#D91E36] to-[#001C44]',
     metrics: [{ value: '100%', label: 'Cashless Billing' }, { value: '2 hrs', label: 'Daily saved/Staff' }, { value: '0', label: 'Data Errors' }],
   },
@@ -120,7 +120,7 @@ export const softSkills: SoftSkill[] = [
 ];
 
 export const testimonials: Testimonial[] = [
-  { id: 1, initials: 'SM', quote: "The SchoolSathi platform completely transformed our administrative workflow. We saved 15+ hours a week on fee collections alone. Sanothimi doesn't just provide software; they provide a solution that truly understands the education sector.", name: 'Sarah Mitchell', title: 'Principal, BrightPath Academy' },
+  { id: 1, initials: 'SM', quote: "The NUVORA platform completely transformed our administrative workflow. We saved 15+ hours a week on fee collections alone. Sanothimi doesn't just provide software; they provide a solution that truly understands the education sector.", name: 'Sarah Mitchell', title: 'Principal, BrightPath Academy' },
   { id: 2, initials: 'RK', quote: "Implementing Sanothimi's Finance suite was the best decision for our growing business. The real-time dashboards allowed us to make informed decisions that boosted our revenue by 25% within six months.", name: 'Raj Kumar', title: 'CEO, NovaPay Logistics' },
   { id: 3, initials: 'LP', quote: "We were struggling with inventory management across multiple locations until we switched to Sanothimi. Their cloud systems are fast, reliable, and incredibly easy to use. Our stock accuracy is now at 99%.", name: 'Laura Peterson', title: 'Operations Director, Meridian Retail' },
   { id: 4, initials: 'DW', quote: "As a startup, we needed a scalable business suite that wouldn't break the bank. Sanothimi provided enterprise-level tools at a fraction of the cost. Their support team is exceptional and always responsive.", name: 'David Wong', title: 'Founder, Pacific Rim Tech' },

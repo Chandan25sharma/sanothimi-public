@@ -14,7 +14,7 @@ const COMPANY = [
 ];
 
 const SOLUTIONS = [
-  { label: 'School ERP — SchoolSathi', href: '/services#svc-1' },
+  { label: 'School ERP — NUVORA', href: '/services#svc-1' },
   { label: 'Financial Suite — FinanceCore', href: '/services#svc-2' },
   { label: 'Inventory Control — StockMate', href: '/services#svc-3' },
   { label: 'HR & Payroll — HRDesk', href: '/services#svc-4' },
