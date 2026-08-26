@@ -1,7 +1,8 @@
 'use client';
-import { Himalaya, Lattice, Mandala, NepalSun, NetworkGraph } from '@/components/BgDecorations';
+import { Himalaya, Lattice, Mandala, NepalSun } from '@/components/BgDecorations';
 import CTABanner from '@/components/CTABanner';
 import { useLanguage } from '@/context/LanguageContext';
+import emailjs from '@emailjs/browser';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 
@@ -59,11 +60,65 @@ export default function AboutPage() {
   const s3 = useReveal();
   const s4 = useReveal();
   const sTimeline = useReveal();
+  const sContact = useReveal();
 
   const c0 = useCounter(5, 0);
   const c1 = useCounter(10, 200);
   const c2 = useCounter(99, 400);
   const c3 = useCounter(50, 600);
+
+  const [cf, setCf] = useState({
+    fname: '', lname: '', email: '', phone: '', jobTitle: '', company: '',
+    country: '', enquiry: '', comments: '', subscribe: false, consent: false,
+  });
+  const [cfStatus, setCfStatus] = useState<'idle' | 'sending' | 'sent'>('idle');
+  const [cfErrors, setCfErrors] = useState<Record<string, boolean>>({});
+
+  const setCfField = (k: keyof typeof cf) =>
+    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+      const val = e.target.type === 'checkbox' ? (e.target as HTMLInputElement).checked : e.target.value;
+      setCf((prev) => ({ ...prev, [k]: val }));
+      setCfErrors((prev) => ({ ...prev, [k]: false }));
+    };
+
+  const submitContactForm = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const err: Record<string, boolean> = {};
+    if (!cf.fname) err.fname = true;
+    if (!cf.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cf.email)) err.email = true;
+    if (!cf.enquiry) err.enquiry = true;
+    if (!cf.consent) err.consent = true;
+    if (Object.keys(err).length) { setCfErrors(err); return; }
+
+    setCfStatus('sending');
+    try {
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '',
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '',
+        {
+          from_name: `${cf.fname} ${cf.lname}`,
+          from_email: cf.email,
+          subject: `New Enquiry from ${cf.fname}${cf.company ? ` (${cf.company})` : ''}`,
+          message: [
+            `Enquiry type: ${cf.enquiry}`,
+            cf.phone && `Phone: ${cf.phone}`,
+            cf.jobTitle && `Job title: ${cf.jobTitle}`,
+            cf.company && `Company: ${cf.company}`,
+            cf.country && `Country: ${cf.country}`,
+            cf.comments && `Comments: ${cf.comments}`,
+          ].filter(Boolean).join('\n'),
+          current_date: new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }),
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ''
+      );
+      setCfStatus('sent');
+      setCf({ fname: '', lname: '', email: '', phone: '', jobTitle: '', company: '', country: '', enquiry: '', comments: '', subscribe: false, consent: false });
+      setTimeout(() => setCfStatus('idle'), 6000);
+    } catch {
+      setCfStatus('idle');
+      alert('Failed to send message. Please try again.');
+    }
+  };
 
   return (
     <main>
@@ -71,310 +126,1371 @@ export default function AboutPage() {
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           01. CINEMATIC HERO
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <div className="relative pt-24 pb-20 bg-white overflow-hidden">
-        {/* Nepal-inspired background decorations */}
-        <div className="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
-          <NetworkGraph className="absolute inset-0 w-full h-full" />
-          <Mandala className="absolute -top-20 -right-20 w-[520px] h-[520px] text-[#0B1F3A] opacity-[0.06]" />
-          <NepalSun className="absolute bottom-10 -left-16 w-[300px] h-[300px] text-[#155EEF] opacity-[0.05]" />
-          <div className="absolute top-1/2 -translate-y-1/2 left-1/3 w-[600px] h-[600px] rounded-full border border-[#0B1F3A]/[0.04]" />
-          <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-[#0B1F3A]/[0.025] blur-[120px]" />
-          <Himalaya className="absolute bottom-0 left-0 w-full text-[#0B1F3A] opacity-[0.04]" />
+      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    MISSION / ABOUT HERO
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+<div className="relative py-25 bg-white overflow-hidden">
+
+  {/* Nepal-inspired background decorations */}
+  <div
+    className="absolute inset-0 pointer-events-none select-none"
+    aria-hidden="true"
+  >
+
+    <Mandala
+      className="
+        absolute
+        -top-20
+        -right-20
+        w-[520px]
+        h-[520px]
+        text-[#0B1F3A]
+        opacity-[0.06]
+      "
+    />
+
+    <NepalSun
+      className="
+        absolute
+        bottom-10
+        -left-16
+        w-[300px]
+        h-[300px]
+        text-[#155EEF]
+        opacity-[0.05]
+      "
+    />
+
+    <div
+      className="
+        absolute
+        top-1/2
+        -translate-y-1/2
+        left-1/3
+        w-[600px]
+        h-[600px]
+        rounded-full
+        border
+        border-[#0B1F3A]/[0.04]
+      "
+    />
+
+    <div
+      className="
+        absolute
+        top-0
+        right-0
+        w-96
+        h-96
+        rounded-full
+        bg-[#0B1F3A]/[0.025]
+        blur-[120px]
+      "
+    />
+
+    <Himalaya
+      className="
+        absolute
+        bottom-0
+        left-0
+        w-full
+        text-[#0B1F3A]
+        opacity-[0.04]
+      "
+    />
+
+  </div>
+
+
+  {/* =========================================================
+      CONTENT
+      ========================================================= */}
+  <div className="max-w-7xl mx-auto px-6 relative z-10">
+
+    <div className="grid grid-cols-1 lg:grid-cols-[1fr_0.9fr] gap-12 lg:gap-16 items-center">
+
+      {/* =====================================================
+          LEFT — TEXT CONTENT
+          ===================================================== */}
+      <div>
+
+        {/* Kicker */}
+        <div
+          className="
+            text-[#155EEF]
+            text-[.7rem]
+            font-black
+            uppercase
+            tracking-[.3em]
+            mb-6
+          "
+        >
+          {t('about_pg.mission.kicker')}
         </div>
-        <div className="max-w-6xl mx-auto px-6 relative z-10">
-          {/* Kicker */}
-          <div className="text-[#155EEF] text-[.7rem] font-black uppercase tracking-[.3em] mb-6">
-            {t('about_pg.mission.kicker')}
-          </div>
 
-          <h1 className="font-serif text-[2.2rem] sm:text-5xl md:text-7xl text-[#0B1F3A] leading-[1.1] tracking-tight mb-8">
-            {t('about_pg.mission.title1')}<br />
-            <span className="relative inline-block">
-              {t('about_pg.mission.title2')}
-              <span className="absolute left-0 -bottom-1 w-full h-[3px] bg-[#155EEF] rounded-full" />
-            </span>
-          </h1>
 
-          <p className="text-gray-500 text-lg md:text-xl max-w-2xl leading-relaxed mt-10">
-            Nepal&apos;s premier SaaS engineering hub — digitizing institutions with enterprise-grade cloud infrastructure and human-centred design.
-          </p>
+        {/* Title */}
+        <h1
+          className="
+            font-serif
+            text-[2.2rem]
+            sm:text-5xl
+            md:text-5xl
+            text-[#0B1F3A]
+            leading-[1.1]
+            tracking-tight
+            mb-8
+          "
+        >
+          {t('about_pg.mission.title1')}
+          <br />
 
-          {/* Quick stats ribbon */}
-          <div className="mt-16 flex flex-wrap gap-x-16 gap-y-6 pt-10 border-t border-gray-100">
-            {[
-              { val: '5+', label: 'Years Operating' },
-              { val: '10K+', label: 'Active Users' },
-              { val: '99.9%', label: 'Uptime SLA' },
-            ].map((s) => (
-              <div key={s.label} className="flex items-baseline gap-2">
-                <span className="font-serif text-3xl font-bold text-[#0B1F3A]">{s.val}</span>
-                <span className="text-[.6rem] font-black uppercase tracking-[.25em] text-gray-400">{s.label}</span>
-              </div>
-            ))}
-          </div>
+          <span className="relative inline-block">
+            {t('about_pg.mission.title2')}
+
+            <span
+              className="
+                absolute
+                left-0
+                -bottom-1
+                w-full
+                h-[3px]
+                bg-green-500
+                rounded-full
+              "
+            />
+          </span>
+        </h1>
+
+
+        {/* Description */}
+        <p
+          className="
+            text-gray-500
+            text-lg
+            md:text-xl
+            max-w-2xl
+            leading-relaxed
+            mt-10
+          "
+        >
+          Nepal&apos;s premier SaaS engineering hub — digitizing institutions
+          with enterprise-grade cloud infrastructure and human-centred design.
+        </p>
+
+
+        {/* Quick stats ribbon */}
+        <div
+          className="
+            mt-16
+            flex
+            flex-wrap
+            gap-x-16
+            gap-y-6
+            pt-10
+            border-t
+            border-gray-100
+          "
+        >
+
+          {[
+            { val: '5+', label: 'Years Operating' },
+            { val: '10K+', label: 'Active Users' },
+            { val: '99.9%', label: 'Uptime SLA' },
+          ].map((s) => (
+
+            <div
+              key={s.label}
+              className="flex items-baseline gap-2"
+            >
+              <span
+                className="
+                  font-serif
+                  text-3xl
+                  font-bold
+                  text-[#0B1F3A]
+                "
+              >
+                {s.val}
+              </span>
+
+              <span
+                className="
+                  text-[.6rem]
+                  font-black
+                  uppercase
+                  tracking-[.25em]
+                  text-gray-400
+                "
+              >
+                {s.label}
+              </span>
+            </div>
+
+          ))}
+
         </div>
+
       </div>
 
 
+      {/* =====================================================
+          RIGHT — TRANSPARENT IMAGE
+          ===================================================== */}
+      <div
+        className="
+          relative
+          flex
+          items-center
+          justify-center
+          lg:justify-end
+          min-h-[320px]
+          sm:min-h-[400px]
+          lg:min-h-[520px]
+        "
+      >
+
+        <img
+          src="/hero-005.png"
+          alt=""
+          className="
+            relative
+            z-10
+            block
+            w-full
+            max-w-[560px]
+            h-auto
+            object-contain
+            select-none
+          "
+          draggable="false"
+        />
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+{/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    02. OUR STRENGTHS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+<section
+  id="about-strengths"
+  className="relative py-15 md:py-15 bg-[#ECFFF9] overflow-hidden"
+>
+  {/* Subtle background details */}
+  <div
+    className="absolute inset-0 pointer-events-none select-none"
+    aria-hidden="true"
+  >
+    {/* Soft radial light */}
+    <div className="absolute -top-32 right-[-10%] w-[500px] h-[500px] rounded-full bg-[#20C997]/[0.06] blur-[120px]" />
+
+    <div className="absolute bottom-[-20%] left-[-8%] w-[420px] h-[420px] rounded-full bg-[#155EEF]/[0.035] blur-[120px]" />
+
+    {/* Very subtle contour */}
+    <svg
+      className="absolute inset-0 w-full h-full opacity-[0.10]"
+      viewBox="0 0 1600 700"
+      preserveAspectRatio="none"
+      fill="none"
+    >
+      <path
+        d="
+          M-100 520
+          C180 520 220 180 520 180
+          S820 520 1080 350
+          S1380 120 1700 160
+        "
+        stroke="#b9f1da"
+        strokeWidth="0.8"
+      />
+
+      <path
+        d="
+          M-100 570
+          C200 570 270 240 550 240
+          S850 560 1110 420
+          S1400 190 1700 220
+        "
+        stroke="#20C997"
+        strokeWidth="0.7"
+      />
+    </svg>
+  </div>
+
+
+  <div className="max-w-7xl mx-auto px-6 relative z-10">
+
+    {/* =====================================================
+        SECTION HEADER
+        ===================================================== */}
+    <div className="max-w-3xl mb-10 md:mb-5">
+
+      <div className="flex items-center gap-3 text-black text-[.65rem] font-black uppercase tracking-[.3em] mb-6">
+        <span className="w-8 h-px bg-black" />  
+        Our Strengths
+      </div>
+
+      <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl text-green-800 leading-[1.08] tracking-tight">
+        Why choose <span className="italic text-gray-900">Sanothimi?</span>
+      </h2>
+
+    </div>
+
+
+    {/* =====================================================
+        STRENGTH GRID
+        ===================================================== */}
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 lg:gap-x-8 gap-y-6 md:gap-y-10">
+
+      {/* =================================================
+          01 — REGIONAL EXPERTISE
+          ================================================ */}
+      <div className="group">
+
+        <h3 className="font-serif text-2xl md:text-[1rem] font-bold text-[#0B1F3A] mb-2">
+          Regional expertise
+        </h3>
+
+        <p className="text-[#153E5C]/80 text-[0.875rem] md:text-base leading-relaxed max-w-2xl">
+          We possess deep experience and insight into the unique challenges
+          facing institutions across Nepal and the wider South Asian market.
+          Our understanding of local business realities, regulatory
+          environments, and customer needs allows us to build solutions that
+          are practical, scalable, and relevant.
+        </p>
+
+      </div>
+
+
+      {/* =================================================
+          02 — INNOVATIVE SOLUTIONS
+          ================================================ */}
+      <div className="group">
+
+       
+
+        <h3 className="font-serif text-2xl md:text-[1rem] font-bold text-[#0B1F3A] mb-2">
+          Innovative solutions
+        </h3>
+
+        <p className="text-[#153E5C]/80 text-[0.875rem] md:text-base leading-relaxed max-w-2xl">
+          We build future-ready technology designed around real operational
+          challenges. From intelligent workflows to powerful data tools,
+          our platforms help institutions simplify processes, improve user
+          experiences, and make better decisions.
+        </p>
+
+      </div>
+
+
+      {/* =================================================
+          03 — PROVEN RELIABILITY
+          ================================================ */}
+      <div className="group">
+
+     
+
+        <h3 className="font-serif text-2xl md:text-[1rem] font-bold text-[#0B1F3A] mb-2">
+          Proven reliability
+        </h3>
+
+        <p className="text-[#153E5C]/80 text-[0.875rem] md:text-base leading-relaxed max-w-2xl">
+          Our software is built for environments where reliability matters.
+          Secure architecture, dependable infrastructure, and scalable
+          systems help institutions operate confidently while maintaining
+          consistent performance as their needs grow.
+        </p>
+
+      </div>
+
+
+      {/* =================================================
+          04 — LOCALIZED OFFERINGS
+          ================================================ */}
+      <div className="group">
+
+       
+
+        <h3 className="font-serif text-2xl md:text-[1rem] font-bold text-[#0B1F3A] mb-2">
+          Localized offerings
+        </h3>
+
+        <p className="text-[#153E5C]/80 text-[0.875rem] md:text-base leading-relaxed max-w-2xl">
+          We stay closely connected to the realities of the markets we serve.
+          This enables us to adapt products, workflows, and support around
+          local requirements while maintaining the standards expected from
+          modern enterprise technology.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          02. MISSION & VALUES
+          02.5 OUR VALUES
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section id="about-values" ref={s1 as React.RefObject<HTMLDivElement>} className="py-32 bg-white relative z-10 -mt-16 scroll-mt-28 overflow-hidden">
+      <section id="about-values" ref={s1 as React.RefObject<HTMLDivElement>} className="py-32 bg-white relative z-10 scroll-mt-28 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
           <Lattice className="absolute inset-0 w-full h-full text-[#0B1F3A] opacity-[0.022]" size={52} />
         </div>
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-
-            {/* Story */}
-            <div className="rs">
-              <div className="section-kicker mb-8">
-                <span className="section-kicker-line" />
-                {t('about_pg.values.kicker')}
-              </div>
-              <h2 className="font-serif text-4xl md:text-5xl text-[#0B1F3A] leading-[1.2] mb-10">
-                {t('about_pg.values.title1')}{' '}
-                <span className="italic text-[#155EEF]">{t('about_pg.values.title2')}</span>
-              </h2>
-              <div className="space-y-5 text-[#6B7280] text-lg leading-relaxed mb-12">
-                <p>{t('about_pg.values.desc1')}</p>
-                <p>{t('about_pg.values.desc2')}</p>
-              </div>
-
-              {/* Feature tags */}
-              <div className="flex flex-wrap gap-3 mb-12">
-                {([
-                  t('about_pg.values.feat1'),
-                  t('about_pg.values.feat2'),
-                  t('about_pg.values.feat3'),
-                  t('about_pg.values.feat4'),
-                ] as string[]).map((c) => (
-                  <span key={c} className="feat-tag">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#155EEF]" />
-                    {c}
-                  </span>
-                ))}
-              </div>
-
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-4 bg-[#155EEF] text-white px-10 py-4 rounded-full font-bold hover:bg-[#0B1F3A] transition-all duration-500 shadow-xl shadow-[#155EEF]/20"
-              >
-                {t('about_pg.values.cta')}
-                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5"><path d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-              </Link>
+          <div className="rs max-w-2xl mb-20">
+            <div className="section-kicker mb-8">
+              <span className="section-kicker-line" />
+              {t('about_pg.corevalues.kicker')}
             </div>
-
-            {/* Visual */}
-            <div className="rs d2 relative">
-              <div className="aspect-square rounded-[3rem] bg-[#0B1F3A] overflow-hidden flex items-center justify-center p-16 relative shimmer-card">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_40%_40%,#155EEF12,transparent_65%)]" />
-                <div className="absolute inset-0 opacity-[0.035] pointer-events-none">
-                  <img src="/sanothimi-logo0icon.png" alt="" className="w-full h-full object-contain scale-150" />
-                </div>
-                <img
-                  src="/sanothimi-logo0icon.png"
-                  alt="Sanothimi"
-                  className="relative z-10 w-3/4 h-auto object-contain opacity-90 drop-shadow-2xl float-y"
-                />
-              </div>
-              {/* Floating badge */}
-              <div className="absolute -bottom-8 -right-8 w-44 h-44 bg-white border border-gray-100 rounded-full flex flex-col items-center justify-center text-center p-6 shadow-2xl shadow-[#0B1F3A]/10">
-                <div className="text-3xl font-serif font-bold text-[#155EEF] mb-1">{t('about_pg.stats.1.val')}+</div>
-                <div className="text-[8px] font-black uppercase tracking-widest text-[#0B1F3A] leading-tight">{t('about_pg.values.exp')}</div>
-              </div>
-              {/* Second badge */}
-              <div className="absolute -top-6 -left-6 bg-[#155EEF] text-white p-5 rounded-2xl shadow-xl shadow-[#155EEF]/30 flex items-center gap-3">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5"><path d="M5 13l4 4L19 7" /></svg>
-                <div>
-                  <div className="text-[8px] font-black uppercase tracking-widest opacity-80">Verified</div>
-                  <div className="text-xs font-bold">ISO Certified</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          03. INNOVATION MODULES (dark)
-      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section id="about-innovation" ref={s4 as React.RefObject<HTMLDivElement>} className="py-40 bg-[#0B1F3A] relative overflow-hidden scroll-mt-28">
-        <div className="absolute inset-0 pointer-events-none select-none">
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-[#155EEF]/7 rounded-full blur-[120px]" />
-        </div>
-        <div className="absolute inset-0 bg-pattern-dark pointer-events-none" />
-
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-24">
-            <div className="rs inline-flex items-center gap-3 px-6 py-2.5 bg-[#155EEF] rounded-full text-white text-[10px] font-black uppercase tracking-[.3em] mb-10 shadow-2xl shadow-[#155EEF]/30">
-              <span className="live-dot" style={{ background: 'rgba(255,255,255,0.8)' }} />
-              {t('about_pg.innov.kicker')}
-            </div>
-            <h2 className="rs d1 font-serif text-[2.2rem] sm:text-5xl md:text-7xl text-white leading-[1.1] mb-8 tracking-tight">
-              {t('about_pg.innov.title1')} <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/30">
-                {t('about_pg.innov.title2')}
-              </span>
+            <h2 className="font-serif text-4xl md:text-4xl text-green-900 leading-[1.2] mb-6">
+              {t('about_pg.corevalues.title1')}{' '}
+              <span className="italic text-black">{t('about_pg.corevalues.title2')}</span>
             </h2>
-            <p className="rs d2 text-white/40 text-xl leading-relaxed">
-              {t('about_pg.innov.desc')}
+            <p className="text-[#6B7280] text-lg leading-relaxed">
+              {t('about_pg.corevalues.desc')}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {([
-              { t: t('about_pg.innov.1.t') as string, d: t('about_pg.innov.1.d') as string, i: '01' },
-              { t: t('about_pg.innov.2.t') as string, d: t('about_pg.innov.2.d') as string, i: '02' },
-              { t: t('about_pg.innov.3.t') as string, d: t('about_pg.innov.3.d') as string, i: '03' },
-            ]).map((item, i) => (
-              <div
-                key={i}
-                className={`rs d${i + 3} group relative p-12 rounded-[3rem] bg-white/5 border border-white/10 overflow-hidden hover:border-[#155EEF]/40 hover:bg-white/[0.07] transition-all duration-700 cursor-default shimmer-card`}
-              >
-                <div className="absolute -inset-1 bg-gradient-to-r from-transparent via-[#155EEF]/8 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-[1500ms] ease-in-out" />
-                <div className="relative z-10">
-                  <div className="text-[10px] font-black text-[#155EEF] uppercase tracking-[.4em] mb-10 opacity-50">
-                    System Module {item.i}
-                  </div>
-                  <h3 className="font-serif text-3xl text-white mb-6 leading-tight group-hover:text-white transition-colors">
-                    {item.t}
-                  </h3>
-                  <p className="text-white/40 text-[.95rem] leading-relaxed group-hover:text-white/65 transition-colors">
-                    {item.d}
-                  </p>
-                </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+            {([1, 2, 3, 4] as const).map((id, i) => (
+              <div key={id} className={`rs d${i + 1} group`}>
+                <svg className="w-16 h-16 text-gray-900 mb-7 transition-transform duration-500 item-center" viewBox="0 0 24 24" fill="currentColor">
+                  {/* 01 — Collaborate: two interlocking rings */}
+                  {id === 1 && <path fillRule="evenodd" clipRule="evenodd" d="M9 4a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zM15 8a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6z" />}
+                  {/* 02 — Client-first: filled heart */}
+                  {id === 2 && <path d="M12_21s-7.5-4.6-10.2-9.3C.3_9.1_0_7.5_0_6a6_6_0_0112_0c0_1.5-.3_3.1-1.8_5.7C19.5_16.4_12_21_12_21z" />}
+                  {/* 03 — Innovate: sparkle/star burst */}
+                  {id === 3 && <path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7z" />}
+                  {/* 04 — Care: filled shield-check */}
+                  {id === 4 && <path fillRule="evenodd" clipRule="evenodd" d="M12 2l8 3.2v5.6c0 5.1-3.4 9.4-8 11-4.6-1.6-8-5.9-8-11V5.2L12 2zm4.3 7.3a1 1 0 00-1.4-1.4L11 11.8l-1.9-1.9a1 1 0 00-1.4 1.4l2.6 2.6c.4.4 1 .4 1.4 0l4.6-4.6z" />}
+                </svg>
+                <h3 className="font-serif text-xl font-bold text-[#0B1F3A] mb-3">
+                  {t(`about_pg.corevalues.${id}.title` as 'about_pg.corevalues.1.title')}
+                </h3>
+                <p className="text-[#6B7280] text-[.9rem] leading-relaxed">
+                  {t(`about_pg.corevalues.${id}.desc` as 'about_pg.corevalues.1.desc')}
+                </p>
               </div>
             ))}
           </div>
+
+          {/* Connected panel — built around the people who use it */}
+          <div className="rs mt-24 md:mt-28 relative bg-[#0B1F3A] overflow-hidden">
+            <div className="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
+              <div className="absolute -top-24 -left-24 w-72 h-72 rounded-full bg-[#155EEF]/10 blur-[100px]" />
+            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 items-center relative z-10">
+              <div className="p-10 sm:p-14 lg:p-20">
+                <div className="text-[#155EEF] text-[.7rem] font-black uppercase tracking-[.3em] mb-6">
+                  {t('about_pg.corevalues.panel.kicker')}
+                </div>
+                <h3 className="font-serif text-3xl md:text-4xl text-white leading-[1.2] mb-6">
+                  {t('about_pg.corevalues.panel.title')}
+                </h3>
+                <p className="text-white/60 text-base md:text-lg leading-relaxed mb-10 max-w-md">
+                  {t('about_pg.corevalues.panel.desc')}
+                </p>
+                <Link
+                  href="/demo"
+                  style={{ '--pixel-text-hover': '#038142' } as React.CSSProperties}
+                  className="btn-pixel-solid inline-flex items-center gap-3 bg-orange-400 text-white px-8 py-4 rounded-full font-bold text-sm transition-colors"
+                >
+                  <span className="relative z-10">{t('about_pg.corevalues.panel.cta')}</span>
+                </Link>
+              </div>
+              <div className="relative h-[320px] sm:h-[420px] lg:h-[520px]">
+                <img
+                  src="/team-002.png"
+                  alt=""
+                  className="absolute inset-0 w-full h-full object-cover object-top select-none"
+                  draggable={false}
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
+
+      
+
+ 
 
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           04. MILESTONE TIMELINE
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section id="about-journey" ref={sTimeline as React.RefObject<HTMLDivElement>} className="py-32 bg-white overflow-hidden scroll-mt-28">
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="text-center mb-24">
-            <div className="rs section-kicker justify-center mb-8">
-              <span className="section-kicker-line" />
-              Our Journey
-              <span className="section-kicker-line" />
-            </div>
-            <h2 className="rs d1 font-serif text-4xl md:text-5xl text-[#0B1F3A] leading-[1.2]">
-              Built Over <span className="italic text-[#155EEF]">5+ Years</span> of Innovation
-            </h2>
-          </div>
+  <section
+  id="about-journey"
+  ref={sTimeline as React.RefObject<HTMLDivElement>}
+  className="relative py-28 md:py-36 bg-white overflow-hidden scroll-mt-28"
+>
+  {/* =========================================================
+      BACKGROUND — VERY SUBTLE BRAND ELEMENTS
+      ========================================================= */}
 
-          <div className="relative">
-            {/* Vertical connector line */}
-            <div className="tl-line" />
+  <div
+    className="absolute inset-0 pointer-events-none"
+    aria-hidden="true"
+  >
+    {/* Fine grid */}
+    <div
+      className="absolute inset-0 opacity-[0.025]"
+      style={{
+        backgroundImage: `
+          linear-gradient(to right, #0B3B25 1px, transparent 1px),
+          linear-gradient(to bottom, #0B3B25 1px, transparent 1px)
+        `,
+        backgroundSize: '72px 72px',
+      }}
+    />
 
-            <div className="space-y-16 relative">
-              {MILESTONES.map((m, i) => (
-                <div
-                  key={m.year}
-                  className={`rs d${(i % 4) + 1} relative flex items-start gap-10 pl-14 md:pl-0 ${
-                    i % 2 === 0
-                      ? 'md:flex-row'
-                      : 'md:flex-row-reverse'
-                  } md:gap-0`}
-                >
-                  {/* Content */}
-                  <div className={`flex-1 md:px-10 ${i % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
-                    <div className="text-[#155EEF] text-[.65rem] font-black uppercase tracking-[.35em] mb-3">{m.year}</div>
-                    <h3 className="font-serif text-2xl md:text-3xl text-[#0B1F3A] mb-3 leading-tight">{m.title}</h3>
-                    <p className="text-[#6B7280] text-sm leading-relaxed max-w-sm">{m.desc}</p>
-                  </div>
+    {/* Soft gold atmosphere */}
+    <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-[#C9A227]/[0.035] blur-[120px]" />
 
-                  {/* Center dot (hidden on mobile, shown on md+) */}
-                  <div className="hidden md:flex flex-shrink-0 items-center justify-center w-10 relative z-10">
-                    <div className="tl-dot tl-dot-large" />
-                  </div>
-
-                  {/* Mobile dot */}
-                  <div className="absolute left-3 top-1 md:hidden">
-                    <div className="tl-dot" />
-                  </div>
-
-                  {/* Empty column for alternating layout */}
-                  <div className="flex-1 hidden md:block" />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+    <div className="absolute bottom-0 -left-40 w-[450px] h-[450px] rounded-full bg-[#14532D]/[0.035] blur-[120px]" />
+  </div>
 
 
-      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          05. ANIMATED STATS
-      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section ref={s2 as React.RefObject<HTMLDivElement>} className="bg-[#F9FAFB] py-24 border-y border-gray-100">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 md:gap-16">
-            {([
-              { ref: c0.ref, val: c0.val, suf: '+', label: t('about_pg.stats.1.label') as string },
-              { ref: c1.ref, val: c1.val, suf: 'K+', label: t('about_pg.stats.2.label') as string },
-              { ref: c2.ref, val: c2.val, suf: '%', label: t('about_pg.stats.3.label') as string },
-              { ref: c3.ref, val: c3.val, suf: '+', label: 'Institutions Digitized' },
-            ] as const).map((s, i) => (
-              <div key={i} ref={s.ref} className="group text-center md:text-left">
-                <div className="text-[2.2rem] sm:text-5xl md:text-6xl font-serif font-bold text-[#0B1F3A] mb-2 flex items-baseline justify-center md:justify-start gap-1 group-hover:text-[#155EEF] transition-colors duration-500">
-                  {s.val}
-                  <span className="text-2xl text-[#155EEF]">{s.suf}</span>
-                </div>
-                <div className="text-[9px] uppercase tracking-[0.3em] text-[#64748B] font-black leading-tight">{s.label}</div>
-                <div className="mt-4 h-0.5 w-8 bg-[#155EEF]/20 group-hover:w-16 group-hover:bg-[#155EEF] transition-all duration-700 mx-auto md:mx-0" />
+  <div className="max-w-6xl mx-auto px-6 relative z-10">
+
+    {/* =======================================================
+        HEADER
+        ======================================================= */}
+
+    <div className="text-center mb-20 md:mb-28">
+
+      <div className="rs section-kicker justify-center mb-7">
+        <span className="section-kicker-line bg-[#C9A227]" />
+
+        <span className="text-[#14532D]">
+          Our Journey
+        </span>
+
+        <span className="section-kicker-line bg-[#C9A227]" />
+      </div>
+
+
+      <h2 className="rs d1 font-serif text-4xl md:text-5xl lg:text-[3.4rem] text-[#0B1F3A] leading-[1.15]">
+        Built Over{' '}
+
+        <span className="italic text-[#14532D]">
+          5+ Years
+        </span>{' '}
+
+        of Innovation
+      </h2>
+
+
+      <p className="rs d2 mt-5 max-w-2xl mx-auto text-[#6B7280] text-sm md:text-base leading-relaxed">
+        From a focused beginning to building technology that supports
+        institutions, people and growing organizations.
+      </p>
+
+    </div>
+
+
+    {/* =======================================================
+        JOURNEY
+        ======================================================= */}
+
+    <div className="relative">
+
+      {/* =====================================================
+          DESKTOP FLOWING PATH
+          ===================================================== */}
+
+      <svg
+        className="
+          hidden
+          md:block
+          absolute
+          left-1/2
+          top-0
+          -translate-x-1/2
+          w-[180px]
+          h-full
+          pointer-events-none
+          overflow-visible
+        "
+        viewBox="0 0 180 1000"
+        preserveAspectRatio="none"
+        fill="none"
+        aria-hidden="true"
+      >
+
+        {/* Soft path underneath */}
+        <path
+          d="
+            M90 0
+            C90 90 35 120 45 210
+            C55 300 145 330 135 420
+            C125 510 35 540 45 630
+            C55 720 145 750 135 840
+            C125 910 90 950 90 1000
+          "
+          stroke="#14532D"
+          strokeWidth="5"
+          opacity="0.035"
+        />
+
+        {/* Main gold journey path */}
+        <path
+          d="
+            M90 0
+            C90 90 35 120 45 210
+            C55 300 145 330 135 420
+            C125 510 35 540 45 630
+            C55 720 145 750 135 840
+            C125 910 90 950 90 1000
+          "
+          stroke="#C9A227"
+          strokeWidth="1.5"
+          strokeDasharray="3 8"
+          opacity="0.55"
+        />
+
+      </svg>
+
+
+      {/* =====================================================
+          MOBILE PATH
+          ===================================================== */}
+
+      <div
+        className="
+          md:hidden
+          absolute
+          left-[19px]
+          top-4
+          bottom-4
+          w-px
+          bg-gradient-to-b
+          from-transparent
+          via-[#C9A227]/50
+          to-transparent
+        "
+      />
+
+
+      {/* =====================================================
+          MILESTONES
+          ===================================================== */}
+
+      <div className="space-y-16 md:space-y-24 relative">
+
+        {MILESTONES.map((m, i) => (
+
+          <div
+            key={m.year}
+            className={`
+              rs
+              d${(i % 4) + 1}
+              relative
+              grid
+              grid-cols-1
+              md:grid-cols-[1fr_120px_1fr]
+              items-center
+            `}
+          >
+
+            {/* =================================================
+                LEFT CONTENT
+                ================================================= */}
+
+            <div
+              className={`
+                ${i % 2 === 0
+                  ? 'md:text-right md:pr-12'
+                  : 'md:order-3 md:text-left md:pl-12'
+                }
+              `}
+            >
+
+              <div
+                className="
+                  inline-flex
+                  items-center
+                  gap-2
+                  mb-3
+                  text-[.62rem]
+                  font-black
+                  uppercase
+                  tracking-[.35em]
+                  text-[#C9A227]
+                "
+              >
+                <span className="w-5 h-px bg-[#C9A227]/60" />
+                {m.year}
               </div>
-            ))}
+
+
+              <h3
+                className="
+                  font-serif
+                  text-2xl
+                  md:text-3xl
+                  text-[#0B1F3A]
+                  leading-tight
+                  mb-3
+                "
+              >
+                {m.title}
+              </h3>
+
+
+              <p
+                className={`
+                  text-[#6B7280]
+                  text-sm
+                  leading-relaxed
+                  max-w-sm
+                  ${i % 2 === 0 ? 'md:ml-auto' : ''}
+                `}
+              >
+                {m.desc}
+              </p>
+
+            </div>
+
+
+            {/* =================================================
+                CENTER WAYPOINT
+                ================================================= */}
+
+            <div
+              className="
+                hidden
+                md:flex
+                items-center
+                justify-center
+                relative
+                z-20
+              "
+            >
+
+              {/* Outer ring */}
+              <div
+                className="
+                  absolute
+                  w-16
+                  h-16
+                  rounded-full
+                  border
+                  border-[#C9A227]/20
+                "
+              />
+
+              {/* Second ring */}
+              <div
+                className="
+                  absolute
+                  w-10
+                  h-10
+                  rounded-full
+                  border
+                  border-[#C9A227]/35
+                "
+              />
+
+              {/* Main node */}
+              <div
+                className="
+                  relative
+                  w-5
+                  h-5
+                  rounded-full
+                  bg-[#14532D]
+                  border-[3px]
+                  border-white
+                  shadow-[0_0_0_1px_rgba(201,162,39,0.6),0_6px_20px_rgba(20,83,45,0.18)]
+                "
+              >
+
+                {/* Gold center */}
+                <div
+                  className="
+                    absolute
+                    inset-[3px]
+                    rounded-full
+                    bg-[#C9A227]
+                  "
+                />
+
+              </div>
+
+            </div>
+
+
+            {/* =================================================
+                MOBILE WAYPOINT
+                ================================================= */}
+
+            <div
+              className="
+                md:hidden
+                absolute
+                left-[10px]
+                top-1
+                z-20
+                w-[19px]
+                h-[19px]
+                rounded-full
+                bg-white
+                border
+                border-[#C9A227]/60
+                flex
+                items-center
+                justify-center
+              "
+            >
+
+              <div
+                className="
+                  w-2
+                  h-2
+                  rounded-full
+                  bg-[#C9A227]
+                "
+              />
+
+            </div>
+
+
+            {/* =================================================
+                EMPTY SIDE / DECORATIVE LABEL
+                ================================================= */}
+
+            <div
+              className={`
+                hidden
+                md:block
+                ${i % 2 === 0
+                  ? 'md:order-3 md:pl-12'
+                  : 'md:order-1 md:pr-12'
+                }
+              `}
+            >
+
+              {/* Small index */}
+              <div
+                className={`
+                  flex
+                  items-center
+                  gap-3
+                  text-[#14532D]/20
+                  ${i % 2 === 0 ? 'justify-start' : 'justify-end'}
+                `}
+              >
+
+                <span className="text-[.58rem] font-black tracking-[.3em] uppercase">
+                  Milestone
+                </span>
+
+                <span className="font-serif text-4xl leading-none">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+
+              </div>
+
+            </div>
+
           </div>
-        </div>
-      </section>
+
+        ))}
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
 
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           06. WHY CHOOSE SANOTHIMI
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section id="about-trust" ref={s3 as React.RefObject<HTMLDivElement>} className="py-32 bg-white scroll-mt-28">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="max-w-3xl mb-24">
-            <div className="section-kicker mb-8">
-              <span className="section-kicker-line" />
-              {t('about_pg.trust.kicker')}
-            </div>
-            <h2 className="rs font-serif text-4xl md:text-5xl text-[#0B1F3A] leading-[1.15] mb-8">
-              {t('about_pg.trust.title1')}{' '}
-              <span className="text-[#155EEF] italic">{t('about_pg.trust.title2')}</span>
-            </h2>
+    <section
+  id="about-trust"
+  ref={s3 as React.RefObject<HTMLDivElement>}
+  className="relative py-28 md:py-36 bg-[#F8FAFC] overflow-hidden scroll-mt-28"
+>
+  {/* =========================================================
+      BACKGROUND
+      ========================================================= */}
+
+  <div
+    className="absolute inset-0 pointer-events-none"
+    aria-hidden="true"
+  >
+    {/* Architectural grid */}
+    <div
+      className="absolute inset-0 opacity-[0.025]"
+      style={{
+        backgroundImage: `
+          linear-gradient(to right, #14532D 1px, transparent 1px),
+          linear-gradient(to bottom, #14532D 1px, transparent 1px)
+        `,
+        backgroundSize: '72px 72px',
+      }}
+    />
+
+    {/* Large decorative rings */}
+    <div className="
+      absolute
+      -right-32
+      top-20
+      w-[500px]
+      h-[500px]
+      rounded-full
+      border
+      border-[#C9A227]/[0.28]
+    " />
+
+    <div className="
+      absolute
+      -right-20
+      top-32
+      w-[350px]
+      h-[350px]
+      rounded-full
+      border
+      border-[#14532D]/[0.5]
+    " />
+
+    {/* Soft gold glow */}
+    <div className="
+      absolute
+      left-[-180px]
+      bottom-[-180px]
+      w-[500px]
+      h-[500px]
+      rounded-full
+      bg-[#C9A227]/[0.035]
+      blur-[130px]
+    " />
+  </div>
+
+
+  <div className="max-w-7xl mx-auto px-6 relative z-10">
+
+    {/* =======================================================
+        HEADER
+        ======================================================= */}
+
+    <div className="grid lg:grid-cols-[1fr_220px] gap-10 items-end mb-20 md:mb-14">
+
+      <div>
+
+        <div className="section-kicker mb-7">
+          <span className="section-kicker-line bg-[#C9A227]" />
+
+          <span className="text-[#14532D]">
+            {t('about_pg.trust.kicker')}
+          </span>
+        </div>
+
+
+        <h2 className="
+          rs
+          font-serif
+          text-4xl
+          md:text-5xl
+          lg:text-[3.4rem]
+          text-[#0B1F3A]
+          leading-[1.08]
+        ">
+          {t('about_pg.trust.title1')}{' '}
+
+          <span className="italic text-[#14532D]">
+            {t('about_pg.trust.title2')}
+          </span>
+        </h2>
+
+      </div>
+
+
+      {/* Small editorial statement */}
+      <div className="
+        hidden
+        lg:block
+        border-l
+        border-[#C9A227]/40
+        pl-6
+        pb-1
+      ">
+        <p className="
+          text-[#6B7280]
+          text-sm
+          leading-relaxed
+        ">
+          Built around the principles that keep technology
+          useful, dependable and human.
+        </p>
+      </div>
+
+    </div>
+
+
+    {/* =======================================================
+        TRUST ARCHITECTURE
+        ======================================================= */}
+
+    <div className="
+      grid
+      grid-cols-1
+      sm:grid-cols-2
+      lg:grid-cols-4
+      gap-4
+      lg:gap-5
+    ">
+
+      {([1, 2, 3, 4] as const).map((id, i) => (
+
+        <div
+          key={id}
+          className={`
+            rs
+            d${i + 1}
+            group
+            relative
+            min-h-[290px]
+            overflow-hidden
+          
+            bg-white
+            border
+            border-[#14532D]/[0.07]
+            p-8
+            md:p-9
+            transition-all
+            duration-700
+          
+           
+            
+            shadow-[0_10px_40px_rgba(11,31,58,0.035)]
+            hover:shadow-[0_25px_60px_rgba(11,59,37,0.16)]
+          `}
+        >
+
+          {/* =================================================
+              GIANT NUMBER
+              ================================================= */}
+
+          <div className="
+            absolute
+            -right-4
+            -top-7
+            font-serif
+            text-[8rem]
+            font-bold
+            leading-none
+            text-[#14532D]/[0.035]
+            transition-all
+            duration-700
+            group-hover:text-[#14532D]/[0.035]
+            group-hover:scale-110
+          ">
+            {String(id).padStart(2, '0')}
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {([1, 2, 3, 4] as const).map((id, i) => (
-              <div
-                key={id}
-                className={`rs d${i + 1} group p-10 rounded-[2.5rem] bg-white border border-gray-100 hover:bg-[#0B1F3A] hover:border-[#0B1F3A] transition-all duration-700 hover:-translate-y-5 shadow-sm hover:shadow-2xl hover:shadow-[#155EEF]/15 flex flex-col items-start h-full grad-border`}
-              >
-                <div className="w-14 h-14 rounded-2xl bg-[#F9FAFB] group-hover:bg-[#155EEF] flex items-center justify-center text-[#0B1F3A] group-hover:text-white mb-10 transition-all duration-500">
-                  {id === 1 && <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10zM12 8v4m0 4h.01" /></svg>}
-                  {id === 2 && <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9" /></svg>}
-                  {id === 3 && <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2"><path d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>}
-                  {id === 4 && <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2"><path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>}
-                </div>
-                <h3 className="font-serif font-bold text-[#0B1F3A] text-[1.15rem] mb-5 leading-tight group-hover:text-white transition-colors">
-                  {t(`about.why.${id}.title` as 'about.why.1.title')}
-                </h3>
-                <p className="text-[#6B7280] text-[.85rem] leading-relaxed group-hover:text-white/55 transition-colors">
-                  {t(`about.why.${id}.desc` as 'about.why.1.desc')}
-                </p>
-                {/* Bottom accent line */}
-                <div className="mt-auto pt-8 w-full">
-                  <div className="h-px w-full bg-gray-100 group-hover:bg-white/10 transition-colors" />
-                </div>
+
+          {/* =================================================
+              ORBIT DECORATION
+              ================================================= */}
+
+          <div className="
+            absolute
+            right-7
+            top-7
+            w-12
+            h-12
+            rounded-full
+            border
+            border-[#C9A227]/20
+            transition-all
+            duration-700
+            group-hover:rotate-45
+            group-hover:border-[#C9A227]/50
+          ">
+
+            <span className="
+              absolute
+              left-[-2px]
+              top-1/2
+              -translate-y-1/2
+              w-1.5
+              h-1.5
+              rounded-full
+              bg-[#C9A227]
+            " />
+
+          </div>
+
+
+    
+
+          <div className="relative">
+
+            <div className="
+              text-[.58rem]
+              font-black
+              uppercase
+              tracking-[.35em]
+              text-[#C9A227]
+              mb-3
+            ">
+              Principle {String(id).padStart(2, '0')}
+            </div>
+
+
+            <h3 className="
+              font-serif
+              font-bold
+              text-[1.35rem]
+              text-[#0B1F3A]
+              mb-4
+              leading-tight
+              group-hover:text-[#14532D]
+              transition-colors
+              duration-500
+            ">
+              {t(`about.why.${id}.title` as 'about.why.1.title')}
+            </h3>
+
+
+            <p className="
+              text-[#6B7280]
+              text-[.84rem]
+              leading-relaxed
+              group-hover:text-gray-900
+              transition-colors
+              duration-500
+            ">
+              {t(`about.why.${id}.desc` as 'about.why.1.desc')}
+            </p>
+
+          </div>
+
+
+          {/* =================================================
+              BOTTOM SYSTEM LINE
+              ================================================= */}
+
+          <div className="
+            absolute
+            bottom-0
+            left-0
+            right-0
+            h-[3px]
+            bg-gradient-to-r
+            from-[#14532D]
+            via-[#C9A227]
+            to-transparent
+            origin-left
+            scale-x-0
+            group-hover:scale-x-100
+            transition-transform
+            duration-700
+          " />
+
+        </div>
+
+      ))}
+
+    </div>
+
+
+    {/* =======================================================
+        BOTTOM BRAND STATEMENT
+        ======================================================= */}
+
+    <div className="
+      mt-10
+      flex
+      items-center
+      gap-4
+      text-[#14532D]/40
+    ">
+
+      <span className="w-10 h-px bg-[#C9A227]/60" />
+
+      <span className="
+        text-[.58rem]
+        font-black
+        uppercase
+        tracking-[.35em]
+      ">
+        Technology with purpose
+      </span>
+
+    </div>
+
+  </div>
+</section>
+
+      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          07. CONTACT SANOTHIMI
+      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+      <section id="about-contact" ref={sContact as React.RefObject<HTMLDivElement>} className="py-28 md:py-36 bg-white relative overflow-hidden scroll-mt-28">
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-16 lg:gap-20">
+
+            {/* LEFT — intro + mark */}
+            <div className="rs">
+              <div className="text-[#12B76A] text-[.7rem] font-black uppercase tracking-[.3em] mb-6">
+                {t('about_pg.contact.kicker')}
               </div>
-            ))}
+              <h2 className="font-serif text-4xl md:text-[2.6rem] text-[#0B1F3A] leading-[1.2] mb-6">
+                {t('about_pg.contact.title1')}<br />
+                <span className="italic text-[#12B76A]">{t('about_pg.contact.title2')}</span>
+              </h2>
+              <p className="text-[#6B7280] text-base md:text-lg leading-relaxed max-w-sm mb-16">
+                {t('about_pg.contact.desc')}
+              </p>
+
+              {/* Minimal directional mark */}
+              <svg className="w-24 h-16 text-[#0B1F3A]" viewBox="0 0 100 60" fill="none">
+                <path d="M2 30h70" stroke="currentColor" strokeWidth="6" strokeLinecap="round" />
+                <path d="M50 6l32 24-32 24" stroke="currentColor" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                <path d="M78 4l10 10M92 4L82 14" stroke="#12B76A" strokeWidth="5" strokeLinecap="round" />
+                <path d="M78 46l10 10M92 46L82 56" stroke="#12B76A" strokeWidth="5" strokeLinecap="round" />
+              </svg>
+            </div>
+
+            {/* RIGHT — form */}
+            <div className="rs d2">
+              {cfStatus === 'sent' ? (
+                <div className="text-center py-24 border border-gray-100 rounded-[2rem] bg-[#F8FAFC]">
+                  <div className="w-16 h-16 bg-[#12B76A] text-white rounded-full flex items-center justify-center mx-auto mb-8">
+                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="3">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <h3 className="font-serif text-2xl text-[#0B1F3A] mb-3">{t('about_pg.contact.sent')}</h3>
+                  <p className="text-[#6B7280]">{t('about_pg.contact.sent_desc')}</p>
+                </div>
+              ) : (
+                <form onSubmit={submitContactForm} noValidate className="space-y-7">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-7">
+                    <div>
+                      <label className="block text-[.7rem] font-bold text-[#0B1F3A] mb-2">{t('about_pg.contact.form.fname')}*</label>
+                      <input
+                        type="text"
+                        value={cf.fname}
+                        onChange={setCfField('fname')}
+                        className={`w-full bg-transparent border-b ${cfErrors.fname ? 'border-red-400' : 'border-gray-200'} py-2.5 text-[#0B1F3A] text-sm outline-none transition-colors focus:border-[#155EEF]`}
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-[.7rem] font-bold text-[#0B1F3A] mb-2">{t('about_pg.contact.form.lname')}</label>
+                      <input
+                        type="text"
+                        value={cf.lname}
+                        onChange={setCfField('lname')}
+                        className="w-full bg-transparent border-b border-gray-200 py-2.5 text-[#0B1F3A] text-sm outline-none transition-colors focus:border-[#155EEF]"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-[.7rem] font-bold text-[#0B1F3A] mb-2">{t('about_pg.contact.form.email')}*</label>
+                      <input
+                        type="email"
+                        value={cf.email}
+                        onChange={setCfField('email')}
+                        className={`w-full bg-transparent border-b ${cfErrors.email ? 'border-red-400' : 'border-gray-200'} py-2.5 text-[#0B1F3A] text-sm outline-none transition-colors focus:border-[#155EEF]`}
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-[.7rem] font-bold text-[#0B1F3A] mb-2">{t('about_pg.contact.form.phone')}</label>
+                      <input
+                        type="tel"
+                        value={cf.phone}
+                        onChange={setCfField('phone')}
+                        className="w-full bg-transparent border-b border-gray-200 py-2.5 text-[#0B1F3A] text-sm outline-none transition-colors focus:border-[#155EEF]"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-[.7rem] font-bold text-[#0B1F3A] mb-2">{t('about_pg.contact.form.jobTitle')}</label>
+                      <input
+                        type="text"
+                        value={cf.jobTitle}
+                        onChange={setCfField('jobTitle')}
+                        className="w-full bg-transparent border-b border-gray-200 py-2.5 text-[#0B1F3A] text-sm outline-none transition-colors focus:border-[#155EEF]"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-[.7rem] font-bold text-[#0B1F3A] mb-2">{t('about_pg.contact.form.company')}</label>
+                      <input
+                        type="text"
+                        value={cf.company}
+                        onChange={setCfField('company')}
+                        className="w-full bg-transparent border-b border-gray-200 py-2.5 text-[#0B1F3A] text-sm outline-none transition-colors focus:border-[#155EEF]"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-[.7rem] font-bold text-[#0B1F3A] mb-2">{t('about_pg.contact.form.country')}</label>
+                      <input
+                        type="text"
+                        value={cf.country}
+                        onChange={setCfField('country')}
+                        className="w-full bg-transparent border-b border-gray-200 py-2.5 text-[#0B1F3A] text-sm outline-none transition-colors focus:border-[#155EEF]"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-[.7rem] font-bold text-[#0B1F3A] mb-2">{t('about_pg.contact.form.enquiry')}*</label>
+                      <select
+                        value={cf.enquiry}
+                        onChange={setCfField('enquiry')}
+                        className={`w-full bg-transparent border-b ${cfErrors.enquiry ? 'border-red-400' : 'border-gray-200'} py-2.5 text-[#0B1F3A] text-sm outline-none transition-colors focus:border-[#155EEF]`}
+                      >
+                        <option value="">{t('about_pg.contact.form.enquiry.placeholder')}</option>
+                        <option value="General Inquiry">{t('about_pg.contact.form.enquiry.general')}</option>
+                        <option value="Sales">{t('about_pg.contact.form.enquiry.sales')}</option>
+                        <option value="Partnership">{t('about_pg.contact.form.enquiry.partnership')}</option>
+                        <option value="Support">{t('about_pg.contact.form.enquiry.support')}</option>
+                        <option value="Careers">{t('about_pg.contact.form.enquiry.careers')}</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-[.7rem] font-bold text-[#0B1F3A] mb-2">{t('about_pg.contact.form.comments')}</label>
+                    <textarea
+                      rows={4}
+                      value={cf.comments}
+                      onChange={setCfField('comments')}
+                      className="w-full bg-transparent border-b border-gray-200 py-2.5 text-[#0B1F3A] text-sm outline-none transition-colors focus:border-[#155EEF] resize-none"
+                    />
+                  </div>
+
+                  <div className="space-y-3 pt-2">
+                    <label className="flex items-start gap-3 text-[.82rem] text-[#6B7280] cursor-pointer">
+                      <input type="checkbox" checked={cf.subscribe} onChange={setCfField('subscribe')} className="mt-0.5 accent-[#155EEF]" />
+                      {t('about_pg.contact.form.subscribe')}
+                    </label>
+                    <label className="flex items-start gap-3 text-[.82rem] text-[#6B7280] cursor-pointer">
+                      <input type="checkbox" checked={cf.consent} onChange={setCfField('consent')} className={`mt-0.5 accent-[#155EEF] ${cfErrors.consent ? 'outline outline-2 outline-red-400 rounded' : ''}`} />
+                      {t('about_pg.contact.form.consent')}
+                    </label>
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={cfStatus === 'sending'}
+                    style={{ '--pixel-color': '#0B1F3A', '--pixel-text-hover': '#fff' } as React.CSSProperties}
+                    className="btn-pixel-solid inline-flex items-center gap-3 bg-[#12B76A] text-white px-9 py-4 rounded-full font-bold text-sm transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+                  >
+                    <span className="relative z-10">
+                      {cfStatus === 'sending' ? t('about_pg.contact.form.sending') : t('about_pg.contact.form.cta')}
+                    </span>
+                  </button>
+                </form>
+              )}
+            </div>
+
           </div>
         </div>
       </section>
