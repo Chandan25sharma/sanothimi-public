@@ -205,7 +205,7 @@ export default function ServicesPage() {
 
                 {/* View details */}
                 <div className="mt-auto pt-6 border-t border-gray-100 flex items-center gap-2 text-[.82rem] font-bold text-[#0B1F3A] group-hover:text-[#155EEF] transition-colors relative z-10">
-                  {t('services_pg.portfolio.cta1')}
+                  {t('services_pg.portfolio.viewDetails')}
                   <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
                 </div>
               </Link>
