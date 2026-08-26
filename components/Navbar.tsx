@@ -35,28 +35,36 @@ const SERVICES_COLUMNS: MegaColumn[] = [
   {
     title: 'School ERP',
     items: [
-      { label: 'NUVORA Core', href: '/services#svc-1', desc: 'Admissions, attendance, exams & billing' },
+      { label: 'NUVORA Core', href: '/services/nuvora', desc: 'Admissions, attendance, exams & billing' },
     ],
+    viewAllLabel: 'View all School ERP',
+    viewAllHref: '/services',
   },
   {
     title: 'Finance & Operations',
     items: [
-      { label: 'Finance & Accounting', href: '/services#svc-2', desc: 'VAT reports & cloud ledgers' },
-      { label: 'Business Management', href: '/services#svc-3', desc: 'Inventory, sales & employees' },
+      { label: 'Finance & Accounting', href: '/services/finance-accounting', desc: 'VAT reports & cloud ledgers' },
+      { label: 'Business Management', href: '/services/business-management', desc: 'Inventory, sales & employees' },
     ],
+    viewAllLabel: 'View all Operations',
+    viewAllHref: '/services',
   },
   {
     title: 'Intelligence & Security',
     items: [
-      { label: 'Business Intelligence', href: '/services#svc-4', desc: 'Analytics & reporting' },
-      { label: 'Enterprise Security', href: '/services#svc-5', desc: 'Hosting, backups & access control' },
+      { label: 'Business Intelligence', href: '/services/business-intelligence', desc: 'Analytics & reporting' },
+      { label: 'Enterprise Security', href: '/services/enterprise-security', desc: 'Hosting, backups & access control' },
     ],
+    viewAllLabel: 'View all Intelligence',
+    viewAllHref: '/services',
   },
   {
     title: 'Custom Engineering',
     items: [
-      { label: 'Custom Software', href: '/services#svc-6', desc: 'Bespoke development' },
+      { label: 'Custom Software', href: '/services/custom-software', desc: 'Bespoke development' },
     ],
+    viewAllLabel: 'View all Engineering',
+    viewAllHref: '/services',
   },
 ];
 
@@ -122,7 +130,7 @@ export default function Navbar() {
 
   const LINKS = [
     { label: t('nav.about'), href: '/about', mega: ABOUT_COLUMNS, ctaLabel: 'View Full About Page', ctaHref: '/about', secondaryLabel: 'Contact Us', secondaryHref: '/contact' },
-    { label: t('nav.services'), href: '/services', mega: SERVICES_COLUMNS, ctaLabel: 'View All Services', ctaHref: '/services', secondaryLabel: 'Talk to Sales', secondaryHref: '/contact' },
+    { label: t('nav.services'), href: '/services', mega: SERVICES_COLUMNS, megaVariant: 'split' as const, ctaLabel: 'View All Services', ctaHref: '/services', secondaryLabel: 'Talk to Sales', secondaryHref: '/contact' },
     { label: 'Partner With Us', href: '/partner', mega: PARTNER_COLUMNS },
     { label: 'Support', href: '/support', mega: SUPPORT_COLUMNS },
     { label: 'Insights', href: '/insights', mega: INSIGHTS_COLUMNS, ctaLabel: 'View All Insights', ctaHref: '/insights', secondaryLabel: 'Subscribe', secondaryHref: '/insights' },
@@ -183,6 +191,7 @@ export default function Navbar() {
                     {isOpen && (
                       <MegaMenu
                         columns={l.mega}
+                        variant={l.megaVariant}
                         ctaLabel={l.ctaLabel}
                         ctaHref={l.ctaHref}
                         secondaryLabel={l.secondaryLabel}
