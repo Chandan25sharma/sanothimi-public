@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 :root {
-  --dark: #0D47A1;    /* Nepali Depth Blue */
-  --dark2: #082C66;   /* Midnight Deep */
-  --accent: #D32F2F;  /* Crimson Primary */
-  --accent-h: #B71C1C;
+  --dark: #0B1F3A;    /* Nepali Depth Blue */
+  --dark2: #0B1F3A;   /* Midnight Deep */
+  --accent: #155EEF;  /* Crimson Primary */
+  --accent-h: #0E42B8;
   --accent-soft: #FFF1F2;
   --gold: #D4AF37;    /* Nepali Gold Accent */
   --gold-soft: rgba(212, 175, 55, 0.1);
@@ -159,7 +159,7 @@ body {
 .btn-gold-solid:hover { background: var(--accent-h); transform: translateY(-1px); }
 
 .text-grad {
-  background: linear-gradient(135deg, #D32F2F 0%, #FF6B8B 100%);
+  background: linear-gradient(135deg, #155EEF 0%, #FF6B8B 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -469,8 +469,8 @@ body {
   background: #22c55e;
   animation: ping-slow 1.8s ease-out infinite;
 }
-.live-dot-red { background: #D32F2F; }
-.live-dot-red::before { background: #D32F2F; }
+.live-dot-red { background: #155EEF; }
+.live-dot-red::before { background: #155EEF; }
 
 /* ═══════════════════════════════════════════════
    FEATURE TAGS
@@ -485,13 +485,13 @@ body {
   border-radius: 100px;
   font-size: 0.73rem;
   font-weight: 700;
-  color: #0D47A1;
+  color: #0B1F3A;
   transition: all 0.3s cubic-bezier(0.22,1,0.36,1);
   cursor: default;
 }
 .feat-tag:hover {
-  background: #D32F2F;
-  border-color: #D32F2F;
+  background: #155EEF;
+  border-color: #155EEF;
   color: #fff;
   transform: translateY(-2px);
 }
@@ -505,7 +505,7 @@ body {
   top: 0;
   bottom: 0;
   width: 2px;
-  background: linear-gradient(to bottom, #D32F2F 0%, rgba(211,47,47,0.15) 80%, transparent 100%);
+  background: linear-gradient(to bottom, #155EEF 0%, rgba(211,47,47,0.15) 80%, transparent 100%);
 }
 @media (min-width: 768px) {
   .tl-line { left: 50%; transform: translateX(-1px); }
@@ -514,7 +514,7 @@ body {
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background: #D32F2F;
+  background: #155EEF;
   border: 3px solid #fff;
   box-shadow: 0 0 0 4px rgba(211,47,47,0.15), 0 0 16px rgba(211,47,47,0.35);
   flex-shrink: 0;
@@ -565,7 +565,7 @@ body {
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, #D32F2F, #D4AF37);
+  background: linear-gradient(90deg, #155EEF, #D4AF37);
   opacity: 0;
   transition: opacity 0.4s;
 }
@@ -612,7 +612,7 @@ body {
    GRADIENT TEXT ANIMATED
 ═══════════════════════════════════════════════ */
 .text-grad-animated {
-  background: linear-gradient(135deg, #D32F2F, #FF8C9E, #D4AF37, #D32F2F);
+  background: linear-gradient(135deg, #155EEF, #FF8C9E, #D4AF37, #155EEF);
   background-size: 300% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -624,7 +624,7 @@ body {
    ANNOUNCEMENT BAR
 ═══════════════════════════════════════════════ */
 .announce-bar {
-  background: linear-gradient(90deg, #0D47A1, #D32F2F, #D4AF37, #D32F2F, #0D47A1);
+  background: linear-gradient(90deg, #0B1F3A, #155EEF, #D4AF37, #155EEF, #0B1F3A);
   background-size: 300% 100%;
   animation: border-flow 8s ease infinite;
 }
@@ -645,7 +645,7 @@ body {
   transition: border-color 0.3s, background 0.3s, box-shadow 0.3s;
 }
 .f-input-premium:focus {
-  border-color: #D32F2F;
+  border-color: #155EEF;
   background: rgba(211,47,47,0.04);
   box-shadow: 0 0 0 4px rgba(211,47,47,0.08);
 }
@@ -678,8 +678,8 @@ body {
   transition: all 0.4s cubic-bezier(0.22,1,0.36,1);
 }
 .info-card:hover {
-  background: #0D47A1;
-  border-color: #0D47A1;
+  background: #0B1F3A;
+  border-color: #0B1F3A;
   transform: translateY(-3px);
   box-shadow: 0 16px 48px rgba(13,71,161,0.2);
 }
@@ -691,12 +691,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #D32F2F;
+  color: #155EEF;
   flex-shrink: 0;
   transition: all 0.4s;
 }
 .info-card:hover .info-card-icon {
-  background: #D32F2F;
+  background: #155EEF;
   color: #fff;
 }
 
@@ -716,7 +716,7 @@ body {
   text-decoration: none;
 }
 .legal-sidebar-link:hover, .legal-sidebar-link.active {
-  color: #D32F2F;
+  color: #155EEF;
   background: rgba(211,47,47,0.05);
 }
 .legal-sidebar-link::before {
@@ -739,7 +739,7 @@ body {
   top: 0;
   left: 0;
   height: 3px;
-  background: linear-gradient(90deg, #D32F2F, #D4AF37);
+  background: linear-gradient(90deg, #155EEF, #D4AF37);
   z-index: 1000;
   transition: width 0.1s;
 }
@@ -755,12 +755,12 @@ body {
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.3em;
-  color: #D32F2F;
+  color: #101828;
 }
 .section-kicker-line {
   width: 32px;
   height: 1.5px;
-  background: #D32F2F;
+  background: #D4AF37;
 }
 
 /* ═══════════════════════════════════════════════
@@ -907,7 +907,7 @@ body {
   inset: -1.5px;
   border-radius: inherit;
   padding: 1.5px;
-  background: linear-gradient(115deg, var(--card-glow, #D32F2F), transparent 35%, transparent 65%, var(--card-glow, #D32F2F));
+  background: linear-gradient(115deg, var(--card-glow, #155EEF), transparent 35%, transparent 65%, var(--card-glow, #155EEF));
   background-size: 220% 220%;
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
@@ -961,4 +961,75 @@ body {
 /* Angled-edge section divider — slanted top/bottom instead of a flat rectangle */
 .section-angled {
   clip-path: polygon(0 1.5vw, 100% 0, 100% calc(100% - 1.5vw), 0 100%);
+}
+
+/* ═══════════════════════════════════════════════
+   PIXEL-FILL BUTTON HOVER
+   Checkerboard of squares expands to fill the button on hover.
+   --pixel-color sets the fill color (defaults to brand blue).
+═══════════════════════════════════════════════ */
+.btn-pixel-outline,
+.btn-pixel-solid {
+  --pixel-color: #155EEF;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.btn-pixel-outline::before,
+.btn-pixel-solid::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  background: var(--pixel-color);
+  z-index: -1;
+  opacity: 0;
+  transition: width 0.4s ease, height 0.4s ease, box-shadow 0.4s ease, opacity 0.15s ease;
+  box-shadow:
+    0 0 0 var(--pixel-color),
+    0 50px 0 var(--pixel-color),
+    50px 0 0 var(--pixel-color),
+    50px 50px 0 var(--pixel-color),
+    100px 0 0 var(--pixel-color),
+    100px 50px 0 var(--pixel-color),
+    150px 0 0 var(--pixel-color),
+    150px 50px 0 var(--pixel-color);
+}
+.btn-pixel-outline:hover::before,
+.btn-pixel-solid:hover::before {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  box-shadow: none;
+}
+
+/* Outline variant: transparent by default, border in --pixel-color, fills solid + text turns white on hover */
+.btn-pixel-outline {
+  background: transparent;
+  border: 1.5px solid var(--pixel-color);
+  color: var(--pixel-color);
+  transition: color 0.35s ease, border-color 0.35s ease;
+}
+.btn-pixel-outline:hover {
+  color: #fff;
+  border-color: var(--pixel-color);
+}
+
+/* Solid variant: already filled with a brand color — a white pixel checkerboard sweeps in on
+   hover (lighter, not darker) and the text switches to --pixel-text-hover for contrast.
+   No default `color` here on purpose: this file's plain CSS sits outside Tailwind's `@layer
+   utilities`, so in Tailwind v4 it always beats a `text-white`/`text-*` utility class regardless
+   of source order — setting color here would silently override every button's own text color at
+   rest. Only :hover needs to win (and does, via the pseudo-class's higher specificity), so only
+   :hover sets color. Never add a base `color` rule to this class without a `--pixel-text-default`
+   fallback that matches every caller's utility class, or text goes invisible at rest again. */
+.btn-pixel-solid {
+  --pixel-color: #ffffff;
+  --pixel-text-hover: #155EEF;
+  transition: color 0.35s ease;
+}
+.btn-pixel-solid:hover {
+  color: var(--pixel-text-hover);
 }

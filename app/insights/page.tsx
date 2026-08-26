@@ -43,12 +43,12 @@ export default function InsightsPage() {
       {/* Hero */}
       <div className="relative pt-40 pb-16 bg-white overflow-hidden">
         <div className="max-w-5xl mx-auto px-6 relative z-10 text-center">
-          <div className="text-[#D32F2F] text-[.7rem] font-black uppercase tracking-[.3em] mb-6">Insights</div>
-          <h1 className="font-serif text-[2.2rem] sm:text-5xl md:text-6xl text-[#0D47A1] leading-[1.15] tracking-tight">
+          <div className="text-[#155EEF] text-[.7rem] font-black uppercase tracking-[.3em] mb-6">Insights</div>
+          <h1 className="font-serif text-[2.2rem] sm:text-5xl md:text-6xl text-[#0B1F3A] leading-[1.15] tracking-tight">
             Ideas, updates &{' '}
             <span className="relative inline-block">
               resources.
-              <span className="absolute left-0 -bottom-1 w-full h-[3px] bg-[#D32F2F] rounded-full" />
+              <span className="absolute left-0 -bottom-1 w-full h-[3px] bg-[#155EEF] rounded-full" />
             </span>
           </h1>
           <p className="text-gray-500 text-lg max-w-xl mx-auto leading-relaxed mt-8">
@@ -63,21 +63,21 @@ export default function InsightsPage() {
           <div className="section-kicker mb-6"><span className="section-kicker-line" />Featured Case Study</div>
 
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-0 rounded-[2.5rem] overflow-hidden border border-gray-100 shadow-xl shadow-black/5">
-            <div className="lg:col-span-2 bg-[#0D47A1] p-10 flex flex-col justify-center relative overflow-hidden">
+            <div className="lg:col-span-2 bg-[#0B1F3A] p-10 flex flex-col justify-center relative overflow-hidden">
               <div className="absolute inset-0 bg-pattern-dark opacity-40 pointer-events-none" />
               <div className="relative z-10">
-                <div className="text-[.6rem] font-black uppercase tracking-[.25em] text-[#D32F2F] mb-4">Education · Kathmandu</div>
+                <div className="text-[.6rem] font-black uppercase tracking-[.25em] text-[#155EEF] mb-4">Education · Kathmandu</div>
                 <div className="font-serif text-3xl text-white leading-tight mb-2">BrightPath Academy</div>
                 <div className="text-white/40 text-sm">1,200+ students · NUVORA ERP</div>
               </div>
             </div>
             <div className="lg:col-span-3 p-10 flex flex-col justify-center">
-              <div className="font-serif text-[5rem] text-[#D32F2F] opacity-15 leading-none mb-2 select-none">&ldquo;</div>
-              <blockquote className="text-xl text-[#0D47A1] leading-relaxed italic -mt-8 mb-6">
+              <div className="font-serif text-[5rem] text-[#155EEF] opacity-15 leading-none mb-2 select-none">&ldquo;</div>
+              <blockquote className="text-xl text-[#0B1F3A] leading-relaxed italic -mt-8 mb-6">
                 NUVORA transformed how we manage 1,200 students. Fee collection that used to take our staff two weeks now runs automatically. It paid for itself in the first month.
               </blockquote>
               <div>
-                <div className="font-bold text-[#0D47A1] text-sm">Sarah Mitchell</div>
+                <div className="font-bold text-[#0B1F3A] text-sm">Sarah Mitchell</div>
                 <div className="text-[#64748B] text-xs">Principal, BrightPath Academy</div>
               </div>
             </div>
@@ -89,20 +89,20 @@ export default function InsightsPage() {
       <section className="py-20 bg-[#F8FAFC] border-y border-gray-100">
         <div className="max-w-6xl mx-auto px-6">
           <div className="section-kicker mb-6"><span className="section-kicker-line" />Browse by Category</div>
-          <h2 className="font-serif text-3xl md:text-4xl text-[#0D47A1] leading-tight mb-14">
-            New content added <span className="italic text-[#D32F2F]">regularly.</span>
+          <h2 className="font-serif text-3xl md:text-4xl text-[#0B1F3A] leading-tight mb-14">
+            New content added <span className="italic text-[#155EEF]">regularly.</span>
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {CATEGORIES.map((c) => (
               <div key={c.id} id={c.id} className="p-8 rounded-2xl bg-white border border-gray-100 scroll-mt-28">
                 <div className="flex items-start justify-between mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-[#D32F2F]/8 flex items-center justify-center">
-                    <svg className="w-5 h-5 text-[#D32F2F]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.8"><path strokeLinecap="round" strokeLinejoin="round" d={c.icon}/></svg>
+                  <div className="w-12 h-12 rounded-xl bg-[#155EEF]/8 flex items-center justify-center">
+                    <svg className="w-5 h-5 text-[#155EEF]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.8"><path strokeLinecap="round" strokeLinejoin="round" d={c.icon}/></svg>
                   </div>
                   <span className="text-[.6rem] font-black uppercase tracking-[.2em] text-gray-300">Coming Soon</span>
                 </div>
-                <div className="font-serif text-xl text-[#0D47A1] font-bold mb-2">{c.title}</div>
+                <div className="font-serif text-xl text-[#0B1F3A] font-bold mb-2">{c.title}</div>
                 <p className="text-[#64748B] text-[.85rem] leading-relaxed">{c.desc}</p>
               </div>
             ))}
@@ -114,8 +114,8 @@ export default function InsightsPage() {
       <section className="py-28 bg-white">
         <div className="max-w-2xl mx-auto px-6 text-center">
           <div className="section-kicker justify-center mb-6"><span className="section-kicker-line" />Stay Updated<span className="section-kicker-line" /></div>
-          <h2 className="font-serif text-3xl md:text-4xl text-[#0D47A1] leading-tight mb-5">
-            Get notified when we <span className="italic text-[#D32F2F]">publish.</span>
+          <h2 className="font-serif text-3xl md:text-4xl text-[#0B1F3A] leading-tight mb-5">
+            Get notified when we <span className="italic text-[#155EEF]">publish.</span>
           </h2>
           <p className="text-[#64748B] text-base leading-relaxed mb-10">
             No spam — just product updates and the occasional useful read.
@@ -134,9 +134,9 @@ export default function InsightsPage() {
                 placeholder="Your work email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="flex-1 bg-white border border-gray-200 rounded-xl px-5 py-3.5 text-sm text-[#0D47A1] placeholder:text-gray-400 outline-none focus:border-[#D32F2F] transition-all"
+                className="flex-1 bg-white border border-gray-200 rounded-xl px-5 py-3.5 text-sm text-[#0B1F3A] placeholder:text-gray-400 outline-none focus:border-[#155EEF] transition-all"
               />
-              <button type="submit" className="bg-[#D32F2F] text-white px-6 py-3.5 rounded-xl font-bold text-sm hover:bg-[#B71C1C] transition-all shadow-lg shadow-[#D32F2F]/20 flex-shrink-0">
+              <button type="submit" className="bg-[#155EEF] text-white px-6 py-3.5 rounded-xl font-bold text-sm hover:bg-[#0E42B8] transition-all shadow-lg shadow-[#155EEF]/20 flex-shrink-0">
                 Subscribe
               </button>
             </form>

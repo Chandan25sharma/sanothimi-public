@@ -66,12 +66,12 @@ export default function DemoPage() {
       {/* Hero */}
       <div className="relative pt-40 pb-16 bg-white overflow-hidden">
         <div className="max-w-5xl mx-auto px-6 relative z-10 text-center">
-          <div className="text-[#D32F2F] text-[.7rem] font-black uppercase tracking-[.3em] mb-6">Book a Demo</div>
-          <h1 className="font-serif text-[2.2rem] sm:text-5xl md:text-6xl text-[#0D47A1] leading-[1.15] tracking-tight">
+          <div className="text-[#155EEF] text-[.7rem] font-black uppercase tracking-[.3em] mb-6">Book a Demo</div>
+          <h1 className="font-serif text-[2.2rem] sm:text-5xl md:text-6xl text-[#0B1F3A] leading-[1.15] tracking-tight">
             See Sanothimi{' '}
             <span className="relative inline-block">
               in action.
-              <span className="absolute left-0 -bottom-1 w-full h-[3px] bg-[#D32F2F] rounded-full" />
+              <span className="absolute left-0 -bottom-1 w-full h-[3px] bg-[#155EEF] rounded-full" />
             </span>
           </h1>
           <p className="text-gray-500 text-lg max-w-xl mx-auto leading-relaxed mt-8">
@@ -88,17 +88,17 @@ export default function DemoPage() {
             {/* Perks */}
             <div className="lg:col-span-2 lg:sticky lg:top-32">
               <div className="section-kicker mb-6"><span className="section-kicker-line" />What to Expect</div>
-              <h2 className="font-serif text-3xl text-[#0D47A1] leading-tight mb-10">
-                A focused look at <span className="italic text-[#D32F2F]">your</span> workflow.
+              <h2 className="font-serif text-3xl text-[#0B1F3A] leading-tight mb-10">
+                A focused look at <span className="italic text-[#155EEF]">your</span> workflow.
               </h2>
               <div className="space-y-7">
                 {PERKS.map((p) => (
                   <div key={p.title} className="flex gap-4">
-                    <div className="w-9 h-9 rounded-xl bg-[#D32F2F]/8 flex items-center justify-center flex-shrink-0">
-                      <svg className="w-4 h-4 text-[#D32F2F]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5"><path d="M5 13l4 4L19 7"/></svg>
+                    <div className="w-9 h-9 rounded-xl bg-[#155EEF]/8 flex items-center justify-center flex-shrink-0">
+                      <svg className="w-4 h-4 text-[#155EEF]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5"><path d="M5 13l4 4L19 7"/></svg>
                     </div>
                     <div>
-                      <div className="font-bold text-[#0D47A1] text-[.95rem] mb-1">{p.title}</div>
+                      <div className="font-bold text-[#0B1F3A] text-[.95rem] mb-1">{p.title}</div>
                       <div className="text-[#64748B] text-[.85rem] leading-relaxed">{p.desc}</div>
                     </div>
                   </div>
@@ -108,13 +108,13 @@ export default function DemoPage() {
 
             {/* Form */}
             <div className="lg:col-span-3">
-              <form onSubmit={submit} className="bg-[#0D47A1] rounded-[2.5rem] p-9 md:p-12 shadow-2xl shadow-[#0D47A1]/20 relative overflow-hidden" noValidate>
-                <div className="absolute top-0 right-0 w-72 h-72 bg-[#D32F2F]/8 blur-[100px] -mr-36 -mt-36 pointer-events-none" />
+              <form onSubmit={submit} className="bg-[#0B1F3A] rounded-[2.5rem] p-9 md:p-12 shadow-2xl shadow-[#0B1F3A]/20 relative overflow-hidden" noValidate>
+                <div className="absolute top-0 right-0 w-72 h-72 bg-[#155EEF]/8 blur-[100px] -mr-36 -mt-36 pointer-events-none" />
                 <div className="absolute inset-0 bg-pattern-dark opacity-50 pointer-events-none" />
 
                 {status === 'sent' ? (
                   <div className="text-center py-16 relative z-10">
-                    <div className="w-20 h-20 bg-[#D32F2F] text-white rounded-full flex items-center justify-center mx-auto mb-8 shadow-2xl shadow-[#D32F2F]/40">
+                    <div className="w-20 h-20 bg-[#155EEF] text-white rounded-full flex items-center justify-center mx-auto mb-8 shadow-2xl shadow-[#155EEF]/40">
                       <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="3"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/></svg>
                     </div>
                     <h3 className="font-serif text-3xl text-white mb-4">Request Received</h3>
@@ -123,50 +123,50 @@ export default function DemoPage() {
                 ) : (
                   <div className="relative z-10 space-y-5">
                     <div className="mb-8">
-                      <div className="text-[.62rem] font-black uppercase tracking-[.3em] text-[#D32F2F] mb-2">Request a Demo</div>
+                      <div className="text-[.62rem] font-black uppercase tracking-[.3em] text-[#155EEF] mb-2">Request a Demo</div>
                       <h3 className="font-serif text-2xl text-white leading-tight">Tell us about your institution</h3>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                       <div>
                         <input type="text" value={form.name} onChange={set('name')} placeholder="Full Name"
-                          className={`w-full bg-white/5 border ${errors.name ? 'border-red-400/60' : 'border-white/10'} rounded-2xl px-5 py-4 text-white text-sm font-medium outline-none transition-all placeholder:text-white/25 focus:border-[#D32F2F] focus:bg-[#D32F2F]/4`} />
+                          className={`w-full bg-white/5 border ${errors.name ? 'border-red-400/60' : 'border-white/10'} rounded-2xl px-5 py-4 text-white text-sm font-medium outline-none transition-all placeholder:text-white/25 focus:border-[#155EEF] focus:bg-[#155EEF]/4`} />
                         {errors.name && <p className="mt-1.5 text-[.7rem] text-red-400 font-medium">Required field</p>}
                       </div>
                       <div>
                         <input type="tel" value={form.phone} onChange={set('phone')} placeholder="Phone Number"
-                          className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 text-white text-sm font-medium outline-none transition-all placeholder:text-white/25 focus:border-[#D32F2F] focus:bg-[#D32F2F]/4" />
+                          className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 text-white text-sm font-medium outline-none transition-all placeholder:text-white/25 focus:border-[#155EEF] focus:bg-[#155EEF]/4" />
                       </div>
                     </div>
 
                     <div>
                       <input type="email" value={form.email} onChange={set('email')} placeholder="Work Email"
-                        className={`w-full bg-white/5 border ${errors.email ? 'border-red-400/60' : 'border-white/10'} rounded-2xl px-5 py-4 text-white text-sm font-medium outline-none transition-all placeholder:text-white/25 focus:border-[#D32F2F] focus:bg-[#D32F2F]/4`} />
+                        className={`w-full bg-white/5 border ${errors.email ? 'border-red-400/60' : 'border-white/10'} rounded-2xl px-5 py-4 text-white text-sm font-medium outline-none transition-all placeholder:text-white/25 focus:border-[#155EEF] focus:bg-[#155EEF]/4`} />
                       {errors.email && <p className="mt-1.5 text-[.7rem] text-red-400 font-medium">Valid email required</p>}
                     </div>
 
                     <div>
                       <input type="text" value={form.org} onChange={set('org')} placeholder="Institution / Company Name"
-                        className={`w-full bg-white/5 border ${errors.org ? 'border-red-400/60' : 'border-white/10'} rounded-2xl px-5 py-4 text-white text-sm font-medium outline-none transition-all placeholder:text-white/25 focus:border-[#D32F2F] focus:bg-[#D32F2F]/4`} />
+                        className={`w-full bg-white/5 border ${errors.org ? 'border-red-400/60' : 'border-white/10'} rounded-2xl px-5 py-4 text-white text-sm font-medium outline-none transition-all placeholder:text-white/25 focus:border-[#155EEF] focus:bg-[#155EEF]/4`} />
                       {errors.org && <p className="mt-1.5 text-[.7rem] text-red-400 font-medium">Required field</p>}
                     </div>
 
                     <div>
                       <select value={form.type} onChange={set('type')}
-                        className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 text-white text-sm font-medium outline-none transition-all focus:border-[#D32F2F] focus:bg-[#D32F2F]/4 appearance-none">
+                        className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 text-white text-sm font-medium outline-none transition-all focus:border-[#155EEF] focus:bg-[#155EEF]/4 appearance-none">
                         {INSTITUTION_TYPES.map((opt) => (
-                          <option key={opt} value={opt} className="bg-[#0D47A1] text-white">{opt}</option>
+                          <option key={opt} value={opt} className="bg-[#0B1F3A] text-white">{opt}</option>
                         ))}
                       </select>
                     </div>
 
                     <div>
                       <textarea rows={3} value={form.notes} onChange={set('notes')} placeholder="What would you like us to cover? (optional)"
-                        className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 text-white text-sm font-medium outline-none transition-all placeholder:text-white/25 focus:border-[#D32F2F] focus:bg-[#D32F2F]/4 resize-none" />
+                        className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 text-white text-sm font-medium outline-none transition-all placeholder:text-white/25 focus:border-[#155EEF] focus:bg-[#155EEF]/4 resize-none" />
                     </div>
 
                     <button type="submit" disabled={status === 'sending'}
-                      className="group relative w-full overflow-hidden bg-[#D32F2F] text-white py-5 rounded-2xl font-black uppercase tracking-[.2em] text-sm hover:bg-white hover:text-[#0D47A1] transition-all duration-500 shadow-2xl shadow-[#D32F2F]/20 disabled:opacity-60 disabled:cursor-not-allowed">
+                      className="group relative w-full overflow-hidden bg-[#155EEF] text-white py-5 rounded-2xl font-black uppercase tracking-[.2em] text-sm hover:bg-white hover:text-[#0B1F3A] transition-all duration-500 shadow-2xl shadow-[#155EEF]/20 disabled:opacity-60 disabled:cursor-not-allowed">
                       <span className="relative z-10 flex items-center justify-center gap-3">
                         {status === 'sending' ? 'Sending…' : 'Request Demo'}
                         {status !== 'sending' && (

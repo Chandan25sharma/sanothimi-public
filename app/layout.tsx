@@ -59,7 +59,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <LanguageProvider>
           <CommandPalette />
           <Navbar />
-          <div className="pt-[70px]">{children}</div>
+          <div className="pt-[50px]">{children}</div>
           <Footer />
           <CookieConsent />
         </LanguageProvider>

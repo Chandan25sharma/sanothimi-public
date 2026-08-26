@@ -27,12 +27,12 @@ export default function CookieConsent() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 80, opacity: 0 }}
           transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="fixed bottom-0 inset-x-0 z-[100] bg-[#082C66] border-t border-white/10 shadow-[0_-12px_40px_rgba(0,0,0,0.25)]"
+          className="fixed bottom-0 inset-x-0 z-[100] bg-[#0B1F3A] border-t border-white/10 shadow-[0_-12px_40px_rgba(0,0,0,0.25)]"
         >
           <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col md:flex-row items-center gap-4 md:gap-8">
             <p className="text-white/65 text-[.83rem] leading-relaxed flex-1">
               We use cookies to improve your browsing experience and analyze site traffic. By clicking &ldquo;Allow all&rdquo;, you consent to our use of cookies.{' '}
-              <Link href="/privacy" className="text-[#D32F2F] font-semibold hover:underline">
+              <Link href="/privacy" className="text-[#155EEF] font-semibold hover:underline">
                 Privacy Policy
               </Link>
             </p>
@@ -45,7 +45,7 @@ export default function CookieConsent() {
               </button>
               <button
                 onClick={() => decide('accepted')}
-                className="flex-1 md:flex-none px-5 py-2.5 rounded-lg text-[.8rem] font-bold bg-[#D32F2F] text-white hover:bg-[#B71C1C] transition-all shadow-lg shadow-[#D32F2F]/20"
+                className="flex-1 md:flex-none px-5 py-2.5 rounded-lg text-[.8rem] font-bold bg-[#155EEF] text-white hover:bg-[#0E42B8] transition-all shadow-lg shadow-[#155EEF]/20"
               >
                 Allow all
               </button>

@@ -82,12 +82,12 @@ export default function SupportPage() {
       {/* Hero */}
       <div className="relative pt-40 pb-16 bg-white overflow-hidden">
         <div className="max-w-5xl mx-auto px-6 relative z-10 text-center">
-          <div className="text-[#D32F2F] text-[.7rem] font-black uppercase tracking-[.3em] mb-6">Support Center</div>
-          <h1 className="font-serif text-[2.2rem] sm:text-5xl md:text-6xl text-[#0D47A1] leading-[1.15] tracking-tight">
+          <div className="text-[#155EEF] text-[.7rem] font-black uppercase tracking-[.3em] mb-6">Support Center</div>
+          <h1 className="font-serif text-[2.2rem] sm:text-5xl md:text-6xl text-[#0B1F3A] leading-[1.15] tracking-tight">
             We&rsquo;re here{' '}
             <span className="relative inline-block">
               to help.
-              <span className="absolute left-0 -bottom-1 w-full h-[3px] bg-[#D32F2F] rounded-full" />
+              <span className="absolute left-0 -bottom-1 w-full h-[3px] bg-[#155EEF] rounded-full" />
             </span>
           </h1>
           <p className="text-gray-500 text-lg max-w-xl mx-auto leading-relaxed mt-8">
@@ -101,12 +101,12 @@ export default function SupportPage() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-28">
             {CHANNELS.map((c) => (
-              <a key={c.label} href={c.href} className="group p-8 rounded-2xl bg-[#F8FAFC] border border-gray-100 hover:border-[#D32F2F]/20 hover:shadow-xl hover:shadow-[#D32F2F]/5 transition-all duration-300">
-                <div className="w-12 h-12 rounded-xl bg-white border border-gray-100 flex items-center justify-center mb-6 group-hover:bg-[#D32F2F] transition-colors">
-                  <svg className="w-5 h-5 text-[#0D47A1] group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d={c.icon}/></svg>
+              <a key={c.label} href={c.href} className="group p-8 rounded-2xl bg-[#F8FAFC] border border-gray-100 hover:border-[#155EEF]/20 hover:shadow-xl hover:shadow-[#155EEF]/5 transition-all duration-300">
+                <div className="w-12 h-12 rounded-xl bg-white border border-gray-100 flex items-center justify-center mb-6 group-hover:bg-[#155EEF] transition-colors">
+                  <svg className="w-5 h-5 text-[#0B1F3A] group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d={c.icon}/></svg>
                 </div>
-                <div className="text-[.62rem] font-black uppercase tracking-[.2em] text-[#D32F2F] mb-2">{c.label}</div>
-                <div className="font-serif text-lg text-[#0D47A1] font-bold mb-1">{c.val}</div>
+                <div className="text-[.62rem] font-black uppercase tracking-[.2em] text-[#155EEF] mb-2">{c.label}</div>
+                <div className="font-serif text-lg text-[#0B1F3A] font-bold mb-1">{c.val}</div>
                 <div className="text-[.78rem] text-gray-400">{c.sub}</div>
               </a>
             ))}
@@ -118,8 +118,8 @@ export default function SupportPage() {
             {/* Ticket form */}
             <div>
               <div className="section-kicker mb-6"><span className="section-kicker-line" />Submit a Ticket</div>
-              <h2 className="font-serif text-3xl text-[#0D47A1] leading-tight mb-8">
-                Describe your <span className="italic text-[#D32F2F]">issue.</span>
+              <h2 className="font-serif text-3xl text-[#0B1F3A] leading-tight mb-8">
+                Describe your <span className="italic text-[#155EEF]">issue.</span>
               </h2>
 
               <form onSubmit={submit} className="space-y-5" noValidate>
@@ -128,7 +128,7 @@ export default function SupportPage() {
                     <div className="w-14 h-14 bg-green-500 text-white rounded-full flex items-center justify-center mx-auto mb-5">
                       <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="3"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/></svg>
                     </div>
-                    <h3 className="font-serif text-xl text-[#0D47A1] mb-2">Ticket Submitted</h3>
+                    <h3 className="font-serif text-xl text-[#0B1F3A] mb-2">Ticket Submitted</h3>
                     <p className="text-[#64748B] text-sm">Our team will respond based on the priority you selected.</p>
                   </div>
                 ) : (
@@ -136,28 +136,28 @@ export default function SupportPage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
                         <input type="text" value={form.name} onChange={set('name')} placeholder="Full Name"
-                          className={`w-full bg-white border ${errors.name ? 'border-red-400' : 'border-gray-200'} rounded-xl px-4 py-3.5 text-[#0D47A1] text-sm font-medium outline-none transition-all placeholder:text-gray-400 focus:border-[#D32F2F]`} />
+                          className={`w-full bg-white border ${errors.name ? 'border-red-400' : 'border-gray-200'} rounded-xl px-4 py-3.5 text-[#0B1F3A] text-sm font-medium outline-none transition-all placeholder:text-gray-400 focus:border-[#155EEF]`} />
                         {errors.name && <p className="mt-1.5 text-[.7rem] text-red-500 font-medium">Required field</p>}
                       </div>
                       <div>
                         <input type="email" value={form.email} onChange={set('email')} placeholder="Email"
-                          className={`w-full bg-white border ${errors.email ? 'border-red-400' : 'border-gray-200'} rounded-xl px-4 py-3.5 text-[#0D47A1] text-sm font-medium outline-none transition-all placeholder:text-gray-400 focus:border-[#D32F2F]`} />
+                          className={`w-full bg-white border ${errors.email ? 'border-red-400' : 'border-gray-200'} rounded-xl px-4 py-3.5 text-[#0B1F3A] text-sm font-medium outline-none transition-all placeholder:text-gray-400 focus:border-[#155EEF]`} />
                         {errors.email && <p className="mt-1.5 text-[.7rem] text-red-500 font-medium">Valid email required</p>}
                       </div>
                     </div>
                     <input type="text" value={form.subject} onChange={set('subject')} placeholder="Subject"
-                      className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3.5 text-[#0D47A1] text-sm font-medium outline-none transition-all placeholder:text-gray-400 focus:border-[#D32F2F]" />
+                      className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3.5 text-[#0B1F3A] text-sm font-medium outline-none transition-all placeholder:text-gray-400 focus:border-[#155EEF]" />
                     <select value={form.priority} onChange={set('priority')}
-                      className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3.5 text-[#0D47A1] text-sm font-medium outline-none transition-all focus:border-[#D32F2F] appearance-none">
+                      className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3.5 text-[#0B1F3A] text-sm font-medium outline-none transition-all focus:border-[#155EEF] appearance-none">
                       {PRIORITIES.map((p) => <option key={p} value={p}>{p}</option>)}
                     </select>
                     <div>
                       <textarea rows={5} value={form.desc} onChange={set('desc')} placeholder="Describe the issue in detail…"
-                        className={`w-full bg-white border ${errors.desc ? 'border-red-400' : 'border-gray-200'} rounded-xl px-4 py-3.5 text-[#0D47A1] text-sm font-medium outline-none transition-all placeholder:text-gray-400 focus:border-[#D32F2F] resize-none`} />
+                        className={`w-full bg-white border ${errors.desc ? 'border-red-400' : 'border-gray-200'} rounded-xl px-4 py-3.5 text-[#0B1F3A] text-sm font-medium outline-none transition-all placeholder:text-gray-400 focus:border-[#155EEF] resize-none`} />
                       {errors.desc && <p className="mt-1.5 text-[.7rem] text-red-500 font-medium">Please describe the issue</p>}
                     </div>
                     <button type="submit" disabled={status === 'sending'}
-                      className="w-full bg-[#D32F2F] text-white py-4 rounded-xl font-bold text-sm hover:bg-[#B71C1C] transition-all shadow-lg shadow-[#D32F2F]/20 disabled:opacity-60">
+                      className="w-full bg-[#155EEF] text-white py-4 rounded-xl font-bold text-sm hover:bg-[#0E42B8] transition-all shadow-lg shadow-[#155EEF]/20 disabled:opacity-60">
                       {status === 'sending' ? 'Submitting…' : 'Submit Ticket'}
                     </button>
                   </>
@@ -168,15 +168,15 @@ export default function SupportPage() {
             {/* FAQ */}
             <div id="faq" className="scroll-mt-28">
               <div className="section-kicker mb-6"><span className="section-kicker-line" />FAQ</div>
-              <h2 className="font-serif text-3xl text-[#0D47A1] leading-tight mb-8">
-                Common <span className="italic text-[#D32F2F]">questions.</span>
+              <h2 className="font-serif text-3xl text-[#0B1F3A] leading-tight mb-8">
+                Common <span className="italic text-[#155EEF]">questions.</span>
               </h2>
               <div className="space-y-4">
                 {FAQS.map((f, i) => (
-                  <div key={f.q} className={`bg-white border rounded-2xl overflow-hidden transition-all ${openFaq === i ? 'border-[#D32F2F]/20 shadow-md' : 'border-gray-100'}`}>
+                  <div key={f.q} className={`bg-white border rounded-2xl overflow-hidden transition-all ${openFaq === i ? 'border-[#155EEF]/20 shadow-md' : 'border-gray-100'}`}>
                     <button onClick={() => setOpenFaq(openFaq === i ? null : i)} className="w-full text-left p-6 flex items-center justify-between gap-4">
-                      <span className={`font-semibold text-[.92rem] leading-snug transition-colors ${openFaq === i ? 'text-[#D32F2F]' : 'text-[#0D47A1]'}`}>{f.q}</span>
-                      <div className={`w-7 h-7 rounded-full border flex items-center justify-center text-lg font-thin flex-shrink-0 transition-all duration-300 ${openFaq === i ? 'rotate-45 bg-[#D32F2F] border-[#D32F2F] text-white' : 'border-gray-200 text-gray-400'}`}>+</div>
+                      <span className={`font-semibold text-[.92rem] leading-snug transition-colors ${openFaq === i ? 'text-[#155EEF]' : 'text-[#0B1F3A]'}`}>{f.q}</span>
+                      <div className={`w-7 h-7 rounded-full border flex items-center justify-center text-lg font-thin flex-shrink-0 transition-all duration-300 ${openFaq === i ? 'rotate-45 bg-[#155EEF] border-[#155EEF] text-white' : 'border-gray-200 text-gray-400'}`}>+</div>
                     </button>
                     <div className={`overflow-hidden transition-all duration-300 ${openFaq === i ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}>
                       <p className="px-6 pb-6 text-[#64748B] text-[.85rem] leading-relaxed">{f.a}</p>

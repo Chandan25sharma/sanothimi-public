@@ -81,7 +81,7 @@ export default function CommandPalette() {
       onClick={() => setOpen(false)}
     >
       {/* Backdrop */}
-      <div className="absolute inset-0 bg-[#082C66]/85 backdrop-blur-md" />
+      <div className="absolute inset-0 bg-[#0B1F3A]/85 backdrop-blur-md" />
 
       {/* Palette panel */}
       <div
@@ -132,11 +132,11 @@ export default function CommandPalette() {
                         data-idx={idx}
                         onClick={() => setOpen(false)}
                         onMouseEnter={() => setSelected(idx)}
-                        className={`flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-150 ${isActive ? 'bg-[#D32F2F]/12 border border-[#D32F2F]/20' : 'hover:bg-white/4'}`}
+                        className={`flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-150 ${isActive ? 'bg-[#155EEF]/12 border border-[#155EEF]/20' : 'hover:bg-white/4'}`}
                       >
                         {/* Icon */}
-                        <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors ${isActive ? 'bg-[#D32F2F]/20' : 'bg-white/5'}`}>
-                          <svg className={`w-4 h-4 ${isActive ? 'text-[#D32F2F]' : 'text-white/35'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.8">
+                        <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors ${isActive ? 'bg-[#155EEF]/20' : 'bg-white/5'}`}>
+                          <svg className={`w-4 h-4 ${isActive ? 'text-[#155EEF]' : 'text-white/35'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.8">
                             <path strokeLinecap="round" strokeLinejoin="round" d={cmd.icon} />
                           </svg>
                         </div>
@@ -153,7 +153,7 @@ export default function CommandPalette() {
                           </div>
                         )}
                         <svg
-                          className={`w-3.5 h-3.5 flex-shrink-0 transition-all ${isActive ? 'text-[#D32F2F] translate-x-0.5' : 'text-white/10'}`}
+                          className={`w-3.5 h-3.5 flex-shrink-0 transition-all ${isActive ? 'text-[#155EEF] translate-x-0.5' : 'text-white/10'}`}
                           fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5"
                         >
                           <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />

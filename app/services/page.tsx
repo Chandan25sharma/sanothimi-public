@@ -78,23 +78,23 @@ export default function ServicesPage() {
       <div className="relative pt-24 pb-20 bg-white overflow-hidden">
         <div className="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
           <NetworkGraph className="absolute inset-0 w-full h-full" />
-          <Mandala className="absolute -top-24 -right-24 w-[540px] h-[540px] text-[#0D47A1] opacity-[0.06]" />
-          <NepalSun className="absolute top-1/2 -translate-y-1/2 -left-20 w-[320px] h-[320px] text-[#D32F2F] opacity-[0.05]" />
-          <Lattice className="absolute inset-0 w-full h-full text-[#0D47A1] opacity-[0.018]" size={48} />
-          <div className="absolute -bottom-40 right-1/4 w-[600px] h-[600px] rounded-full border border-[#0D47A1]/[0.05]" />
-          <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-[#0D47A1]/[0.03] blur-[120px]" />
-          <Himalaya className="absolute bottom-0 left-0 w-full text-[#0D47A1] opacity-[0.04]" />
+          <Mandala className="absolute -top-24 -right-24 w-[540px] h-[540px] text-[#0B1F3A] opacity-[0.06]" />
+          <NepalSun className="absolute top-1/2 -translate-y-1/2 -left-20 w-[320px] h-[320px] text-[#155EEF] opacity-[0.05]" />
+          <Lattice className="absolute inset-0 w-full h-full text-[#0B1F3A] opacity-[0.018]" size={48} />
+          <div className="absolute -bottom-40 right-1/4 w-[600px] h-[600px] rounded-full border border-[#0B1F3A]/[0.05]" />
+          <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-[#0B1F3A]/[0.03] blur-[120px]" />
+          <Himalaya className="absolute bottom-0 left-0 w-full text-[#0B1F3A] opacity-[0.04]" />
         </div>
         <div className="max-w-6xl mx-auto px-6 relative z-10">
-          <div className="text-[#D32F2F] text-[.7rem] font-black uppercase tracking-[.3em] mb-6">
+          <div className="text-[#155EEF] text-[.7rem] font-black uppercase tracking-[.3em] mb-6">
             {t('services_pg.hero.kicker')}
           </div>
 
-          <h1 className="font-serif text-[2.2rem] sm:text-5xl md:text-7xl text-[#0D47A1] leading-[1.1] tracking-tight">
+          <h1 className="font-serif text-[2.2rem] sm:text-5xl md:text-7xl text-[#0B1F3A] leading-[1.1] tracking-tight">
             {t('services_pg.hero.title1')}<br />
             <span className="relative inline-block">
               {t('services_pg.hero.title2')}
-              <span className="absolute left-0 -bottom-1 w-full h-[3px] bg-[#D32F2F] rounded-full" />
+              <span className="absolute left-0 -bottom-1 w-full h-[3px] bg-[#155EEF] rounded-full" />
             </span>
           </h1>
 
@@ -111,17 +111,17 @@ export default function ServicesPage() {
       <section className="bg-white border-b border-gray-100 relative z-10 -mt-16">
         <div className="max-w-7xl mx-auto px-6 py-20 flex flex-wrap justify-between items-center gap-12">
           <div className="max-w-xs">
-            <h2 className="font-serif text-3xl text-[#0D47A1] leading-tight">
+            <h2 className="font-serif text-3xl text-[#0B1F3A] leading-tight">
               {t('services_pg.disco.title')}
             </h2>
           </div>
           <div className="flex flex-wrap gap-x-12 gap-y-8">
             {([1, 2, 3] as const).map((id) => (
               <div key={id} className="group">
-                <div className="text-[9px] uppercase tracking-[0.3em] text-[#D32F2F] font-black mb-2">
+                <div className="text-[9px] uppercase tracking-[0.3em] text-[#155EEF] font-black mb-2">
                   {t(`services_pg.disco.${id}.label` as 'services_pg.disco.1.label')}
                 </div>
-                <div className="text-xl font-serif font-bold text-[#0D47A1] group-hover:text-[#D32F2F] transition-colors">
+                <div className="text-xl font-serif font-bold text-[#0B1F3A] group-hover:text-[#155EEF] transition-colors">
                   {t(`services_pg.disco.${id}.desc` as 'services_pg.disco.1.desc')}
                 </div>
               </div>
@@ -141,9 +141,9 @@ export default function ServicesPage() {
               <span className="section-kicker-line" />
               {t('services_pg.portfolio.kicker')}
             </div>
-            <h2 className="rs d1 font-serif text-4xl md:text-5xl text-[#0D47A1] leading-[1.15] mb-8">
+            <h2 className="rs d1 font-serif text-4xl md:text-5xl text-[#0B1F3A] leading-[1.15] mb-8">
               {t('services_pg.portfolio.title1')}<br />
-              <span className="text-[#D32F2F] italic">{t('services_pg.portfolio.title2')}</span>
+              <span className="text-[#155EEF] italic">{t('services_pg.portfolio.title2')}</span>
             </h2>
           </div>
 
@@ -157,13 +157,13 @@ export default function ServicesPage() {
                 className={`rs d${(i % 2) + 2} group svc-premium relative flex flex-col h-full cursor-default scroll-mt-28`}
               >
                 {/* Service number watermark */}
-                <div className="absolute top-8 right-10 font-serif text-[5rem] font-bold text-gray-50 leading-none select-none pointer-events-none transition-all duration-500 group-hover:text-[#D32F2F]/5">
+                <div className="absolute top-8 right-10 font-serif text-[5rem] font-bold text-gray-50 leading-none select-none pointer-events-none transition-all duration-500 group-hover:text-[#155EEF]/5">
                   0{id}
                 </div>
 
                 {/* Icon + status badge */}
                 <div className="flex items-center justify-between mb-10 relative z-10">
-                  <div className="w-16 h-16 rounded-2xl bg-[#F9FAFB] group-hover:bg-[#D32F2F] flex items-center justify-center text-[#0D47A1] group-hover:text-white transition-all duration-500">
+                  <div className="w-16 h-16 rounded-2xl bg-[#F9FAFB] group-hover:bg-[#155EEF] flex items-center justify-center text-[#0B1F3A] group-hover:text-white transition-all duration-500">
                     {SVC_ICONS[i]}
                   </div>
                   {SVC_STATUS[i] === 'live' && (
@@ -180,7 +180,7 @@ export default function ServicesPage() {
                 </div>
 
                 {/* Title */}
-                <h3 className="font-serif text-2xl md:text-3xl text-[#0D47A1] mb-5 leading-tight relative z-10">
+                <h3 className="font-serif text-2xl md:text-3xl text-[#0B1F3A] mb-5 leading-tight relative z-10">
                   {t(`svc.${id}.title` as 'svc.1.title')}
                 </h3>
 
@@ -193,7 +193,7 @@ export default function ServicesPage() {
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6 mb-10 relative z-10">
                   {SVC_BULLETS[i].map((b) => (
                     <li key={b} className="flex items-center gap-3 text-[#6B7280] text-[.82rem] font-medium">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#D32F2F] flex-shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#155EEF] flex-shrink-0" />
                       {b}
                     </li>
                   ))}
@@ -211,15 +211,17 @@ export default function ServicesPage() {
                 <div className="mt-auto pt-8 border-t border-gray-100 flex flex-wrap gap-4 relative z-10">
                   <Link
                     href="/contact"
-                    className="flex-1 min-w-[130px] text-center bg-[#0D47A1] text-white px-6 py-3.5 rounded-full font-bold text-sm hover:bg-[#D32F2F] transition-all duration-500"
+                    style={{ '--pixel-text-hover': '#155EEF' } as React.CSSProperties}
+                    className="btn-pixel-solid flex-1 min-w-[130px] text-center bg-[#0B1F3A] text-white px-6 py-3.5 rounded-full font-bold text-sm transition-colors duration-500"
                   >
-                    {t('services_pg.portfolio.cta1')}
+                    <span className="relative z-10">{t('services_pg.portfolio.cta1')}</span>
                   </Link>
                   <Link
                     href="/contact"
-                    className="flex-1 min-w-[130px] text-center border-2 border-gray-100 text-[#0D47A1] px-6 py-3.5 rounded-full font-bold text-sm hover:border-[#D32F2F] hover:text-[#D32F2F] transition-all duration-500"
+                    style={{ '--pixel-color': '#155EEF' } as React.CSSProperties}
+                    className="btn-pixel-outline flex-1 min-w-[130px] text-center px-6 py-3.5 rounded-full font-bold text-sm !border-gray-200 transition-colors duration-500"
                   >
-                    {t('services_pg.portfolio.cta2')}
+                    <span className="relative z-10">{t('services_pg.portfolio.cta2')}</span>
                   </Link>
                 </div>
               </div>
@@ -232,7 +234,7 @@ export default function ServicesPage() {
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           04. DEPLOYMENT LIFECYCLE
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section ref={s2 as React.RefObject<HTMLDivElement>} className="py-32 bg-[#082C66] relative overflow-hidden">
+      <section ref={s2 as React.RefObject<HTMLDivElement>} className="py-32 bg-[#0B1F3A] relative overflow-hidden">
         {/* Decorative S watermark */}
         <div className="absolute top-0 right-0 opacity-[0.015] text-white text-[28rem] font-serif leading-none select-none pointer-events-none">
           S
@@ -248,7 +250,7 @@ export default function ServicesPage() {
             </div>
             <h2 className="rs d1 font-serif text-4xl md:text-5xl text-white leading-[1.2] mb-6">
               {t('services_pg.process.title1')}{' '}
-              <br /><span className="italic text-[#D32F2F]">{t('services_pg.process.title2')}</span>
+              <br /><span className="italic text-[#155EEF]">{t('services_pg.process.title2')}</span>
             </h2>
             <p className="rs d2 text-white/40 text-lg leading-relaxed">
               From first conversation to live deployment — we handle every detail of your digital transformation.
@@ -258,19 +260,19 @@ export default function ServicesPage() {
           {/* Process steps with connecting arrows */}
           <div className="relative grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {/* Connecting line on desktop */}
-            <div className="hidden md:block absolute top-[52px] left-[calc(16.67%+20px)] right-[calc(16.67%+20px)] h-px bg-gradient-to-r from-[#D32F2F]/50 via-[#D32F2F]/30 to-[#D32F2F]/50" />
+            <div className="hidden md:block absolute top-[52px] left-[calc(16.67%+20px)] right-[calc(16.67%+20px)] h-px bg-gradient-to-r from-[#155EEF]/50 via-[#155EEF]/30 to-[#155EEF]/50" />
 
             {([1, 2, 3] as const).map((id, i) => (
               <div
                 key={id}
-                className={`rs d${i + 2} group relative bg-white/5 border border-white/10 rounded-[2.5rem] p-10 text-center hover:border-[#D32F2F]/40 hover:bg-white/[0.08] transition-all duration-500`}
+                className={`rs d${i + 2} group relative bg-white/5 border border-white/10 rounded-[2.5rem] p-10 text-center hover:border-[#155EEF]/40 hover:bg-white/[0.08] transition-all duration-500`}
               >
                 {/* Step number circle */}
-                <div className="relative w-16 h-16 rounded-full bg-[#0D47A1] border border-white/10 flex items-center justify-center mx-auto mb-8 group-hover:bg-[#D32F2F] group-hover:border-[#D32F2F] transition-all duration-500 shadow-xl">
+                <div className="relative w-16 h-16 rounded-full bg-[#0B1F3A] border border-white/10 flex items-center justify-center mx-auto mb-8 group-hover:bg-[#155EEF] group-hover:border-[#155EEF] transition-all duration-500 shadow-xl">
                   <div className="text-white group-hover:text-white transition-colors">
                     {PROCESS_ICONS[i]}
                   </div>
-                  <div className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-[#D32F2F] text-white text-[10px] font-black flex items-center justify-center">
+                  <div className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-[#155EEF] text-white text-[10px] font-black flex items-center justify-center">
                     0{id}
                   </div>
                 </div>
@@ -289,7 +291,7 @@ export default function ServicesPage() {
           <div className="rs d5 mt-20 inline-flex flex-wrap items-center justify-center gap-8 px-10 py-5 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm">
             {['Zero Data Loss', '99.9% Uptime SLA', '24/7 Support', 'Free Migration'].map((item) => (
               <div key={item} className="flex items-center gap-2.5 text-white/50 text-[.75rem] font-bold">
-                <svg className="w-4 h-4 text-[#D32F2F]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5"><path d="M5 13l4 4L19 7" /></svg>
+                <svg className="w-4 h-4 text-[#155EEF]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5"><path d="M5 13l4 4L19 7" /></svg>
                 {item}
               </div>
             ))}

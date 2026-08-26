@@ -300,9 +300,8 @@ export const TRANSLATIONS = {
     'h2.trust.badge': 'Nepal-based since 2025',
 
     'h2.solutions.kicker': 'Solutions',
-    'h2.solutions.title1': 'One platform.',
-    'h2.solutions.title2': 'Every department covered.',
-    'h2.solutions.desc': 'Modular ERP suites that connect — not siloed tools that create more work.',
+    'h2.solutions.title1': 'Technology built for what’s next',
+    'h2.solutions.desc': 'We build intelligent digital solutions that simplify operations, connect data, and help businesses move faster. technology impact and lasting value.',
     'h2.solutions.learnMore': 'Learn more',
 
     'h2.sol.1.title': 'School ERP',
@@ -338,6 +337,10 @@ export const TRANSLATIONS = {
     'h2.flow.title2': 'flow in real time.',
     'h2.flow.desc': 'Every action triggers the next. No manual handoffs, no data silos — just seamless automation.',
     'h2.flow.live': 'live',
+
+    'h2.walkthrough.title': 'See it running on your own data',
+    'h2.walkthrough.desc': 'Book a free walkthrough and we\'ll show you exactly how CoERP fits your institution — no commitment required.',
+    'h2.walkthrough.cta': 'Book a free walkthrough',
     'h2.flow.tab.school': 'School ERP',
     'h2.flow.tab.finance': 'Finance',
     'h2.flow.tab.inventory': 'Inventory',
@@ -732,9 +735,8 @@ export const TRANSLATIONS = {
     'h2.trust.badge': '२०२५ देखि नेपाल-आधारित',
 
     'h2.solutions.kicker': 'समाधानहरू',
-    'h2.solutions.title1': 'एउटै प्लेटफर्म।',
-    'h2.solutions.title2': 'हरेक विभाग समेटिएको।',
-    'h2.solutions.desc': 'जोडिने मोड्युलर इआरपी सुइटहरू — छुट्टाछुट्टै काम बढाउने उपकरणहरू होइनन्।',
+    'h2.solutions.title1': 'आगामी दिनका लागि निर्मित प्रविधि',
+    'h2.solutions.desc': 'हामी जटिल सञ्चालनहरूलाई सरल बनाउने, मानिस र डाटालाई जोड्ने, र संस्थाहरूलाई छिटो अघि बढ्न मद्दत गर्ने बुद्धिमान डिजिटल समाधानहरू सिर्जना गर्छौं। दैनिक कार्यप्रवाहदेखि ठूला स्तरको रूपान्तरणसम्म, हाम्रो प्रविधि मापनयोग्य प्रभाव र दिगो मूल्य प्रदान गर्न डिजाइन गरिएको छ।',
     'h2.solutions.learnMore': 'थप जान्नुहोस्',
 
     'h2.sol.1.title': 'स्कूल इआरपी',
@@ -770,6 +772,10 @@ export const TRANSLATIONS = {
     'h2.flow.title2': 'वास्तविक समयमा बग्दै हेर्नुहोस्।',
     'h2.flow.desc': 'हरेक कार्यले अर्को कार्यलाई सक्रिय गर्छ। कुनै म्यानुअल ह्यान्डअफ छैन, कुनै डाटा साइलो छैन — केवल निर्बाध स्वचालन।',
     'h2.flow.live': 'लाइभ',
+
+    'h2.walkthrough.title': 'यसलाई तपाईंकै डाटामा चलिरहेको हेर्नुहोस्',
+    'h2.walkthrough.desc': 'नि:शुल्क वाकथ्रु बुक गर्नुहोस् र हामी CoERP तपाईंको संस्थामा कसरी मिल्छ देखाउनेछौं — कुनै प्रतिबद्धता आवश्यक छैन।',
+    'h2.walkthrough.cta': 'नि:शुल्क वाकथ्रु बुक गर्नुहोस्',
     'h2.flow.tab.school': 'स्कूल इआरपी',
     'h2.flow.tab.finance': 'वित्त',
     'h2.flow.tab.inventory': 'इन्भेन्टरी',

@@ -119,30 +119,30 @@ export function NepalMoon({ className }: { className?: string }) {
 export function NetworkGraph({ className }: { className?: string }) {
   const nodes = [
     // Left N-cluster (mirrors logo shape)
-    { id: 1,  x: 72,   y: 80,  r: 12, c: '#0D47A1', dl: '0s'   },
-    { id: 2,  x: 72,   y: 340, r: 10, c: '#0D47A1', dl: '0.8s' },
-    { id: 3,  x: 192,  y: 205, r: 6,  c: '#0D47A1', dl: '1.4s' },
-    { id: 4,  x: 310,  y: 80,  r: 11, c: '#D32F2F', dl: '0.4s' },
-    { id: 5,  x: 310,  y: 340, r: 7,  c: '#D32F2F', dl: '1.1s' },
+    { id: 1,  x: 72,   y: 80,  r: 12, c: '#0B1F3A', dl: '0s'   },
+    { id: 2,  x: 72,   y: 340, r: 10, c: '#0B1F3A', dl: '0.8s' },
+    { id: 3,  x: 192,  y: 205, r: 6,  c: '#0B1F3A', dl: '1.4s' },
+    { id: 4,  x: 310,  y: 80,  r: 11, c: '#155EEF', dl: '0.4s' },
+    { id: 5,  x: 310,  y: 340, r: 7,  c: '#155EEF', dl: '1.1s' },
     // Mid-left
-    { id: 6,  x: 475,  y: 130, r: 7,  c: '#0D47A1', dl: '0.6s' },
-    { id: 7,  x: 555,  y: 390, r: 5,  c: '#0D47A1', dl: '1.7s' },
-    { id: 8,  x: 625,  y: 65,  r: 5,  c: '#D32F2F', dl: '2s'   },
+    { id: 6,  x: 475,  y: 130, r: 7,  c: '#0B1F3A', dl: '0.6s' },
+    { id: 7,  x: 555,  y: 390, r: 5,  c: '#0B1F3A', dl: '1.7s' },
+    { id: 8,  x: 625,  y: 65,  r: 5,  c: '#155EEF', dl: '2s'   },
     // Mid
-    { id: 9,  x: 780,  y: 210, r: 9,  c: '#0D47A1', dl: '0.3s' },
-    { id: 10, x: 860,  y: 435, r: 5,  c: '#0D47A1', dl: '1.5s' },
-    { id: 11, x: 940,  y: 110, r: 7,  c: '#D32F2F', dl: '0.9s' },
+    { id: 9,  x: 780,  y: 210, r: 9,  c: '#0B1F3A', dl: '0.3s' },
+    { id: 10, x: 860,  y: 435, r: 5,  c: '#0B1F3A', dl: '1.5s' },
+    { id: 11, x: 940,  y: 110, r: 7,  c: '#155EEF', dl: '0.9s' },
     // Right cluster
-    { id: 12, x: 1100, y: 200, r: 8,  c: '#0D47A1', dl: '0.2s' },
-    { id: 13, x: 1175, y: 430, r: 6,  c: '#D32F2F', dl: '1.3s' },
-    { id: 14, x: 1315, y: 115, r: 5,  c: '#0D47A1', dl: '1.8s' },
-    { id: 15, x: 1385, y: 315, r: 4,  c: '#0D47A1', dl: '0.7s' },
+    { id: 12, x: 1100, y: 200, r: 8,  c: '#0B1F3A', dl: '0.2s' },
+    { id: 13, x: 1175, y: 430, r: 6,  c: '#155EEF', dl: '1.3s' },
+    { id: 14, x: 1315, y: 115, r: 5,  c: '#0B1F3A', dl: '1.8s' },
+    { id: 15, x: 1385, y: 315, r: 4,  c: '#0B1F3A', dl: '0.7s' },
     // Scattered small
-    { id: 16, x: 200,  y: 495, r: 4,  c: '#0D47A1', dl: '2.2s' },
-    { id: 17, x: 665,  y: 510, r: 3,  c: '#0D47A1', dl: '1.6s' },
-    { id: 18, x: 1010, y: 510, r: 4,  c: '#0D47A1', dl: '2.4s' },
-    { id: 19, x: 395,  y: 35,  r: 4,  c: '#0D47A1', dl: '2.6s' },
-    { id: 20, x: 1070, y: 38,  r: 3,  c: '#D32F2F', dl: '2.8s' },
+    { id: 16, x: 200,  y: 495, r: 4,  c: '#0B1F3A', dl: '2.2s' },
+    { id: 17, x: 665,  y: 510, r: 3,  c: '#0B1F3A', dl: '1.6s' },
+    { id: 18, x: 1010, y: 510, r: 4,  c: '#0B1F3A', dl: '2.4s' },
+    { id: 19, x: 395,  y: 35,  r: 4,  c: '#0B1F3A', dl: '2.6s' },
+    { id: 20, x: 1070, y: 38,  r: 3,  c: '#155EEF', dl: '2.8s' },
   ];
 
   const edges: [number, number, boolean][] = [

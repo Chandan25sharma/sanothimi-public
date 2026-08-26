@@ -43,7 +43,7 @@ const PLANS = [
     priceMonthly: 5999,
     priceAnnual: 4799,
     highlight: true,
-    color: '#D32F2F',
+    color: '#155EEF',
     badge: 'Most Popular',
     desc: 'The complete ERP suite for growing institutions managing multiple departments.',
     feats: ['Up to 1,000 students', 'All Core Modules', 'Financial Suite', 'HR & Payroll', 'Priority Support', 'Advanced Analytics'],
@@ -72,7 +72,7 @@ const FAQS = [
 
 function Check({ on, text }: { on: boolean | string; text?: string }) {
   if (typeof on === 'string') {
-    return <span className="text-[#0D47A1] text-[.82rem] font-semibold">{on}</span>;
+    return <span className="text-[#0B1F3A] text-[.82rem] font-semibold">{on}</span>;
   }
   if (on) {
     return (
@@ -101,20 +101,20 @@ export default function PricingPage() {
       <section className="relative bg-white pt-24 pb-16 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
           <NetworkGraph className="absolute inset-0 w-full h-full" />
-          <Mandala className="absolute -top-16 -right-16 w-[480px] h-[480px] text-[#0D47A1] opacity-[0.06]" />
-          <NepalSun className="absolute -bottom-10 -left-10 w-[280px] h-[280px] text-[#D32F2F] opacity-[0.05]" />
-          <div className="absolute top-1/2 left-1/4 w-[600px] h-[600px] rounded-full border border-[#0D47A1]/[0.04]" />
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 rounded-full bg-[#0D47A1]/[0.025] blur-[120px]" />
-          <Himalaya className="absolute bottom-0 left-0 w-full text-[#D32F2F] opacity-[0.035]" />
+          <Mandala className="absolute -top-16 -right-16 w-[480px] h-[480px] text-[#0B1F3A] opacity-[0.06]" />
+          <NepalSun className="absolute -bottom-10 -left-10 w-[280px] h-[280px] text-[#155EEF] opacity-[0.05]" />
+          <div className="absolute top-1/2 left-1/4 w-[600px] h-[600px] rounded-full border border-[#0B1F3A]/[0.04]" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 rounded-full bg-[#0B1F3A]/[0.025] blur-[120px]" />
+          <Himalaya className="absolute bottom-0 left-0 w-full text-[#155EEF] opacity-[0.035]" />
         </div>
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
-          <div className="text-[#D32F2F] text-[.7rem] font-black uppercase tracking-[.3em] mb-6">Simple, Transparent Pricing</div>
+          <div className="text-[#155EEF] text-[.7rem] font-black uppercase tracking-[.3em] mb-6">Simple, Transparent Pricing</div>
 
-          <h1 className="font-serif text-[2.2rem] sm:text-5xl md:text-6xl text-[#0D47A1] leading-[1.1] mb-8 tracking-tight">
+          <h1 className="font-serif text-[2.2rem] sm:text-5xl md:text-6xl text-[#0B1F3A] leading-[1.1] mb-8 tracking-tight">
             Start free,<br />
             <span className="relative inline-block">
               scale as you grow
-              <span className="absolute left-0 -bottom-1 w-full h-[3px] bg-[#D32F2F] rounded-full" />
+              <span className="absolute left-0 -bottom-1 w-full h-[3px] bg-[#155EEF] rounded-full" />
             </span>
           </h1>
           <p className="text-gray-500 text-xl max-w-2xl mx-auto mb-14 leading-relaxed">
@@ -125,13 +125,13 @@ export default function PricingPage() {
           <div className="inline-flex items-center gap-2 p-2 bg-gray-100 rounded-2xl">
             <button
               onClick={() => setAnnual(false)}
-              className={`px-7 py-3 rounded-xl text-sm font-bold transition-all ${!annual ? 'bg-white text-[#0D47A1] shadow-md' : 'text-gray-400 hover:text-gray-600'}`}
+              className={`px-7 py-3 rounded-xl text-sm font-bold transition-all ${!annual ? 'bg-white text-[#0B1F3A] shadow-md' : 'text-gray-400 hover:text-gray-600'}`}
             >
               Monthly
             </button>
             <button
               onClick={() => setAnnual(true)}
-              className={`flex items-center gap-3 px-7 py-3 rounded-xl text-sm font-bold transition-all ${annual ? 'bg-white text-[#0D47A1] shadow-md' : 'text-gray-400 hover:text-gray-600'}`}
+              className={`flex items-center gap-3 px-7 py-3 rounded-xl text-sm font-bold transition-all ${annual ? 'bg-white text-[#0B1F3A] shadow-md' : 'text-gray-400 hover:text-gray-600'}`}
             >
               Annual
               <span className="px-2 py-0.5 bg-green-100 rounded-full text-[9px] font-black text-green-700 uppercase tracking-widest">
@@ -156,12 +156,12 @@ export default function PricingPage() {
                   key={plan.tier}
                   className={`relative rounded-[2.5rem] p-10 flex flex-col transition-all duration-500 ${
                     plan.highlight
-                      ? 'bg-[#0D47A1] shadow-2xl shadow-[#0D47A1]/20 scale-105 z-10'
+                      ? 'bg-[#0B1F3A] shadow-2xl shadow-[#0B1F3A]/20 scale-105 z-10'
                       : 'bg-white border border-gray-100 shadow-md hover:shadow-xl hover:-translate-y-2'
                   }`}
                 >
                   {plan.badge && (
-                    <div className="absolute -top-5 left-1/2 -translate-x-1/2 px-5 py-2 bg-[#D32F2F] rounded-full text-[10px] font-black uppercase tracking-widest text-white shadow-lg whitespace-nowrap shadow-[#D32F2F]/30">
+                    <div className="absolute -top-5 left-1/2 -translate-x-1/2 px-5 py-2 bg-[#155EEF] rounded-full text-[10px] font-black uppercase tracking-widest text-white shadow-lg whitespace-nowrap shadow-[#155EEF]/30">
                       {plan.badge}
                     </div>
                   )}
@@ -172,14 +172,14 @@ export default function PricingPage() {
                   </div>
 
                   {/* Tier name */}
-                  <div className={`font-serif text-3xl font-bold mb-2 ${plan.highlight ? 'text-white' : 'text-[#0D47A1]'}`}>
+                  <div className={`font-serif text-3xl font-bold mb-2 ${plan.highlight ? 'text-white' : 'text-[#0B1F3A]'}`}>
                     {plan.tier}
                   </div>
 
                   {/* Price */}
                   <div className="flex items-baseline gap-1.5 mb-3">
                     <span className={`text-sm font-bold ${plan.highlight ? 'text-white/40' : 'text-[#64748B]'}`}>Rs.</span>
-                    <span className={`text-5xl font-serif font-bold tracking-tighter transition-all duration-500 ${plan.highlight ? 'text-white' : 'text-[#0D47A1]'}`}>
+                    <span className={`text-5xl font-serif font-bold tracking-tighter transition-all duration-500 ${plan.highlight ? 'text-white' : 'text-[#0B1F3A]'}`}>
                       {price.toLocaleString()}
                     </span>
                     <span className={`text-sm font-medium ${plan.highlight ? 'text-white/35' : 'text-[#94A3B8]'}`}>/mo</span>
@@ -200,8 +200,8 @@ export default function PricingPage() {
                     href="/contact"
                     className={`block text-center py-4 rounded-2xl font-bold text-sm transition-all duration-300 mb-10 ${
                       plan.highlight
-                        ? 'bg-[#D32F2F] text-white hover:bg-white hover:text-[#D32F2F] shadow-xl shadow-[#D32F2F]/20'
-                        : 'bg-[#0D47A1] text-white hover:bg-[#D32F2F] shadow-lg'
+                        ? 'bg-[#155EEF] text-white hover:bg-white hover:text-[#155EEF] shadow-xl shadow-[#155EEF]/20'
+                        : 'bg-[#0B1F3A] text-white hover:bg-[#155EEF] shadow-lg'
                     }`}
                   >
                     Get Started — Free Demo
@@ -212,7 +212,7 @@ export default function PricingPage() {
                   <ul className="space-y-3 flex-1">
                     {plan.feats.map((f) => (
                       <li key={f} className={`flex items-center gap-3 text-[.82rem] font-medium ${plan.highlight ? 'text-white/70' : 'text-[#374151]'}`}>
-                        <svg className={`w-4 h-4 flex-shrink-0 ${plan.highlight ? 'text-[#D32F2F]' : 'text-green-500'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                        <svg className={`w-4 h-4 flex-shrink-0 ${plan.highlight ? 'text-[#155EEF]' : 'text-green-500'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
                           <path d="M5 13l4 4L19 7" />
                         </svg>
                         {f}
@@ -228,7 +228,7 @@ export default function PricingPage() {
           <div className="mt-12 text-center">
             <p className="text-[#64748B] text-sm">
               Need a custom quote for 5,000+ students or multi-campus networks?{' '}
-              <Link href="/contact" className="text-[#D32F2F] font-bold hover:underline">Talk to our enterprise team →</Link>
+              <Link href="/contact" className="text-[#155EEF] font-bold hover:underline">Talk to our enterprise team →</Link>
             </p>
           </div>
         </div>
@@ -240,7 +240,7 @@ export default function PricingPage() {
       ═══════════════════════════════════════════════ */}
       <section className="py-24 bg-[#F9FAFB] relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
-          <Lattice className="absolute inset-0 w-full h-full text-[#0D47A1] opacity-[0.02]" size={44} />
+          <Lattice className="absolute inset-0 w-full h-full text-[#0B1F3A] opacity-[0.02]" size={44} />
         </div>
         <div className="max-w-6xl mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
@@ -248,17 +248,17 @@ export default function PricingPage() {
               <span className="section-kicker-line" />Full Comparison
               <span className="section-kicker-line" />
             </div>
-            <h2 className="font-serif text-3xl md:text-4xl text-[#0D47A1]">
-              Everything in one <span className="italic text-[#D32F2F]">clear view</span>
+            <h2 className="font-serif text-3xl md:text-4xl text-[#0B1F3A]">
+              Everything in one <span className="italic text-[#155EEF]">clear view</span>
             </h2>
           </div>
 
           <div className="rounded-[2.5rem] border border-gray-100 bg-white overflow-hidden shadow-sm">
             {/* Header */}
-            <div className="grid grid-cols-[1fr_1fr_1fr_1fr] bg-[#0D47A1]">
+            <div className="grid grid-cols-[1fr_1fr_1fr_1fr] bg-[#0B1F3A]">
               <div className="p-6 text-[.65rem] font-black uppercase tracking-widest text-white/30">Feature</div>
               {PLANS.map((p) => (
-                <div key={p.tier} className={`p-6 text-center border-l border-white/5 ${p.highlight ? 'bg-[#D32F2F]/15' : ''}`}>
+                <div key={p.tier} className={`p-6 text-center border-l border-white/5 ${p.highlight ? 'bg-[#155EEF]/15' : ''}`}>
                   <div className="font-serif text-base font-bold text-white">{p.tier}</div>
                   <div className="text-[.62rem] font-bold text-white/30 mt-0.5">{p.tag}</div>
                 </div>
@@ -272,7 +272,7 @@ export default function PricingPage() {
                 <div className="p-4 text-center flex items-center justify-center border-l border-gray-50">
                   <Check on={row.basic} />
                 </div>
-                <div className="p-4 text-center flex items-center justify-center border-l border-gray-50 bg-[#D32F2F]/2">
+                <div className="p-4 text-center flex items-center justify-center border-l border-gray-50 bg-[#155EEF]/2">
                   <Check on={row.standard} />
                 </div>
                 <div className="p-4 text-center flex items-center justify-center border-l border-gray-50">
@@ -290,7 +290,7 @@ export default function PricingPage() {
       ═══════════════════════════════════════════════ */}
       <section className="py-20 bg-white border-t border-gray-100">
         <div className="max-w-5xl mx-auto px-6 text-center">
-          <h3 className="font-serif text-2xl md:text-3xl text-[#0D47A1] mb-14">
+          <h3 className="font-serif text-2xl md:text-3xl text-[#0B1F3A] mb-14">
             Trusted by institutions across Nepal
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -312,9 +312,9 @@ export default function PricingPage() {
                 title: 'Training Included', desc: 'Staff onboarding and certification',
               },
             ].map((b) => (
-              <div key={b.title} className="flex flex-col items-center gap-3 p-8 rounded-3xl bg-[#F9FAFB] border border-gray-100 hover:border-[#D32F2F]/20 hover:bg-[#D32F2F]/3 transition-all duration-300 group">
-                <div className="text-[#0D47A1] group-hover:scale-110 transition-transform">{b.icon}</div>
-                <div className="font-bold text-[#0D47A1] text-sm">{b.title}</div>
+              <div key={b.title} className="flex flex-col items-center gap-3 p-8 rounded-3xl bg-[#F9FAFB] border border-gray-100 hover:border-[#155EEF]/20 hover:bg-[#155EEF]/3 transition-all duration-300 group">
+                <div className="text-[#0B1F3A] group-hover:scale-110 transition-transform">{b.icon}</div>
+                <div className="font-bold text-[#0B1F3A] text-sm">{b.title}</div>
                 <div className="text-[#94A3B8] text-[.75rem] text-center leading-relaxed">{b.desc}</div>
               </div>
             ))}
@@ -333,8 +333,8 @@ export default function PricingPage() {
               <span className="section-kicker-line" />FAQ
               <span className="section-kicker-line" />
             </div>
-            <h2 className="font-serif text-3xl md:text-4xl text-[#0D47A1]">
-              Common <span className="italic text-[#D32F2F]">questions</span>
+            <h2 className="font-serif text-3xl md:text-4xl text-[#0B1F3A]">
+              Common <span className="italic text-[#155EEF]">questions</span>
             </h2>
           </div>
 
@@ -348,9 +348,9 @@ export default function PricingPage() {
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   className="w-full flex items-center justify-between p-7 text-left"
                 >
-                  <span className="font-bold text-[#0D47A1] text-[.92rem] pr-6">{faq.q}</span>
+                  <span className="font-bold text-[#0B1F3A] text-[.92rem] pr-6">{faq.q}</span>
                   <svg
-                    className={`w-5 h-5 flex-shrink-0 text-[#D32F2F] transition-transform duration-300 ${openFaq === i ? 'rotate-180' : ''}`}
+                    className={`w-5 h-5 flex-shrink-0 text-[#155EEF] transition-transform duration-300 ${openFaq === i ? 'rotate-180' : ''}`}
                     fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5"
                   >
                     <path d="M19 9l-7 7-7-7" />

@@ -1,6 +1,6 @@
 'use client';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 export interface MegaItem {
   label: string;
@@ -35,14 +35,14 @@ export default function MegaMenu({ columns, ctaLabel, ctaHref, secondaryLabel, s
       <div className="flex gap-12 px-8 py-8">
         {columns.map((col) => (
           <div key={col.title} className="min-w-[180px]">
-            <h4 className="text-[.85rem] font-bold text-[#0D47A1] pb-3 mb-4 border-b border-gray-200">
+            <h4 className="text-[.85rem] font-bold text-[#0B1F3A] pb-3 mb-4 border-b border-gray-200">
               {col.title}
             </h4>
             <ul className="space-y-3.5">
               {col.items.map((item) => (
                 <li key={item.label}>
                   <Link href={item.href} className="group block">
-                    <div className="text-[.83rem] font-medium text-gray-600 group-hover:text-[#D32F2F] transition-colors">
+                    <div className="text-[.83rem] font-medium text-gray-600 group-hover:text-[#155EEF] transition-colors">
                       {item.label}
                     </div>
                     {item.desc && (
@@ -55,12 +55,15 @@ export default function MegaMenu({ columns, ctaLabel, ctaHref, secondaryLabel, s
             {col.portalLabel && col.portalHref && (
               <Link
                 href={col.portalHref}
-                className="mt-5 inline-flex items-center gap-1.5 bg-[#D32F2F]/10 text-[#D32F2F] px-4 py-2 rounded-full text-[.78rem] font-bold hover:bg-[#D32F2F] hover:text-white transition-colors"
+                style={{ '--pixel-color': '#15efc3', '--pixel-text-hover': '#fff' } as React.CSSProperties}
+                className="btn-pixel-solid mt-5 inline-flex items-center gap-1.5 bg-[#15efc3] text-[#fff] px-4 py-2 rounded-full text-[.78rem] font-bold transition-colors"
               >
-                {col.portalLabel}
-                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
+                <span className="relative z-10 inline-flex items-center gap-1.5">
+                  {col.portalLabel}
+                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </span>
               </Link>
             )}
           </div>
@@ -70,14 +73,18 @@ export default function MegaMenu({ columns, ctaLabel, ctaHref, secondaryLabel, s
       {(ctaLabel || secondaryLabel) && (
         <div className="flex items-center justify-between px-8 py-4 bg-white border-t border-gray-100">
           {ctaLabel && ctaHref && (
-            <Link href={ctaHref} className="text-[.8rem] font-bold text-[#0D47A1] hover:text-[#D32F2F] transition-colors flex items-center gap-1.5">
+            <Link href={ctaHref} className="text-[.8rem] font-bold text-[#0B1F3A] hover:text-[#155EEF] transition-colors flex items-center gap-1.5">
               {ctaLabel}
               <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5"><path d="M9 5l7 7-7 7"/></svg>
             </Link>
           )}
           {secondaryLabel && secondaryHref && (
-            <Link href={secondaryHref} className="text-[.8rem] font-bold bg-[#D32F2F] text-white px-4 py-2 rounded-lg hover:bg-[#B71C1C] transition-colors">
-              {secondaryLabel}
+            <Link
+              href={secondaryHref}
+              style={{ '--pixel-text-hover': '#15efc0' } as React.CSSProperties}
+              className="btn-pixel-solid text-[.8rem] font-bold bg-[#15efc3] text-white px-4 py-2 rounded-lg transition-colors"
+            >
+              <span className="relative z-10">{secondaryLabel}</span>
             </Link>
           )}
         </div>

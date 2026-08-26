@@ -47,18 +47,18 @@ export default function TermsPage() {
       {/* ── Page Header ── */}
       <div className="relative bg-white pt-44 pb-16 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="text-[#D32F2F] text-[.65rem] font-black uppercase tracking-[.3em] mb-6">
+          <div className="text-[#155EEF] text-[.65rem] font-black uppercase tracking-[.3em] mb-6">
             {t('legal.terms.hero.kicker')}
           </div>
-          <h1 className="font-serif text-[2.2rem] sm:text-5xl md:text-6xl text-[#0D47A1] leading-tight mb-8 tracking-tight">
+          <h1 className="font-serif text-[2.2rem] sm:text-5xl md:text-6xl text-[#0B1F3A] leading-tight mb-8 tracking-tight">
             {t('legal.terms.hero.title1')}{' '}
             <span className="relative inline-block">
               {t('legal.terms.hero.title2')}
-              <span className="absolute left-0 -bottom-1 w-full h-[3px] bg-[#D32F2F] rounded-full" />
+              <span className="absolute left-0 -bottom-1 w-full h-[3px] bg-[#155EEF] rounded-full" />
             </span>
           </h1>
           <div className="flex flex-wrap items-center gap-8 text-[11px] font-black uppercase tracking-widest text-gray-400">
-            <span className="flex items-center gap-2 text-[#D32F2F]">
+            <span className="flex items-center gap-2 text-[#155EEF]">
               <span className="w-1 h-1 rounded-full bg-current" /> {t('legal.terms.hero.date')}
             </span>
             <span>{t('legal.terms.hero.status')}</span>
@@ -79,24 +79,24 @@ export default function TermsPage() {
                 <svg className="w-12 h-12 -rotate-90" viewBox="0 0 48 48">
                   <circle cx="24" cy="24" r="20" fill="none" stroke="#E2E8F0" strokeWidth="4" />
                   <circle
-                    cx="24" cy="24" r="20" fill="none" stroke="#D32F2F" strokeWidth="4"
+                    cx="24" cy="24" r="20" fill="none" stroke="#155EEF" strokeWidth="4"
                     strokeDasharray={`${2 * Math.PI * 20}`}
                     strokeDashoffset={`${2 * Math.PI * 20 * (1 - progress / 100)}`}
                     strokeLinecap="round"
                     className="transition-all duration-300"
                   />
                 </svg>
-                <span className="absolute inset-0 flex items-center justify-center text-[10px] font-black text-[#0D47A1]">{progress}%</span>
+                <span className="absolute inset-0 flex items-center justify-center text-[10px] font-black text-[#0B1F3A]">{progress}%</span>
               </div>
               <div>
-                <div className="text-[10px] font-black uppercase tracking-widest text-[#D32F2F] mb-0.5">Reading</div>
-                <div className="text-xs font-bold text-[#0D47A1]">Terms of Service</div>
+                <div className="text-[10px] font-black uppercase tracking-widest text-[#155EEF] mb-0.5">Reading</div>
+                <div className="text-xs font-bold text-[#0B1F3A]">Terms of Service</div>
               </div>
             </div>
 
             {/* Section nav */}
             <div>
-              <div className="text-[.62rem] font-black uppercase tracking-[.4em] text-[#D32F2F] mb-5 px-3">
+              <div className="text-[.62rem] font-black uppercase tracking-[.4em] text-[#155EEF] mb-5 px-3">
                 {t('legal.nav.hub')}
               </div>
               <nav className="flex flex-col gap-1">
@@ -113,14 +113,14 @@ export default function TermsPage() {
             </div>
 
             {/* Legal inquiry */}
-            <div className="p-6 bg-[#0D47A1] rounded-2xl">
-              <p className="text-[10px] font-black text-[#D32F2F] uppercase tracking-widest mb-3 leading-none">
+            <div className="p-6 bg-[#0B1F3A] rounded-2xl">
+              <p className="text-[10px] font-black text-[#155EEF] uppercase tracking-widest mb-3 leading-none">
                 {t('legal.inquiry.hub')}
               </p>
               <p className="text-xs text-white/50 mb-5 leading-relaxed">{t('legal.inquiry.desc')}</p>
               <a
                 href="mailto:legal@sanothimi.com.np"
-                className="text-xs font-black text-white hover:text-[#D32F2F] transition-colors underline decoration-white/20"
+                className="text-xs font-black text-white hover:text-[#155EEF] transition-colors underline decoration-white/20"
               >
                 {t('legal.inquiry.cta')}
               </a>
@@ -133,10 +133,10 @@ export default function TermsPage() {
               {TERMS_SECTIONS.map((s) => (
                 <section key={s.id} id={s.id} className="scroll-mt-36">
                   <div className="flex items-center gap-4 mb-8">
-                    <div className="w-8 h-8 rounded-lg bg-[#D32F2F]/10 flex items-center justify-center flex-shrink-0">
-                      <span className="w-2 h-2 rounded-full bg-[#D32F2F]" />
+                    <div className="w-8 h-8 rounded-lg bg-[#155EEF]/10 flex items-center justify-center flex-shrink-0">
+                      <span className="w-2 h-2 rounded-full bg-[#155EEF]" />
                     </div>
-                    <h2 className="font-serif text-3xl md:text-4xl text-[#0D47A1] leading-tight tracking-tight">
+                    <h2 className="font-serif text-3xl md:text-4xl text-[#0B1F3A] leading-tight tracking-tight">
                       {s.title}
                     </h2>
                   </div>
@@ -153,7 +153,7 @@ export default function TermsPage() {
             <div className="mt-24 pt-12 border-t border-gray-100">
               <div className="bg-[#F9FAFB] rounded-[2.5rem] p-10 md:p-16 border border-gray-100 flex flex-col md:flex-row items-center justify-between gap-10">
                 <div className="max-w-md">
-                  <h3 className="text-2xl font-serif text-[#0D47A1] mb-4">{t('legal.print.title')}</h3>
+                  <h3 className="text-2xl font-serif text-[#0B1F3A] mb-4">{t('legal.print.title')}</h3>
                   <p className="text-sm text-[#6B7280] leading-relaxed">{t('legal.print.desc')}</p>
                 </div>
                 <PrintButton />

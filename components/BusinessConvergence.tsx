@@ -36,8 +36,8 @@ export default function BusinessConvergence({ nodes, hubTitle, hubSub }: Props) 
         <svg viewBox={`0 0 ${VB_W} ${VB_H}`} className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid meet">
           <defs>
             <radialGradient id="hubGlow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="#0D47A1" stopOpacity="0.35" />
-              <stop offset="100%" stopColor="#0D47A1" stopOpacity="0" />
+              <stop offset="0%" stopColor="#0B1F3A" stopOpacity="0.35" />
+              <stop offset="100%" stopColor="#0B1F3A" stopOpacity="0" />
             </radialGradient>
           </defs>
 
@@ -73,7 +73,7 @@ export default function BusinessConvergence({ nodes, hubTitle, hubSub }: Props) 
               </svg>
             </div>
             <div>
-              <div className="font-bold text-[.8rem] text-[#0D47A1] leading-tight">{node.label}</div>
+              <div className="font-bold text-[.8rem] text-[#0B1F3A] leading-tight">{node.label}</div>
               <div className="text-[.62rem] font-black uppercase tracking-widest" style={{ color: node.color }}>{node.sub}</div>
             </div>
           </motion.div>
@@ -85,11 +85,11 @@ export default function BusinessConvergence({ nodes, hubTitle, hubSub }: Props) 
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3, duration: 0.5, type: 'spring', stiffness: 200, damping: 18 }}
-          className="absolute right-0 -translate-y-1/2 flex flex-col items-center text-center gap-2 bg-[#0D47A1] rounded-2xl shadow-2xl shadow-[#0D47A1]/30 px-7 py-6"
+          className="absolute right-0 -translate-y-1/2 flex flex-col items-center text-center gap-2 bg-[#0B1F3A] rounded-2xl shadow-2xl shadow-[#0B1F3A]/30 px-7 py-6"
           style={{ top: `${(HUB_Y / VB_H) * 100}%`, width: 190 }}
         >
           <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#D32F2F] animate-pulse" />
+            <span className="w-2.5 h-2.5 rounded-full bg-[#155EEF] animate-pulse" />
           </div>
           <div className="font-serif text-lg text-white font-bold leading-tight">{hubTitle}</div>
           <div className="text-[.62rem] font-black uppercase tracking-widest text-white/50">{hubSub}</div>
@@ -113,7 +113,7 @@ export default function BusinessConvergence({ nodes, hubTitle, hubSub }: Props) 
                   <path strokeLinecap="round" strokeLinejoin="round" d={node.icon} />
                 </svg>
               </div>
-              <div className="font-bold text-[.72rem] text-[#0D47A1] leading-tight">{node.label}</div>
+              <div className="font-bold text-[.72rem] text-[#0B1F3A] leading-tight">{node.label}</div>
             </motion.div>
           ))}
         </div>
@@ -123,10 +123,10 @@ export default function BusinessConvergence({ nodes, hubTitle, hubSub }: Props) 
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4 }}
-          className="flex flex-col items-center text-center gap-2 bg-[#0D47A1] rounded-2xl shadow-xl shadow-[#0D47A1]/30 px-7 py-6 w-full"
+          className="flex flex-col items-center text-center gap-2 bg-[#0B1F3A] rounded-2xl shadow-xl shadow-[#0B1F3A]/30 px-7 py-6 w-full"
         >
           <div className="w-11 h-11 rounded-full bg-white flex items-center justify-center">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#D32F2F] animate-pulse" />
+            <span className="w-2.5 h-2.5 rounded-full bg-[#155EEF] animate-pulse" />
           </div>
           <div className="font-serif text-lg text-white font-bold leading-tight">{hubTitle}</div>
           <div className="text-[.62rem] font-black uppercase tracking-widest text-white/50">{hubSub}</div>

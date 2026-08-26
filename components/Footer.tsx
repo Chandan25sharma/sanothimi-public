@@ -53,8 +53,8 @@ export default function Footer() {
             <Link href="/" className="flex items-center gap-2.5 mb-5">
               <img src="/sanothimi-logo0icon.png" alt="Sanothimi" className="w-8 h-8 object-contain" />
               <div className="leading-tight">
-                <div className="font-bold text-[1.02rem] tracking-tight text-[#0D47A1]">Sanothimi</div>
-                <div className="text-[.5rem] text-[#D32F2F] font-black tracking-[.35em] uppercase">Technologies</div>
+                <div className="font-bold text-[1.02rem] tracking-tight text-[#0B1F3A]">Sanothimi</div>
+                <div className="text-[.5rem] text-[#155EEF] font-black tracking-[.35em] uppercase">Technologies</div>
               </div>
             </Link>
 
@@ -69,7 +69,7 @@ export default function Footer() {
                   key={s.label}
                   href="#"
                   aria-label={s.label}
-                  className="w-9 h-9 rounded-lg bg-white border border-gray-200 flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#D32F2F] hover:border-[#D32F2F] transition-all duration-200 shadow-sm"
+                  className="w-9 h-9 rounded-lg bg-white border border-gray-200 flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#155EEF] hover:border-[#155EEF] transition-all duration-200 shadow-sm"
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
                     <path d={s.icon} />
@@ -94,13 +94,14 @@ export default function Footer() {
                   placeholder="Work email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="flex-1 min-w-0 bg-white border border-gray-200 rounded-lg px-3.5 py-2.5 text-[.82rem] text-[#0D47A1] placeholder:text-gray-400 outline-none focus:border-[#D32F2F] transition-all shadow-sm"
+                  className="flex-1 min-w-0 bg-white border border-gray-200 rounded-lg px-3.5 py-2.5 text-[.82rem] text-[#0B1F3A] placeholder:text-gray-400 outline-none focus:border-[#155EEF] transition-all shadow-sm"
                 />
                 <button
                   type="submit"
-                  className="px-4 py-2.5 rounded-lg bg-[#D32F2F] hover:bg-[#B71C1C] text-white text-[.8rem] font-bold transition-all flex-shrink-0"
+                  style={{ '--pixel-text-hover': '#155EEF' } as React.CSSProperties}
+                  className="btn-pixel-solid px-4 py-2.5 rounded-lg bg-[#155EEF] text-white text-[.8rem] font-bold transition-colors flex-shrink-0"
                 >
-                  Subscribe
+                  <span className="relative z-10">Subscribe</span>
                 </button>
               </form>
             )}
@@ -115,7 +116,7 @@ export default function Footer() {
               <ul className="space-y-2.5">
                 {COMPANY.map((l) => (
                   <li key={l.href}>
-                    <Link href={l.href} className="text-gray-500 hover:text-[#D32F2F] text-[.83rem] font-medium transition-colors">
+                    <Link href={l.href} className="text-gray-500 hover:text-[#155EEF] text-[.83rem] font-medium transition-colors">
                       {l.label}
                     </Link>
                   </li>
@@ -129,7 +130,7 @@ export default function Footer() {
               <ul className="space-y-2.5">
                 {SOLUTIONS.map((l) => (
                   <li key={l.label}>
-                    <Link href={l.href} className="text-gray-500 hover:text-[#D32F2F] text-[.83rem] font-medium transition-colors">
+                    <Link href={l.href} className="text-gray-500 hover:text-[#155EEF] text-[.83rem] font-medium transition-colors">
                       {l.label}
                     </Link>
                   </li>
@@ -142,12 +143,12 @@ export default function Footer() {
               <h4 className="text-[.66rem] font-bold uppercase tracking-[.2em] text-gray-400 mb-4">Contact</h4>
               <ul className="space-y-3">
                 <li>
-                  <a href="tel:+9779806391489" className="text-[#0D47A1] hover:text-[#D32F2F] text-[.88rem] font-semibold transition-colors">
+                  <a href="tel:+9779806391489" className="text-[#0B1F3A] hover:text-[#155EEF] text-[.88rem] font-semibold transition-colors">
                     +977 9704714937
                   </a>
                 </li>
                 <li>
-                  <a href="mailto:info@sanothimi.com.np" className="text-gray-500 hover:text-[#D32F2F] text-[.83rem] font-medium transition-colors break-all">
+                  <a href="mailto:info@sanothimi.com.np" className="text-gray-500 hover:text-[#155EEF] text-[.83rem] font-medium transition-colors break-all">
                     info@sanothimi.com.np
                   </a>
                 </li>
@@ -169,7 +170,7 @@ export default function Footer() {
           </p>
           <div className="flex items-center gap-6">
             {LEGAL.map((l) => (
-              <Link key={l.href} href={l.href} className="text-gray-400 hover:text-[#D32F2F] text-[.78rem] font-medium transition-colors">
+              <Link key={l.href} href={l.href} className="text-gray-400 hover:text-[#155EEF] text-[.78rem] font-medium transition-colors">
                 {l.label}
               </Link>
             ))}
