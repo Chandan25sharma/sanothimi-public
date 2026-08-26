@@ -1,6 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { useState } from 'react';
 
 export interface MegaItem {
   label: string;
@@ -13,6 +14,8 @@ export interface MegaColumn {
   items: MegaItem[];
   portalLabel?: string;
   portalHref?: string;
+  viewAllLabel?: string;
+  viewAllHref?: string;
 }
 
 interface Props {
@@ -21,9 +24,75 @@ interface Props {
   ctaHref?: string;
   secondaryLabel?: string;
   secondaryHref?: string;
+  variant?: 'columns' | 'split';
 }
 
-export default function MegaMenu({ columns, ctaLabel, ctaHref, secondaryLabel, secondaryHref }: Props) {
+export default function MegaMenu({ columns, ctaLabel, ctaHref, secondaryLabel, secondaryHref, variant = 'columns' }: Props) {
+  const [active, setActive] = useState(0);
+
+  if (variant === 'split') {
+    const activeCol = columns[active] ?? columns[0];
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: -8 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -8 }}
+        transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
+        className="absolute top-full left-1/2 -translate-x-1/2 mt-2 rounded-2xl shadow-2xl shadow-black/12 border border-gray-100 overflow-hidden min-w-[720px] flex"
+      >
+        <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#12B76A]" />
+
+        {/* LEFT — category list */}
+        <div className="w-[240px] bg-[#0B1F3A] py-3 flex-shrink-0">
+          {columns.map((col, i) => (
+            <button
+              key={col.title}
+              type="button"
+              onMouseEnter={() => setActive(i)}
+              onFocus={() => setActive(i)}
+              className={`w-full flex items-center justify-between gap-3 px-6 py-3.5 text-left text-[.83rem] font-semibold transition-colors ${
+                active === i ? 'bg-white/10 text-white' : 'text-white/60 hover:text-white hover:bg-white/5'
+              }`}
+            >
+              {col.title}
+              <svg className="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          ))}
+        </div>
+
+        {/* RIGHT — sub-items panel */}
+        <div className="flex-1 bg-[#F8FAFC] p-8 min-h-[280px]">
+          <div className="flex items-center justify-between mb-6">
+            <h4 className="font-serif text-lg font-bold text-[#0B1F3A]">{activeCol.title}</h4>
+            {activeCol.viewAllLabel && activeCol.viewAllHref && (
+              <Link
+                href={activeCol.viewAllHref}
+                className="inline-flex items-center gap-1.5 bg-[#12B76A] text-white px-4 py-2 rounded-full text-[.72rem] font-bold hover:bg-[#0e9c5a] transition-colors"
+              >
+                {activeCol.viewAllLabel}
+              </Link>
+            )}
+          </div>
+          <div className="h-px bg-gray-200 mb-6" />
+          <div className="grid grid-cols-2 gap-x-8 gap-y-5">
+            {activeCol.items.map((item) => (
+              <Link key={item.label} href={item.href} className="group block">
+                <div className="text-[.85rem] font-semibold text-[#0B1F3A] group-hover:text-[#12B76A] transition-colors">
+                  {item.label}
+                </div>
+                {item.desc && (
+                  <div className="text-[.72rem] text-gray-400 mt-0.5 leading-snug">{item.desc}</div>
+                )}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </motion.div>
+    );
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0, y: -8 }}
