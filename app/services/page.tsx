@@ -48,13 +48,22 @@ const SVC_ICONS = [
 
 const SVC_STATUS: Array<'live' | 'soon' | null> = ['live', 'soon', 'soon', null, null, null];
 
-const SVC_BULLETS = [
-  ['Automated Fee Collection', 'Exam & Result Management', 'Parent Portal', 'Digital Attendance'],
-  ['Localized VAT Reporting', 'Cloud Ledger Sync', 'Multi-User Control', 'Financial Statements'],
-  ['Multi-Warehouse Sync', 'Automated Reordering', 'Barcode System', 'Stock Analytics'],
-  ['Real-time KPI Dashboards', 'Trend Analysis', 'Custom Reports', 'Market Insights'],
-  ['Automated Salary', 'Attendance Tracking', 'Performance Reviews', 'Digital Vault'],
-  ['Custom API Integration', 'Web Applications', 'System Migration', '24/7 Support'],
+const SVC_SLUGS = [
+  'nuvora',
+  'finance-accounting',
+  'business-management',
+  'business-intelligence',
+  'enterprise-security',
+  'custom-software',
+];
+
+const SVC_CATEGORY = [
+  'School ERP',
+  'Finance & Operations',
+  'Finance & Operations',
+  'Intelligence & Security',
+  'Intelligence & Security',
+  'Custom Engineering',
 ];
 
 const PROCESS_ICONS = [
@@ -147,23 +156,23 @@ export default function ServicesPage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {([1, 2, 3, 4, 5, 6] as const).map((id, i) => (
-              <div
+              <Link
                 key={id}
-                id={`svc-${id}`}
+                href={`/services/${SVC_SLUGS[i]}`}
                 onMouseEnter={() => setHovered(i)}
                 onMouseLeave={() => setHovered(null)}
-                className={`rs d${(i % 2) + 2} group svc-premium relative flex flex-col h-full cursor-default scroll-mt-28`}
+                className={`rs d${(i % 3) + 1} group svc-premium relative flex flex-col h-full`}
               >
                 {/* Service number watermark */}
-                <div className="absolute top-8 right-10 font-serif text-[5rem] font-bold text-gray-50 leading-none select-none pointer-events-none transition-all duration-500 group-hover:text-[#155EEF]/5">
+                <div className="absolute top-8 right-8 font-serif text-[4rem] font-bold text-gray-50 leading-none select-none pointer-events-none transition-all duration-500 group-hover:text-[#155EEF]/5">
                   0{id}
                 </div>
 
                 {/* Icon + status badge */}
-                <div className="flex items-center justify-between mb-10 relative z-10">
-                  <div className="w-16 h-16 rounded-2xl bg-[#F9FAFB] group-hover:bg-[#155EEF] flex items-center justify-center text-[#0B1F3A] group-hover:text-white transition-all duration-500">
+                <div className="flex items-center justify-between mb-8 relative z-10">
+                  <div className="w-14 h-14 rounded-2xl bg-[#F9FAFB] group-hover:bg-[#155EEF] flex items-center justify-center text-[#0B1F3A] group-hover:text-white transition-all duration-500">
                     {SVC_ICONS[i]}
                   </div>
                   {SVC_STATUS[i] === 'live' && (
@@ -179,52 +188,27 @@ export default function ServicesPage() {
                   )}
                 </div>
 
+                {/* Category */}
+                <div className="text-[.62rem] font-black uppercase tracking-[.22em] text-[#155EEF] mb-3 relative z-10">
+                  {SVC_CATEGORY[i]}
+                </div>
+
                 {/* Title */}
-                <h3 className="font-serif text-2xl md:text-3xl text-[#0B1F3A] mb-5 leading-tight relative z-10">
+                <h3 className="font-serif text-xl md:text-2xl text-[#0B1F3A] mb-4 leading-tight relative z-10 group-hover:text-[#155EEF] transition-colors">
                   {t(`svc.${id}.title` as 'svc.1.title')}
                 </h3>
 
                 {/* Description */}
-                <p className="text-[#6B7280] text-base leading-relaxed mb-10 relative z-10">
+                <p className="text-[#6B7280] text-[.9rem] leading-relaxed mb-8 relative z-10">
                   {t(`svc.${id}.desc` as 'svc.1.desc')}
                 </p>
 
-                {/* Bullets */}
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6 mb-10 relative z-10">
-                  {SVC_BULLETS[i].map((b) => (
-                    <li key={b} className="flex items-center gap-3 text-[#6B7280] text-[.82rem] font-medium">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#155EEF] flex-shrink-0" />
-                      {b}
-                    </li>
-                  ))}
-                </ul>
-
-                {/* Trial highlight — NUVORA only */}
-                {SVC_STATUS[i] === 'live' && (
-                  <div className="mb-8 px-4 py-2.5 rounded-lg bg-green-50 border border-green-100 text-green-700 text-[.78rem] font-bold flex items-center gap-2 relative z-10 w-fit">
-                    <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V6m0 2v8m0 0v2m0-2c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                    {t('services_pg.trial')}
-                  </div>
-                )}
-
-                {/* CTA buttons */}
-                <div className="mt-auto pt-8 border-t border-gray-100 flex flex-wrap gap-4 relative z-10">
-                  <Link
-                    href="/contact"
-                    style={{ '--pixel-text-hover': '#155EEF' } as React.CSSProperties}
-                    className="btn-pixel-solid flex-1 min-w-[130px] text-center bg-[#0B1F3A] text-white px-6 py-3.5 rounded-full font-bold text-sm transition-colors duration-500"
-                  >
-                    <span className="relative z-10">{t('services_pg.portfolio.cta1')}</span>
-                  </Link>
-                  <Link
-                    href="/contact"
-                    style={{ '--pixel-color': '#155EEF' } as React.CSSProperties}
-                    className="btn-pixel-outline flex-1 min-w-[130px] text-center px-6 py-3.5 rounded-full font-bold text-sm !border-gray-200 transition-colors duration-500"
-                  >
-                    <span className="relative z-10">{t('services_pg.portfolio.cta2')}</span>
-                  </Link>
+                {/* View details */}
+                <div className="mt-auto pt-6 border-t border-gray-100 flex items-center gap-2 text-[.82rem] font-bold text-[#0B1F3A] group-hover:text-[#155EEF] transition-colors relative z-10">
+                  {t('services_pg.portfolio.cta1')}
+                  <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
