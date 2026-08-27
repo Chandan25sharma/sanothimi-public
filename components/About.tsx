@@ -46,7 +46,7 @@ export default function About() {
     },
   ];
 
-  const CERTS = ['NUVORA™', 'FinanceFlow', 'BizSuite', 'CloudSec Certified', 'SaaS Excellence'];
+  const CERTS = ['NUVORA™', 'FinanceFlow', 'BizSuite', 'SaaS Excellence'];
 
   useEffect(() => {
     const obs = new IntersectionObserver((entries) => {

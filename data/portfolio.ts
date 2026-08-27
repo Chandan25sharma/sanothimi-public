@@ -57,7 +57,7 @@ export const achievements: Achievement[] = [
   { id: 2, icon: '👥', year: '2023', title: '10,000+ Daily Active Users', description: 'Our platform ecosystem successfully supports over 10,000 teachers, students, and admins every single day.', metric: '📈 10K+ DAU' },
   { id: 3, icon: '💼', year: '2022', title: '500+ Businesses Empowered', description: 'Successfully implemented business tools and financial systems for over 500 SMEs across different sectors.', metric: '💰 500+ Clients' },
   { id: 4, icon: '🌍', year: '2023', title: 'National Digitization Award', description: 'Awarded for significant contribution to the digital transformation of rural and urban educational institutions.', metric: '🎖️ Excellence Award' },
-  { id: 5, icon: '🛡️', year: '2021', title: 'Data Security Certification', description: 'Achieved international standards for cloud data security and privacy protection for our SaaS infrastructure.', metric: '✅ ISO Certified' },
+  { id: 5, icon: '🛡️', year: '2021', title: 'Data Security Practices', description: 'Built administrative, technical, and organizational safeguards into our SaaS infrastructure from day one.', metric: '🔐 Security-First' },
   { id: 6, icon: '🚀', year: '2024', title: 'Silicon Valley Incubation', description: 'Selected for the regional tech acceleration program for high-growth potential SaaS startups.', metric: '🔥 High Growth' },
 ];
 

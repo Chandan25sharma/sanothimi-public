@@ -78,8 +78,8 @@ export const TRANSLATIONS = {
     'ach.3.metric': '💰 500+ Clients',
     'ach.4.title': 'National Digitization Award',
     'ach.4.metric': '🎖️ Excellence Award',
-    'ach.5.title': 'Data Security Certification',
-    'ach.5.metric': '✅ ISO Certified',
+    'ach.5.title': 'Data Security Practices',
+    'ach.5.metric': '🔐 Security-First',
     'ach.6.title': 'Silicon Valley Incubation',
     'ach.6.metric': '🔥 High Growth',
 
@@ -587,8 +587,8 @@ export const TRANSLATIONS = {
     'ach.3.metric': '💰 ५००+ ग्राहकहरू',
     'ach.4.title': 'राष्ट्रिय डिजिटलाइजेशन पुरस्कार',
     'ach.4.metric': '🎖️ उत्कृष्टता पुरस्कार',
-    'ach.5.title': 'डाटा सुरक्षा प्रमाणीकरण',
-    'ach.5.metric': '✅ ISO प्रमाणित',
+    'ach.5.title': 'डाटा सुरक्षा अभ्यास',
+    'ach.5.metric': '🔐 सुरक्षा-प्राथमिकता',
     'ach.6.title': 'सिलिकन भ्याली इन्क्युबेसन',
     'ach.6.metric': '🔥 उच्च वृद्धि',
 
