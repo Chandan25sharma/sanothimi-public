@@ -162,7 +162,7 @@ export default function SecurityPage() {
                   <p className="text-sm text-white/50 leading-relaxed">{t('legal.security.extract.desc')}</p>
                 </div>
                 <a
-                  href="mailto:security@sanothimi.com.np"
+                  href="mailto:info@sanothimi.com.np"
                   className="relative z-10 bg-[#155EEF] text-white px-10 py-5 rounded-2xl font-bold hover:bg-white hover:text-[#0B1F3A] transition-all duration-500 shadow-xl shadow-[#155EEF]/20 whitespace-nowrap"
                 >
                   {t('legal.security.extract.cta')}

@@ -19,3 +19,10 @@
  POST /api/contact 200 in 6ms (compile: 2ms, render: 4ms)
  POST /api/contact 200 in 6ms (compile: 3ms, render: 4ms)
 ✓ Compiled in 90ms
+ GET / 200 in 2.9s (compile: 2.4s, render: 548ms)
+✓ Compiled in 250ms
+✓ Compiled in 212ms
+✓ Compiled in 109ms
+✓ Compiled in 264ms
+✓ Compiled in 162ms
+✓ Compiled in 99ms
