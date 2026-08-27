@@ -169,7 +169,7 @@ export default function Footer() {
       <div className="bg-white border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-gray-400 text-[.78rem] font-medium text-center md:text-left">
-            &copy; {new Date().getFullYear()} Sanothimi Private Limited. {t('footer.rights')}
+            &copy; {new Date().getFullYear()} Sanothimi. {t('footer.rights')}
           </p>
           <div className="flex items-center gap-6">
             {LEGAL.map((l) => (

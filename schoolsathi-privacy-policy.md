@@ -7,7 +7,7 @@
 
 # PREAMBLE
 
-NUVORA ("we," "our," "us," or "the Company") is a school management software-as-a-service (SaaS) product developed and operated by **Sanothimi Private Limited**, a company registered under the laws of Nepal with registration number 294812/080/081, having its registered office at Sanothimi, Bhaktapur, Nepal.
+NUVORA ("we," "our," "us," or "the Company") is a school management software-as-a-service (SaaS) product developed and operated by **Sanothimi Private Limited**, a company registered under the laws of Nepal with  having its registered office at Sanothimi, Bhaktapur, Nepal.
 
 We are committed to protecting the privacy and security of all personal information entrusted to us by schools, staff, students, parents, and all other users of our platform. This Privacy Policy explains in detail how we collect, use, store, protect, share, and handle personal data when you use NUVORA.
 
@@ -563,4 +563,4 @@ Singha Durbar, Kathmandu, Nepal
 ---
 
 *This Privacy Policy was last reviewed by Sanothimi's legal team on April 21, 2026.*
-*Registration No: 294812/080/081 | PAN: 612345678 | VAT: 612345678*
+

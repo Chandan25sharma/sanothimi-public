@@ -35,9 +35,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap" rel="stylesheet" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-          '@context':'https://schema.org','@type':'Corporation',
-          name:'Sanothimi Private Limited',
-          alternateName: 'Sanothimi',
+          '@context':'https://schema.org','@type':'Organization',
+          name:'Sanothimi',
           url:'https://www.sanothimi.com',
           logo:'https://www.sanothimi.com/logo-full.png',
           contactPoint: {

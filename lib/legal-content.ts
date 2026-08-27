@@ -1,10 +1,17 @@
 // =========================================================================
 // Sanothimi legal content — company-wide documents.
 //
-// These documents govern Sanothimi Private Limited as a company and cover
-// all current and future SaaS products (NUVORA and others), not a single
-// product. Product-specific terms, if any, should be published as an
-// addendum layered on top of these documents rather than folded into them.
+// These documents govern "Sanothimi" — the software and technology services
+// operated by Chandan Sharma — and cover all current and future SaaS
+// products (NUVORA and others), not a single product. Product-specific
+// terms, if any, should be published as an addendum layered on top of these
+// documents rather than folded into them.
+//
+// IMPORTANT: Sanothimi is not currently a registered private limited
+// company. Do not describe it as "Sanothimi Private Limited" or attach a
+// company registration number anywhere in this file until incorporation is
+// actually complete and the registration number is confirmed. Update this
+// file (and the business identity in this comment) the moment that changes.
 //
 // NOTE: TERMS_NP and PRIVACY_NP are translated to match the current EN
 // content below. DPA, Cookie Policy and Security Policy are shipping
@@ -19,7 +26,7 @@ export const TERMS_EN = [
   {
     id: 'preamble',
     title: '1. Introduction',
-    content: `These Terms of Service ("Terms") are a legally binding agreement between Sanothimi Private Limited ("Sanothimi," "Company," "we," "us," or "our"), a company registered in Nepal under registration number 294812/080/081, and the person or organization accessing or using our websites, software, applications, APIs or services (the "Services," "Customer," "you," or "your").
+    content: `These Terms of Service ("Terms") are a legally binding agreement between you and "Sanothimi," which refers to the software and technology services operated by Chandan Sharma ("Sanothimi," "we," "us," or "our") based in Nepal, and the person or organization accessing or using our websites, software, applications, APIs or services (the "Services," "Customer," "you," or "your").
 
     By accessing or using a Sanothimi Service, creating an account, subscribing to a Service, signing an order form, or otherwise indicating acceptance, you agree to these Terms. If you are using a Service on behalf of an organization, you represent that you have the authority to bind that organization to these Terms.
 
@@ -166,7 +173,7 @@ export const TERMS_EN = [
   {
     id: 'part-22',
     title: '23. Termination',
-    content: `You may cancel your Subscription at any time in accordance with the cancellation process described for your Service or by contacting support@sanothimi.com.np. Sanothimi may terminate or decline to renew your access to a Service for material breach of these Terms, non-payment that remains unresolved after reasonable notice, or as otherwise permitted under an applicable Order Form.`
+    content: `You may cancel your Subscription at any time in accordance with the cancellation process described for your Service or by contacting support@sanothimi.com. Sanothimi may terminate or decline to renew your access to a Service for material breach of these Terms, non-payment that remains unresolved after reasonable notice, or as otherwise permitted under an applicable Order Form.`
   },
   {
     id: 'part-23',
@@ -216,7 +223,7 @@ export const TERMS_EN = [
   {
     id: 'part-32',
     title: '33. Notices',
-    content: `Legal notices to Sanothimi should be sent to legal@sanothimi.com.np or to our registered address at Sanothimi, Bhaktapur, Nepal. Notices to you may be sent to the email address associated with your Account or posted within the applicable Service.`
+    content: `Legal notices to Sanothimi should be sent to legal@sanothimi.com. Notices to you may be sent to the email address associated with your Account or posted within the applicable Service.`
   },
   {
     id: 'part-33',
@@ -226,11 +233,11 @@ export const TERMS_EN = [
   {
     id: 'part-34',
     title: '35. Contact',
-    content: `Sanothimi Private Limited
-    Sanothimi, Bhaktapur, Nepal
-    Registration No: 294812/080/081
-    Legal: legal@sanothimi.com.np
-    Support: support@sanothimi.com.np`
+    content: `Sanothimi
+    Operated by: Chandan Sharma
+    Nepal
+    Legal: legal@sanothimi.com
+    Support: support@sanothimi.com`
   },
 ];
 
@@ -238,9 +245,9 @@ export const TERMS_NP = [
   {
     id: 'preamble',
     title: '१. परिचय',
-    content: `यी सेवाका सर्तहरू ("सर्तहरू") सानोठिमी प्राइभेट लिमिटेड ("सानोठिमी," "कम्पनी," "हामी," "हाम्रो"), नेपालमा दर्ता नम्बर २९४८१२/०८०/०८१ मा दर्ता भएको, र हाम्रो वेबसाइट, सफ्टवेयर, एप्लिकेसन, API वा सेवाहरू प्रयोग गर्ने व्यक्ति वा संस्था ("सेवाहरू," "ग्राहक," "तपाईं") बीचको कानूनी रूपमा बाध्यकारी सम्झौता हो।
+    content: `यी सेवाका सर्तहरू ("सर्तहरू") तपाईं र "सानोठिमी" — चन्दन शर्माद्वारा सञ्चालित सफ्टवेयर तथा प्रविधि सेवा ("सानोठिमी," "हामी," "हाम्रो") — बीचको कानूनी रूपमा बाध्यकारी सम्झौता हो, र हाम्रो वेबसाइट, सफ्टवेयर, एप्लिकेसन, API वा सेवाहरू प्रयोग गर्ने व्यक्ति वा संस्था ("सेवाहरू," "ग्राहक," "तपाईं") बीचको सम्झौता हो।
 
-    कुनै सेवा प्रयोग गरेर, खाता खोलेर, वा सदस्यता लिएर, तपाईंले यी सर्तहरूमा सहमति जनाउनुहुन्छ। संस्थाको तर्फबाट प्रयोग गर्नुहुन्छ भने, तपाईंसँग त्यो संस्थालाई बाँध्ने अधिकार छ भन्ने तपाईंले प्रतिनिधित्व गर्नुहुन्छ।
+    कुनै सेवा प्रयोग गरेर, खाता खोलेर, वा सदस्यता लिएर, तपाईंले यी सर्तहरूमा सहमति जनाउनुहुन्छ। संस्थाको तर्फबाट प्रयोग गर्नुहुन्छ भने, तपाईंसँग त्यो संस्थालाई बाँध्ने অधिकার छ ভन्ने তपাঈंले प्रतिनिधित্ব গर्नुहुन्छ।
 
     यदि तपाईं यी सर्तहरूमा सहमत हुनुहुन्न भने, कृपया हाम्रा सेवाहरू प्रयोग नगर्नुहोस्।`
   },
@@ -319,7 +326,7 @@ export const TERMS_NP = [
   {
     id: 'part-14',
     title: '१५. बौद्धिक सम्पत्ति',
-    content: `सेवाको सफ्टवेयर, स्रोत कोड, डिजाइन, ट्रेडमार्क र कागजातमा सबै अधिकार सानोठिमी प्राइभेट लिमिटेडको हो। तपाईंले सेवा प्रयोग गरेर सिर्जना गरेको सामग्री र ग्राहक डाटाको स्वामित्व कायम राख्नुहुन्छ।`
+    content: `सेवाको सफ्टवेयर, स्रोत कोड, डिजाइन, ट्रेडमार्क र कागजातमा सबै अधिकार सानोठिमीको हो। तपाईंले सेवा प्रयोग गरेर सिर्जना गरेको सामग्री र ग्राहक डाटाको स्वामित्व कायम राख्नुहुन्छ।`
   },
   {
     id: 'part-15',
@@ -359,7 +366,7 @@ export const TERMS_NP = [
   {
     id: 'part-22',
     title: '२३. समाप्ति',
-    content: `तपाईंले support@sanothimi.com.np मार्फत सम्पर्क गरेर जुनसुकै बेला सदस्यता रद्द गर्न सक्नुहुन्छ। भौतिक उल्लङ्घन वा लामो समयसम्म भुक्तानी नभएमा सानोठिमीले सेवा समाप्त गर्न सक्छ।`
+    content: `तपाईंले support@sanothimi.com मार्फत सम्पर्क गरेर जुनसुकै बेला सदस्यता रद्द गर्न सक्नुहुन्छ। भौतिक उल्लङ्घन वा लामो समयसम्म भुक्तानी नभएमा सानोठिमीले सेवा समाप्त गर्न सक्छ।`
   },
   {
     id: 'part-23',
@@ -409,7 +416,7 @@ export const TERMS_NP = [
   {
     id: 'part-32',
     title: '३३. सूचना',
-    content: `सानोठिमीलाई कानूनी सूचना legal@sanothimi.com.np वा हाम्रो दर्ता ठेगाना सानोठिमी, भक्तपुर, नेपालमा पठाउनुपर्छ।`
+    content: `सानोठिमीलाई कानूनी सूचना legal@sanothimi.com वा हाम्रो दर्ता ठेगाना सानोठिमी, भक्तपुर, नेपालमा पठाउनुपर्छ।`
   },
   {
     id: 'part-33',
@@ -419,11 +426,11 @@ export const TERMS_NP = [
   {
     id: 'part-34',
     title: '३५. सम्पर्क',
-    content: `सानोठिमी प्राइभेट लिमिटेड
-    सानोठिमी, भक्तपुर, नेपाल
-    दर्ता नं: २९४८१२/०८०/०८१
-    कानूनी: legal@sanothimi.com.np
-    समर्थन: support@sanothimi.com.np`
+    content: `सानोठिमी
+    सञ्चालक: चन्दन शर्मा
+    नेपाल
+    कानूनी: legal@sanothimi.com
+    समर्थन: support@sanothimi.com`
   },
 ];
 
@@ -431,9 +438,9 @@ export const PRIVACY_EN = [
   {
     id: 'preamble',
     title: '1. Who We Are',
-    content: `Sanothimi Private Limited ("Sanothimi," "we," "us," or "our") is a Nepal-registered company that develops and operates software, SaaS products, websites, applications, APIs, and related technology services, including NUVORA. This Privacy Policy explains how we collect, use, share, and protect personal information across our Services.
+    content: `"Sanothimi" refers to the software and technology services operated by Chandan Sharma ("Sanothimi," "we," "us," or "our"), based in Nepal, developing and operating software, SaaS products, websites, applications, APIs, and related technology services, including NUVORA. This Privacy Policy explains how we collect, use, share, and protect personal information across our Services.
 
-    Sanothimi Private Limited, Sanothimi, Bhaktapur, Nepal — Registration No. 294812/080/081.`
+    Sanothimi, operated by Chandan Sharma, Nepal.`
   },
   {
     id: 'part-1',
@@ -495,7 +502,7 @@ export const PRIVACY_EN = [
   {
     id: 'part-12',
     title: '13. Subprocessors',
-    content: `Sanothimi engages third-party subprocessors to help provide the Services, such as cloud hosting and database providers. A current list of key subprocessors is available at /subprocessors, or on request to privacy@sanothimi.com.np.`
+    content: `Sanothimi engages third-party subprocessors to help provide the Services, such as cloud hosting and database providers. A current list of key subprocessors is available at /subprocessors, or on request to privacy@sanothimi.com.`
   },
   {
     id: 'part-13',
@@ -520,7 +527,7 @@ export const PRIVACY_EN = [
   {
     id: 'part-17',
     title: '18. Data Subject / Privacy Rights',
-    content: `Depending on your location and applicable law, you may have rights to: access the personal information we hold about you; request correction of inaccurate information; request deletion; restrict or object to certain processing; request portability of your data; and withdraw consent where processing is based on consent. To exercise these rights, contact privacy@sanothimi.com.np.`
+    content: `Depending on your location and applicable law, you may have rights to: access the personal information we hold about you; request correction of inaccurate information; request deletion; restrict or object to certain processing; request portability of your data; and withdraw consent where processing is based on consent. To exercise these rights, contact privacy@sanothimi.com.`
   },
   {
     id: 'part-18',
@@ -550,7 +557,7 @@ export const PRIVACY_EN = [
   {
     id: 'part-23',
     title: '24. Complaints',
-    content: `If you have a concern about how we handle personal information, please contact privacy@sanothimi.com.np first so we can try to resolve it. Where applicable law provides a right to lodge a complaint with a supervisory or regulatory authority, you may also do so.`
+    content: `If you have a concern about how we handle personal information, please contact privacy@sanothimi.com first so we can try to resolve it. Where applicable law provides a right to lodge a complaint with a supervisory or regulatory authority, you may also do so.`
   },
   {
     id: 'part-24',
@@ -560,10 +567,11 @@ export const PRIVACY_EN = [
   {
     id: 'part-25',
     title: '26. Contact',
-    content: `Sanothimi Private Limited
-    Sanothimi, Bhaktapur, Nepal
-    Privacy: privacy@sanothimi.com.np
-    Legal: legal@sanothimi.com.np`
+    content: `Sanothimi
+    Operated by: Chandan Sharma
+    Nepal
+    Privacy: privacy@sanothimi.com
+    Legal: legal@sanothimi.com`
   },
 ];
 
@@ -571,9 +579,9 @@ export const PRIVACY_NP = [
   {
     id: 'preamble',
     title: '१. हामी को हौं',
-    content: `सानोठिमी प्राइभेट लिमिटेड ("सानोठिमी," "हामी," "हाम्रो") नेपालमा दर्ता भएको कम्पनी हो, जसले NUVORA लगायत सफ्टवेयर, साास उत्पादन, वेबसाइट, एप्लिकेसन र सम्बन्धित प्राविधिक सेवाहरू विकास र सञ्चालन गर्दछ। यो गोपनीयता नीतिले हाम्रो सेवाहरू मार्फत व्यक्तिगत जानकारी कसरी सङ्कलन, प्रयोग, साझेदारी र सुरक्षित गरिन्छ भन्ने कुरा वर्णन गर्दछ।
+    content: `"सानोठिमी" ले चन्दन शर्माद्वारा सञ्चालित सफ्टवेयर तथा प्रविधि सेवालाई जनाउँछ ("सानोठिमी," "हामी," "हाम्रो"), नेपालमा आधारित, जसले NUVORA लगायत सफ्टवेयर, साास उत्पादन, वेबसाइट, एप्लिकेसन र सम्बन्धित प्राविधिक सेवाहरू विकास र सञ्चालन गर्दछ। यो गोपनीयता नीतिले हाम्रो सेवाहरू मार्फत व्यक्तिगत जानकारी कसरी सङ्कलन, प्रयोग, साझेदारी र सुरक्षित गरिन्छ भन्ने कुरा वर्णन गर्दछ।
 
-    सानोठिमी प्राइभेट लिमिटेड, सानोठिमी, भक्तपुर, नेपाल — दर्ता नं. २९४८१२/०८०/०८१।`
+    सानोठिमी, सञ्चालक: चन्दन शर्मा, नेपाल।`
   },
   {
     id: 'part-1',
@@ -635,7 +643,7 @@ export const PRIVACY_NP = [
   {
     id: 'part-12',
     title: '१३. सबप्रोसेसरहरू',
-    content: `सानोठिमीले सेवा प्रदान गर्न तेस्रो-पक्ष सबप्रोसेसरहरू (जस्तै क्लाउड होस्टिङ) प्रयोग गर्दछ। हालको सूची /subprocessors मा वा privacy@sanothimi.com.np मा अनुरोध गरेर उपलब्ध छ।`
+    content: `सानोठिमीले सेवा प्रदान गर्न तेस्रो-पक्ष सबप्रोसेसरहरू (जस्तै क्लाउड होस्टिङ) प्रयोग गर्दछ। हालको सूची /subprocessors मा वा privacy@sanothimi.com मा अनुरोध गरेर उपलब्ध छ।`
   },
   {
     id: 'part-13',
@@ -660,7 +668,7 @@ export const PRIVACY_NP = [
   {
     id: 'part-17',
     title: '१८. गोपनीयता अधिकार',
-    content: `लागू कानून अनुसार, तपाईंसँग आफ्नो जानकारीमा पहुँच, सच्याउने, मेटाउने, प्रतिबन्ध लगाउने, र पोर्टेबिलिटीको अधिकार हुन सक्छ। यी अधिकार प्रयोग गर्न privacy@sanothimi.com.np मा सम्पर्क गर्नुहोस्।`
+    content: `लागू कानून अनुसार, तपाईंसँग आफ्नो जानकारीमा पहुँच, सच्याउने, मेटाउने, प्रतिबन्ध लगाउने, र पोर्टेबिलिटीको अधिकार हुन सक्छ। यी अधिकार प्रयोग गर्न privacy@sanothimi.com मा सम्पर्क गर्नुहोस्।`
   },
   {
     id: 'part-18',
@@ -690,7 +698,7 @@ export const PRIVACY_NP = [
   {
     id: 'part-23',
     title: '२४. उजुरी',
-    content: `हामीले व्यक्तिगत जानकारी कसरी व्यवस्थापन गर्छौं भन्नेबारे कुनै चिन्ता भएमा कृपया privacy@sanothimi.com.np मा सम्पर्क गर्नुहोस्।`
+    content: `हामीले व्यक्तिगत जानकारी कसरी व्यवस्थापन गर्छौं भन्नेबारे कुनै चिन्ता भएमा कृपया privacy@sanothimi.com मा सम्पर्क गर्नुहोस्।`
   },
   {
     id: 'part-24',
@@ -700,10 +708,11 @@ export const PRIVACY_NP = [
   {
     id: 'part-25',
     title: '२६. सम्पर्क',
-    content: `सानोठिमी प्राइभेट लिमिटेड
-    सानोठिमी, भक्तपुर, नेपाल
-    गोपनीयता: privacy@sanothimi.com.np
-    कानूनी: legal@sanothimi.com.np`
+    content: `सानोठिमी
+    सञ्चालक: चन्दन शर्मा
+    नेपाल
+    गोपनीयता: privacy@sanothimi.com
+    कानूनी: legal@sanothimi.com`
   },
 ];
 
@@ -715,7 +724,7 @@ export const DPA_EN = [
   {
     id: 'preamble',
     title: '1. Parties and Purpose',
-    content: `This Data Processing Agreement ("DPA") forms part of the agreement between Sanothimi Private Limited ("Sanothimi," "Processor") and the customer identified in the applicable Order Form ("Customer," "Controller"), and governs the processing of personal data by Sanothimi on Customer's behalf in connection with the Services.
+    content: `This Data Processing Agreement ("DPA") forms part of the agreement between "Sanothimi" — the software and technology services operated by Chandan Sharma ("Sanothimi," "Processor") — and the customer identified in the applicable Order Form ("Customer," "Controller"), and governs the processing of personal data by Sanothimi on Customer's behalf in connection with the Services.
 
     Where the main Terms of Service and this DPA conflict with respect to the processing of personal data, this DPA controls to the extent of that conflict.`
   },
@@ -804,7 +813,7 @@ export const COOKIES_EN = [
   {
     id: 'preamble',
     title: '1. What Are Cookies?',
-    content: `Cookies are small text files placed on your device when you visit a website, along with similar technologies such as local storage. This Cookie Policy explains how Sanothimi Private Limited uses cookies and similar technologies on its websites and Services, and how you can manage your preferences.`
+    content: `Cookies are small text files placed on your device when you visit a website, along with similar technologies such as local storage. This Cookie Policy explains how Sanothimi — the software and technology services operated by Chandan Sharma — uses cookies and similar technologies on its websites and Services, and how you can manage your preferences.`
   },
   {
     id: 'part-1',
@@ -854,9 +863,10 @@ export const COOKIES_EN = [
   {
     id: 'part-10',
     title: '11. Contact',
-    content: `Sanothimi Private Limited
-    Sanothimi, Bhaktapur, Nepal
-    Privacy: privacy@sanothimi.com.np`
+    content: `Sanothimi
+    Operated by: Chandan Sharma
+    Nepal
+    Privacy: privacy@sanothimi.com`
   },
 ];
 
@@ -868,7 +878,7 @@ export const SECURITY_EN = [
   {
     id: 'preamble',
     title: '1. Security Commitment',
-    content: `Security is a fundamental part of how Sanothimi Private Limited designs, operates, and maintains its products and services. This Security Policy describes the practices we apply to protect the systems, applications, and customer information entrusted to us. It is intended to build customer trust and is not itself a contractual SLA unless referenced as such in an applicable Order Form.`
+    content: `Security is a fundamental part of how Sanothimi — the software and technology services operated by Chandan Sharma — designs, operates, and maintains its products and services. This Security Policy describes the practices we apply to protect the systems, applications, and customer information entrusted to us. It is intended to build customer trust and is not itself a contractual SLA unless referenced as such in an applicable Order Form.`
   },
   {
     id: 'part-1',
@@ -954,7 +964,7 @@ export const SECURITY_EN = [
     id: 'part-17',
     title: '18. Security Contact',
     content: `To report a suspected security vulnerability or incident, contact:
-    security@sanothimi.com.np`
+    security@sanothimi.com`
   },
 ];
 

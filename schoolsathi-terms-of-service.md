@@ -7,7 +7,7 @@
 
 # PREAMBLE
 
-These Terms of Service ("Terms," "Agreement") constitute a legally binding contract between **Sanothimi Private Limited** ("Company," "we," "us," "our"), registered in Nepal with registration number 294812/080/081, and the educational institution ("School," "Client," "you") that subscribes to and uses the NUVORA software platform.
+These Terms of Service ("Terms," "Agreement") constitute a legally binding contract between **Sanothimi Private Limited** ("Company," "we," "us," "our"), registered in Nepal with registration  and the educational institution ("School," "Client," "you") that subscribes to and uses the NUVORA software platform.
 
 NUVORA is a cloud-based school management software (SaaS) designed specifically for schools and educational institutions in Nepal. It provides features including student management, fee collection, examination management, staff HR, transport management, and financial accounting.
 

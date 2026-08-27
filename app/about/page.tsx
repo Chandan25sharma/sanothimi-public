@@ -46,7 +46,7 @@ function useCounter(target: number, delay = 0) {
 }
 
 const MILESTONES = [
-  { year: '2025', title: 'Company Founded', desc: 'Sanothimi Private Limited was incorporated in Bhaktapur with a mission to digitize Nepal\'s institutions through world-class SaaS.' },
+  { year: '2025', title: 'Sanothimi Founded', desc: 'Sanothimi was founded in Bhaktapur with a mission to digitize Nepal\'s institutions through world-class SaaS.' },
   { year: '2025', title: 'NUVORA Launch', desc: 'Released our flagship educational ERP to 5 pioneering schools — automating admissions, fee management, and attendance.' },
   { year: '2025', title: 'Financial Suite', desc: 'Expanded into cloud-based, VAT-compliant accounting solutions purpose-built for enterprises and SMEs across Nepal.' },
   { year: '2026', title: 'Enterprise Scale', desc: 'Onboarded 25+ institutions and introduced Business Intelligence dashboards with real-time KPI monitoring.' },
