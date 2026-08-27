@@ -127,6 +127,11 @@ ${form.notes || '—'}`,
     }
   };
 
+  const inputClass = (error?: boolean) =>
+    `w-full bg-transparent border-b ${
+      error ? 'border-red-400' : 'border-[#0B1F3A]/15'
+    } px-0 py-4 text-[#0B1F3A] text-[.92rem] font-medium outline-none transition-all placeholder:text-[#64748B]/50 focus:border-[#14532D]`;
+
   return (
     <main className="bg-white">
 
@@ -518,207 +523,231 @@ ${form.notes || '—'}`,
                 FORM
             =================================================== */}
 
-          <div>
-  {status === 'sent' ? (
-    <div className="text-center py-24 border border-gray-100 rounded-[2rem] bg-[#F8FAFC]">
-      <div className="w-16 h-16 bg-[#12B76A] text-white rounded-full flex items-center justify-center mx-auto mb-8">
-        <svg
-          className="w-8 h-8"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          strokeWidth="3"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M5 13l4 4L19 7"
-          />
-        </svg>
-      </div>
+            <div>
 
-      <div className="text-[#14532D] text-[.58rem] font-black uppercase tracking-[.3em] mb-4">
-        Request Received
-      </div>
+              {status === 'sent' ? (
 
-      <h3 className="font-serif text-2xl md:text-3xl text-[#0B1F3A] mb-3">
-        We&apos;ll take it from here.
-      </h3>
+                <div className="py-20 border-t border-b border-[#0B1F3A]/10">
 
-      <p className="text-[#6B7280] max-w-sm mx-auto leading-relaxed">
-        Our team will reach out within 24 hours to arrange your personalized
-        walkthrough.
-      </p>
-    </div>
-  ) : (
-    <form onSubmit={submit} noValidate className="space-y-7">
+                  <div className="w-16 h-16 rounded-full bg-[#14532D] text-white flex items-center justify-center mb-8">
+                    <svg
+                      className="w-7 h-7"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      strokeWidth="2.5"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                  </div>
 
-      {/* Name + Phone */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-7">
-        <div>
-          <label className="block text-[.7rem] font-bold text-[#0B1F3A] mb-2">
-            Full Name*
-          </label>
+                  <h3 className="font-serif text-4xl text-[#0B1F3A] mb-4">
+                    Request received.
+                  </h3>
 
-          <input
-            type="text"
-            value={form.name}
-            onChange={set('name')}
-            placeholder="Your name"
-            className={`w-full bg-transparent border-b ${
-              errors.name ? 'border-red-400' : 'border-gray-200'
-            } py-2.5 text-[#0B1F3A] text-sm outline-none transition-colors placeholder:text-gray-400 focus:border-[#155EEF]`}
-          />
+                  <p className="text-[#64748B] max-w-lg leading-relaxed">
+                    Our team will reach out within 24 hours to arrange your
+                    personalized walkthrough.
+                  </p>
 
-          {errors.name && (
-            <p className="mt-1.5 text-[.7rem] text-red-500 font-medium">
-              Please enter your name.
-            </p>
-          )}
-        </div>
+                </div>
 
-        <div>
-          <label className="block text-[.7rem] font-bold text-[#0B1F3A] mb-2">
-            Phone
-          </label>
+              ) : (
 
-          <input
-            type="tel"
-            value={form.phone}
-            onChange={set('phone')}
-            placeholder="+977 ..."
-            className="w-full bg-transparent border-b border-gray-200 py-2.5 text-[#0B1F3A] text-sm outline-none transition-colors placeholder:text-gray-400 focus:border-[#155EEF]"
-          />
-        </div>
-      </div>
+                <form
+                  onSubmit={submit}
+                  noValidate
+                  className="border-t border-[#0B1F3A]/15"
+                >
 
-      {/* Email */}
-      <div>
-        <label className="block text-[.7rem] font-bold text-[#0B1F3A] mb-2">
-          Work Email*
-        </label>
+                  {/* Personal */}
+                  <div className="py-10">
 
-        <input
-          type="email"
-          value={form.email}
-          onChange={set('email')}
-          placeholder="you@organization.com"
-          className={`w-full bg-transparent border-b ${
-            errors.email ? 'border-red-400' : 'border-gray-200'
-          } py-2.5 text-[#0B1F3A] text-sm outline-none transition-colors placeholder:text-gray-400 focus:border-[#155EEF]`}
-        />
+                    <div className="text-[.62rem] font-black uppercase tracking-[.3em] text-[#14532D] mb-7">
+                      01 — Your Details
+                    </div>
 
-        {errors.email && (
-          <p className="mt-1.5 text-[.7rem] text-red-500 font-medium">
-            Please enter a valid email.
-          </p>
-        )}
-      </div>
+                    <div className="grid md:grid-cols-2 gap-8">
 
-      {/* Organization */}
-      <div>
-        <label className="block text-[.7rem] font-bold text-[#0B1F3A] mb-2">
-          Organization*
-        </label>
+                      <div>
+                        <label className="block text-[.68rem] font-bold uppercase tracking-[.15em] text-[#0B1F3A]/60 mb-1">
+                          Full Name *
+                        </label>
 
-        <input
-          type="text"
-          value={form.org}
-          onChange={set('org')}
-          placeholder="Institution or company name"
-          className={`w-full bg-transparent border-b ${
-            errors.org ? 'border-red-400' : 'border-gray-200'
-          } py-2.5 text-[#0B1F3A] text-sm outline-none transition-colors placeholder:text-gray-400 focus:border-[#155EEF]`}
-        />
+                        <input
+                          type="text"
+                          value={form.name}
+                          onChange={set('name')}
+                          placeholder="Your full name"
+                          className={inputClass(errors.name)}
+                        />
 
-        {errors.org && (
-          <p className="mt-1.5 text-[.7rem] text-red-500 font-medium">
-            Please enter your organization.
-          </p>
-        )}
-      </div>
+                        {errors.name && (
+                          <p className="mt-2 text-xs text-red-500">
+                            Please enter your name.
+                          </p>
+                        )}
+                      </div>
 
-      {/* Organization Type */}
-      <div>
-        <label className="block text-[.7rem] font-bold text-[#0B1F3A] mb-2">
-          Organization Type
-        </label>
+                      <div>
+                        <label className="block text-[.68rem] font-bold uppercase tracking-[.15em] text-[#0B1F3A]/60 mb-1">
+                          Phone
+                        </label>
 
-        <select
-          value={form.type}
-          onChange={set('type')}
-          className="w-full bg-transparent border-b border-gray-200 py-2.5 text-[#0B1F3A] text-sm outline-none transition-colors focus:border-[#155EEF] appearance-none"
-        >
-          {INSTITUTION_TYPES.map((opt) => (
-            <option key={opt} value={opt}>
-              {opt}
-            </option>
-          ))}
-        </select>
-      </div>
+                        <input
+                          type="tel"
+                          value={form.phone}
+                          onChange={set('phone')}
+                          placeholder="+977 ..."
+                          className={inputClass()}
+                        />
+                      </div>
 
-      {/* Notes */}
-      <div>
-        <label className="block text-[.7rem] font-bold text-[#0B1F3A] mb-2">
-          What should we cover?
-        </label>
+                    </div>
 
-        <textarea
-          rows={5}
-          value={form.notes}
-          onChange={set('notes')}
-          placeholder="Tell us what you would like to see..."
-          className="w-full bg-transparent border-b border-gray-200 py-2.5 text-[#0B1F3A] text-sm outline-none transition-colors placeholder:text-gray-400 focus:border-[#155EEF] resize-none"
-        />
-      </div>
+                  </div>
 
-      {/* Submit */}
-      <button
-        type="submit"
-        disabled={status === 'sending'}
-        style={
-          {
-            '--pixel-color': '#0B1F3A',
-            '--pixel-text-hover': '#fff',
-          } as React.CSSProperties
-        }
-        className="btn-pixel-solid inline-flex items-center gap-3 bg-[#12B76A] text-white px-9 py-4 rounded-full font-bold text-sm transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
-      >
-        <span className="relative z-10">
-          {status === 'sending' ? 'Sending…' : 'Request Your Demo'}
-        </span>
+                  {/* Organization */}
+                  <div className="py-10 border-t border-[#0B1F3A]/10">
 
-        {status !== 'sending' && (
-          <svg
-            className="w-4 h-4 relative z-10"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            strokeWidth="2.5"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M17 8l4 4m0 0l-4 4m4-4H3"
-            />
-          </svg>
-        )}
-      </button>
+                    <div className="text-[.62rem] font-black uppercase tracking-[.3em] text-[#14532D] mb-7">
+                      02 — Organization Details
+                    </div>
 
-      {/* Privacy */}
-      <p className="text-[#6B7280] text-[.75rem] leading-relaxed max-w-lg">
-        Your information stays private and is only used to respond to your
-        request.{' '}
-        <a
-          href="/privacy"
-          className="underline hover:text-[#0B1F3A] transition-colors"
-        >
-          Privacy Policy
-        </a>
-      </p>
-    </form>
-  )}
-</div>
+                    <div className="space-y-8">
+
+                      <div>
+                        <label className="block text-[.68rem] font-bold uppercase tracking-[.15em] text-[#0B1F3A]/60 mb-1">
+                          Organization *
+                        </label>
+
+                        <input
+                          type="text"
+                          value={form.org}
+                          onChange={set('org')}
+                          placeholder="Institution or company name"
+                          className={inputClass(errors.org)}
+                        />
+
+                        {errors.org && (
+                          <p className="mt-2 text-xs text-red-500">
+                            Please enter your organization.
+                          </p>
+                        )}
+                      </div>
+
+
+                      <div className="grid md:grid-cols-2 gap-8">
+
+                        <div>
+                          <label className="block text-[.68rem] font-bold uppercase tracking-[.15em] text-[#0B1F3A]/60 mb-1">
+                            Work Email *
+                          </label>
+
+                          <input
+                            type="email"
+                            value={form.email}
+                            onChange={set('email')}
+                            placeholder="you@organization.com"
+                            className={inputClass(errors.email)}
+                          />
+
+                          {errors.email && (
+                            <p className="mt-2 text-xs text-red-500">
+                              Please enter a valid email.
+                            </p>
+                          )}
+                        </div>
+
+                        <div>
+                          <label className="block text-[.68rem] font-bold uppercase tracking-[.15em] text-[#0B1F3A]/60 mb-1">
+                            Organization Type
+                          </label>
+
+                          <select
+                            value={form.type}
+                            onChange={set('type')}
+                            className={`${inputClass()} appearance-none cursor-pointer`}
+                          >
+                            {INSTITUTION_TYPES.map((opt) => (
+                              <option key={opt} value={opt}>
+                                {opt}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+
+                  {/* What to cover */}
+                  <div className="py-10 border-t border-[#0B1F3A]/10">
+
+                    <div className="text-[.62rem] font-black uppercase tracking-[.3em] text-[#14532D] mb-7">
+                      03 — What to Cover
+                    </div>
+
+                    <label className="block text-[.68rem] font-bold uppercase tracking-[.15em] text-[#0B1F3A]/60 mb-1">
+                      What should we cover?
+                    </label>
+
+                    <textarea
+                      rows={5}
+                      value={form.notes}
+                      onChange={set('notes')}
+                      placeholder="Tell us what you would like to see..."
+                      className={`${inputClass()} resize-none`}
+                    />
+
+                  </div>
+
+
+                  {/* Submit */}
+                  <div className="pt-8 flex flex-col sm:flex-row sm:items-center gap-6">
+
+                    <button
+                      type="submit"
+                      disabled={status === 'sending'}
+                      className="inline-flex items-center justify-center gap-3 bg-[#14532D] text-white px-9 py-4 rounded-full font-bold text-sm hover:bg-[#0B3B20] transition-all hover:-translate-y-0.5 disabled:opacity-50"
+                    >
+                      {status === 'sending'
+                        ? 'Sending…'
+                        : 'Request Your Demo'}
+
+                      {status !== 'sending' && (
+                        <svg
+                          className="w-4 h-4"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          strokeWidth="2.5"
+                        >
+                          <path d="M5 12h14m-6-6 6 6-6 6" />
+                        </svg>
+                      )}
+                    </button>
+
+                    <p className="text-xs text-[#64748B] max-w-xs leading-relaxed">
+                      Your information stays private and is only used to
+                      respond to your request.
+                    </p>
+
+                  </div>
+
+                </form>
+
+              )}
+
+            </div>
+
           </div>
 
         </div>
