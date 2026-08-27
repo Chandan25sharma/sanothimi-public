@@ -1,0 +1,20 @@
+
+> ca-portfolio@0.1.0 dev
+> next dev -p 3100 -p 3100
+
+▲ Next.js 16.1.6 (Turbopack)
+- Local:         http://localhost:3100
+- Network:       http://172.16.3.199:3100
+- Environments: .env.local
+
+✓ Starting...
+✓ Ready in 1421ms
+ GET /terms 200 in 3.1s (compile: 2.8s, render: 289ms)
+ GET /privacy 200 in 419ms (compile: 372ms, render: 47ms)
+ GET /dpa 200 in 366ms (compile: 323ms, render: 43ms)
+ GET /cookies 200 in 379ms (compile: 338ms, render: 41ms)
+ GET /security 200 in 327ms (compile: 284ms, render: 43ms)
+ POST /api/contact 200 in 554ms (compile: 541ms, render: 13ms)
+ POST /api/contact 200 in 7ms (compile: 2ms, render: 4ms)
+ POST /api/contact 200 in 6ms (compile: 2ms, render: 4ms)
+ POST /api/contact 200 in 6ms (compile: 3ms, render: 4ms)

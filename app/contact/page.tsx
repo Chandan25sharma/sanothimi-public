@@ -140,6 +140,7 @@ export default function ContactPage() {
     lname: '',
     email: '',
     msg: '',
+    consent: false,
   });
 
   const [status, setStatus] = useState<
@@ -157,9 +158,11 @@ export default function ContactPage() {
   const set = (key: keyof typeof form) => (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
+    const val = e.target.type === 'checkbox' ? (e.target as HTMLInputElement).checked : e.target.value;
+
     setForm((prev) => ({
       ...prev,
-      [key]: e.target.value,
+      [key]: val,
     }));
 
     setErrors((prev) => ({
@@ -188,6 +191,10 @@ export default function ContactPage() {
       err.msg = true;
     }
 
+    if (!form.consent) {
+      err.consent = true;
+    }
+
     if (Object.keys(err).length) {
       setErrors(err);
       return;
@@ -211,6 +218,7 @@ export default function ContactPage() {
         lname: '',
         email: '',
         msg: '',
+        consent: false,
       });
 
       setTimeout(() => {
@@ -647,22 +655,7 @@ export default function ContactPage() {
               value={form.lname}
               onChange={set('lname')}
               placeholder="Last name"
-              className="
-                w-full
-                h-12
-                bg-transparent
-                border-0
-                border-b
-                border-gray-200
-                px-0
-                text-[#0B1F3A]
-                text-sm
-                font-medium
-                outline-none
-                placeholder:text-[#CBD5E1]
-                focus:border-green-800
-                transition-colors
-              "
+              className="w-full h-12 bg-transparent border-0 border-b border-gray-200 px-0 text-[#0B1F3A] text-sm font-medium outline-none placeholder:text-[#CBD5E1] focus:border-green-800 transition-colors"
             />
 
           </div>
@@ -782,27 +775,7 @@ export default function ContactPage() {
           <button
             type="submit"
             disabled={status === 'sending'}
-            className="
-              group
-              inline-flex
-              items-center
-              justify-center
-              gap-4
-              h-14
-              px-8
-              bg-[#0B1F3A]
-              text-white
-              rounded-full
-              font-black
-              uppercase
-              tracking-[.18em]
-              text-[.65rem]
-              hover:bg-green-800
-              transition-all
-              duration-300
-              disabled:opacity-50
-              disabled:cursor-not-allowed
-            "
+            className="group inline-flex items-center justify-center gap-4 h-14 px-8 bg-[#0B1F3A] text-white rounded-full font-black uppercase tracking-[.18em] text-[.65rem] hover:bg-green-800 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
           >
 
             {status === 'sending' ? (
@@ -886,19 +859,34 @@ export default function ContactPage() {
 
         <div className="mt-8 pt-6 border-t border-gray-100">
 
-          <p className="text-[.65rem] text-[#94A3B8] leading-relaxed">
-
-            Your information stays private and secure.
-            {' '}
-
-            <Link
-              href="/privacy"
-              className="text-[#0B1F3A] underline underline-offset-2 hover:text-green-800 transition-colors"
-            >
-              Privacy Policy
-            </Link>
-
-          </p>
+          <label className="flex items-start gap-3 text-[.8rem] text-[#64748B] cursor-pointer">
+            <input
+              type="checkbox"
+              checked={form.consent}
+              onChange={set('consent')}
+              className={`mt-0.5 accent-green-800 ${errors.consent ? 'outline outline-2 outline-red-400 rounded' : ''}`}
+            />
+            <span>
+              I agree to the{' '}
+              <Link
+                href="/terms"
+                className="text-[#0B1F3A] underline underline-offset-2 hover:text-green-800 transition-colors"
+              >
+                Terms & Conditions
+              </Link>
+              {' '}and{' '}
+              <Link
+                href="/privacy"
+                className="text-[#0B1F3A] underline underline-offset-2 hover:text-green-800 transition-colors"
+              >
+                Privacy Policy
+              </Link>
+              {' '}and consent to being contacted about my message.
+            </span>
+          </label>
+          {errors.consent && (
+            <p className="mt-2 text-[.7rem] text-red-500 font-medium">Please accept the Privacy Policy to continue.</p>
+          )}
 
         </div>
 
@@ -1189,21 +1177,7 @@ export default function ContactPage() {
 
             <a
               href="mailto:info@sanothimi.com"
-              className="
-                inline-flex
-                items-center
-                gap-3
-                bg-[#0B1F3A]
-                text-white
-                px-7
-                py-3.5
-                rounded-full
-                text-sm
-                font-bold
-                hover:bg-green-800
-                transition-all
-                duration-300
-              "
+              className="inline-flex items-center gap-3 bg-[#0B1F3A] text-white px-7 py-3.5 rounded-full text-sm font-bold hover:bg-green-800 transition-all duration-300"
             >
 
               Email us directly

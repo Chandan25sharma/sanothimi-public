@@ -133,65 +133,23 @@ export default function AboutPage() {
   >
 
     <Mandala
-      className="
-        absolute
-        -top-20
-        -right-20
-        w-[520px]
-        h-[520px]
-        text-[#0B1F3A]
-        opacity-[0.06]
-      "
+      className="absolute -top-20 -right-20 w-[520px] h-[520px] text-[#0B1F3A] opacity-[0.06]"
     />
 
     <NepalSun
-      className="
-        absolute
-        bottom-10
-        -left-16
-        w-[300px]
-        h-[300px]
-        text-[#155EEF]
-        opacity-[0.05]
-      "
+      className="absolute bottom-10 -left-16 w-[300px] h-[300px] text-[#155EEF] opacity-[0.05]"
     />
 
     <div
-      className="
-        absolute
-        top-1/2
-        -translate-y-1/2
-        left-1/3
-        w-[600px]
-        h-[600px]
-        rounded-full
-        border
-        border-[#0B1F3A]/[0.04]
-      "
+      className="absolute top-1/2 -translate-y-1/2 left-1/3 w-[600px] h-[600px] rounded-full border border-[#0B1F3A]/[0.04]"
     />
 
     <div
-      className="
-        absolute
-        top-0
-        right-0
-        w-96
-        h-96
-        rounded-full
-        bg-[#0B1F3A]/[0.025]
-        blur-[120px]
-      "
+      className="absolute top-0 right-0 w-96 h-96 rounded-full bg-[#0B1F3A]/[0.025] blur-[120px]"
     />
 
     <Himalaya
-      className="
-        absolute
-        bottom-0
-        left-0
-        w-full
-        text-[#0B1F3A]
-        opacity-[0.04]
-      "
+      className="absolute bottom-0 left-0 w-full text-[#0B1F3A] opacity-[0.04]"
     />
 
   </div>
@@ -211,14 +169,7 @@ export default function AboutPage() {
 
         {/* Kicker */}
         <div
-          className="
-            text-[#155EEF]
-            text-[.7rem]
-            font-black
-            uppercase
-            tracking-[.3em]
-            mb-6
-          "
+          className="text-[#155EEF] text-[.7rem] font-black uppercase tracking-[.3em] mb-6"
         >
           {t('about_pg.mission.kicker')}
         </div>
@@ -226,16 +177,7 @@ export default function AboutPage() {
 
         {/* Title */}
         <h1
-          className="
-            font-serif
-            text-[2.2rem]
-            sm:text-5xl
-            md:text-5xl
-            text-[#0B1F3A]
-            leading-[1.1]
-            tracking-tight
-            mb-8
-          "
+          className="font-serif text-[2.2rem] sm:text-5xl md:text-5xl text-[#0B1F3A] leading-[1.1] tracking-tight mb-8"
         >
           {t('about_pg.mission.title1')}
           <br />
@@ -244,15 +186,7 @@ export default function AboutPage() {
             {t('about_pg.mission.title2')}
 
             <span
-              className="
-                absolute
-                left-0
-                -bottom-1
-                w-full
-                h-[3px]
-                bg-green-500
-                rounded-full
-              "
+              className="absolute left-0 -bottom-1 w-full h-[3px] bg-green-500 rounded-full"
             />
           </span>
         </h1>
@@ -260,14 +194,7 @@ export default function AboutPage() {
 
         {/* Description */}
         <p
-          className="
-            text-gray-500
-            text-lg
-            md:text-xl
-            max-w-2xl
-            leading-relaxed
-            mt-10
-          "
+          className="text-gray-500 text-lg md:text-xl max-w-2xl leading-relaxed mt-10"
         >
           Nepal&apos;s premier SaaS engineering hub — digitizing institutions
           with enterprise-grade cloud infrastructure and human-centred design.
@@ -276,16 +203,7 @@ export default function AboutPage() {
 
         {/* Quick stats ribbon */}
         <div
-          className="
-            mt-16
-            flex
-            flex-wrap
-            gap-x-16
-            gap-y-6
-            pt-10
-            border-t
-            border-gray-100
-          "
+          className="mt-16 flex flex-wrap gap-x-16 gap-y-6 pt-10 border-t border-gray-100"
         >
 
           {[
@@ -299,24 +217,13 @@ export default function AboutPage() {
               className="flex items-baseline gap-2"
             >
               <span
-                className="
-                  font-serif
-                  text-3xl
-                  font-bold
-                  text-[#0B1F3A]
-                "
+                className="font-serif text-3xl font-bold text-[#0B1F3A]"
               >
                 {s.val}
               </span>
 
               <span
-                className="
-                  text-[.6rem]
-                  font-black
-                  uppercase
-                  tracking-[.25em]
-                  text-gray-400
-                "
+                className="text-[.6rem] font-black uppercase tracking-[.25em] text-gray-400"
               >
                 {s.label}
               </span>
@@ -333,31 +240,13 @@ export default function AboutPage() {
           RIGHT — TRANSPARENT IMAGE
           ===================================================== */}
       <div
-        className="
-          relative
-          flex
-          items-center
-          justify-center
-          lg:justify-end
-          min-h-[320px]
-          sm:min-h-[400px]
-          lg:min-h-[520px]
-        "
+        className="relative flex items-center justify-center lg:justify-end min-h-[320px] sm:min-h-[400px] lg:min-h-[520px]"
       >
 
         <img
           src="/hero-005.png"
           alt=""
-          className="
-            relative
-            z-10
-            block
-            w-full
-            max-w-[560px]
-            h-auto
-            object-contain
-            select-none
-          "
+          className="relative z-10 block w-full max-w-[560px] h-auto object-contain select-none"
           draggable="false"
         />
 
@@ -690,18 +579,7 @@ export default function AboutPage() {
           ===================================================== */}
 
       <svg
-        className="
-          hidden
-          md:block
-          absolute
-          left-1/2
-          top-0
-          -translate-x-1/2
-          w-[180px]
-          h-full
-          pointer-events-none
-          overflow-visible
-        "
+        className="hidden md:block absolute left-1/2 top-0 -translate-x-1/2 w-[180px] h-full pointer-events-none overflow-visible"
         viewBox="0 0 180 1000"
         preserveAspectRatio="none"
         fill="none"
@@ -733,18 +611,7 @@ export default function AboutPage() {
           ===================================================== */}
 
       <div
-        className="
-          md:hidden
-          absolute
-          left-[19px]
-          top-4
-          bottom-4
-          w-px
-          bg-gradient-to-b
-          from-transparent
-          via-[#C9A227]/50
-          to-transparent
-        "
+        className="md:hidden absolute left-[19px] top-4 bottom-4 w-px bg-gradient-to-b from-transparent via-[#C9A227]/50 to-transparent"
       />
 
 
@@ -783,17 +650,7 @@ export default function AboutPage() {
             >
 
               <div
-                className="
-                  inline-flex
-                  items-center
-                  gap-2
-                  mb-3
-                  text-[.62rem]
-                  font-black
-                  uppercase
-                  tracking-[.35em]
-                  text-[#C9A227]
-                "
+                className="inline-flex items-center gap-2 mb-3 text-[.62rem] font-black uppercase tracking-[.35em] text-[#C9A227]"
               >
                 <span className="w-5 h-px bg-[#C9A227]/60" />
                 {m.year}
@@ -801,14 +658,7 @@ export default function AboutPage() {
 
 
               <h3
-                className="
-                  font-serif
-                  text-2xl
-                  md:text-3xl
-                  text-[#0B1F3A]
-                  leading-tight
-                  mb-3
-                "
+                className="font-serif text-2xl md:text-3xl text-[#0B1F3A] leading-tight mb-3"
               >
                 {m.title}
               </h3>
@@ -834,62 +684,27 @@ export default function AboutPage() {
                 ================================================= */}
 
             <div
-              className="
-                hidden
-                md:flex
-                items-center
-                justify-center
-                relative
-                z-20
-              "
+              className="hidden md:flex items-center justify-center relative z-20"
             >
 
               {/* Outer ring */}
               <div
-                className="
-                  absolute
-                  w-16
-                  h-16
-                  rounded-full
-                  border
-                  border-[#C9A227]/20
-                "
+                className="absolute w-16 h-16 rounded-full border border-[#C9A227]/20"
               />
 
               {/* Second ring */}
               <div
-                className="
-                  absolute
-                  w-10
-                  h-10
-                  rounded-full
-                  border
-                  border-[#C9A227]/35
-                "
+                className="absolute w-10 h-10 rounded-full border border-[#C9A227]/35"
               />
 
               {/* Main node */}
               <div
-                className="
-                  relative
-                  w-5
-                  h-5
-                  rounded-full
-                  bg-[#14532D]
-                  border-[3px]
-                  border-white
-                  shadow-[0_0_0_1px_rgba(201,162,39,0.6),0_6px_20px_rgba(20,83,45,0.18)]
-                "
+                className="relative w-5 h-5 rounded-full bg-[#14532D] border-[3px] border-white shadow-[0_0_0_1px_rgba(201,162,39,0.6),0_6px_20px_rgba(20,83,45,0.18)]"
               >
 
                 {/* Gold center */}
                 <div
-                  className="
-                    absolute
-                    inset-[3px]
-                    rounded-full
-                    bg-[#C9A227]
-                  "
+                  className="absolute inset-[3px] rounded-full bg-[#C9A227]"
                 />
 
               </div>
@@ -902,31 +717,11 @@ export default function AboutPage() {
                 ================================================= */}
 
             <div
-              className="
-                md:hidden
-                absolute
-                left-[10px]
-                top-1
-                z-20
-                w-[19px]
-                h-[19px]
-                rounded-full
-                bg-white
-                border
-                border-[#C9A227]/60
-                flex
-                items-center
-                justify-center
-              "
+              className="md:hidden absolute left-[10px] top-1 z-20 w-[19px] h-[19px] rounded-full bg-white border border-[#C9A227]/60 flex items-center justify-center"
             >
 
               <div
-                className="
-                  w-2
-                  h-2
-                  rounded-full
-                  bg-[#C9A227]
-                "
+                className="w-2 h-2 rounded-full bg-[#C9A227]"
               />
 
             </div>
@@ -1011,39 +806,12 @@ export default function AboutPage() {
     />
 
     {/* Large decorative rings */}
-    <div className="
-      absolute
-      -right-32
-      top-20
-      w-[500px]
-      h-[500px]
-      rounded-full
-      border
-      border-[#C9A227]/[0.28]
-    " />
+    <div className="absolute -right-32 top-20 w-[500px] h-[500px] rounded-full border border-[#C9A227]/[0.28]" />
 
-    <div className="
-      absolute
-      -right-20
-      top-32
-      w-[350px]
-      h-[350px]
-      rounded-full
-      border
-      border-[#14532D]/[0.5]
-    " />
+    <div className="absolute -right-20 top-32 w-[350px] h-[350px] rounded-full border border-[#14532D]/[0.5]" />
 
     {/* Soft gold glow */}
-    <div className="
-      absolute
-      left-[-180px]
-      bottom-[-180px]
-      w-[500px]
-      h-[500px]
-      rounded-full
-      bg-[#C9A227]/[0.035]
-      blur-[130px]
-    " />
+    <div className="absolute left-[-180px] bottom-[-180px] w-[500px] h-[500px] rounded-full bg-[#C9A227]/[0.035] blur-[130px]" />
   </div>
 
 
@@ -1066,15 +834,7 @@ export default function AboutPage() {
         </div>
 
 
-        <h2 className="
-          rs
-          font-serif
-          text-4xl
-          md:text-5xl
-          lg:text-[3.4rem]
-          text-[#0B1F3A]
-          leading-[1.08]
-        ">
+        <h2 className="rs font-serif text-4xl md:text-5xl lg:text-[3.4rem] text-[#0B1F3A] leading-[1.08]">
           {t('about_pg.trust.title1')}{' '}
 
           <span className="italic text-[#14532D]">
@@ -1086,19 +846,8 @@ export default function AboutPage() {
 
 
       {/* Small editorial statement */}
-      <div className="
-        hidden
-        lg:block
-        border-l
-        border-[#C9A227]/40
-        pl-6
-        pb-1
-      ">
-        <p className="
-          text-[#6B7280]
-          text-sm
-          leading-relaxed
-        ">
+      <div className="hidden lg:block border-l border-[#C9A227]/40 pl-6 pb-1">
+        <p className="text-[#6B7280] text-sm leading-relaxed">
           Built around the principles that keep technology
           useful, dependable and human.
         </p>
@@ -1111,14 +860,7 @@ export default function AboutPage() {
         TRUST ARCHITECTURE
         ======================================================= */}
 
-    <div className="
-      grid
-      grid-cols-1
-      sm:grid-cols-2
-      lg:grid-cols-4
-      gap-4
-      lg:gap-5
-    ">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
 
       {([1, 2, 3, 4] as const).map((id, i) => (
 
@@ -1151,20 +893,7 @@ export default function AboutPage() {
               GIANT NUMBER
               ================================================= */}
 
-          <div className="
-            absolute
-            -right-4
-            -top-7
-            font-serif
-            text-[8rem]
-            font-bold
-            leading-none
-            text-[#14532D]/[0.035]
-            transition-all
-            duration-700
-            group-hover:text-[#14532D]/[0.035]
-            group-hover:scale-110
-          ">
+          <div className="absolute -right-4 -top-7 font-serif text-[8rem] font-bold leading-none text-[#14532D]/[0.035] transition-all duration-700 group-hover:text-[#14532D]/[0.035] group-hover:scale-110">
             {String(id).padStart(2, '0')}
           </div>
 
@@ -1173,31 +902,9 @@ export default function AboutPage() {
               ORBIT DECORATION
               ================================================= */}
 
-          <div className="
-            absolute
-            right-7
-            top-7
-            w-12
-            h-12
-            rounded-full
-            border
-            border-[#C9A227]/20
-            transition-all
-            duration-700
-            group-hover:rotate-45
-            group-hover:border-[#C9A227]/50
-          ">
+          <div className="absolute right-7 top-7 w-12 h-12 rounded-full border border-[#C9A227]/20 transition-all duration-700 group-hover:rotate-45 group-hover:border-[#C9A227]/50">
 
-            <span className="
-              absolute
-              left-[-2px]
-              top-1/2
-              -translate-y-1/2
-              w-1.5
-              h-1.5
-              rounded-full
-              bg-[#C9A227]
-            " />
+            <span className="absolute left-[-2px] top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-[#C9A227]" />
 
           </div>
 
@@ -1206,41 +913,17 @@ export default function AboutPage() {
 
           <div className="relative">
 
-            <div className="
-              text-[.58rem]
-              font-black
-              uppercase
-              tracking-[.35em]
-              text-[#C9A227]
-              mb-3
-            ">
+            <div className="text-[.58rem] font-black uppercase tracking-[.35em] text-[#C9A227] mb-3">
               Principle {String(id).padStart(2, '0')}
             </div>
 
 
-            <h3 className="
-              font-serif
-              font-bold
-              text-[1.35rem]
-              text-[#0B1F3A]
-              mb-4
-              leading-tight
-              group-hover:text-[#14532D]
-              transition-colors
-              duration-500
-            ">
+            <h3 className="font-serif font-bold text-[1.35rem] text-[#0B1F3A] mb-4 leading-tight group-hover:text-[#14532D] transition-colors duration-500">
               {t(`about.why.${id}.title` as 'about.why.1.title')}
             </h3>
 
 
-            <p className="
-              text-[#6B7280]
-              text-[.84rem]
-              leading-relaxed
-              group-hover:text-gray-900
-              transition-colors
-              duration-500
-            ">
+            <p className="text-[#6B7280] text-[.84rem] leading-relaxed group-hover:text-gray-900 transition-colors duration-500">
               {t(`about.why.${id}.desc` as 'about.why.1.desc')}
             </p>
 
@@ -1251,22 +934,7 @@ export default function AboutPage() {
               BOTTOM SYSTEM LINE
               ================================================= */}
 
-          <div className="
-            absolute
-            bottom-0
-            left-0
-            right-0
-            h-[3px]
-            bg-gradient-to-r
-            from-[#14532D]
-            via-[#C9A227]
-            to-transparent
-            origin-left
-            scale-x-0
-            group-hover:scale-x-100
-            transition-transform
-            duration-700
-          " />
+          <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#14532D] via-[#C9A227] to-transparent origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-700" />
 
         </div>
 
@@ -1279,22 +947,11 @@ export default function AboutPage() {
         BOTTOM BRAND STATEMENT
         ======================================================= */}
 
-    <div className="
-      mt-10
-      flex
-      items-center
-      gap-4
-      text-[#14532D]/40
-    ">
+    <div className="mt-10 flex items-center gap-4 text-[#14532D]/40">
 
       <span className="w-10 h-px bg-[#C9A227]/60" />
 
-      <span className="
-        text-[.58rem]
-        font-black
-        uppercase
-        tracking-[.35em]
-      ">
+      <span className="text-[.58rem] font-black uppercase tracking-[.35em]">
         Technology with purpose
       </span>
 
@@ -1444,8 +1101,17 @@ export default function AboutPage() {
                     </label>
                     <label className="flex items-start gap-3 text-[.82rem] text-[#6B7280] cursor-pointer">
                       <input type="checkbox" checked={cf.consent} onChange={setCfField('consent')} className={`mt-0.5 accent-[#155EEF] ${cfErrors.consent ? 'outline outline-2 outline-red-400 rounded' : ''}`} />
-                      {t('about_pg.contact.form.consent')}
+                      <span>
+                        I agree to the{' '}
+                        <Link href="/terms" className="underline hover:text-[#155EEF] transition-colors">Terms & Conditions</Link>
+                        {' '}and{' '}
+                        <Link href="/privacy" className="underline hover:text-[#155EEF] transition-colors">Privacy Policy</Link>
+                        {' '}and consent to being contacted about my enquiry.
+                      </span>
                     </label>
+                    {cfErrors.consent && (
+                      <p className="text-[.7rem] text-red-500 font-medium">Please accept the Privacy Policy to continue.</p>
+                    )}
                   </div>
 
                   <button

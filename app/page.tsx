@@ -527,17 +527,7 @@ useEffect(() => {
         RIGHT SIDE — TRANSPARENT IMAGE SLIDER
     ====================================================== */}
 <div
-  className="
-    relative
-    self-start
-    h-[360px]
-    sm:h-[440px]
-    lg:h-[590px]
-    select-none
-    cursor-grab
-    active:cursor-grabbing
-    touch-pan-y
-  "
+  className="relative self-start h-[360px] sm:h-[440px] lg:h-[590px] select-none cursor-grab active:cursor-grabbing touch-pan-y"
   onPointerDown={handlePointerDown}
   onPointerUp={handlePointerUp}
   onPointerCancel={handlePointerCancel}
@@ -1123,42 +1113,14 @@ useEffect(() => {
             y: -6,
             transition: { duration: 0.25 },
           }}
-          className="
-            group
-            relative
-            text-center
-            bg-white/[0.055]
-            border border-white/[0.12]
-            rounded-tl-[2rem]
-            rounded-br-[2rem]
-            rounded-tr-lg
-            rounded-bl-lg
-            p-5 md:p-8
-            overflow-hidden
-            backdrop-blur-md
-            transition-all
-            duration-300
-            hover:bg-white/[0.09]
-            hover:border-[#C9A227]/40
-            hover:shadow-[0_15px_50px_rgba(0,0,0,0.18)]
-          "
+          className="group relative text-center bg-white/[0.055] border border-white/[0.12] rounded-tl-[2rem] rounded-br-[2rem] rounded-tr-lg rounded-bl-lg p-5 md:p-8 overflow-hidden backdrop-blur-md transition-all duration-300 hover:bg-white/[0.09] hover:border-[#C9A227]/40 hover:shadow-[0_15px_50px_rgba(0,0,0,0.18)]"
         >
 
           {/* ---------------------------------------------
               Card decorative flow
               --------------------------------------------- */}
           <svg
-            className="
-              absolute
-              inset-0
-              w-full
-              h-full
-              pointer-events-none
-              opacity-[0.08]
-              transition-opacity
-              duration-500
-              group-hover:opacity-[0.18]
-            "
+            className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.08] transition-opacity duration-500 group-hover:opacity-[0.18]"
             viewBox="0 0 300 180"
             fill="none"
           >
@@ -1180,23 +1142,7 @@ useEffect(() => {
               Hover gold glow
               --------------------------------------------- */}
           <div
-            className="
-              absolute
-              -top-12
-              -right-12
-              w-32
-              h-32
-              rounded-full
-              bg-[#C9A227]/20
-              blur-[45px]
-              opacity-0
-              scale-75
-              transition-all
-              duration-500
-              group-hover:opacity-100
-              group-hover:scale-100
-              pointer-events-none
-            "
+            className="absolute -top-12 -right-12 w-32 h-32 rounded-full bg-[#C9A227]/20 blur-[45px] opacity-0 scale-75 transition-all duration-500 group-hover:opacity-100 group-hover:scale-100 pointer-events-none"
           />
 
 
@@ -1204,25 +1150,7 @@ useEffect(() => {
               Icon
               --------------------------------------------- */}
           <div
-            className="
-              relative
-              inline-flex
-              items-center
-              justify-center
-              w-10
-              h-10
-              md:w-11
-              md:h-11
-              rounded-xl
-              bg-white/[0.08]
-              border
-              border-white/[0.08]
-              mb-4
-              transition-all
-              duration-300
-              group-hover:bg-[#C9A227]
-              group-hover:border-[#C9A227]
-            "
+            className="relative inline-flex items-center justify-center w-10 h-10 md:w-11 md:h-11 rounded-xl bg-white/[0.08] border border-white/[0.08] mb-4 transition-all duration-300 group-hover:bg-[#C9A227] group-hover:border-[#C9A227]"
           >
             <AnimatedIcon
               d={STATS[i].icon}
@@ -1238,25 +1166,13 @@ useEffect(() => {
           <div className="relative flex items-baseline justify-center gap-0.5 mb-1.5">
 
             <span
-              className="
-                text-4xl
-                md:text-5xl
-                font-serif
-                font-bold
-                text-white
-                leading-none
-              "
+              className="text-4xl md:text-5xl font-serif font-bold text-white leading-none"
             >
               {c.val}
             </span>
 
             <span
-              className="
-                text-xl
-                font-serif
-                font-bold
-                text-[#D6B656]
-              "
+              className="text-xl font-serif font-bold text-[#D6B656]"
             >
               {STATS[i].suf}
             </span>
@@ -1268,17 +1184,7 @@ useEffect(() => {
               Label
               --------------------------------------------- */}
           <div
-            className="
-              relative
-              text-[.62rem]
-              font-black
-              uppercase
-              tracking-[.25em]
-              text-white/45
-              group-hover:text-white/65
-              transition-colors
-              duration-300
-            "
+            className="relative text-[.62rem] font-black uppercase tracking-[.25em] text-white/45 group-hover:text-white/65 transition-colors duration-300"
           >
             {t(STATS[i].labelKey)}
           </div>
@@ -1296,18 +1202,7 @@ useEffect(() => {
       CURVED BOTTOM TRANSITION
       ========================================================= */}
   <div
-    className="
-      absolute
-      bottom-[-1px]
-      left-0
-      w-full
-      h-[80px]
-      sm:h-[95px]
-      md:h-[125px]
-      lg:h-[145px]
-      pointer-events-none
-      z-[20]
-    "
+    className="absolute bottom-[-1px] left-0 w-full h-[80px] sm:h-[95px] md:h-[125px] lg:h-[145px] pointer-events-none z-[20]"
     aria-hidden="true"
   >
     <svg
@@ -1604,29 +1499,11 @@ useEffect(() => {
 
     {/* Gold atmospheric glow */}
     <div
-      className="
-        absolute
-        -top-40
-        right-[-100px]
-        w-[500px]
-        h-[500px]
-        rounded-full
-        bg-[#C9A227]/[0.06]
-        blur-[140px]
-      "
+      className="absolute -top-40 right-[-100px] w-[500px] h-[500px] rounded-full bg-[#C9A227]/[0.06] blur-[140px]"
     />
 
     <div
-      className="
-        absolute
-        -bottom-40
-        left-[-100px]
-        w-[450px]
-        h-[450px]
-        rounded-full
-        bg-[#C9A227]/[0.05]
-        blur-[130px]
-      "
+      className="absolute -bottom-40 left-[-100px] w-[450px] h-[450px] rounded-full bg-[#C9A227]/[0.05] blur-[130px]"
     />
 
   </div>
@@ -1637,15 +1514,7 @@ useEffect(() => {
       ========================================================= */}
 
   <div
-    className="
-      absolute
-      top-0
-      left-0
-      w-full
-      overflow-hidden
-      leading-[0]
-      pointer-events-none
-    "
+    className="absolute top-0 left-0 w-full overflow-hidden leading-[0] pointer-events-none"
   >
     <svg
       className="relative block w-full h-[55px] md:h-[75px]"
@@ -1685,16 +1554,7 @@ useEffect(() => {
           },
         },
       }}
-      className="
-        relative
-        flex
-        flex-col
-        lg:flex-row
-        items-center
-        justify-between
-        gap-10
-        md:gap-14
-      "
+      className="relative flex flex-col lg:flex-row items-center justify-between gap-10 md:gap-14"
     >
 
       {/* =====================================================
@@ -1705,19 +1565,7 @@ useEffect(() => {
 
         <motion.div
           variants={fadeUp}
-          className="
-            flex
-            items-center
-            justify-center
-            lg:justify-start
-            gap-3
-            text-[.62rem]
-            font-black
-            uppercase
-            tracking-[.4em]
-            text-[#D6B656]
-            mb-5
-          "
+          className="flex items-center justify-center lg:justify-start gap-3 text-[.62rem] font-black uppercase tracking-[.4em] text-[#D6B656] mb-5"
         >
           <span className="w-10 h-px bg-[#C9A227]/70" />
           {t('h2.pricing.kicker')}
@@ -1726,15 +1574,7 @@ useEffect(() => {
 
         <motion.h2
           variants={fadeUp}
-          className="
-            font-serif
-            text-3xl
-            md:text-4xl
-            lg:text-[2.7rem]
-            text-white
-            leading-[1.12]
-            mb-4
-          "
+          className="font-serif text-3xl md:text-4xl lg:text-[2.7rem] text-white leading-[1.12] mb-4"
         >
           {t('h2.pricing.title1')}{' '}
 
@@ -1748,12 +1588,7 @@ useEffect(() => {
 
         <motion.p
           variants={fadeUp}
-          className="
-            text-white/45
-            text-[.92rem]
-            leading-relaxed
-            max-w-xl
-          "
+          className="text-white/45 text-[.92rem] leading-relaxed max-w-xl"
         >
           {t('h2.pricing.desc')}
         </motion.p>
@@ -1767,72 +1602,25 @@ useEffect(() => {
 
       <motion.div
         variants={fadeUp}
-        className="
-          relative
-          flex
-          flex-wrap
-          justify-center
-          gap-3
-          p-2
-          rounded-2xl
-          bg-white/[0.045]
-          border
-          border-white/[0.10]
-          backdrop-blur-md
-          shadow-[0_20px_60px_rgba(0,0,0,0.18)]
-        "
+        className="relative flex flex-wrap justify-center gap-3 p-2 rounded-2xl bg-white/[0.045] border border-white/[0.10] backdrop-blur-md shadow-[0_20px_60px_rgba(0,0,0,0.18)]"
       >
 
         {/* Gold accent line */}
         <div
-          className="
-            absolute
-            top-0
-            left-8
-            right-8
-            h-px
-            bg-gradient-to-r
-            from-transparent
-            via-[#C9A227]/60
-            to-transparent
-          "
+          className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-[#C9A227]/60 to-transparent"
         />
 
 
         <Link
           href="/pricing"
-          className="
-            group
-            relative
-            flex
-            items-center
-            justify-center
-            gap-2
-            bg-white
-            text-[#0B3B25]
-            px-7
-            py-3.5
-            rounded-xl
-            font-bold
-            text-[.84rem]
-            transition-all
-            duration-300
-            hover:-translate-y-0.5
-            hover:shadow-[0_10px_30px_rgba(201,162,39,0.18)]
-          "
+          className="group relative flex items-center justify-center gap-2 bg-white text-[#0B3B25] px-7 py-3.5 rounded-xl font-bold text-[.84rem] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(201,162,39,0.18)]"
         >
           <span>
             {t('h2.pricing.viewFull')}
           </span>
 
           <svg
-            className="
-              w-4
-              h-4
-              transition-transform
-              duration-300
-              group-hover:translate-x-1
-            "
+            className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -1849,39 +1637,14 @@ useEffect(() => {
 
         <Link
           href="/demo"
-          className="
-            group
-            relative
-            flex
-            items-center
-            justify-center
-            gap-2
-            bg-[#C9A227]
-            text-[#082B1A]
-            px-7
-            py-3.5
-            rounded-xl
-            font-bold
-            text-[.84rem]
-            transition-all
-            duration-300
-            hover:-translate-y-0.5
-            hover:bg-[#D6B656]
-            hover:shadow-[0_10px_30px_rgba(201,162,39,0.25)]
-          "
+          className="group relative flex items-center justify-center gap-2 bg-[#C9A227] text-[#082B1A] px-7 py-3.5 rounded-xl font-bold text-[.84rem] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#D6B656] hover:shadow-[0_10px_30px_rgba(201,162,39,0.25)]"
         >
           <span>
             {t('h2.pricing.bookDemo')}
           </span>
 
           <svg
-            className="
-              w-4
-              h-4
-              transition-transform
-              duration-300
-              group-hover:translate-x-1
-            "
+            className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -1907,15 +1670,7 @@ useEffect(() => {
       ========================================================= */}
 
   <div
-    className="
-      absolute
-      bottom-0
-      left-0
-      w-full
-      overflow-hidden
-      leading-[0]
-      pointer-events-none
-    "
+    className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] pointer-events-none"
   >
     <svg
       className="relative block w-full h-[55px] md:h-[80px]"

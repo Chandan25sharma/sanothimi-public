@@ -3,6 +3,7 @@
 import { Himalaya } from '@/components/BgDecorations';
 import CTABanner from '@/components/CTABanner';
 import { sendContactForm } from '@/lib/sendContactForm';
+import Link from 'next/link';
 import { useState } from 'react';
 
 const CHANNELS = [
@@ -61,6 +62,7 @@ interface FormState {
   subject: string;
   priority: string;
   desc: string;
+  consent: boolean;
 }
 
 export default function SupportPage() {
@@ -70,6 +72,7 @@ export default function SupportPage() {
     subject: '',
     priority: PRIORITIES[0],
     desc: '',
+    consent: false,
   });
 
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent'>('idle');
@@ -82,7 +85,8 @@ export default function SupportPage() {
         HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
       >
     ) => {
-      setForm({ ...form, [key]: e.target.value });
+      const val = e.target.type === 'checkbox' ? (e.target as HTMLInputElement).checked : e.target.value;
+      setForm({ ...form, [key]: val });
       setErrors({ ...errors, [key]: false });
     };
 
@@ -101,6 +105,8 @@ export default function SupportPage() {
     }
 
     if (!form.desc.trim()) err.desc = true;
+
+    if (!form.consent) err.consent = true;
 
     if (Object.keys(err).length) {
       setErrors(err);
@@ -132,6 +138,7 @@ ${form.desc}`,
         subject: '',
         priority: PRIORITIES[0],
         desc: '',
+        consent: false,
       });
     } catch {
       setStatus('idle');
@@ -567,10 +574,33 @@ ${form.desc}`,
                     </div>
 
 
+                    {/* Consent */}
+                    <div>
+                      <label className="flex items-start gap-3 text-[.8rem] text-[#64748B] cursor-pointer">
+                        <input
+                          type="checkbox"
+                          checked={form.consent}
+                          onChange={set('consent')}
+                          className={`mt-0.5 accent-[#12B76A] ${errors.consent ? 'outline outline-2 outline-red-400 rounded' : ''}`}
+                        />
+                        <span>
+                          I agree to the{' '}
+                          <Link href="/terms" className="underline hover:text-[#0B1F3A] transition-colors">Terms & Conditions</Link>
+                          {' '}and{' '}
+                          <Link href="/privacy" className="underline hover:text-[#0B1F3A] transition-colors">Privacy Policy</Link>
+                          {' '}and consent to being contacted about this ticket.
+                        </span>
+                      </label>
+                      {errors.consent && (
+                        <p className="mt-2 text-[.7rem] text-red-500 font-medium">Please accept the Privacy Policy to continue.</p>
+                      )}
+                    </div>
+
+
                     <button
                       type="submit"
                       disabled={status === 'sending'}
-                      
+
                 style={{ '--pixel-color': '#0B1F3A', '--pixel-text-hover': '#fff' } as React.CSSProperties}
                   className="btn-pixel-solid inline-flex items-center gap-2 bg-[#12B76A] text-white px-8 py-4 rounded-full font-bold text-sm transition-colors"
                 >

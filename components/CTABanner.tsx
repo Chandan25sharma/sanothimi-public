@@ -164,24 +164,7 @@ export default function CTABanner({
 
             <Link
               href={ctaHref}
-              className="
-                group
-                inline-flex
-                items-center
-                gap-3
-                bg-[#C9A227]
-                text-[#082B1A]
-                px-8
-                py-4
-                rounded-xl
-                font-bold
-                text-sm
-                transition-all
-                duration-300
-                hover:-translate-y-1
-                hover:bg-[#D6B656]
-                hover:shadow-[0_15px_40px_rgba(201,162,39,0.25)]
-              "
+              className="group inline-flex items-center gap-3 bg-[#C9A227] text-[#082B1A] px-8 py-4 rounded-xl font-bold text-sm transition-all duration-300 hover:-translate-y-1 hover:bg-[#D6B656] hover:shadow-[0_15px_40px_rgba(201,162,39,0.25)]"
             >
               <span>{cta}</span>
 

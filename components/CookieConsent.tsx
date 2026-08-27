@@ -31,7 +31,11 @@ export default function CookieConsent() {
         >
           <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col md:flex-row items-center gap-4 md:gap-8">
             <p className="text-white/65 text-[.83rem] leading-relaxed flex-1">
-              We use cookies to improve your browsing experience and analyze site traffic. By clicking &ldquo;Allow all&rdquo;, you consent to our use of cookies.{' '}
+              We use cookies to improve your browsing experience and analyze site traffic. By clicking &ldquo;Allow all&rdquo;, you consent to our use of cookies. Learn more in our{' '}
+              <Link href="/cookies" className="text-[#155EEF] font-semibold hover:underline">
+                Cookie Policy
+              </Link>{' '}
+              and{' '}
               <Link href="/privacy" className="text-[#155EEF] font-semibold hover:underline">
                 Privacy Policy
               </Link>

@@ -23,6 +23,9 @@ const SOLUTIONS = [
 const LEGAL = [
   { label: 'Privacy Policy', href: '/privacy' },
   { label: 'Terms & Conditions', href: '/terms' },
+  { label: 'Data Processing Agreement', href: '/dpa' },
+  { label: 'Cookie Policy', href: '/cookies' },
+  { label: 'Security Policy', href: '/security' },
 ];
 
 const SOCIALS = [

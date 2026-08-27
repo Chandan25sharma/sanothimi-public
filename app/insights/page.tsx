@@ -233,21 +233,7 @@ export default function InsightsPage() {
 
     {/* Featured article */}
     <article
-      className="
-        group
-        grid
-        grid-cols-1
-        lg:grid-cols-[1.05fr_1fr]
-        min-h-[560px]
-        overflow-hidden
-        border
-        border-[#0B1F3A]/[0.08]
-        bg-white
-        shadow-[0_20px_70px_rgba(11,31,58,0.06)]
-        transition-shadow
-        duration-700
-        hover:shadow-[0_30px_90px_rgba(11,31,58,0.10)]
-      "
+      className="group grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] min-h-[560px] overflow-hidden border border-[#0B1F3A]/[0.08] bg-white shadow-[0_20px_70px_rgba(11,31,58,0.06)] transition-shadow duration-700 hover:shadow-[0_30px_90px_rgba(11,31,58,0.10)]"
     >
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -259,29 +245,12 @@ export default function InsightsPage() {
         <img
           src="/insights/featured-01.jpg"
           alt={featuredArticle.title}
-          className="
-            absolute
-            inset-0
-            w-full
-            h-full
-            object-cover
-            transition-transform
-            duration-[1200ms]
-            ease-out
-            group-hover:scale-[1.035]
-          "
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.035]"
         />
 
         {/* Soft navy cinematic gradient */}
         <div
-          className="
-            absolute
-            inset-0
-            bg-gradient-to-t
-            from-[#0B1F3A]/90
-            via-[#0B1F3A]/15
-            to-transparent
-          "
+          className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A]/90 via-[#0B1F3A]/15 to-transparent"
         />
 
         {/* Very subtle blue brand wash */}
@@ -289,12 +258,7 @@ export default function InsightsPage() {
 
         {/* Subtle technical grid */}
         <div
-          className="
-            absolute
-            inset-0
-            opacity-[0.055]
-            pointer-events-none
-          "
+          className="absolute inset-0 opacity-[0.055] pointer-events-none"
           style={{
             backgroundImage: `
               linear-gradient(rgba(255,255,255,.9) 1px, transparent 1px),
@@ -340,23 +304,7 @@ export default function InsightsPage() {
 
             {/* Minimal arrow */}
             <div
-              className="
-                flex-shrink-0
-                w-11
-                h-11
-                rounded-full
-                border
-                border-white/20
-                bg-white/[0.04]
-                backdrop-blur-sm
-                flex
-                items-center
-                justify-center
-                transition-all
-                duration-500
-                group-hover:bg-black/10
-                
-              "
+              className="flex-shrink-0 w-11 h-11 rounded-full border border-white/20 bg-white/[0.04] backdrop-blur-sm flex items-center justify-center transition-all duration-500 group-hover:bg-black/10"
             >
 
               <svg
@@ -405,20 +353,7 @@ export default function InsightsPage() {
 
         {/* Title */}
         <h3
-          className="
-            font-serif
-            text-3xl
-            md:text-4xl
-            lg:text-[3.15rem]
-            text-[#0B1F3A]
-            leading-[1.08]
-            tracking-[-0.025em]
-            max-w-[620px]
-            mb-7
-            transition-colors
-            duration-500
-      
-          "
+          className="font-serif text-3xl md:text-4xl lg:text-[3.15rem] text-[#0B1F3A] leading-[1.08] tracking-[-0.025em] max-w-[620px] mb-7 transition-colors duration-500"
         >
           {featuredArticle.title}
         </h3>
@@ -426,14 +361,7 @@ export default function InsightsPage() {
 
         {/* Description */}
         <p
-          className="
-            text-[#64748B]
-            text-[.95rem]
-            md:text-base
-            leading-[1.8]
-            max-w-[570px]
-            mb-10
-          "
+          className="text-[#64748B] text-[.95rem] md:text-base leading-[1.8] max-w-[570px] mb-10"
         >
           {featuredArticle.desc}
         </p>

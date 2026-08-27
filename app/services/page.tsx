@@ -168,28 +168,10 @@ export default function ServicesPage() {
     />
 
     {/* Green atmosphere */}
-    <div className="
-      absolute
-      -top-20
-      right-[-200px]
-      w-[600px]
-      h-[600px]
-      rounded-full
-      bg-green-900/[0.025]
-      blur-[140px]
-    " />
+    <div className="absolute -top-20 right-[-200px] w-[600px] h-[600px] rounded-full bg-green-900/[0.025] blur-[140px]" />
 
     {/* Gold atmosphere */}
-    <div className="
-      absolute
-      bottom-0
-      left-[-200px]
-      w-[500px]
-      h-[500px]
-      rounded-full
-      bg-[#D4AF37]/[0.025]
-      blur-[130px]
-    " />
+    <div className="absolute bottom-0 left-[-200px] w-[500px] h-[500px] rounded-full bg-[#D4AF37]/[0.025] blur-[130px]" />
   </div>
 
 
@@ -214,40 +196,18 @@ export default function ServicesPage() {
         </div>
 
 
-        <h2 className="
-          rs
-          d1
-          font-serif
-          text-3xl
-          md:text-4xl
-          lg:text-[3.2rem]
-          text-green-950
-          leading-[1.02]
-          tracking-tight
-        ">
+        <h2 className="rs d1 font-serif text-3xl md:text-4xl lg:text-[3.2rem] text-green-950 leading-[1.02] tracking-tight">
           {t('services_pg.portfolio.title1')}
 
           <br />
 
-          <span className="
-            italic
-            text-[#D4AF37]
-          ">
+          <span className="italic text-[#D4AF37]">
             {t('services_pg.portfolio.title2')}
           </span>
         </h2>
 
 
-        <p className="
-          rs
-          d2
-          mt-8
-          text-[#6B7280]
-          text-base
-          md:text-lg
-          leading-relaxed
-          max-w-3xl
-        ">
+        <p className="rs d2 mt-8 text-[#6B7280] text-base md:text-lg leading-relaxed max-w-3xl">
           We design and engineer digital systems that turn complex
           operations into simpler, smarter and more connected experiences.
         </p>
@@ -284,20 +244,7 @@ export default function ServicesPage() {
                 SECTION NUMBER
                 ================================================= */}
 
-            <div className="
-              absolute
-              left-0
-              top-10
-              md:top-16
-              font-serif
-              text-[7rem]
-              md:text-[10rem]
-              font-bold
-              leading-none
-              text-green-900/[0.025]
-              pointer-events-none
-              select-none
-            ">
+            <div className="absolute left-0 top-10 md:top-16 font-serif text-[7rem] md:text-[10rem] font-bold leading-none text-green-900/[0.025] pointer-events-none select-none">
               {String(id).padStart(2, '0')}
             </div>
 
@@ -326,36 +273,15 @@ export default function ServicesPage() {
 
                 {/* Chapter indicator */}
 
-                <div className="
-                  flex
-                  items-center
-                  gap-4
-                  mb-8
-                ">
+                <div className="flex items-center gap-4 mb-8">
 
-                  <span className="
-                    text-[#D4AF37]
-                    text-[.58rem]
-                    font-black
-                    uppercase
-                    tracking-[.35em]
-                  ">
+                  <span className="text-[#D4AF37] text-[.58rem] font-black uppercase tracking-[.35em]">
                     Service {String(id).padStart(2, '0')}
                   </span>
 
-                  <span className="
-                    w-10
-                    h-px
-                    bg-[#D4AF37]
-                  " />
+                  <span className="w-10 h-px bg-[#D4AF37]" />
 
-                  <span className="
-                    text-green-900/40
-                    text-[.58rem]
-                    font-black
-                    uppercase
-                    tracking-[.25em]
-                  ">
+                  <span className="text-green-900/40 text-[.58rem] font-black uppercase tracking-[.25em]">
                     {SVC_CATEGORY[i]}
                   </span>
 
@@ -364,80 +290,30 @@ export default function ServicesPage() {
 
                 {/* Title */}
 
-                <h3 className="
-                  rs
-                  font-serif
-                  text-3xl
-                  md:text-4xl
-                  lg:text-[3.1rem]
-                  text-green-950
-                  leading-[1.05]
-                  tracking-tight
-                  mb-7
-                ">
+                <h3 className="rs font-serif text-3xl md:text-4xl lg:text-[3.1rem] text-green-950 leading-[1.05] tracking-tight mb-7">
                   {t(`svc.${id}.title` as 'svc.1.title')}
                 </h3>
 
 
                 {/* Description */}
 
-                <p className="
-                  rs
-                  text-[#6B7280]
-                  text-base
-                  md:text-[1.05rem]
-                  leading-[1.8]
-                  max-w-xl
-                  mb-9
-                ">
+                <p className="rs text-[#6B7280] text-base md:text-[1.05rem] leading-[1.8] max-w-xl mb-9">
                   {t(`svc.${id}.desc` as 'svc.1.desc')}
                 </p>
 
 
                 {/* Status */}
 
-                <div className="
-                  flex
-                  items-center
-                  gap-5
-                  mb-10
-                ">
+                <div className="flex items-center gap-5 mb-10">
 
                   {SVC_STATUS[i] === 'live' && (
 
-                    <div className="
-                      flex
-                      items-center
-                      gap-2
-                      text-green-800
-                      text-[.58rem]
-                      font-black
-                      uppercase
-                      tracking-[.25em]
-                    ">
+                    <div className="flex items-center gap-2 text-green-800 text-[.58rem] font-black uppercase tracking-[.25em]">
 
-                      <span className="
-                        relative
-                        flex
-                        w-2
-                        h-2
-                      ">
-                        <span className="
-                          absolute
-                          inset-0
-                          rounded-full
-                          bg-green-500
-                          opacity-40
-                          animate-ping
-                        " />
+                      <span className="relative flex w-2 h-2">
+                        <span className="absolute inset-0 rounded-full bg-green-500 opacity-40 animate-ping" />
 
-                        <span className="
-                          relative
-                          w-2
-                          h-2
-                          rounded-full
-                          bg-green-600
-                        " />
+                        <span className="relative w-2 h-2 rounded-full bg-green-600" />
                       </span>
 
                       {t('services_pg.badge.live')}
@@ -449,13 +325,7 @@ export default function ServicesPage() {
 
                   {SVC_STATUS[i] === 'soon' && (
 
-                    <div className="
-                      text-gray-400
-                      text-[.58rem]
-                      font-black
-                      uppercase
-                      tracking-[.25em]
-                    ">
+                    <div className="text-gray-400 text-[.58rem] font-black uppercase tracking-[.25em]">
                       {t('services_pg.badge.soon')}
                     </div>
 
@@ -468,48 +338,17 @@ export default function ServicesPage() {
 
                 <Link
                   href={`/services/${SVC_SLUGS[i]}`}
-                  className="
-                    inline-flex
-                    items-center
-                    gap-4
-                    group/link
-                    text-green-950
-                    text-[.72rem]
-                    font-black
-                    uppercase
-                    tracking-[.2em]
-                  "
+                  className="inline-flex items-center gap-4 group/link text-green-950 text-[.72rem] font-black uppercase tracking-[.2em]"
                 >
 
                   <span>
                     {t('services_pg.portfolio.viewDetails')}
                   </span>
 
-                  <span className="
-                    relative
-                    flex
-                    items-center
-                    justify-center
-                    w-11
-                    h-11
-                    rounded-full
-                    border
-                    border-green-900/15
-                    transition-all
-                    duration-500
-                    group-hover/link:bg-[#D4AF37]
-                    group-hover/link:border-[#D4AF37]
-                    group-hover/link:translate-x-1
-                  ">
+                  <span className="relative flex items-center justify-center w-11 h-11 rounded-full border border-green-900/15 transition-all duration-500 group-hover/link:bg-[#D4AF37] group-hover/link:border-[#D4AF37] group-hover/link:translate-x-1">
 
                     <svg
-                      className="
-                        w-4
-                        h-4
-                        transition-transform
-                        duration-500
-                        group-hover/link:translate-x-0.5
-                      "
+                      className="w-4 h-4 transition-transform duration-500 group-hover/link:translate-x-0.5"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -535,55 +374,21 @@ export default function ServicesPage() {
 
               <Link
                 href={`/services/${SVC_SLUGS[i]}`}
-                className="
-                  group
-                  relative
-                  block
-                  min-h-[360px]
-                  md:min-h-[440px]
-                  lg:min-h-[500px]
-                "
+                className="group relative block min-h-[360px] md:min-h-[440px] lg:min-h-[500px]"
               >
 
                 {/* Decorative gold orbit */}
 
-                <div className="
-                  absolute
-                  -top-8
-                  -right-8
-                  w-28
-                  h-28
-                  rounded-full
-                  border
-                  border-[#D4AF37]/30
-                  z-20
-                  transition-transform
-                  duration-700
-                  group-hover:rotate-45
-                ">
+                <div className="absolute -top-8 -right-8 w-28 h-28 rounded-full border border-[#D4AF37]/30 z-20 transition-transform duration-700 group-hover:rotate-45">
 
-                  <span className="
-                    absolute
-                    left-1/2
-                    -bottom-1
-                    -translate-x-1/2
-                    w-2
-                    h-2
-                    rounded-full
-                    bg-[#D4AF37]
-                  " />
+                  <span className="absolute left-1/2 -bottom-1 -translate-x-1/2 w-2 h-2 rounded-full bg-[#D4AF37]" />
 
                 </div>
 
 
                 {/* Image container */}
 
-                <div className="
-                  absolute
-                  inset-0
-                  overflow-hidden
-                  bg-green-900/[0.04]
-                "
+                <div className="absolute inset-0 overflow-hidden bg-green-900/[0.04]"
                   style={{
                     clipPath:
                       i % 3 === 0
@@ -602,87 +407,30 @@ export default function ServicesPage() {
                   <img
                     src={`/services/service-${String(id).padStart(2, '0')}.png`}
                     alt={t(`svc.${id}.title` as 'svc.1.title')}
-                    className="
-                      absolute
-                      inset-0
-                      w-full
-                      h-full
-                      object-cover
-                      transition-transform
-                      duration-1000
-                      group-hover:scale-105
-                    "
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                   />
 
 
                   {/* Dark green overlay */}
 
-                  <div className="
-                    absolute
-                    inset-0
-                    bg-green-950/[0.12]
-                    transition-opacity
-                    duration-700
-                    group-hover:bg-green-950/[0.03]
-                  " />
+                  <div className="absolute inset-0 bg-green-950/[0.12] transition-opacity duration-700 group-hover:bg-green-950/[0.03]" />
 
 
                   {/* Gold light */}
 
-                  <div className="
-                    absolute
-                    -bottom-20
-                    -right-20
-                    w-72
-                    h-72
-                    rounded-full
-                    bg-[#D4AF37]/10
-                    blur-[70px]
-                    opacity-0
-                    group-hover:opacity-100
-                    transition-opacity
-                    duration-700
-                  " />
+                  <div className="absolute -bottom-20 -right-20 w-72 h-72 rounded-full bg-[#D4AF37]/10 blur-[70px] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
 
                   {/* Image number */}
 
-                  <div className="
-                    absolute
-                    bottom-8
-                    left-8
-                    font-serif
-                    text-6xl
-                    font-bold
-                    text-white/90
-                    leading-none
-                    drop-shadow-lg
-                  ">
+                  <div className="absolute bottom-8 left-8 font-serif text-6xl font-bold text-white/90 leading-none drop-shadow-lg">
                     {String(id).padStart(2, '0')}
                   </div>
 
 
                   {/* Explore */}
 
-                  <div className="
-                    absolute
-                    bottom-8
-                    right-8
-                    w-12
-                    h-12
-                    rounded-full
-                    bg-white
-                    flex
-                    items-center
-                    justify-center
-                    text-green-950
-                    opacity-0
-                    translate-y-3
-                    group-hover:opacity-100
-                    group-hover:translate-y-0
-                    transition-all
-                    duration-500
-                  ">
+                  <div className="absolute bottom-8 right-8 w-12 h-12 rounded-full bg-white flex items-center justify-center text-green-950 opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
 
                     <svg
                       className="w-4 h-4"
@@ -704,13 +452,7 @@ export default function ServicesPage() {
                 {/* Outer frame */}
 
                 <div
-                  className="
-                    absolute
-                    inset-0
-                    border
-                    border-[#D4AF37]/30
-                    pointer-events-none
-                  "
+                  className="absolute inset-0 border border-[#D4AF37]/30 pointer-events-none"
                   style={{
                     clipPath:
                       i % 3 === 0
@@ -731,28 +473,9 @@ export default function ServicesPage() {
                 ===================================================== */}
 
             {i !== 5 && (
-              <div className="
-                hidden
-                md:flex
-                absolute
-                left-1/2
-                bottom-[-1px]
-                -translate-x-1/2
-                translate-y-1/2
-                items-center
-                justify-center
-                w-8
-                h-8
-                bg-[#F9FAFB]
-                z-20
-              ">
+              <div className="hidden md:flex absolute left-1/2 bottom-[-1px] -translate-x-1/2 translate-y-1/2 items-center justify-center w-8 h-8 bg-[#F9FAFB] z-20">
 
-                <div className="
-                  w-1.5
-                  h-1.5
-                  rounded-full
-                  bg-[#D4AF37]
-                " />
+                <div className="w-1.5 h-1.5 rounded-full bg-[#D4AF37]" />
 
               </div>
             )}
@@ -769,29 +492,13 @@ export default function ServicesPage() {
         CLOSING STATEMENT
         ======================================================= */}
 
-    <div className="
-      py-24
-      md:py-32
-      text-center
-    ">
+    <div className="py-24 md:py-32 text-center">
 
-      <div className="
-        flex
-        items-center
-        justify-center
-        gap-4
-        mb-6
-      ">
+      <div className="flex items-center justify-center gap-4 mb-6">
 
         <span className="w-12 h-px bg-[#D4AF37]" />
 
-        <span className="
-          text-[.58rem]
-          font-black
-          uppercase
-          tracking-[.35em]
-          text-green-900/50
-        ">
+        <span className="text-[.58rem] font-black uppercase tracking-[.35em] text-green-900/50">
           One ecosystem
         </span>
 
@@ -800,12 +507,7 @@ export default function ServicesPage() {
       </div>
 
 
-      <p className="
-        font-serif
-        text-2xl
-        md:text-3xl
-        text-green-950
-      ">
+      <p className="font-serif text-2xl md:text-3xl text-green-950">
         Technology designed around the way you work.
       </p>
 
@@ -841,42 +543,13 @@ export default function ServicesPage() {
     />
 
     {/* Green atmosphere */}
-    <div className="
-      absolute
-      -top-28
-      -right-48
-      w-[650px]
-      h-[650px]
-      rounded-full
-      bg-green-600/[0.07]
-      blur-[140px]
-    " />
+    <div className="absolute -top-28 -right-48 w-[650px] h-[650px] rounded-full bg-green-600/[0.07] blur-[140px]" />
 
     {/* Gold atmosphere */}
-    <div className="
-      absolute
-      -bottom-48
-      -left-48
-      w-[600px]
-      h-[600px]
-      rounded-full
-      bg-[#D4AF37]/[0.045]
-      blur-[140px]
-    " />
+    <div className="absolute -bottom-48 -left-48 w-[600px] h-[600px] rounded-full bg-[#D4AF37]/[0.045] blur-[140px]" />
 
     {/* Large orbital ring */}
-    <div className="
-      absolute
-      top-1/2
-      left-1/2
-      -translate-x-1/2
-      -translate-y-1/2
-      w-[900px]
-      h-[900px]
-      rounded-full
-      border
-      border-[#D4AF37]/[0.05]
-    " />
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] rounded-full border border-[#D4AF37]/[0.05]" />
 
   </div>
 
@@ -888,14 +561,7 @@ export default function ServicesPage() {
         HEADER
         ======================================================= */}
 
-    <div className="
-      grid
-      lg:grid-cols-[1fr_380px]
-      gap-12
-      items-end
-      mb-24
-      md:mb-32
-    ">
+    <div className="grid lg:grid-cols-[1fr_380px] gap-12 items-end mb-24 md:mb-32">
 
       <div>
 
@@ -910,26 +576,13 @@ export default function ServicesPage() {
         </div>
 
 
-        <h2 className="
-          rs
-          d1
-          font-serif
-          text-4xl
-          md:text-5xl
-          lg:text-[4.2rem]
-          text-white
-          leading-[1.02]
-          tracking-tight
-        ">
+        <h2 className="rs d1 font-serif text-4xl md:text-5xl lg:text-[4.2rem] text-white leading-[1.02] tracking-tight">
 
           {t('services_pg.process.title1')}
 
           <br />
 
-          <span className="
-            italic
-            text-[#D4AF37]
-          ">
+          <span className="italic text-[#D4AF37]">
             {t('services_pg.process.title2')}
           </span>
 
@@ -940,31 +593,13 @@ export default function ServicesPage() {
 
       {/* Header description */}
 
-      <div className="
-        lg:border-l
-        lg:border-[#D4AF37]/30
-        lg:pl-7
-      ">
+      <div className="lg:border-l lg:border-[#D4AF37]/30 lg:pl-7">
 
-        <div className="
-          text-[#D4AF37]
-          text-[.58rem]
-          uppercase
-          tracking-[.35em]
-          font-black
-          mb-4
-        ">
+        <div className="text-[#D4AF37] text-[.58rem] uppercase tracking-[.35em] font-black mb-4">
           Our approach
         </div>
 
-        <p className="
-          rs
-          d2
-          text-white/45
-          text-sm
-          md:text-base
-          leading-[1.8]
-        ">
+        <p className="rs d2 text-white/45 text-sm md:text-base leading-[1.8]">
           From the first conversation to a system ready for
           real-world use, every stage is designed around clarity,
           collaboration and measurable results.
@@ -987,40 +622,16 @@ export default function ServicesPage() {
           ===================================================== */}
 
       <div
-        className="
-          hidden
-          md:block
-          absolute
-          top-[82px]
-          left-[16.666%]
-          right-[16.666%]
-          h-px
-          overflow-hidden
-        "
+        className="hidden md:block absolute top-[82px] left-[16.666%] right-[16.666%] h-px overflow-hidden"
       >
 
         {/* Base line */}
 
-        <div className="
-          absolute
-          inset-0
-          bg-white/10
-        " />
+        <div className="absolute inset-0 bg-white/10" />
 
         {/* Gold progress line */}
 
-        <div className="
-          absolute
-          inset-y-0
-          left-0
-          w-full
-          bg-gradient-to-r
-          from-[#D4AF37]/20
-          via-[#D4AF37]
-          to-[#D4AF37]/20
-          origin-left
-          animate-[pulse_4s_ease-in-out_infinite]
-        " />
+        <div className="absolute inset-y-0 left-0 w-full bg-gradient-to-r from-[#D4AF37]/20 via-[#D4AF37] to-[#D4AF37]/20 origin-left animate-[pulse_4s_ease-in-out_infinite]" />
 
       </div>
 
@@ -1029,13 +640,7 @@ export default function ServicesPage() {
           STEPS
           ===================================================== */}
 
-      <div className="
-        grid
-        grid-cols-1
-        md:grid-cols-3
-        gap-16
-        md:gap-8
-      ">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8">
 
         {([1, 2, 3] as const).map((id, i) => (
 
@@ -1055,76 +660,24 @@ export default function ServicesPage() {
                 NUMBER / ICON
                 ================================================= */}
 
-            <div className="
-              relative
-              flex
-              justify-center
-              mb-12
-            ">
+            <div className="relative flex justify-center mb-12">
 
               {/* Outer orbit */}
 
-              <div className="
-                absolute
-                -inset-4
-                rounded-full
-                border
-                border-[#D4AF37]/10
-                transition-all
-                duration-700
-                group-hover:border-[#D4AF37]/35
-                group-hover:scale-110
-              " />
+              <div className="absolute -inset-4 rounded-full border border-[#D4AF37]/10 transition-all duration-700 group-hover:border-[#D4AF37]/35 group-hover:scale-110" />
 
               {/* Main node */}
 
-              <div className="
-                relative
-                w-[92px]
-                h-[92px]
-                rounded-full
-                bg-[#102A4A]
-                border
-                border-white/10
-                flex
-                items-center
-                justify-center
-                transition-all
-                duration-700
-                group-hover:bg-[#D4AF37]
-                group-hover:border-[#D4AF37]
-                group-hover:scale-105
-                shadow-[0_0_0_8px_rgba(255,255,255,0.015)]
-              ">
+              <div className="relative w-[92px] h-[92px] rounded-full bg-[#102A4A] border border-white/10 flex items-center justify-center transition-all duration-700 group-hover:bg-[#D4AF37] group-hover:border-[#D4AF37] group-hover:scale-105 shadow-[0_0_0_8px_rgba(255,255,255,0.015)]">
 
-                <div className="
-                  text-white
-                  group-hover:text-[#0B1F3A]
-                  transition-colors
-                  duration-500
-                ">
+                <div className="text-white group-hover:text-[#0B1F3A] transition-colors duration-500">
                   {PROCESS_ICONS[i]}
                 </div>
 
 
                 {/* Number */}
 
-                <div className="
-                  absolute
-                  -top-3
-                  -right-3
-                  w-7
-                  h-7
-                  rounded-full
-                  bg-[#D4AF37]
-                  text-[#0B1F3A]
-                  text-[.58rem]
-                  font-black
-                  flex
-                  items-center
-                  justify-center
-                  shadow-lg
-                ">
+                <div className="absolute -top-3 -right-3 w-7 h-7 rounded-full bg-[#D4AF37] text-[#0B1F3A] text-[.58rem] font-black flex items-center justify-center shadow-lg">
                   0{id}
                 </div>
 
@@ -1137,35 +690,15 @@ export default function ServicesPage() {
                 STEP LABEL
                 ================================================= */}
 
-            <div className="
-              flex
-              items-center
-              justify-center
-              gap-3
-              mb-5
-            ">
+            <div className="flex items-center justify-center gap-3 mb-5">
 
-              <span className="
-                w-5
-                h-px
-                bg-[#D4AF37]/60
-              " />
+              <span className="w-5 h-px bg-[#D4AF37]/60" />
 
-              <span className="
-                text-[#D4AF37]
-                text-[.56rem]
-                uppercase
-                tracking-[.35em]
-                font-black
-              ">
+              <span className="text-[#D4AF37] text-[.56rem] uppercase tracking-[.35em] font-black">
                 Phase 0{id}
               </span>
 
-              <span className="
-                w-5
-                h-px
-                bg-[#D4AF37]/60
-              " />
+              <span className="w-5 h-px bg-[#D4AF37]/60" />
 
             </div>
 
@@ -1174,17 +707,7 @@ export default function ServicesPage() {
                 TITLE
                 ================================================= */}
 
-            <h3 className="
-              font-serif
-              text-2xl
-              md:text-[1.7rem]
-              text-white
-              mb-5
-              leading-tight
-              transition-colors
-              duration-500
-              group-hover:text-[#D4AF37]
-            ">
+            <h3 className="font-serif text-2xl md:text-[1.7rem] text-white mb-5 leading-tight transition-colors duration-500 group-hover:text-[#D4AF37]">
               {t(`services_pg.process.${id}.t` as 'services_pg.process.1.t')}
             </h3>
 
@@ -1193,16 +716,7 @@ export default function ServicesPage() {
                 DESCRIPTION
                 ================================================= */}
 
-            <p className="
-              text-white/40
-              text-[.85rem]
-              leading-[1.8]
-              max-w-[270px]
-              mx-auto
-              transition-colors
-              duration-500
-              group-hover:text-white/60
-            ">
+            <p className="text-white/40 text-[.85rem] leading-[1.8] max-w-[270px] mx-auto transition-colors duration-500 group-hover:text-white/60">
               {t(`services_pg.process.${id}.d` as 'services_pg.process.1.d')}
             </p>
 
@@ -1211,32 +725,11 @@ export default function ServicesPage() {
                 MICRO DETAIL
                 ================================================= */}
 
-            <div className="
-              mt-8
-              flex
-              justify-center
-              items-center
-              gap-2
-              opacity-40
-              group-hover:opacity-100
-              transition-opacity
-              duration-500
-            ">
+            <div className="mt-8 flex justify-center items-center gap-2 opacity-40 group-hover:opacity-100 transition-opacity duration-500">
 
-              <span className="
-                w-1
-                h-1
-                rounded-full
-                bg-[#D4AF37]
-              " />
+              <span className="w-1 h-1 rounded-full bg-[#D4AF37]" />
 
-              <span className="
-                text-[.52rem]
-                uppercase
-                tracking-[.3em]
-                font-black
-                text-white/50
-              ">
+              <span className="text-[.52rem] uppercase tracking-[.3em] font-black text-white/50">
                 Sanothimi Technology
               </span>
 
@@ -1255,45 +748,20 @@ export default function ServicesPage() {
         TRUST STRIP
         ======================================================= */}
 
-    <div className="
-      rs
-      d5
-      mt-28
-      md:mt-36
-      pt-8
-      border-t
-      border-white/10
-    ">
+    <div className="rs d5 mt-28 md:mt-36 pt-8 border-t border-white/10">
 
-      <div className="
-        flex
-        flex-col
-        md:flex-row
-        md:items-center
-        md:justify-between
-        gap-8
-      ">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
 
 
         {/* Label */}
 
         <div>
 
-          <div className="
-            text-[.55rem]
-            uppercase
-            tracking-[.35em]
-            font-black
-            text-[#D4AF37]
-            mb-2
-          ">
+          <div className="text-[.55rem] uppercase tracking-[.35em] font-black text-[#D4AF37] mb-2">
             Built for confidence
           </div>
 
-          <p className="
-            text-white/35
-            text-xs
-          ">
+          <p className="text-white/35 text-xs">
             Reliable systems from planning to production.
           </p>
 
@@ -1302,12 +770,7 @@ export default function ServicesPage() {
 
         {/* Indicators */}
 
-        <div className="
-          flex
-          flex-wrap
-          gap-x-8
-          gap-y-4
-        ">
+        <div className="flex flex-wrap gap-x-8 gap-y-4">
 
           {[
             'Zero Data Loss',
@@ -1318,26 +781,10 @@ export default function ServicesPage() {
 
             <div
               key={item}
-              className="
-                flex
-                items-center
-                gap-2.5
-                text-white/45
-                text-[.65rem]
-                font-bold
-              "
+              className="flex items-center gap-2.5 text-white/45 text-[.65rem] font-bold"
             >
 
-              <span className="
-                w-5
-                h-5
-                rounded-full
-                border
-                border-[#D4AF37]/30
-                flex
-                items-center
-                justify-center
-              ">
+              <span className="w-5 h-5 rounded-full border border-[#D4AF37]/30 flex items-center justify-center">
 
                 <svg
                   className="w-2.5 h-2.5 text-[#D4AF37]"
@@ -1372,37 +819,13 @@ export default function ServicesPage() {
         BOTTOM GOLD DETAIL
         ======================================================= */}
 
-    <div className="
-      mt-16
-      flex
-      items-center
-      justify-center
-      gap-4
-      opacity-40
-    ">
+    <div className="mt-16 flex items-center justify-center gap-4 opacity-40">
 
-      <span className="
-        w-16
-        h-px
-        bg-gradient-to-r
-        from-transparent
-        to-[#D4AF37]
-      " />
+      <span className="w-16 h-px bg-gradient-to-r from-transparent to-[#D4AF37]" />
 
-      <span className="
-        w-1.5
-        h-1.5
-        rotate-45
-        bg-[#D4AF37]
-      " />
+      <span className="w-1.5 h-1.5 rotate-45 bg-[#D4AF37]" />
 
-      <span className="
-        w-16
-        h-px
-        bg-gradient-to-l
-        from-transparent
-        to-[#D4AF37]
-      " />
+      <span className="w-16 h-px bg-gradient-to-l from-transparent to-[#D4AF37]" />
 
     </div>
 

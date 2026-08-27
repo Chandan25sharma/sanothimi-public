@@ -3,6 +3,7 @@
 import { Himalaya, Lattice, Mandala, NepalSun } from '@/components/BgDecorations';
 import CTABanner from '@/components/CTABanner';
 import { sendContactForm } from '@/lib/sendContactForm';
+import Link from 'next/link';
 import { useState } from 'react';
 
 const INSTITUTION_TYPES = [
@@ -38,6 +39,7 @@ interface FormState {
   org: string;
   type: string;
   notes: string;
+  consent: boolean;
 }
 
 export default function DemoPage() {
@@ -48,6 +50,7 @@ export default function DemoPage() {
     org: '',
     type: INSTITUTION_TYPES[0],
     notes: '',
+    consent: false,
   });
 
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent'>('idle');
@@ -60,7 +63,8 @@ export default function DemoPage() {
         HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
       >
     ) => {
-      setForm({ ...form, [k]: e.target.value });
+      const val = e.target.type === 'checkbox' ? (e.target as HTMLInputElement).checked : e.target.value;
+      setForm({ ...form, [k]: val });
       setErrors({ ...errors, [k]: false });
     };
 
@@ -79,6 +83,8 @@ export default function DemoPage() {
     }
 
     if (!form.org.trim()) err.org = true;
+
+    if (!form.consent) err.consent = true;
 
     if (Object.keys(err).length) {
       setErrors(err);
@@ -110,6 +116,7 @@ ${form.notes || '—'}`,
         org: '',
         type: INSTITUTION_TYPES[0],
         notes: '',
+        consent: false,
       });
     } catch {
       setStatus('idle');
@@ -143,40 +150,15 @@ ${form.notes || '—'}`,
               <Himalaya className="absolute bottom-0 left-0 w-full text-[#0B1F3A] opacity-[0.14]" />
 
           <Mandala
-            className="
-              absolute
-              -top-32
-              -right-32
-              w-[500px]
-              h-[500px]
-              text-[#0B1F3A]
-              opacity-[0.07]
-            "
+            className="absolute -top-32 -right-32 w-[500px] h-[500px] text-[#0B1F3A] opacity-[0.07]"
           />
 
           <NepalSun
-            className="
-              absolute
-              -bottom-28
-              -left-28
-              w-[300px]
-              h-[300px]
-              text-[#D4AF37]
-              opacity-[0.08]
-            "
+            className="absolute -bottom-28 -left-28 w-[300px] h-[300px] text-[#D4AF37] opacity-[0.08]"
           />
 
           <div
-            className="
-              absolute
-              top-0
-              right-0
-              w-[500px]
-              h-[500px]
-              rounded-full
-              bg-green-600/[0.035]
-              blur-[120px]
-            "
+            className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-green-600/[0.035] blur-[120px]"
           />
         </div>
 
@@ -187,26 +169,11 @@ ${form.notes || '—'}`,
 
             {/* Kicker */}
 
-            <div className="
-              flex
-              items-center
-              gap-3
-              mb-7
-            ">
+            <div className="flex items-center gap-3 mb-7">
 
-              <span className="
-                w-10
-                h-px
-                bg-[#D4AF37]
-              " />
+              <span className="w-10 h-px bg-[#D4AF37]" />
 
-              <span className="
-                text-[#0B1F3A]
-                text-[.62rem]
-                font-black
-                uppercase
-                tracking-[.35em]
-              ">
+              <span className="text-[#0B1F3A] text-[.62rem] font-black uppercase tracking-[.35em]">
                 Book a Demo
               </span>
 
@@ -215,25 +182,12 @@ ${form.notes || '—'}`,
 
             {/* Heading */}
 
-            <h1 className="
-              font-serif
-              text-[2.7rem]
-              sm:text-5xl
-              md:text-6xl
-              lg:text-[5rem]
-              text-[#0B1F3A]
-              leading-[1.03]
-              tracking-tight
-              max-w-4xl
-            ">
+            <h1 className="font-serif text-[2.7rem] sm:text-5xl md:text-6xl lg:text-[5rem] text-[#0B1F3A] leading-[1.03] tracking-tight max-w-4xl">
 
               See what your
               <br />
 
-              <span className="
-                italic
-                text-[#14532D]
-              ">
+              <span className="italic text-[#14532D]">
                 future workflow
               </span>
 
@@ -246,14 +200,7 @@ ${form.notes || '—'}`,
 
             {/* Description */}
 
-            <p className="
-              text-[#64748B]
-              text-base
-              md:text-lg
-              leading-[1.8]
-              max-w-2xl
-              mt-8
-            ">
+            <p className="text-[#64748B] text-base md:text-lg leading-[1.8] max-w-2xl mt-8">
               Get a personalized walkthrough of Sanothimi&apos;s
               digital solutions — focused on your organization,
               your challenges and the way your team actually works.
@@ -262,18 +209,7 @@ ${form.notes || '—'}`,
 
             {/* Mini process */}
 
-            <div className="
-              flex
-              flex-wrap
-              items-center
-              gap-x-8
-              gap-y-4
-              mt-10
-              pt-8
-              border-t
-              border-[#0B1F3A]/10
-              max-w-3xl
-            ">
+            <div className="flex flex-wrap items-center gap-x-8 gap-y-4 mt-10 pt-8 border-t border-[#0B1F3A]/10 max-w-3xl">
 
               {[
                 ['01', 'Request'],
@@ -286,40 +222,16 @@ ${form.notes || '—'}`,
                   className="flex items-center gap-3"
                 >
 
-                  <span className="
-                    w-7
-                    h-7
-                    rounded-full
-                    border
-                    border-[#D4AF37]/50
-                    flex
-                    items-center
-                    justify-center
-                    text-[.55rem]
-                    font-black
-                    text-[#14532D]
-                  ">
+                  <span className="w-7 h-7 rounded-full border border-[#D4AF37]/50 flex items-center justify-center text-[.55rem] font-black text-[#14532D]">
                     {num}
                   </span>
 
-                  <span className="
-                    text-[.62rem]
-                    font-black
-                    uppercase
-                    tracking-[.2em]
-                    text-[#0B1F3A]/55
-                  ">
+                  <span className="text-[.62rem] font-black uppercase tracking-[.2em] text-[#0B1F3A]/55">
                     {label}
                   </span>
 
                   {i < 2 && (
-                    <span className="
-                      hidden
-                      sm:block
-                      w-8
-                      h-px
-                      bg-[#0B1F3A]/10
-                    " />
+                    <span className="hidden sm:block w-8 h-px bg-[#0B1F3A]/10" />
                   )}
 
                 </div>
@@ -343,14 +255,7 @@ ${form.notes || '—'}`,
 
         <div className="max-w-7xl mx-auto px-6">
 
-          <div className="
-            grid
-            grid-cols-1
-            lg:grid-cols-[.85fr_1.15fr]
-            gap-16
-            xl:gap-24
-            items-start
-          ">
+          <div className="grid grid-cols-1 lg:grid-cols-[.85fr_1.15fr] gap-16 xl:gap-24 items-start">
 
 
             {/* ===================================================
@@ -359,27 +264,12 @@ ${form.notes || '—'}`,
 
             <div className="lg:sticky lg:top-28">
 
-              <div className="
-                text-[#D4AF37]
-                text-[.58rem]
-                font-black
-                uppercase
-                tracking-[.35em]
-                mb-5
-              ">
+              <div className="text-[#D4AF37] text-[.58rem] font-black uppercase tracking-[.35em] mb-5">
                 What to Expect
               </div>
 
 
-              <h2 className="
-                font-serif
-                text-3xl
-                md:text-4xl
-                lg:text-[2.8rem]
-                text-[#0B1F3A]
-                leading-[1.1]
-                mb-7
-              ">
+              <h2 className="font-serif text-3xl md:text-4xl lg:text-[2.8rem] text-[#0B1F3A] leading-[1.1] mb-7">
                 A conversation
                 <br />
                 <span className="italic text-[#14532D]">
@@ -388,13 +278,7 @@ ${form.notes || '—'}`,
               </h2>
 
 
-              <p className="
-                text-[#64748B]
-                text-[.92rem]
-                leading-[1.8]
-                max-w-md
-                mb-12
-              ">
+              <p className="text-[#64748B] text-[.92rem] leading-[1.8] max-w-md mb-12">
                 Tell us what you are trying to improve. We will
                 focus the walkthrough around the areas that matter
                 most to your organization.
@@ -409,36 +293,12 @@ ${form.notes || '—'}`,
 
                   <div
                     key={perk.number}
-                    className="
-                      flex
-                      gap-5
-                      group
-                    "
+                    className="flex gap-5 group"
                   >
 
-                    <div className="
-                      flex-shrink-0
-                      pt-1
-                    ">
+                    <div className="flex-shrink-0 pt-1">
 
-                      <div className="
-                        w-10
-                        h-10
-                        rounded-full
-                        border
-                        border-[#D4AF37]/30
-                        flex
-                        items-center
-                        justify-center
-                        text-[.58rem]
-                        font-black
-                        text-[#14532D]
-                        group-hover:bg-[#14532D]
-                        group-hover:text-white
-                        group-hover:border-[#14532D]
-                        transition-all
-                        duration-500
-                      ">
+                      <div className="w-10 h-10 rounded-full border border-[#D4AF37]/30 flex items-center justify-center text-[.58rem] font-black text-[#14532D] group-hover:bg-[#14532D] group-hover:text-white group-hover:border-[#14532D] transition-all duration-500">
                         {perk.number}
                       </div>
 
@@ -447,21 +307,11 @@ ${form.notes || '—'}`,
 
                     <div>
 
-                      <h3 className="
-                        text-[#0B1F3A]
-                        font-bold
-                        text-[.95rem]
-                        mb-1.5
-                      ">
+                      <h3 className="text-[#0B1F3A] font-bold text-[.95rem] mb-1.5">
                         {perk.title}
                       </h3>
 
-                      <p className="
-                        text-[#64748B]
-                        text-[.82rem]
-                        leading-[1.7]
-                        max-w-sm
-                      ">
+                      <p className="text-[#64748B] text-[.82rem] leading-[1.7] max-w-sm">
                         {perk.desc}
                       </p>
 
@@ -476,31 +326,11 @@ ${form.notes || '—'}`,
 
               {/* Small trust line */}
 
-              <div className="
-                mt-14
-                pt-7
-                border-t
-                border-gray-100
-                flex
-                items-center
-                gap-3
-              ">
+              <div className="mt-14 pt-7 border-t border-gray-100 flex items-center gap-3">
 
-                <span className="
-                  w-2
-                  h-2
-                  rounded-full
-                  bg-green-500
-                  animate-pulse
-                " />
+                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
 
-                <span className="
-                  text-[.62rem]
-                  font-bold
-                  uppercase
-                  tracking-[.18em]
-                  text-[#64748B]
-                ">
+                <span className="text-[.62rem] font-bold uppercase tracking-[.18em] text-[#64748B]">
                   Typically responds within 24 hours
                 </span>
 
@@ -700,8 +530,31 @@ ${form.notes || '—'}`,
                   </div>
 
 
+                  {/* Consent */}
+                  <div className="pt-8">
+                    <label className="flex items-start gap-3 text-[.8rem] text-[#64748B] cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={form.consent}
+                        onChange={set('consent')}
+                        className={`mt-0.5 accent-[#14532D] ${errors.consent ? 'outline outline-2 outline-red-400 rounded' : ''}`}
+                      />
+                      <span>
+                        I agree to the{' '}
+                        <Link href="/terms" className="underline hover:text-[#14532D] transition-colors">Terms & Conditions</Link>
+                        {' '}and{' '}
+                        <Link href="/privacy" className="underline hover:text-[#14532D] transition-colors">Privacy Policy</Link>
+                        {' '}and consent to being contacted about my demo request.
+                      </span>
+                    </label>
+                    {errors.consent && (
+                      <p className="mt-2 text-[.7rem] text-red-500 font-medium">Please accept the Privacy Policy to continue.</p>
+                    )}
+                  </div>
+
+
                   {/* Submit */}
-                  <div className="pt-8 flex flex-col sm:flex-row sm:items-center gap-6">
+                  <div className="pt-6 flex flex-col sm:flex-row sm:items-center gap-6">
 
                     <button
                       type="submit"
@@ -724,11 +577,6 @@ ${form.notes || '—'}`,
                         </svg>
                       )}
                     </button>
-
-                    <p className="text-xs text-[#64748B] max-w-xs leading-relaxed">
-                      Your information stays private and is only used to
-                      respond to your request.
-                    </p>
 
                   </div>
 

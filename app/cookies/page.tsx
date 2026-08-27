@@ -1,6 +1,6 @@
 'use client';
 import { useLanguage } from '@/context/LanguageContext';
-import { PRIVACY_EN, PRIVACY_NP } from '@/lib/legal-content';
+import { COOKIES_EN } from '@/lib/legal-content';
 import { useEffect, useRef, useState } from 'react';
 
 function useReadingProgress() {
@@ -18,16 +18,16 @@ function useReadingProgress() {
   return progress;
 }
 
-export default function PrivacyPage() {
-  const { t, language } = useLanguage();
-  const PRIVACY_SECTIONS = language === 'np' ? PRIVACY_NP : PRIVACY_EN;
+export default function CookiesPage() {
+  const { t } = useLanguage();
+  const COOKIE_SECTIONS = COOKIES_EN;
   const [activeSection, setActiveSection] = useState<string>('');
   const progress = useReadingProgress();
   const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!PRIVACY_SECTIONS.length) return;
-    const ids = PRIVACY_SECTIONS.map((s) => s.id);
+    if (!COOKIE_SECTIONS.length) return;
+    const ids = COOKIE_SECTIONS.map((s) => s.id);
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => { if (e.isIntersecting) setActiveSection(e.target.id); });
@@ -39,27 +39,33 @@ export default function PrivacyPage() {
       if (el) io.observe(el);
     });
     return () => io.disconnect();
-  }, [PRIVACY_SECTIONS]);
+  }, [COOKIE_SECTIONS]);
+
+  const resetCookiePreferences = () => {
+    try {
+      localStorage.removeItem('sanothimi_cookie_consent');
+      window.location.reload();
+    } catch {
+      window.location.reload();
+    }
+  };
 
   return (
     <main className="bg-white min-h-screen">
 
       {/* Reading progress bar */}
-      <div
-        className="read-progress"
-        style={{ width: `${progress}%` }}
-      />
+      <div className="read-progress" style={{ width: `${progress}%` }} />
 
-      {/* ── Page Header ── */}
+      {/* Page Header */}
       <div className="relative bg-white pt-44 pb-16 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-[#155EEF] text-[.65rem] font-black uppercase tracking-[.3em] mb-6">
-            {t('legal.privacy.hero.kicker')}
+            {t('legal.cookies.hero.kicker')}
           </div>
           <h1 className="font-serif text-[2.2rem] sm:text-5xl md:text-6xl text-[#0B1F3A] leading-tight mb-8 tracking-tight">
-            {t('legal.privacy.hero.title1')}{' '}
+            {t('legal.cookies.hero.title1')}{' '}
             <span className="relative inline-block">
-              {t('legal.privacy.hero.title2')}
+              {t('legal.cookies.hero.title2')}
               <span className="absolute left-0 -bottom-1 w-full h-[3px] bg-[#155EEF] rounded-full" />
             </span>
           </h1>
@@ -68,19 +74,18 @@ export default function PrivacyPage() {
               <span className="w-1 h-1 rounded-full bg-current" />
               {t('legal.terms.hero.date')}
             </span>
-            <span>{t('legal.privacy.status')}</span>
+            <span>{t('legal.cookies.status')}</span>
             <span>{t('legal.privacy.jurisdiction')}</span>
           </div>
         </div>
       </div>
 
-      {/* ── Main layout ── */}
+      {/* Main layout */}
       <div className="max-w-7xl mx-auto px-6 pt-16 pb-24">
         <div className="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-16 items-start">
 
-          {/* ── Sticky Sidebar ── */}
+          {/* Sticky Sidebar */}
           <aside className="hidden lg:block sticky top-28 space-y-8">
-            {/* Progress ring */}
             <div className="flex items-center gap-4 p-5 bg-[#F9FAFB] rounded-2xl border border-gray-100">
               <div className="relative w-12 h-12 flex-shrink-0">
                 <svg className="w-12 h-12 -rotate-90" viewBox="0 0 48 48">
@@ -98,17 +103,16 @@ export default function PrivacyPage() {
               </div>
               <div>
                 <div className="text-[10px] font-black uppercase tracking-widest text-[#155EEF] mb-0.5">Reading</div>
-                <div className="text-xs font-bold text-[#0B1F3A]">Privacy Policy</div>
+                <div className="text-xs font-bold text-[#0B1F3A]">Cookie Policy</div>
               </div>
             </div>
 
-            {/* Section nav */}
             <div>
               <div className="text-[.62rem] font-black uppercase tracking-[.4em] text-[#155EEF] mb-5 px-3">
-                {t('legal.privacy.sidebar.title')}
+                {t('legal.cookies.sidebar.title')}
               </div>
               <nav className="flex flex-col gap-1">
-                {PRIVACY_SECTIONS.map((s) => (
+                {COOKIE_SECTIONS.map((s) => (
                   <a
                     key={s.id}
                     href={`#${s.id}`}
@@ -120,29 +124,26 @@ export default function PrivacyPage() {
               </nav>
             </div>
 
-            {/* Data request card */}
             <div className="p-6 bg-[#0B1F3A] rounded-2xl">
               <p className="text-[10px] font-black text-[#155EEF] uppercase tracking-widest mb-3 leading-none">
-                {t('legal.privacy.crd.title')}
+                {t('legal.cookies.crd.title')}
               </p>
               <p className="text-xs text-white/50 mb-5 leading-relaxed">
-                {t('legal.privacy.crd.desc')}
+                {t('legal.cookies.crd.desc')}
               </p>
-              <a
-                href="mailto:privacy@sanothimi.com.np"
+              <button
+                onClick={resetCookiePreferences}
                 className="text-xs font-black text-white hover:text-[#155EEF] transition-colors underline decoration-white/20"
               >
-                {t('legal.privacy.crd.cta')}
-              </a>
+                {t('legal.cookies.crd.cta')}
+              </button>
             </div>
           </aside>
 
-          {/* ── Main Content ── */}
+          {/* Main Content */}
           <div ref={contentRef} className="relative">
-
-            {/* Content sections */}
             <div className="space-y-20">
-              {PRIVACY_SECTIONS.map((s) => (
+              {COOKIE_SECTIONS.map((s) => (
                 <section key={s.id} id={s.id} className="scroll-mt-36">
                   <div className="flex items-center gap-4 mb-8">
                     <div className="w-8 h-8 rounded-lg bg-[#155EEF]/10 flex items-center justify-center flex-shrink-0">
@@ -161,18 +162,20 @@ export default function PrivacyPage() {
               ))}
             </div>
 
-            {/* Bottom CTA */}
             <div className="mt-24 pt-12 border-t border-gray-100">
               <div className="bg-[#0B1F3A] rounded-[2.5rem] p-10 md:p-14 flex flex-col md:flex-row items-center justify-between gap-10 text-white relative overflow-hidden">
                 <div className="absolute inset-0 bg-pattern-dark pointer-events-none" />
                 <div className="absolute top-0 right-0 w-64 h-64 bg-[#155EEF]/8 blur-[80px] pointer-events-none" />
                 <div className="max-w-md relative z-10">
-                  <h3 className="text-2xl font-serif mb-4">{t('legal.privacy.extract.title')}</h3>
-                  <p className="text-sm text-white/50 leading-relaxed">{t('legal.privacy.extract.desc')}</p>
+                  <h3 className="text-2xl font-serif mb-4">{t('legal.cookies.extract.title')}</h3>
+                  <p className="text-sm text-white/50 leading-relaxed">{t('legal.cookies.extract.desc')}</p>
                 </div>
-                <button className="relative z-10 bg-[#155EEF] text-white px-10 py-5 rounded-2xl font-bold hover:bg-white hover:text-[#0B1F3A] transition-all duration-500 shadow-xl shadow-[#155EEF]/20 whitespace-nowrap">
-                  {t('legal.privacy.extract.cta')}
-                </button>
+                <a
+                  href="mailto:privacy@sanothimi.com.np"
+                  className="relative z-10 bg-[#155EEF] text-white px-10 py-5 rounded-2xl font-bold hover:bg-white hover:text-[#0B1F3A] transition-all duration-500 shadow-xl shadow-[#155EEF]/20 whitespace-nowrap"
+                >
+                  {t('legal.cookies.extract.cta')}
+                </a>
               </div>
             </div>
           </div>

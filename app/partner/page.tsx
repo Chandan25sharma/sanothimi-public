@@ -3,6 +3,7 @@
 import { Lattice, Mandala, NepalSun } from '@/components/BgDecorations';
 import CTABanner from '@/components/CTABanner';
 import { sendContactForm } from '@/lib/sendContactForm';
+import Link from 'next/link';
 import { useState } from 'react';
 
 const PARTNER_TYPES = [
@@ -62,6 +63,7 @@ interface FormState {
   phone: string;
   type: string;
   message: string;
+  consent: boolean;
 }
 
 export default function PartnerPage() {
@@ -73,6 +75,7 @@ export default function PartnerPage() {
     phone: '',
     type: PARTNER_TYPES[0],
     message: '',
+    consent: false,
   });
 
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent'>('idle');
@@ -85,9 +88,11 @@ export default function PartnerPage() {
         HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
       >
     ) => {
+      const val = e.target.type === 'checkbox' ? (e.target as HTMLInputElement).checked : e.target.value;
+
       setForm((prev) => ({
         ...prev,
-        [key]: e.target.value,
+        [key]: val,
       }));
 
       setErrors((prev) => ({
@@ -110,6 +115,8 @@ export default function PartnerPage() {
     ) {
       err.email = true;
     }
+
+    if (!form.consent) err.consent = true;
 
     if (Object.keys(err).length > 0) {
       setErrors(err);
@@ -143,6 +150,7 @@ ${form.message || '—'}`,
         phone: '',
         type: PARTNER_TYPES[0],
         message: '',
+        consent: false,
       });
     } catch {
       setStatus('idle');
@@ -774,8 +782,31 @@ ${form.message || '—'}`,
                   </div>
 
 
+                  {/* Consent */}
+                  <div className="pt-8">
+                    <label className="flex items-start gap-3 text-[.8rem] text-[#64748B] cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={form.consent}
+                        onChange={set('consent')}
+                        className={`mt-0.5 accent-[#0B6B3A] ${errors.consent ? 'outline outline-2 outline-red-400 rounded' : ''}`}
+                      />
+                      <span>
+                        I agree to the{' '}
+                        <Link href="/terms" className="underline hover:text-[#0B6B3A] transition-colors">Terms & Conditions</Link>
+                        {' '}and{' '}
+                        <Link href="/privacy" className="underline hover:text-[#0B6B3A] transition-colors">Privacy Policy</Link>
+                        {' '}and consent to being contacted about the partnership program.
+                      </span>
+                    </label>
+                    {errors.consent && (
+                      <p className="mt-2 text-[.7rem] text-red-500 font-medium">Please accept the Privacy Policy to continue.</p>
+                    )}
+                  </div>
+
+
                   {/* Submit */}
-                  <div className="pt-8 flex flex-col sm:flex-row sm:items-center gap-6">
+                  <div className="pt-6 flex flex-col sm:flex-row sm:items-center gap-6">
 
                     <button
                       type="submit"
@@ -798,11 +829,6 @@ ${form.message || '—'}`,
                         </svg>
                       )}
                     </button>
-
-                    <p className="text-xs text-[#64748B] max-w-xs leading-relaxed">
-                      By submitting this form, you agree that our team may
-                      contact you regarding the partnership program.
-                    </p>
 
                   </div>
 
