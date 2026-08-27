@@ -416,7 +416,7 @@ export const TERMS_NP = [
   {
     id: 'part-32',
     title: '३३. सूचना',
-    content: `सानोठिमीलाई कानूनी सूचना legal@sanothimi.com वा हाम्रो दर्ता ठेगाना सानोठिमी, भक्तपुर, नेपालमा पठाउनुपर्छ।`
+    content: `सानोठिमीलाई कानूनी सूचना legal@sanothimi.com मा पठाउनुपर्छ।`
   },
   {
     id: 'part-33',
