@@ -2,15 +2,15 @@
 
 import { Himalaya } from '@/components/BgDecorations';
 import CTABanner from '@/components/CTABanner';
-import emailjs from '@emailjs/browser';
+import { sendContactForm } from '@/lib/sendContactForm';
 import { useState } from 'react';
 
 const CHANNELS = [
   {
     icon: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
     label: 'Email Support',
-    val: 'info@sanothimi.com.np',
-    href: 'mailto:info@sanothimi.com.np',
+    val: 'support@sanothimi.com',
+    href: 'mailto:support@sanothimi.com',
     sub: 'Response within 4 business hours',
   },
   {
@@ -110,29 +110,19 @@ export default function SupportPage() {
     setStatus('sending');
 
     try {
-      await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '',
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '',
-        {
-          from_name: form.name,
-          from_email: form.email,
-          subject: `Support Ticket [${form.priority.split(' — ')[0]}] — ${
-            form.subject || 'No subject'
-          }`,
-          message: `Priority: ${form.priority}
+      await sendContactForm({
+        from_name: form.name,
+        from_email: form.email,
+        subject: `Support Ticket [${form.priority.split(' — ')[0]}] — ${
+          form.subject || 'No subject'
+        }`,
+        message: `Priority: ${form.priority}
 Subject: ${form.subject || '—'}
 
 Description:
 ${form.desc}`,
-          current_date: new Date().toLocaleDateString('en-US', {
-            weekday: 'long',
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-          }),
-        },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ''
-      );
+        source: 'support',
+      });
 
       setStatus('sent');
 

@@ -2,7 +2,7 @@
 
 import { Himalaya, Lattice, Mandala, NepalSun } from '@/components/BgDecorations';
 import CTABanner from '@/components/CTABanner';
-import emailjs from '@emailjs/browser';
+import { sendContactForm } from '@/lib/sendContactForm';
 import { useState } from 'react';
 
 const INSTITUTION_TYPES = [
@@ -88,28 +88,18 @@ export default function DemoPage() {
     setStatus('sending');
 
     try {
-      await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '',
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '',
-        {
-          from_name: form.name,
-          from_email: form.email,
-          subject: `New Demo Request — ${form.org}`,
-          message: `Phone: ${form.phone}
+      await sendContactForm({
+        from_name: form.name,
+        from_email: form.email,
+        subject: `New Demo Request — ${form.org}`,
+        message: `Phone: ${form.phone}
 Organization: ${form.org}
 Type: ${form.type}
 
 Notes:
 ${form.notes || '—'}`,
-          current_date: new Date().toLocaleDateString('en-US', {
-            weekday: 'long',
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-          }),
-        },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ''
-      );
+        source: 'demo',
+      });
 
       setStatus('sent');
 

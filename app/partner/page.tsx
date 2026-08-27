@@ -2,7 +2,7 @@
 
 import { Lattice, Mandala, NepalSun } from '@/components/BgDecorations';
 import CTABanner from '@/components/CTABanner';
-import emailjs from '@emailjs/browser';
+import { sendContactForm } from '@/lib/sendContactForm';
 import { useState } from 'react';
 
 const PARTNER_TYPES = [
@@ -119,29 +119,19 @@ export default function PartnerPage() {
     setStatus('sending');
 
     try {
-      await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '',
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '',
-        {
-          from_name: form.name,
-          from_email: form.email,
-          subject: `New Partner Application — ${form.company}`,
-          message: `Company / Business Name: ${form.company}
+      await sendContactForm({
+        from_name: form.name,
+        from_email: form.email,
+        subject: `New Partner Application — ${form.company}`,
+        message: `Company / Business Name: ${form.company}
 License / Registration No: ${form.license || '—'}
 Phone: ${form.phone || '—'}
 Partnership Type: ${form.type}
 
 Message:
 ${form.message || '—'}`,
-          current_date: new Date().toLocaleDateString('en-US', {
-            weekday: 'long',
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-          }),
-        },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ''
-      );
+        source: 'partner',
+      });
 
       setStatus('sent');
 

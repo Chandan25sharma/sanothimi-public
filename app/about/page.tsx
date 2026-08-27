@@ -2,7 +2,7 @@
 import { Himalaya, Lattice, Mandala, NepalSun } from '@/components/BgDecorations';
 import CTABanner from '@/components/CTABanner';
 import { useLanguage } from '@/context/LanguageContext';
-import emailjs from '@emailjs/browser';
+import { sendContactForm } from '@/lib/sendContactForm';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 
@@ -92,25 +92,20 @@ export default function AboutPage() {
 
     setCfStatus('sending');
     try {
-      await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '',
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '',
-        {
-          from_name: `${cf.fname} ${cf.lname}`,
-          from_email: cf.email,
-          subject: `New Enquiry from ${cf.fname}${cf.company ? ` (${cf.company})` : ''}`,
-          message: [
-            `Enquiry type: ${cf.enquiry}`,
-            cf.phone && `Phone: ${cf.phone}`,
-            cf.jobTitle && `Job title: ${cf.jobTitle}`,
-            cf.company && `Company: ${cf.company}`,
-            cf.country && `Country: ${cf.country}`,
-            cf.comments && `Comments: ${cf.comments}`,
-          ].filter(Boolean).join('\n'),
-          current_date: new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }),
-        },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ''
-      );
+      await sendContactForm({
+        from_name: `${cf.fname} ${cf.lname}`,
+        from_email: cf.email,
+        subject: `New Enquiry from ${cf.fname}${cf.company ? ` (${cf.company})` : ''}`,
+        message: [
+          `Enquiry type: ${cf.enquiry}`,
+          cf.phone && `Phone: ${cf.phone}`,
+          cf.jobTitle && `Job title: ${cf.jobTitle}`,
+          cf.company && `Company: ${cf.company}`,
+          cf.country && `Country: ${cf.country}`,
+          cf.comments && `Comments: ${cf.comments}`,
+        ].filter(Boolean).join('\n'),
+        source: 'about',
+      });
       setCfStatus('sent');
       setCf({ fname: '', lname: '', email: '', phone: '', jobTitle: '', company: '', country: '', enquiry: '', comments: '', subscribe: false, consent: false });
       setTimeout(() => setCfStatus('idle'), 6000);
@@ -399,23 +394,13 @@ export default function AboutPage() {
       fill="none"
     >
       <path
-        d="
-          M-100 520
-          C180 520 220 180 520 180
-          S820 520 1080 350
-          S1380 120 1700 160
-        "
+        d="M-100 520 C180 520 220 180 520 180 S820 520 1080 350 S1380 120 1700 160"
         stroke="#b9f1da"
         strokeWidth="0.8"
       />
 
       <path
-        d="
-          M-100 570
-          C200 570 270 240 550 240
-          S850 560 1110 420
-          S1400 190 1700 220
-        "
+        d="M-100 570 C200 570 270 240 550 240 S850 560 1110 420 S1400 190 1700 220"
         stroke="#20C997"
         strokeWidth="0.7"
       />
@@ -563,7 +548,7 @@ export default function AboutPage() {
                   {/* 01 — Collaborate: two interlocking rings */}
                   {id === 1 && <path fillRule="evenodd" clipRule="evenodd" d="M9 4a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zM15 8a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6z" />}
                   {/* 02 — Client-first: filled heart */}
-                  {id === 2 && <path d="M12_21s-7.5-4.6-10.2-9.3C.3_9.1_0_7.5_0_6a6_6_0_0112_0c0_1.5-.3_3.1-1.8_5.7C19.5_16.4_12_21_12_21z" />}
+                  {id === 2 && <path d="M12 21s-7.5-4.6-10.2-9.3C.3 9.1 0 7.5 0 6a6 6 0 0112 0c0 1.5-.3 3.1-1.8 5.7C19.5 16.4 12 21 12 21z" />}
                   {/* 03 — Innovate: sparkle/star burst */}
                   {id === 3 && <path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7z" />}
                   {/* 04 — Care: filled shield-check */}
@@ -725,14 +710,7 @@ export default function AboutPage() {
 
         {/* Soft path underneath */}
         <path
-          d="
-            M90 0
-            C90 90 35 120 45 210
-            C55 300 145 330 135 420
-            C125 510 35 540 45 630
-            C55 720 145 750 135 840
-            C125 910 90 950 90 1000
-          "
+          d="M90 0 C90 90 35 120 45 210 C55 300 145 330 135 420 C125 510 35 540 45 630 C55 720 145 750 135 840 C125 910 90 950 90 1000"
           stroke="#14532D"
           strokeWidth="5"
           opacity="0.035"
@@ -740,14 +718,7 @@ export default function AboutPage() {
 
         {/* Main gold journey path */}
         <path
-          d="
-            M90 0
-            C90 90 35 120 45 210
-            C55 300 145 330 135 420
-            C125 510 35 540 45 630
-            C55 720 145 750 135 840
-            C125 910 90 950 90 1000
-          "
+          d="M90 0 C90 90 35 120 45 210 C55 300 145 330 135 420 C125 510 35 540 45 630 C55 720 145 750 135 840 C125 910 90 950 90 1000"
           stroke="#C9A227"
           strokeWidth="1.5"
           strokeDasharray="3 8"
@@ -786,7 +757,7 @@ export default function AboutPage() {
         {MILESTONES.map((m, i) => (
 
           <div
-            key={m.year}
+            key={`${m.year}-${m.title}`}
             className={`
               rs
               d${(i % 4) + 1}
