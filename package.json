@@ -12,7 +12,7 @@
     "animejs": "^4.5.0",
     "framer-motion": "^12.42.0",
     "lucide-react": "^1.34.0",
-    "next": "16.1.6",
+    "next": "^16.3.4",
     "react": "19.2.3",
     "react-dom": "19.2.3"
   },

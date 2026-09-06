@@ -458,8 +458,9 @@ export const TRANSLATIONS = {
 
     'h2.stat.uptime': 'Uptime SLA',
     'h2.stat.institutions': 'Institutions served',
-    'h2.stat.users': 'Daily active users',
+    'h2.stat.users': 'Active users',
     'h2.stat.years': 'Years of operation',
+    'h2.stat.digitalNepal': 'Experience New Digital Nepal',
 
     'h2.use.kicker': 'Who We Serve',
     'h2.use.title1': 'Built for your',
@@ -967,8 +968,9 @@ export const TRANSLATIONS = {
 
     'h2.stat.uptime': 'अपटाइम एसएलए',
     'h2.stat.institutions': 'सेवा प्राप्त संस्थाहरू',
-    'h2.stat.users': 'दैनिक सक्रिय प्रयोगकर्ता',
+    'h2.stat.users': 'सक्रिय प्रयोगकर्ता',
     'h2.stat.years': 'सञ्चालनका वर्षहरू',
+    'h2.stat.digitalNepal': 'नयाँ डिजिटल नेपालको अनुभव',
 
     'h2.use.kicker': 'हामीले सेवा दिने क्षेत्र',
     'h2.use.title1': 'तपाईंको',
