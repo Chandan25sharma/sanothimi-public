@@ -495,7 +495,7 @@ export const TRANSLATIONS = {
     'h2.pricing.title1': 'Starts at',
     'h2.pricing.title2': '/month',
     'h2.pricing.desc': 'No hidden fees. Cancel anytime. Free 30-day demo included.',
-    'h2.pricing.viewFull': 'View Full Pricing',
+    'h2.pricing.viewFull': 'Get a Custom Quote',
     'h2.pricing.bookDemo': 'Book Demo',
 
     'h2.banner.title': 'Ready to modernize\nyour institution?',
@@ -1005,7 +1005,7 @@ export const TRANSLATIONS = {
     'h2.pricing.title1': 'सुरु मूल्य',
     'h2.pricing.title2': '/महिना',
     'h2.pricing.desc': 'कुनै लुकेको शुल्क छैन। जुनसुकै बेला रद्द गर्नुहोस्। नि:शुल्क ३०-दिने डेमो सामेल।',
-    'h2.pricing.viewFull': 'पूर्ण मूल्य हेर्नुहोस्',
+    'h2.pricing.viewFull': 'अनुकूलित मूल्य पाउनुहोस्',
     'h2.pricing.bookDemo': 'डेमो बुक गर्नुहोस्',
 
     'h2.banner.title': 'तपाईंको संस्था आधुनिकीकरण\nगर्न तयार हुनुहुन्छ?',
