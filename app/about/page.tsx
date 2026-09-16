@@ -2,7 +2,6 @@
 import { Himalaya, Lattice, Mandala, NepalSun } from '@/components/BgDecorations';
 import CTABanner from '@/components/CTABanner';
 import { useLanguage } from '@/context/LanguageContext';
-import { sendContactForm } from '@/lib/sendContactForm';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 
@@ -66,54 +65,6 @@ export default function AboutPage() {
   const c1 = useCounter(10, 200);
   const c2 = useCounter(99, 400);
   const c3 = useCounter(50, 600);
-
-  const [cf, setCf] = useState({
-    fname: '', lname: '', email: '', phone: '', jobTitle: '', company: '',
-    country: '', enquiry: '', comments: '', subscribe: false, consent: false,
-  });
-  const [cfStatus, setCfStatus] = useState<'idle' | 'sending' | 'sent'>('idle');
-  const [cfErrors, setCfErrors] = useState<Record<string, boolean>>({});
-
-  const setCfField = (k: keyof typeof cf) =>
-    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-      const val = e.target.type === 'checkbox' ? (e.target as HTMLInputElement).checked : e.target.value;
-      setCf((prev) => ({ ...prev, [k]: val }));
-      setCfErrors((prev) => ({ ...prev, [k]: false }));
-    };
-
-  const submitContactForm = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const err: Record<string, boolean> = {};
-    if (!cf.fname) err.fname = true;
-    if (!cf.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cf.email)) err.email = true;
-    if (!cf.enquiry) err.enquiry = true;
-    if (!cf.consent) err.consent = true;
-    if (Object.keys(err).length) { setCfErrors(err); return; }
-
-    setCfStatus('sending');
-    try {
-      await sendContactForm({
-        from_name: `${cf.fname} ${cf.lname}`,
-        from_email: cf.email,
-        subject: `New Enquiry from ${cf.fname}${cf.company ? ` (${cf.company})` : ''}`,
-        message: [
-          `Enquiry type: ${cf.enquiry}`,
-          cf.phone && `Phone: ${cf.phone}`,
-          cf.jobTitle && `Job title: ${cf.jobTitle}`,
-          cf.company && `Company: ${cf.company}`,
-          cf.country && `Country: ${cf.country}`,
-          cf.comments && `Comments: ${cf.comments}`,
-        ].filter(Boolean).join('\n'),
-        source: 'about',
-      });
-      setCfStatus('sent');
-      setCf({ fname: '', lname: '', email: '', phone: '', jobTitle: '', company: '', country: '', enquiry: '', comments: '', subscribe: false, consent: false });
-      setTimeout(() => setCfStatus('idle'), 6000);
-    } catch {
-      setCfStatus('idle');
-      alert('Failed to send message. Please try again.');
-    }
-  };
 
   return (
     <main>
@@ -989,143 +940,20 @@ export default function AboutPage() {
               </svg>
             </div>
 
-            {/* RIGHT — form */}
+            {/* RIGHT — redirect to contact page */}
             <div className="rs d2">
-              {cfStatus === 'sent' ? (
-                <div className="text-center py-24 border border-gray-100 rounded-[2rem] bg-[#F8FAFC]">
-                  <div className="w-16 h-16 bg-[#12B76A] text-white rounded-full flex items-center justify-center mx-auto mb-8">
-                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="3">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <h3 className="font-serif text-2xl text-[#0B1F3A] mb-3">{t('about_pg.contact.sent')}</h3>
-                  <p className="text-[#6B7280]">{t('about_pg.contact.sent_desc')}</p>
-                </div>
-              ) : (
-                <form onSubmit={submitContactForm} noValidate className="space-y-7">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-7">
-                    <div>
-                      <label className="block text-[.7rem] font-bold text-[#0B1F3A] mb-2">{t('about_pg.contact.form.fname')}*</label>
-                      <input
-                        type="text"
-                        value={cf.fname}
-                        onChange={setCfField('fname')}
-                        className={`w-full bg-transparent border-b ${cfErrors.fname ? 'border-red-400' : 'border-gray-200'} py-2.5 text-[#0B1F3A] text-sm outline-none transition-colors focus:border-[#155EEF]`}
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-[.7rem] font-bold text-[#0B1F3A] mb-2">{t('about_pg.contact.form.lname')}</label>
-                      <input
-                        type="text"
-                        value={cf.lname}
-                        onChange={setCfField('lname')}
-                        className="w-full bg-transparent border-b border-gray-200 py-2.5 text-[#0B1F3A] text-sm outline-none transition-colors focus:border-[#155EEF]"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-[.7rem] font-bold text-[#0B1F3A] mb-2">{t('about_pg.contact.form.email')}*</label>
-                      <input
-                        type="email"
-                        value={cf.email}
-                        onChange={setCfField('email')}
-                        className={`w-full bg-transparent border-b ${cfErrors.email ? 'border-red-400' : 'border-gray-200'} py-2.5 text-[#0B1F3A] text-sm outline-none transition-colors focus:border-[#155EEF]`}
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-[.7rem] font-bold text-[#0B1F3A] mb-2">{t('about_pg.contact.form.phone')}</label>
-                      <input
-                        type="tel"
-                        value={cf.phone}
-                        onChange={setCfField('phone')}
-                        className="w-full bg-transparent border-b border-gray-200 py-2.5 text-[#0B1F3A] text-sm outline-none transition-colors focus:border-[#155EEF]"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-[.7rem] font-bold text-[#0B1F3A] mb-2">{t('about_pg.contact.form.jobTitle')}</label>
-                      <input
-                        type="text"
-                        value={cf.jobTitle}
-                        onChange={setCfField('jobTitle')}
-                        className="w-full bg-transparent border-b border-gray-200 py-2.5 text-[#0B1F3A] text-sm outline-none transition-colors focus:border-[#155EEF]"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-[.7rem] font-bold text-[#0B1F3A] mb-2">{t('about_pg.contact.form.company')}</label>
-                      <input
-                        type="text"
-                        value={cf.company}
-                        onChange={setCfField('company')}
-                        className="w-full bg-transparent border-b border-gray-200 py-2.5 text-[#0B1F3A] text-sm outline-none transition-colors focus:border-[#155EEF]"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-[.7rem] font-bold text-[#0B1F3A] mb-2">{t('about_pg.contact.form.country')}</label>
-                      <input
-                        type="text"
-                        value={cf.country}
-                        onChange={setCfField('country')}
-                        className="w-full bg-transparent border-b border-gray-200 py-2.5 text-[#0B1F3A] text-sm outline-none transition-colors focus:border-[#155EEF]"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-[.7rem] font-bold text-[#0B1F3A] mb-2">{t('about_pg.contact.form.enquiry')}*</label>
-                      <select
-                        value={cf.enquiry}
-                        onChange={setCfField('enquiry')}
-                        className={`w-full bg-transparent border-b ${cfErrors.enquiry ? 'border-red-400' : 'border-gray-200'} py-2.5 text-[#0B1F3A] text-sm outline-none transition-colors focus:border-[#155EEF]`}
-                      >
-                        <option value="">{t('about_pg.contact.form.enquiry.placeholder')}</option>
-                        <option value="General Inquiry">{t('about_pg.contact.form.enquiry.general')}</option>
-                        <option value="Sales">{t('about_pg.contact.form.enquiry.sales')}</option>
-                        <option value="Partnership">{t('about_pg.contact.form.enquiry.partnership')}</option>
-                        <option value="Support">{t('about_pg.contact.form.enquiry.support')}</option>
-                        <option value="Careers">{t('about_pg.contact.form.enquiry.careers')}</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-[.7rem] font-bold text-[#0B1F3A] mb-2">{t('about_pg.contact.form.comments')}</label>
-                    <textarea
-                      rows={4}
-                      value={cf.comments}
-                      onChange={setCfField('comments')}
-                      className="w-full bg-transparent border-b border-gray-200 py-2.5 text-[#0B1F3A] text-sm outline-none transition-colors focus:border-[#155EEF] resize-none"
-                    />
-                  </div>
-
-                  <div className="space-y-3 pt-2">
-                    <label className="flex items-start gap-3 text-[.82rem] text-[#6B7280] cursor-pointer">
-                      <input type="checkbox" checked={cf.subscribe} onChange={setCfField('subscribe')} className="mt-0.5 accent-[#155EEF]" />
-                      {t('about_pg.contact.form.subscribe')}
-                    </label>
-                    <label className="flex items-start gap-3 text-[.82rem] text-[#6B7280] cursor-pointer">
-                      <input type="checkbox" checked={cf.consent} onChange={setCfField('consent')} className={`mt-0.5 accent-[#155EEF] ${cfErrors.consent ? 'outline outline-2 outline-red-400 rounded' : ''}`} />
-                      <span>
-                        I agree to the{' '}
-                        <Link href="/terms" className="underline hover:text-[#155EEF] transition-colors">Terms & Conditions</Link>
-                        {' '}and{' '}
-                        <Link href="/privacy" className="underline hover:text-[#155EEF] transition-colors">Privacy Policy</Link>
-                        {' '}and consent to being contacted about my enquiry.
-                      </span>
-                    </label>
-                    {cfErrors.consent && (
-                      <p className="text-[.7rem] text-red-500 font-medium">Please accept the Privacy Policy to continue.</p>
-                    )}
-                  </div>
-
-                  <button
-                    type="submit"
-                    disabled={cfStatus === 'sending'}
-                    style={{ '--pixel-color': '#0B1F3A', '--pixel-text-hover': '#fff' } as React.CSSProperties}
-                    className="btn-pixel-solid inline-flex items-center gap-3 bg-[#12B76A] text-white px-9 py-4 rounded-full font-bold text-sm transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
-                  >
-                    <span className="relative z-10">
-                      {cfStatus === 'sending' ? t('about_pg.contact.form.sending') : t('about_pg.contact.form.cta')}
-                    </span>
-                  </button>
-                </form>
-              )}
+              <div className="border border-gray-100 rounded-[2rem] bg-[#F8FAFC] p-10 md:p-12">
+                <p className="text-[#6B7280] leading-relaxed mb-8">
+                  Share your enquiry through our contact page and our team will get back to you shortly.
+                </p>
+                <Link
+                  href="/contact"
+                  style={{ '--pixel-color': '#0B1F3A', '--pixel-text-hover': '#fff' } as React.CSSProperties}
+                  className="btn-pixel-solid inline-flex items-center gap-3 bg-[#12B76A] text-white px-9 py-4 rounded-full font-bold text-sm transition-colors"
+                >
+                  <span className="relative z-10">{t('about_pg.contact.form.cta')}</span>
+                </Link>
+              </div>
             </div>
 
           </div>
