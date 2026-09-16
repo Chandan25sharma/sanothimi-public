@@ -6,7 +6,6 @@ import { useState, type FormEvent } from 'react';
 const COMPANY = [
   { label: 'About', href: '/about' },
   { label: 'Services', href: '/services' },
-  { label: 'Pricing', href: '/pricing' },
   { label: 'Insights', href: '/insights' },
   { label: 'Partner With Us', href: '/partner' },
   { label: 'Support', href: '/support' },
