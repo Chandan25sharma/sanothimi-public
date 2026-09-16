@@ -2,17 +2,7 @@
 
 import { Himalaya, Lattice, Mandala, NepalSun } from '@/components/BgDecorations';
 import CTABanner from '@/components/CTABanner';
-import { sendContactForm } from '@/lib/sendContactForm';
 import Link from 'next/link';
-import { useState } from 'react';
-
-const INSTITUTION_TYPES = [
-  'School / College',
-  'Business / Enterprise',
-  'NGO / Non-profit',
-  'Government Body',
-  'Other',
-];
 
 const PERKS = [
   {
@@ -32,103 +22,7 @@ const PERKS = [
   },
 ];
 
-interface FormState {
-  name: string;
-  email: string;
-  phone: string;
-  org: string;
-  type: string;
-  notes: string;
-  consent: boolean;
-}
-
 export default function DemoPage() {
-  const [form, setForm] = useState<FormState>({
-    name: '',
-    email: '',
-    phone: '',
-    org: '',
-    type: INSTITUTION_TYPES[0],
-    notes: '',
-    consent: false,
-  });
-
-  const [status, setStatus] = useState<'idle' | 'sending' | 'sent'>('idle');
-  const [errors, setErrors] = useState<Record<string, boolean>>({});
-
-  const set =
-    (k: keyof FormState) =>
-    (
-      e: React.ChangeEvent<
-        HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-      >
-    ) => {
-      const val = e.target.type === 'checkbox' ? (e.target as HTMLInputElement).checked : e.target.value;
-      setForm({ ...form, [k]: val });
-      setErrors({ ...errors, [k]: false });
-    };
-
-  const submit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    const err: Record<string, boolean> = {};
-
-    if (!form.name.trim()) err.name = true;
-
-    if (
-      !form.email ||
-      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)
-    ) {
-      err.email = true;
-    }
-
-    if (!form.org.trim()) err.org = true;
-
-    if (!form.consent) err.consent = true;
-
-    if (Object.keys(err).length) {
-      setErrors(err);
-      return;
-    }
-
-    setStatus('sending');
-
-    try {
-      await sendContactForm({
-        from_name: form.name,
-        from_email: form.email,
-        subject: `New Demo Request — ${form.org}`,
-        message: `Phone: ${form.phone}
-Organization: ${form.org}
-Type: ${form.type}
-
-Notes:
-${form.notes || '—'}`,
-        source: 'demo',
-      });
-
-      setStatus('sent');
-
-      setForm({
-        name: '',
-        email: '',
-        phone: '',
-        org: '',
-        type: INSTITUTION_TYPES[0],
-        notes: '',
-        consent: false,
-      });
-    } catch {
-      setStatus('idle');
-      alert('Failed to send request. Please try again.');
-    }
-  };
-
-  const inputClass = (error?: boolean) =>
-    `w-full bg-transparent border-b ${
-      error ? 'border-red-400' : 'border-[#0B1F3A]/15'
-    } px-0 py-4 text-[#0B1F3A] text-[.92rem] font-medium outline-none transition-all placeholder:text-[#64748B]/50 focus:border-[#14532D]`;
-
   return (
     <main className="bg-white">
 
@@ -343,246 +237,28 @@ ${form.notes || '—'}`,
                 FORM
             =================================================== */}
 
-            <div>
+            <div className="py-10 border-t border-[#0B1F3A]/15">
 
-              {status === 'sent' ? (
+              <p className="text-[#64748B] leading-relaxed max-w-lg mb-8">
+                Reach out through our contact page with a few details about your organization, and our team will get back to you within 24 hours to arrange your personalized walkthrough.
+              </p>
 
-                <div className="py-20 border-t border-b border-[#0B1F3A]/10">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center gap-3 bg-[#14532D] text-white px-9 py-4 rounded-full font-bold text-sm hover:bg-[#0B3B20] transition-all hover:-translate-y-0.5"
+              >
+                Request Your Demo
 
-                  <div className="w-16 h-16 rounded-full bg-[#14532D] text-white flex items-center justify-center mb-8">
-                    <svg
-                      className="w-7 h-7"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      strokeWidth="2.5"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                  </div>
-
-                  <h3 className="font-serif text-4xl text-[#0B1F3A] mb-4">
-                    Request received.
-                  </h3>
-
-                  <p className="text-[#64748B] max-w-lg leading-relaxed">
-                    Our team will reach out within 24 hours to arrange your
-                    personalized walkthrough.
-                  </p>
-
-                </div>
-
-              ) : (
-
-                <form
-                  onSubmit={submit}
-                  noValidate
-                  className="border-t border-[#0B1F3A]/15"
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  strokeWidth="2.5"
                 >
-
-                  {/* Personal */}
-                  <div className="py-10">
-
-                    <div className="text-[.62rem] font-black uppercase tracking-[.3em] text-[#14532D] mb-7">
-                      01 — Your Details
-                    </div>
-
-                    <div className="grid md:grid-cols-2 gap-8">
-
-                      <div>
-                        <label className="block text-[.68rem] font-bold uppercase tracking-[.15em] text-[#0B1F3A]/60 mb-1">
-                          Full Name *
-                        </label>
-
-                        <input
-                          type="text"
-                          value={form.name}
-                          onChange={set('name')}
-                          placeholder="Your full name"
-                          className={inputClass(errors.name)}
-                        />
-
-                        {errors.name && (
-                          <p className="mt-2 text-xs text-red-500">
-                            Please enter your name.
-                          </p>
-                        )}
-                      </div>
-
-                      <div>
-                        <label className="block text-[.68rem] font-bold uppercase tracking-[.15em] text-[#0B1F3A]/60 mb-1">
-                          Phone
-                        </label>
-
-                        <input
-                          type="tel"
-                          value={form.phone}
-                          onChange={set('phone')}
-                          placeholder="+977 ..."
-                          className={inputClass()}
-                        />
-                      </div>
-
-                    </div>
-
-                  </div>
-
-                  {/* Organization */}
-                  <div className="py-10 border-t border-[#0B1F3A]/10">
-
-                    <div className="text-[.62rem] font-black uppercase tracking-[.3em] text-[#14532D] mb-7">
-                      02 — Organization Details
-                    </div>
-
-                    <div className="space-y-8">
-
-                      <div>
-                        <label className="block text-[.68rem] font-bold uppercase tracking-[.15em] text-[#0B1F3A]/60 mb-1">
-                          Organization *
-                        </label>
-
-                        <input
-                          type="text"
-                          value={form.org}
-                          onChange={set('org')}
-                          placeholder="Institution or company name"
-                          className={inputClass(errors.org)}
-                        />
-
-                        {errors.org && (
-                          <p className="mt-2 text-xs text-red-500">
-                            Please enter your organization.
-                          </p>
-                        )}
-                      </div>
-
-
-                      <div className="grid md:grid-cols-2 gap-8">
-
-                        <div>
-                          <label className="block text-[.68rem] font-bold uppercase tracking-[.15em] text-[#0B1F3A]/60 mb-1">
-                            Work Email *
-                          </label>
-
-                          <input
-                            type="email"
-                            value={form.email}
-                            onChange={set('email')}
-                            placeholder="you@organization.com"
-                            className={inputClass(errors.email)}
-                          />
-
-                          {errors.email && (
-                            <p className="mt-2 text-xs text-red-500">
-                              Please enter a valid email.
-                            </p>
-                          )}
-                        </div>
-
-                        <div>
-                          <label className="block text-[.68rem] font-bold uppercase tracking-[.15em] text-[#0B1F3A]/60 mb-1">
-                            Organization Type
-                          </label>
-
-                          <select
-                            value={form.type}
-                            onChange={set('type')}
-                            className={`${inputClass()} appearance-none cursor-pointer`}
-                          >
-                            {INSTITUTION_TYPES.map((opt) => (
-                              <option key={opt} value={opt}>
-                                {opt}
-                              </option>
-                            ))}
-                          </select>
-                        </div>
-
-                      </div>
-
-                    </div>
-
-                  </div>
-
-
-                  {/* What to cover */}
-                  <div className="py-10 border-t border-[#0B1F3A]/10">
-
-                    <div className="text-[.62rem] font-black uppercase tracking-[.3em] text-[#14532D] mb-7">
-                      03 — What to Cover
-                    </div>
-
-                    <label className="block text-[.68rem] font-bold uppercase tracking-[.15em] text-[#0B1F3A]/60 mb-1">
-                      What should we cover?
-                    </label>
-
-                    <textarea
-                      rows={5}
-                      value={form.notes}
-                      onChange={set('notes')}
-                      placeholder="Tell us what you would like to see..."
-                      className={`${inputClass()} resize-none`}
-                    />
-
-                  </div>
-
-
-                  {/* Consent */}
-                  <div className="pt-8">
-                    <label className="flex items-start gap-3 text-[.8rem] text-[#64748B] cursor-pointer">
-                      <input
-                        type="checkbox"
-                        checked={form.consent}
-                        onChange={set('consent')}
-                        className={`mt-0.5 accent-[#14532D] ${errors.consent ? 'outline outline-2 outline-red-400 rounded' : ''}`}
-                      />
-                      <span>
-                        I agree to the{' '}
-                        <Link href="/terms" className="underline hover:text-[#14532D] transition-colors">Terms & Conditions</Link>
-                        {' '}and{' '}
-                        <Link href="/privacy" className="underline hover:text-[#14532D] transition-colors">Privacy Policy</Link>
-                        {' '}and consent to being contacted about my demo request.
-                      </span>
-                    </label>
-                    {errors.consent && (
-                      <p className="mt-2 text-[.7rem] text-red-500 font-medium">Please accept the Privacy Policy to continue.</p>
-                    )}
-                  </div>
-
-
-                  {/* Submit */}
-                  <div className="pt-6 flex flex-col sm:flex-row sm:items-center gap-6">
-
-                    <button
-                      type="submit"
-                      disabled={status === 'sending'}
-                      className="inline-flex items-center justify-center gap-3 bg-[#14532D] text-white px-9 py-4 rounded-full font-bold text-sm hover:bg-[#0B3B20] transition-all hover:-translate-y-0.5 disabled:opacity-50"
-                    >
-                      {status === 'sending'
-                        ? 'Sending…'
-                        : 'Request Your Demo'}
-
-                      {status !== 'sending' && (
-                        <svg
-                          className="w-4 h-4"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          strokeWidth="2.5"
-                        >
-                          <path d="M5 12h14m-6-6 6 6-6 6" />
-                        </svg>
-                      )}
-                    </button>
-
-                  </div>
-
-                </form>
-
-              )}
+                  <path d="M5 12h14m-6-6 6 6-6 6" />
+                </svg>
+              </Link>
 
             </div>
 
