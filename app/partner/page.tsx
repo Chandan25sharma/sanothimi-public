@@ -2,17 +2,7 @@
 
 import { Lattice, Mandala, NepalSun } from '@/components/BgDecorations';
 import CTABanner from '@/components/CTABanner';
-import { sendContactForm } from '@/lib/sendContactForm';
 import Link from 'next/link';
-import { useState } from 'react';
-
-const PARTNER_TYPES = [
-  'Reseller Partner',
-  'Referral Partner',
-  'Technology Integration Partner',
-  'Implementation Partner',
-  'Other',
-];
 
 const BENEFITS = [
   {
@@ -55,114 +45,7 @@ const STEPS = [
   },
 ];
 
-interface FormState {
-  name: string;
-  company: string;
-  license: string;
-  email: string;
-  phone: string;
-  type: string;
-  message: string;
-  consent: boolean;
-}
-
 export default function PartnerPage() {
-  const [form, setForm] = useState<FormState>({
-    name: '',
-    company: '',
-    license: '',
-    email: '',
-    phone: '',
-    type: PARTNER_TYPES[0],
-    message: '',
-    consent: false,
-  });
-
-  const [status, setStatus] = useState<'idle' | 'sending' | 'sent'>('idle');
-  const [errors, setErrors] = useState<Record<string, boolean>>({});
-
-  const set =
-    (key: keyof FormState) =>
-    (
-      e: React.ChangeEvent<
-        HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-      >
-    ) => {
-      const val = e.target.type === 'checkbox' ? (e.target as HTMLInputElement).checked : e.target.value;
-
-      setForm((prev) => ({
-        ...prev,
-        [key]: val,
-      }));
-
-      setErrors((prev) => ({
-        ...prev,
-        [key]: false,
-      }));
-    };
-
-  const submit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    const err: Record<string, boolean> = {};
-
-    if (!form.name.trim()) err.name = true;
-    if (!form.company.trim()) err.company = true;
-
-    if (
-      !form.email.trim() ||
-      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)
-    ) {
-      err.email = true;
-    }
-
-    if (!form.consent) err.consent = true;
-
-    if (Object.keys(err).length > 0) {
-      setErrors(err);
-      return;
-    }
-
-    setStatus('sending');
-
-    try {
-      await sendContactForm({
-        from_name: form.name,
-        from_email: form.email,
-        subject: `New Partner Application — ${form.company}`,
-        message: `Company / Business Name: ${form.company}
-License / Registration No: ${form.license || '—'}
-Phone: ${form.phone || '—'}
-Partnership Type: ${form.type}
-
-Message:
-${form.message || '—'}`,
-        source: 'partner',
-      });
-
-      setStatus('sent');
-
-      setForm({
-        name: '',
-        company: '',
-        license: '',
-        email: '',
-        phone: '',
-        type: PARTNER_TYPES[0],
-        message: '',
-        consent: false,
-      });
-    } catch {
-      setStatus('idle');
-      alert('Failed to submit application. Please try again.');
-    }
-  };
-
-  const inputClass = (error?: boolean) =>
-    `w-full bg-transparent border-b ${
-      error ? 'border-red-400' : 'border-[#0B1F3A]/15'
-    } px-0 py-4 text-[#0B1F3A] text-[.92rem] font-medium outline-none transition-all placeholder:text-[#64748B]/50 focus:border-[#0B6B3A]`;
-
   return (
     <main className="bg-white text-[#0B1F3A]">
 
@@ -575,266 +458,28 @@ ${form.message || '—'}`,
 
 
             {/* Form */}
-            <div>
+            <div className="py-10 border-t border-[#0B1F3A]/15">
 
-              {status === 'sent' ? (
+              <p className="text-[#64748B] leading-relaxed max-w-lg mb-8">
+                Tell us about your business and how you&apos;d like to partner with us through our contact page, and our partnerships team will get back to you within 2 business days.
+              </p>
 
-                <div className="py-20 border-t border-b border-[#0B1F3A]/10">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center gap-3 bg-[#0B6B3A] text-white px-9 py-4 rounded-full font-bold text-sm hover:bg-[#084F2B] transition-all hover:-translate-y-0.5"
+              >
+                Submit Partnership Application
 
-                  <div className="w-16 h-16 rounded-full bg-[#0B6B3A] text-white flex items-center justify-center mb-8">
-
-                    <svg
-                      className="w-7 h-7"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      strokeWidth="2.5"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-
-                  </div>
-
-                  <h3 className="font-serif text-4xl text-[#0B1F3A] mb-4">
-                    Application received.
-                  </h3>
-
-                  <p className="text-[#64748B] max-w-lg leading-relaxed">
-                    Thank you for your interest in partnering with
-                    Sanothimi. Our partnerships team will review your
-                    application and contact you within 2 business days.
-                  </p>
-
-                </div>
-
-              ) : (
-
-                <form
-                  onSubmit={submit}
-                  noValidate
-                  className="border-t border-[#0B1F3A]/15"
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  strokeWidth="2.5"
                 >
-
-                  {/* Personal */}
-                  <div className="py-10">
-
-                    <div className="text-[.62rem] font-black uppercase tracking-[.3em] text-[#0B6B3A] mb-7">
-                      01 — Your Details
-                    </div>
-
-                    <div className="grid md:grid-cols-2 gap-8">
-
-                      <div>
-                        <label className="block text-[.68rem] font-bold uppercase tracking-[.15em] text-[#0B1F3A]/60 mb-1">
-                          Full Name *
-                        </label>
-
-                        <input
-                          type="text"
-                          value={form.name}
-                          onChange={set('name')}
-                          placeholder="Your full name"
-                          className={inputClass(errors.name)}
-                        />
-
-                        {errors.name && (
-                          <p className="mt-2 text-xs text-red-500">
-                            Full name is required.
-                          </p>
-                        )}
-                      </div>
-
-                      <div>
-                        <label className="block text-[.68rem] font-bold uppercase tracking-[.15em] text-[#0B1F3A]/60 mb-1">
-                          Phone
-                        </label>
-
-                        <input
-                          type="tel"
-                          value={form.phone}
-                          onChange={set('phone')}
-                          placeholder="+977 ..."
-                          className={inputClass()}
-                        />
-                      </div>
-
-                    </div>
-
-                  </div>
-
-
-                  {/* Business */}
-                  <div className="py-10 border-t border-[#0B1F3A]/10">
-
-                    <div className="text-[.62rem] font-black uppercase tracking-[.3em] text-[#0B6B3A] mb-7">
-                      02 — Business Details
-                    </div>
-
-                    <div className="space-y-8">
-
-                      <div>
-                        <label className="block text-[.68rem] font-bold uppercase tracking-[.15em] text-[#0B1F3A]/60 mb-1">
-                          Company / Business Name *
-                        </label>
-
-                        <input
-                          type="text"
-                          value={form.company}
-                          onChange={set('company')}
-                          placeholder="Your company or organization"
-                          className={inputClass(errors.company)}
-                        />
-
-                        {errors.company && (
-                          <p className="mt-2 text-xs text-red-500">
-                            Company name is required.
-                          </p>
-                        )}
-                      </div>
-
-
-                      <div className="grid md:grid-cols-2 gap-8">
-
-                        <div>
-                          <label className="block text-[.68rem] font-bold uppercase tracking-[.15em] text-[#0B1F3A]/60 mb-1">
-                            Work Email *
-                          </label>
-
-                          <input
-                            type="email"
-                            value={form.email}
-                            onChange={set('email')}
-                            placeholder="you@company.com"
-                            className={inputClass(errors.email)}
-                          />
-
-                          {errors.email && (
-                            <p className="mt-2 text-xs text-red-500">
-                              Please enter a valid email.
-                            </p>
-                          )}
-                        </div>
-
-                        <div>
-                          <label className="block text-[.68rem] font-bold uppercase tracking-[.15em] text-[#0B1F3A]/60 mb-1">
-                            Registration / License No.
-                          </label>
-
-                          <input
-                            type="text"
-                            value={form.license}
-                            onChange={set('license')}
-                            placeholder="Optional"
-                            className={inputClass()}
-                          />
-                        </div>
-
-                      </div>
-
-                    </div>
-
-                  </div>
-
-
-                  {/* Partnership */}
-                  <div className="py-10 border-t border-[#0B1F3A]/10">
-
-                    <div className="text-[.62rem] font-black uppercase tracking-[.3em] text-[#0B6B3A] mb-7">
-                      03 — Partnership
-                    </div>
-
-                    <label className="block text-[.68rem] font-bold uppercase tracking-[.15em] text-[#0B1F3A]/60 mb-1">
-                      How would you like to work with us?
-                    </label>
-
-                    <select
-                      value={form.type}
-                      onChange={set('type')}
-                      className={`${inputClass()} appearance-none cursor-pointer`}
-                    >
-                      {PARTNER_TYPES.map((type) => (
-                        <option key={type} value={type}>
-                          {type}
-                        </option>
-                      ))}
-                    </select>
-
-                    <div className="mt-8">
-
-                      <label className="block text-[.68rem] font-bold uppercase tracking-[.15em] text-[#0B1F3A]/60 mb-1">
-                        Tell us about your business
-                      </label>
-
-                      <textarea
-                        rows={5}
-                        value={form.message}
-                        onChange={set('message')}
-                        placeholder="What do you do, who do you serve, and what would you like to achieve together?"
-                        className={`${inputClass()} resize-none`}
-                      />
-
-                    </div>
-
-                  </div>
-
-
-                  {/* Consent */}
-                  <div className="pt-8">
-                    <label className="flex items-start gap-3 text-[.8rem] text-[#64748B] cursor-pointer">
-                      <input
-                        type="checkbox"
-                        checked={form.consent}
-                        onChange={set('consent')}
-                        className={`mt-0.5 accent-[#0B6B3A] ${errors.consent ? 'outline outline-2 outline-red-400 rounded' : ''}`}
-                      />
-                      <span>
-                        I agree to the{' '}
-                        <Link href="/terms" className="underline hover:text-[#0B6B3A] transition-colors">Terms & Conditions</Link>
-                        {' '}and{' '}
-                        <Link href="/privacy" className="underline hover:text-[#0B6B3A] transition-colors">Privacy Policy</Link>
-                        {' '}and consent to being contacted about the partnership program.
-                      </span>
-                    </label>
-                    {errors.consent && (
-                      <p className="mt-2 text-[.7rem] text-red-500 font-medium">Please accept the Privacy Policy to continue.</p>
-                    )}
-                  </div>
-
-
-                  {/* Submit */}
-                  <div className="pt-6 flex flex-col sm:flex-row sm:items-center gap-6">
-
-                    <button
-                      type="submit"
-                      disabled={status === 'sending'}
-                      className="inline-flex items-center justify-center gap-3 bg-[#0B6B3A] text-white px-9 py-4 rounded-full font-bold text-sm hover:bg-[#084F2B] transition-all hover:-translate-y-0.5 disabled:opacity-50"
-                    >
-                      {status === 'sending'
-                        ? 'Submitting…'
-                        : 'Submit Partnership Application'}
-
-                      {status !== 'sending' && (
-                        <svg
-                          className="w-4 h-4"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          strokeWidth="2.5"
-                        >
-                          <path d="M5 12h14m-6-6 6 6-6 6" />
-                        </svg>
-                      )}
-                    </button>
-
-                  </div>
-
-                </form>
-
-              )}
+                  <path d="M5 12h14m-6-6 6 6-6 6" />
+                </svg>
+              </Link>
 
             </div>
 
