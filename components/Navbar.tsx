@@ -134,7 +134,6 @@ export default function Navbar() {
     { label: 'Partner With Us', href: '/partner', mega: PARTNER_COLUMNS },
     { label: 'Support', href: '/support', mega: SUPPORT_COLUMNS },
     { label: 'Insights', href: '/insights', mega: INSIGHTS_COLUMNS, ctaLabel: 'View All Insights', ctaHref: '/insights', secondaryLabel: 'Subscribe', secondaryHref: '/insights' },
-    { label: 'Pricing', href: '/pricing' },
   ];
 
   useEffect(() => {
