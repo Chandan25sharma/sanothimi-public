@@ -2,6 +2,7 @@
 
 import CTABanner from '@/components/CTABanner';
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
 import { useState } from 'react';
 
 const FEATURES = [
@@ -245,6 +246,8 @@ function Check({
 }
 
 export default function PricingPage() {
+  notFound(); // ponytail: page disabled, not deleted — remove this line to re-enable
+
   const [annual, setAnnual] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
