@@ -2,7 +2,6 @@
 
 import { Himalaya } from '@/components/BgDecorations';
 import CTABanner from '@/components/CTABanner';
-import { sendContactForm } from '@/lib/sendContactForm';
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -49,102 +48,8 @@ const FAQS = [
   },
 ];
 
-const PRIORITIES = [
-  'Low — General question',
-  'Medium — Feature not working as expected',
-  'High — Affecting daily operations',
-  'Critical — System down',
-];
-
-interface FormState {
-  name: string;
-  email: string;
-  subject: string;
-  priority: string;
-  desc: string;
-  consent: boolean;
-}
-
 export default function SupportPage() {
-  const [form, setForm] = useState<FormState>({
-    name: '',
-    email: '',
-    subject: '',
-    priority: PRIORITIES[0],
-    desc: '',
-    consent: false,
-  });
-
-  const [status, setStatus] = useState<'idle' | 'sending' | 'sent'>('idle');
-  const [errors, setErrors] = useState<Record<string, boolean>>({});
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-
-  const set = (key: keyof FormState) =>
-    (
-      e: React.ChangeEvent<
-        HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-      >
-    ) => {
-      const val = e.target.type === 'checkbox' ? (e.target as HTMLInputElement).checked : e.target.value;
-      setForm({ ...form, [key]: val });
-      setErrors({ ...errors, [key]: false });
-    };
-
-  const submit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    const err: Record<string, boolean> = {};
-
-    if (!form.name.trim()) err.name = true;
-
-    if (
-      !form.email.trim() ||
-      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)
-    ) {
-      err.email = true;
-    }
-
-    if (!form.desc.trim()) err.desc = true;
-
-    if (!form.consent) err.consent = true;
-
-    if (Object.keys(err).length) {
-      setErrors(err);
-      return;
-    }
-
-    setStatus('sending');
-
-    try {
-      await sendContactForm({
-        from_name: form.name,
-        from_email: form.email,
-        subject: `Support Ticket [${form.priority.split(' — ')[0]}] — ${
-          form.subject || 'No subject'
-        }`,
-        message: `Priority: ${form.priority}
-Subject: ${form.subject || '—'}
-
-Description:
-${form.desc}`,
-        source: 'support',
-      });
-
-      setStatus('sent');
-
-      setForm({
-        name: '',
-        email: '',
-        subject: '',
-        priority: PRIORITIES[0],
-        desc: '',
-        consent: false,
-      });
-    } catch {
-      setStatus('idle');
-      alert('Failed to submit ticket. Please try again.');
-    }
-  };
 
   return (
     <main className="bg-white">
@@ -391,243 +296,34 @@ ${form.desc}`,
               </p>
 
 
-              <form
-                onSubmit={submit}
-                className="space-y-5"
-                noValidate
-              >
+              <div className="space-y-5">
 
-                {status === 'sent' ? (
+                <p className="text-gray-500 text-sm leading-relaxed">
+                  Describe your issue, its priority, and how to reach you through our contact page, and our support team will respond according to the selected priority.
+                </p>
 
-                  <div className="py-16 text-center border-y border-green-100">
-
-                    <div className="w-16 h-16 text-white flex items-center justify-center mx-auto mb-6">
-
-                      <svg
-                        className="w-8 h-8"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        strokeWidth="3"
-                      >
-                        <path d="M5 13l4 4L19 7" />
-                      </svg>
-
-                    </div>
-
-                    <h3 className="font-serif text-2xl text-[#0B1F3A] mb-3">
-                      Ticket submitted.
-                    </h3>
-
-                    <p className="text-gray-500 text-sm max-w-sm mx-auto">
-                      Our support team has received your request and will
-                      respond according to the selected priority.
-                    </p>
-
-                    <button
-                      type="button"
-                      onClick={() => setStatus('idle')}
-                      className="mt-7 text-[#155EEF] text-sm font-bold hover:underline"
-                    >
-                      Submit another ticket
-                    </button>
-
-                  </div>
-
-                ) : (
-
-                  <>
-                    {/* Name + email */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-
-                      <div>
-                        <label className="block text-[.68rem] font-black uppercase tracking-[.18em] text-[#0B1F3A] mb-2">
-                          Full Name
-                        </label>
-
-                        <input
-                          type="text"
-                          value={form.name}
-                          onChange={set('name')}
-                          placeholder="Your name"
-                          className={`w-full bg-white border ${
-                            errors.name
-                              ? 'border-red-400'
-                              : 'border-gray-200'
-                          } rounded-xl px-4 py-3.5 text-[#0B1F3A] text-sm outline-none  focus:ring-4 focus:ring-[#155EEF]/5 transition-all`}
-                        />
-
-                        {errors.name && (
-                          <p className="mt-1.5 text-xs text-red-500">
-                            Required field
-                          </p>
-                        )}
-                      </div>
-
-
-                      <div>
-                        <label className="block text-[.68rem] font-black uppercase tracking-[.18em] text-[#0B1F3A] mb-2">
-                          Email
-                        </label>
-
-                        <input
-                          type="email"
-                          value={form.email}
-                          onChange={set('email')}
-                          placeholder="you@company.com"
-                          className={`w-full bg-white border ${
-                            errors.email
-                              ? 'border-red-400'
-                              : 'border-gray-200'
-                          } rounded-xl px-4 py-3.5 text-[#0B1F3A] text-sm outline-none focus:ring-4 focus:ring-[#155EEF]/5 transition-all`}
-                        />
-
-                        {errors.email && (
-                          <p className="mt-1.5 text-xs text-red-500">
-                            Valid email required
-                          </p>
-                        )}
-                      </div>
-
-                    </div>
-
-
-                    {/* Subject */}
-                    <div>
-
-                      <label className="block text-[.68rem] font-black uppercase tracking-[.18em] text-[#0B1F3A] mb-2">
-                        Subject
-                      </label>
-
-                      <input
-                        type="text"
-                        value={form.subject}
-                        onChange={set('subject')}
-                        placeholder="What do you need help with?"
-                        className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3.5 text-[#0B1F3A] text-sm outline-none focus:ring-4 focus:ring-[#155EEF]/5 transition-all"
-                      />
-
-                    </div>
-
-
-                    {/* Priority */}
-                    <div>
-
-                      <label className="block text-[.68rem] font-black uppercase tracking-[.18em] text-[#0B1F3A] mb-2">
-                        Priority
-                      </label>
-
-                      <div className="relative">
-
-                        <select
-                          value={form.priority}
-                          onChange={set('priority')}
-                          className="w-full appearance-none bg-white border border-gray-200 rounded-xl px-4 py-3.5 pr-12 text-[#0B1F3A] text-sm outline-none focus:ring-4 focus:ring-[#155EEF]/5 transition-all"
-                        >
-                          {PRIORITIES.map((p) => (
-                            <option key={p} value={p}>
-                              {p}
-                            </option>
-                          ))}
-                        </select>
-
-                        <svg
-                          className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 pointer-events-none text-gray-400"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          strokeWidth="2"
-                        >
-                          <path d="M6 9l6 6 6-6" />
-                        </svg>
-
-                      </div>
-
-                    </div>
-
-
-                    {/* Description */}
-                    <div>
-
-                      <label className="block text-[.68rem] font-black uppercase tracking-[.18em] text-[#0B1F3A] mb-2">
-                        Description
-                      </label>
-
-                      <textarea
-                        rows={6}
-                        value={form.desc}
-                        onChange={set('desc')}
-                        placeholder="Describe the issue, what you expected to happen, and what happened instead…"
-                        className={`w-full bg-white border ${
-                          errors.desc
-                            ? 'border-red-400'
-                            : 'border-gray-200'
-                        } rounded-xl px-4 py-3.5 text-[#0B1F3A] text-sm outline-none  focus:ring-4 focus:ring-[#155EEF]/5 transition-all resize-none`}
-                      />
-
-                      {errors.desc && (
-                        <p className="mt-1.5 text-xs text-red-500">
-                          Please describe the issue
-                        </p>
-                      )}
-
-                    </div>
-
-
-                    {/* Consent */}
-                    <div>
-                      <label className="flex items-start gap-3 text-[.8rem] text-[#64748B] cursor-pointer">
-                        <input
-                          type="checkbox"
-                          checked={form.consent}
-                          onChange={set('consent')}
-                          className={`mt-0.5 accent-[#12B76A] ${errors.consent ? 'outline outline-2 outline-red-400 rounded' : ''}`}
-                        />
-                        <span>
-                          I agree to the{' '}
-                          <Link href="/terms" className="underline hover:text-[#0B1F3A] transition-colors">Terms & Conditions</Link>
-                          {' '}and{' '}
-                          <Link href="/privacy" className="underline hover:text-[#0B1F3A] transition-colors">Privacy Policy</Link>
-                          {' '}and consent to being contacted about this ticket.
-                        </span>
-                      </label>
-                      {errors.consent && (
-                        <p className="mt-2 text-[.7rem] text-red-500 font-medium">Please accept the Privacy Policy to continue.</p>
-                      )}
-                    </div>
-
-
-                    <button
-                      type="submit"
-                      disabled={status === 'sending'}
-
-                style={{ '--pixel-color': '#0B1F3A', '--pixel-text-hover': '#fff' } as React.CSSProperties}
+                <Link
+                  href="/contact"
+                  style={{ '--pixel-color': '#0B1F3A', '--pixel-text-hover': '#fff' } as React.CSSProperties}
                   className="btn-pixel-solid inline-flex items-center gap-2 bg-[#12B76A] text-white px-8 py-4 rounded-full font-bold text-sm transition-colors"
                 >
-                      {status === 'sending'
-                        ? 'Submitting…'
-                        : 'Submit Support Ticket'}
+                  Submit Support Ticket
 
-                      {status !== 'sending' && (
-                        <svg
-                          className="w-4 h-4 group-hover:translate-x-1 transition-transform"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          strokeWidth="2.5"
-                        >
-                          <path d="M5 12h14M13 6l6 6-6 6" />
-                        </svg>
-                      )}
-                    </button>
+                  <svg
+                    className="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    strokeWidth="2.5"
+                  >
+                    <path d="M5 12h14M13 6l6 6-6 6" />
+                  </svg>
+                </Link>
 
-                    <p className="text-center text-xs text-gray-400">
-                      Critical production issues are triaged immediately.
-                    </p>
-                  </>
-                )}
-
-              </form>
+                <p className="text-xs text-gray-400">
+                  Critical production issues are triaged immediately.
+                </p>
+              </div>
 
             </div>
 
