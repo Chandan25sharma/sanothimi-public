@@ -1612,7 +1612,7 @@ useEffect(() => {
 
 
         <Link
-          href="/pricing"
+          href="/contact"
           className="group relative flex items-center justify-center gap-2 bg-white text-[#0B3B25] px-7 py-3.5 rounded-xl font-bold text-[.84rem] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(201,162,39,0.18)]"
         >
           <span>
