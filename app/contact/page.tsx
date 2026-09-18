@@ -141,7 +141,10 @@ export default function ContactPage() {
     email: '',
     msg: '',
     consent: false,
+    hp: '', // honeypot — stays empty for real visitors
   });
+
+  const loadedAt = useRef(Date.now());
 
   const [status, setStatus] = useState<
     'idle' | 'sending' | 'sent'
@@ -209,6 +212,8 @@ export default function ContactPage() {
         subject: `New Message from ${form.fname}`,
         message: form.msg,
         source: 'contact',
+        hp: form.hp,
+        ts: loadedAt.current,
       });
 
       setStatus('sent');
@@ -219,6 +224,7 @@ export default function ContactPage() {
         email: '',
         msg: '',
         consent: false,
+        hp: '',
       });
 
       setTimeout(() => {
@@ -486,6 +492,20 @@ export default function ContactPage() {
     noValidate
     className="relative bg-white border-t border-[#0B1F3A] pt-8 md:pt-10"
   >
+
+    {/* Honeypot — hidden from real visitors, bots fill every field */}
+    <div className="absolute -left-[9999px] top-0" aria-hidden="true">
+      <label htmlFor="company">Company</label>
+      <input
+        id="company"
+        type="text"
+        name="company"
+        tabIndex={-1}
+        autoComplete="off"
+        value={form.hp}
+        onChange={set('hp')}
+      />
+    </div>
 
     {status === 'sent' ? (
 

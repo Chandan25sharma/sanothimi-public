@@ -4,6 +4,8 @@ export interface ContactFormPayload {
   subject: string;
   message: string;
   source?: string;
+  hp?: string; // honeypot — real visitors never fill this in
+  ts?: number; // Date.now() when the form was rendered, for a bot-speed check
 }
 
 export async function sendContactForm(payload: ContactFormPayload) {
