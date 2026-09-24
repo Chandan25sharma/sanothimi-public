@@ -23,6 +23,9 @@ export const metadata: Metadata = {
     type: 'website',
     images: [{ url: '/sanothimi-logo0icon.png', width: 1024, height: 1536, alt: 'Sanothimi' }]
   },
+  other: {
+    'google-adsense-account': 'ca-pub-1823083524417545',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
